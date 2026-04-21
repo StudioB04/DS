@@ -1,0 +1,12 @@
+:root {
+  --ds-radius-2xs: 0.125rem;
+  --ds-radius-xs: 0.25rem;
+  --ds-radius-sm: 0.375rem;
+  --ds-radius-md: 0.5rem;
+  --ds-radius-lg: 0.625rem;
+  --ds-radius-xl: 0.75rem;
+  --ds-radius-2xl: 1rem;
+  --ds-radius-3xl: 1.25rem;
+  --ds-radius-4xl: 1.5rem;
+  --ds-radius-full: 624.9375rem;
+}

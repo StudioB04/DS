@@ -1,0 +1,41 @@
+:root {
+  interpolate-size: allow-keywords;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  max-inline-size: 100vw;
+  overflow-x: hidden;
+  color: var(--ds-text-primary);
+  background-color: var(--ds-bg-primary);
+}
+
+@media print {
+  @page {
+    margin: 2cm;
+  }
+
+  html {
+    font-size: 12pt;
+  }
+
+  a::after {
+    content: " (" attr(href) ")";
+    font-size: 0.6em;
+    margin-block-start: 0.4em;
+    margin-inline-start: 0.25em;
+  }
+
+  table,
+  img,
+  svg {
+    break-inside: avoid;
+  }
+}
+
+[popover] {
+  color: inherit;
+}

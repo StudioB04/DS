@@ -1,0 +1,20 @@
+:root {
+  --ds-spacing-unit: 0.5rem;
+
+  --ds-spacing-none: 0;
+  --ds-spacing-2xs: calc(var(--ds-spacing-unit) * 0.25);
+  --ds-spacing-xs: calc(var(--ds-spacing-unit) * 0.5);
+  --ds-spacing-sm: calc(var(--ds-spacing-unit) * 0.75);
+  --ds-spacing-md: var(--ds-spacing-unit);
+  --ds-spacing-lg: calc(var(--ds-spacing-unit) * 1.25);
+  --ds-spacing-xl: calc(var(--ds-spacing-unit) * 1.5);
+  --ds-spacing-2xl: calc(var(--ds-spacing-unit) * 2);
+  --ds-spacing-3xl: calc(var(--ds-spacing-unit) * 2.5);
+  --ds-spacing-4xl: calc(var(--ds-spacing-unit) * 3);
+  --ds-spacing-5xl: calc(var(--ds-spacing-unit) * 4);
+  --ds-spacing-6xl: calc(var(--ds-spacing-unit) * 5);
+  --ds-spacing-7xl: calc(var(--ds-spacing-unit) * 6);
+  --ds-spacing-8xl: calc(var(--ds-spacing-unit) * 8);
+  --ds-spacing-9xl: calc(var(--ds-spacing-unit) * 10);
+  --ds-spacing-10xl: calc(var(--ds-spacing-unit) * 12);
+}
