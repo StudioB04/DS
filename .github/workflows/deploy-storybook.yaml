@@ -5,13 +5,13 @@ on:
   repository_dispatch:
     types: [storybook]
 
-# Permissions minimales pour GitHub Pages
+# Minimales permissions for GitHub Pages
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Évite les conflits si tu lances plusieurs builds à la suite
+# Avoid conflicts if you run multiple builds in a row
 concurrency:
   group: "pages"
   cancel-in-progress: true
@@ -27,7 +27,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "20" # Ou ta version spécifique
+          node-version: "22"
           cache: "npm"
 
       - name: Install dependencies
