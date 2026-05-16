@@ -1,64 +1,7 @@
 /* ============================================================
-   Typography — @studiob04/design-system
+   Typography tokens — @studiob04/design-system
+   Font-face declarations live in fonts.css
    ============================================================ */
-
-/* --- Red Hat Display (sans-serif, variable: wght 300–900) --- */
-@font-face {
-  font-family: "Red Hat Display";
-  src:
-    local("Red Hat Display"),
-    local("Red-Hat-Display"),
-    url("@/fonts/Red_Hat_Display/RedHatDisplay-VariableFont_wght.ttf") format("truetype");
-  font-weight: 300 900;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Red Hat Display";
-  src:
-    local("Red Hat Display Italic"),
-    local("Red-Hat-Display-Italic"),
-    url("@/fonts/Red_Hat_Display/RedHatDisplay-Italic-VariableFont_wght.ttf") format("truetype");
-  font-weight: 300 900;
-  font-style: italic;
-  font-display: swap;
-}
-
-/* --- Noto Serif (serif, variable: wdth + wght 100–900) --- */
-@font-face {
-  font-family: "Noto Serif";
-  src:
-    local("Noto Serif"),
-    local("Noto-Serif"),
-    url("@/fonts/Noto_Serif/NotoSerif-VariableFont_wdth,wght.ttf") format("truetype");
-  font-weight: 100 900;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Noto Serif";
-  src:
-    local("Noto Serif Italic"),
-    local("Noto-Serif-Italic"),
-    url("@/fonts/Noto_Serif/NotoSerif-Italic-VariableFont_wdth,wght.ttf") format("truetype");
-  font-weight: 100 900;
-  font-style: italic;
-  font-display: swap;
-}
-
-/* --- Fira Code (monospace, variable: wght 300–700, no italic) --- */
-@font-face {
-  font-family: "Fira Code";
-  src:
-    local("Fira Code"),
-    local("Fira-Code"),
-    url("@/fonts/Fira_Code/FiraCode-VariableFont_wght.ttf") format("truetype");
-  font-weight: 300 700;
-  font-style: normal;
-  font-display: swap;
-}
 
 :root {
   --ds-font-family-sans: "Red Hat Display", arial, sans-serif;

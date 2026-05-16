@@ -1,4 +1,4 @@
-@layer reset, tokens, base, components;
+@layer reset, fonts, tokens, base, components;
 
 @import url("@/styles/reset") layer(reset);
 @import url("@/styles/base") layer(base);
@@ -6,6 +6,8 @@
 @import url("@/styles/themes/light.css") layer(tokens);
 @import url("@/styles/themes/dark.css") layer(tokens);
 @import url("@/styles/themes/tokens") layer(tokens);
+
+@import url("@/styles/fonts/red-hat-display") layer(fonts);
 
 .sbdocs-preview.sbdocs-preview {
   color: var(--ds-text-primary);

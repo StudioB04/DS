@@ -25,7 +25,7 @@
     "access": "public"
   },
   "scripts": {
-    "prepare": "husky",
+    "prepare": "husky || true",
     "start": "storybook dev -p 6006",
     "cleanup": "rm -rf ./dist",
     "build": "npm run cleanup && vite build",
