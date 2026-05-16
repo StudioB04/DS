@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       version_bump:
-        description: "Version bump type"
+        description: "What type of release do you want to create ?"
         required: true
         type: choice
         options:
@@ -13,7 +13,7 @@ on:
           - major
         default: "patch"
       version_override:
-        description: "Override with version (e.g. 1.2.3) — optional"
+        description: "Override version (example : 1.0.10) — optional"
         required: false
         type: string
       dry_run:
@@ -127,4 +127,3 @@ jobs:
           tag_name: v${{ steps.bump.outputs.version }}
           name: v${{ steps.bump.outputs.version }}
           generate_release_notes: true
-

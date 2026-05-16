@@ -1,6 +1,6 @@
 import type { StoryObj } from "@storybook/react-vite";
 import FakeComponent from "./FakeComponent";
-import type { FakeComponentProps } from "FakeComponent.types.ts";
+import type { FakeComponentProps } from "./FakeComponent.types";
 
 export default {
   title: "Components/uikit/FakeComponent",
