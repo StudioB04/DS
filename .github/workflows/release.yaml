@@ -1,0 +1,130 @@
+name: Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      version_bump:
+        description: "Version bump type"
+        required: true
+        type: choice
+        options:
+          - patch
+          - minor
+          - major
+        default: "patch"
+      version_override:
+        description: "Override with version (e.g. 1.2.3) — optional"
+        required: false
+        type: string
+      dry_run:
+        description: "Dry run (test without pushing)"
+        required: false
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  id-token: write
+
+# Only one release at a time.
+concurrency:
+  group: release
+  cancel-in-progress: false
+
+jobs:
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    environment:
+      name: npm
+      url: https://www.npmjs.com/package/@studio_b04/ds
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+          registry-url: "https://registry.npmjs.org"
+
+      - name: Install dependencies
+        run: npm ci
+
+      # ── Quality gates ──────────────────────────────────────────────
+      - name: Lint
+        run: npm run lint
+
+      - name: Type check
+        run: npx tsc --project tsconfig.eslint.json --noEmit
+
+      - name: Tests
+        run: npm run test:coverage
+
+      # ── Bump version ───────────────────────────────────────────────
+      - name: Configure git
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Bump version
+        id: bump
+        run: |
+          if [ -n "${{ inputs.version_override }}" ]; then
+            npm version "${{ inputs.version_override }}" --no-git-tag-version
+          else
+            npm version "${{ inputs.version_bump }}" --no-git-tag-version
+          fi
+          VERSION=$(node -p "require('./package.json').version")
+          echo "version=${VERSION}" >> "$GITHUB_OUTPUT"
+
+      # ── Build ──────────────────────────────────────────────────────
+      - name: Build
+        run: npm run build
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist-${{ steps.bump.outputs.version }}
+          path: dist/
+          retention-days: 30
+
+      # ── Commit, tag, push ──────────────────────────────────────────
+      # Skipped on dry run — no side-effects outside this runner.
+      - name: Commit and tag
+        if: ${{ inputs.dry_run == false }}
+        run: |
+          VERSION=${{ steps.bump.outputs.version }}
+          git add package.json package-lock.json
+          git commit -m "chore: release v${VERSION} [skip ci]"
+          git tag "v${VERSION}"
+          git push origin main --follow-tags
+
+      # ── Publish ────────────────────────────────────────────────────
+      # --provenance links the published package to this GitHub Actions
+      # run, making the build fully auditable on npmjs.com.
+      - name: Publish to npm
+        if: ${{ inputs.dry_run == false }}
+        run: npm publish --provenance --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: "[Dry run] Publish to npm"
+        if: ${{ inputs.dry_run == true }}
+        run: npm publish --provenance --access public --dry-run
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      # ── GitHub Release ─────────────────────────────────────────────
+      - name: Create GitHub Release
+        if: ${{ inputs.dry_run == false }}
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v${{ steps.bump.outputs.version }}
+          name: v${{ steps.bump.outputs.version }}
+          generate_release_notes: true
+
