@@ -115,4 +115,3 @@ export { default as NotoSerifExtraCondensedExtraBold } from "./Noto_Serif/static
 export { default as NotoSerifExtraCondensedExtraBoldItalic } from "./Noto_Serif/static/NotoSerif_ExtraCondensed-ExtraBoldItalic.ttf";
 export { default as NotoSerifExtraCondensedBlack } from "./Noto_Serif/static/NotoSerif_ExtraCondensed-Black.ttf";
 export { default as NotoSerifExtraCondensedBlackItalic } from "./Noto_Serif/static/NotoSerif_ExtraCondensed-BlackItalic.ttf";
-

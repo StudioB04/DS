@@ -1,0 +1,12 @@
+echo "###################### HUSKY ######################"
+
+echo "### RUNNING ESLint ################################"
+npm run lint || exit 1
+
+echo "### RUNNING Prettier ##############################"
+npm run prettier || exit 1
+
+echo "### RUNNING Tests #################################"
+npm run test:coverage || exit 1
+
+echo "#################### END HUSKY ####################"
