@@ -2,8 +2,11 @@
    Tokens — @studiob04/tokens
    ============================================================ */
 
-@import url("./variables/borders.css");
-@import url("./variables/radius.css");
-@import url("./variables/size.css");
-@import url("./variables/spacing.css");
-@import url("./variables/transitions.css");
+@import url("./../variables/borders.css");
+@import url("./../variables/colors.css");
+@import url("./../variables/radius.css");
+@import url("./../variables/shadows.css");
+@import url("./../variables/size.css");
+@import url("./../variables/spacing.css");
+@import url("./../variables/transitions.css");
+@import url("./../variables/typography.css");

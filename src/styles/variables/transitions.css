@@ -1,0 +1,23 @@
+:root {
+  --ds-transition-delay-faster: 75ms;
+  --ds-transition-delay-fast: 125ms;
+  --ds-transition-delay-regular: 250ms;
+  --ds-transition-delay-slow: 500ms;
+  --ds-transition-delay-slower: 750ms;
+
+  --ds-transition-faster: var(--ds-transition-delay-faster) ease;
+  --ds-transition-fast: var(--ds-transition-delay-fast) ease;
+  --ds-transition-regular: var(--ds-transition-delay-regular) ease;
+  --ds-transition-slow: var(--ds-transition-delay-slow) ease;
+  --ds-transition-slower: var(--ds-transition-delay-slower) ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --ds-transition-delay-faster: 0s;
+    --ds-transition-delay-fast: 0s;
+    --ds-transition-delay-regular: 0s;
+    --ds-transition-delay-slow: 0s;
+    --ds-transition-delay-slower: 0s;
+  }
+}

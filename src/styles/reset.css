@@ -5,13 +5,16 @@
 *,
 *::before,
 *::after {
+  text-align: start;
   box-sizing: border-box;
+  border-width: 0;
+  border-style: solid;
+  border-color: currentcolor;
 }
 
 * {
   margin: 0;
   padding: 0;
-  isolation: isolate;
 }
 
 html {
@@ -20,11 +23,13 @@ html {
 }
 
 body {
-  line-height: var(--ds-line-height-normal, 1.5);
-  -webkit-font-smoothing: antialiased;
+  font-size: var(--ds-font-size-text-md, 1rem);
+  line-height: inherit;
   font-family: var(--ds-font-family-sans, system-ui, sans-serif);
-  color: var(--ds-color-text-primary, #111827);
-  background-color: var(--ds-color-bg-page, #f9fafb);
+  color: var(--ds-text-primary, #111827);
+  font-optical-sizing: auto;
+  overflow-wrap: anywhere;
+  -webkit-font-smoothing: antialiased;
 }
 
 img,

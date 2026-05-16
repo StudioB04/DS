@@ -41,6 +41,42 @@
   --ds-border-brand-solid-3px: var(--ds-size-3px) solid var(--ds-border-brand-solid);
   --ds-border-brand-solid-4px: var(--ds-size-4px) solid var(--ds-border-brand-solid);
 
+  /* alt-primary */
+  --ds-border-alt-primary-1px: var(--ds-size-1px) solid var(--ds-border-alt-primary);
+  --ds-border-alt-primary-2px: var(--ds-size-2px) solid var(--ds-border-alt-primary);
+  --ds-border-alt-primary-3px: var(--ds-size-3px) solid var(--ds-border-alt-primary);
+  --ds-border-alt-primary-4px: var(--ds-size-4px) solid var(--ds-border-alt-primary);
+
+  /* alt-secondary */
+  --ds-border-alt-secondary-1px: var(--ds-size-1px) solid var(--ds-border-alt-secondary);
+  --ds-border-alt-secondary-2px: var(--ds-size-2px) solid var(--ds-border-alt-secondary);
+  --ds-border-alt-secondary-3px: var(--ds-size-3px) solid var(--ds-border-alt-secondary);
+  --ds-border-alt-secondary-4px: var(--ds-size-4px) solid var(--ds-border-alt-secondary);
+
+  /* alt-solid */
+  --ds-border-alt-solid-1px: var(--ds-size-1px) solid var(--ds-border-alt-solid);
+  --ds-border-alt-solid-2px: var(--ds-size-2px) solid var(--ds-border-alt-solid);
+  --ds-border-alt-solid-3px: var(--ds-size-3px) solid var(--ds-border-alt-solid);
+  --ds-border-alt-solid-4px: var(--ds-size-4px) solid var(--ds-border-alt-solid);
+
+  /* info-primary */
+  --ds-border-info-primary-1px: var(--ds-size-1px) solid var(--ds-border-info-primary);
+  --ds-border-info-primary-2px: var(--ds-size-2px) solid var(--ds-border-info-primary);
+  --ds-border-info-primary-3px: var(--ds-size-3px) solid var(--ds-border-info-primary);
+  --ds-border-info-primary-4px: var(--ds-size-4px) solid var(--ds-border-info-primary);
+
+  /* info-secondary */
+  --ds-border-info-secondary-1px: var(--ds-size-1px) solid var(--ds-border-info-secondary);
+  --ds-border-info-secondary-2px: var(--ds-size-2px) solid var(--ds-border-info-secondary);
+  --ds-border-info-secondary-3px: var(--ds-size-3px) solid var(--ds-border-info-secondary);
+  --ds-border-info-secondary-4px: var(--ds-size-4px) solid var(--ds-border-info-secondary);
+
+  /* info-solid */
+  --ds-border-info-solid-1px: var(--ds-size-1px) solid var(--ds-border-info-solid);
+  --ds-border-info-solid-2px: var(--ds-size-2px) solid var(--ds-border-info-solid);
+  --ds-border-info-solid-3px: var(--ds-size-3px) solid var(--ds-border-info-solid);
+  --ds-border-info-solid-4px: var(--ds-size-4px) solid var(--ds-border-info-solid);
+
   /* error-primary */
   --ds-border-error-primary-1px: var(--ds-size-1px) solid var(--ds-border-error-primary);
   --ds-border-error-primary-2px: var(--ds-size-2px) solid var(--ds-border-error-primary);
@@ -94,42 +130,6 @@
   --ds-border-success-solid-2px: var(--ds-size-2px) solid var(--ds-border-success-solid);
   --ds-border-success-solid-3px: var(--ds-size-3px) solid var(--ds-border-success-solid);
   --ds-border-success-solid-4px: var(--ds-size-4px) solid var(--ds-border-success-solid);
-
-  /* mint-primary */
-  --ds-border-mint-primary-1px: var(--ds-size-1px) solid var(--ds-border-mint-primary);
-  --ds-border-mint-primary-2px: var(--ds-size-2px) solid var(--ds-border-mint-primary);
-  --ds-border-mint-primary-3px: var(--ds-size-3px) solid var(--ds-border-mint-primary);
-  --ds-border-mint-primary-4px: var(--ds-size-4px) solid var(--ds-border-mint-primary);
-
-  /* mint-secondary */
-  --ds-border-mint-secondary-1px: var(--ds-size-1px) solid var(--ds-border-mint-secondary);
-  --ds-border-mint-secondary-2px: var(--ds-size-2px) solid var(--ds-border-mint-secondary);
-  --ds-border-mint-secondary-3px: var(--ds-size-3px) solid var(--ds-border-mint-secondary);
-  --ds-border-mint-secondary-4px: var(--ds-size-4px) solid var(--ds-border-mint-secondary);
-
-  /* mint-solid */
-  --ds-border-mint-solid-1px: var(--ds-size-1px) solid var(--ds-border-mint-solid);
-  --ds-border-mint-solid-2px: var(--ds-size-2px) solid var(--ds-border-mint-solid);
-  --ds-border-mint-solid-3px: var(--ds-size-3px) solid var(--ds-border-mint-solid);
-  --ds-border-mint-solid-4px: var(--ds-size-4px) solid var(--ds-border-mint-solid);
-
-  /* yellow-primary */
-  --ds-border-yellow-primary-1px: var(--ds-size-1px) solid var(--ds-border-yellow-primary);
-  --ds-border-yellow-primary-2px: var(--ds-size-2px) solid var(--ds-border-yellow-primary);
-  --ds-border-yellow-primary-3px: var(--ds-size-3px) solid var(--ds-border-yellow-primary);
-  --ds-border-yellow-primary-4px: var(--ds-size-4px) solid var(--ds-border-yellow-primary);
-
-  /* yellow-secondary */
-  --ds-border-yellow-secondary-1px: var(--ds-size-1px) solid var(--ds-border-yellow-secondary);
-  --ds-border-yellow-secondary-2px: var(--ds-size-2px) solid var(--ds-border-yellow-secondary);
-  --ds-border-yellow-secondary-3px: var(--ds-size-3px) solid var(--ds-border-yellow-secondary);
-  --ds-border-yellow-secondary-4px: var(--ds-size-4px) solid var(--ds-border-yellow-secondary);
-
-  /* yellow-solid */
-  --ds-border-yellow-solid-1px: var(--ds-size-1px) solid var(--ds-border-yellow-solid);
-  --ds-border-yellow-solid-2px: var(--ds-size-2px) solid var(--ds-border-yellow-solid);
-  --ds-border-yellow-solid-3px: var(--ds-size-3px) solid var(--ds-border-yellow-solid);
-  --ds-border-yellow-solid-4px: var(--ds-size-4px) solid var(--ds-border-yellow-solid);
 
   /* inverse */
   --ds-border-inverse-1px: var(--ds-size-1px) solid var(--ds-border-inverse);

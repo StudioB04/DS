@@ -1,0 +1,41 @@
+/* stylelint-disable custom-property-empty-line-before */
+:root {
+  --ds-shadow-color-xs: rgba(17, 24, 39, 0.05);
+  --ds-shadow-color-sm: rgba(17, 24, 39, 0.1);
+  --ds-shadow-color-md: rgba(17, 24, 39, 0.15);
+  --ds-shadow-color-lg: rgba(17, 24, 39, 0.2);
+  --ds-shadow-color-xl: rgba(17, 24, 39, 0.25);
+  --ds-shadow-color-2xl: rgba(17, 24, 39, 0.3);
+
+  /* prettier-ignore */
+  --ds-box-shadow-xs: 
+    0 var(--ds-size-1px) var(--ds-size-2px) 0 var( --ds-shadow-color-xs);
+
+  /* prettier-ignore */
+  --ds-box-shadow-sm: 
+      0 var(--ds-size-1px) var(--ds-size-3px) 0 var(--ds-shadow-color-sm), 
+      0 var(--ds-size-1px) var(--ds-size-2px) calc(-1 * var(--ds-size-1px)) var(--ds-shadow-color-sm);
+
+  /* prettier-ignore */
+  --ds-box-shadow-md: 
+      0 var(--ds-size-2px) var(--ds-size-6px) 0 var(--ds-shadow-color-md), 
+      0 var(--ds-size-2px) var(--ds-size-4px) calc(-1 * var(--ds-size-2px)) var(--ds-shadow-color-md);
+
+  /* prettier-ignore */
+  --ds-box-shadow-lg: 
+        0 var(--ds-size-12px) var(--ds-size-16px) calc(-1 * var(--ds-size-4px)) var(--ds-shadow-color-lg),
+        0 var(--ds-size-4px) var(--ds-size-6px) calc(-1 * var(--ds-size-2px)) var(--ds-shadow-color-lg),
+        0 var(--ds-size-2px) var(--ds-size-2px) calc(-1 * var(--ds-size-1px)) var(--ds-shadow-color-lg);
+
+  /* prettier-ignore */
+  --ds-box-shadow-xl: 
+        0 var(--ds-size-16px) var(--ds-size-24px) calc(-1 * var(--ds-size-8px)) var(--ds-shadow-color-xl),
+        0 var(--ds-size-8px) var(--ds-size-12px) calc(-1 * var(--ds-size-4px)) var(--ds-shadow-color-xl),
+        0 var(--ds-size-4px) var(--ds-size-4px) calc(-1 * var(--ds-size-2px)) var(--ds-shadow-color-xl);
+
+  /* prettier-ignore */
+  --ds-box-shadow-2xl: 
+        0 var(--ds-size-20px) var(--ds-size-24px) calc(-1 * var(--ds-size-4px)) var(--ds-shadow-color-2xl),
+        0 var(--ds-size-8px) var(--ds-size-8px) calc(-1 * var(--ds-size-4px)) var(--ds-shadow-color-2xl),
+        0 var(--ds-size-3px) var(--ds-size-3px) calc(-1 * var(--ds-size-2px)) var(--ds-shadow-color-2xl);
+}

@@ -1,11 +1,11 @@
 @layer reset, tokens, base, components;
 
-@import url("./../src/styles/reset") layer(reset);
-@import url("./../src/styles/base") layer(base);
+@import url("@/styles/reset") layer(reset);
+@import url("@/styles/base") layer(base);
 
-@import url("./../src/styles/themes/light.css") layer(tokens);
-@import url("./../src/styles/themes/dark.css") layer(tokens);
-@import url("./../src/styles/themes/tokens") layer(tokens);
+@import url("@/styles/themes/light.css") layer(tokens);
+@import url("@/styles/themes/dark.css") layer(tokens);
+@import url("@/styles/themes/tokens") layer(tokens);
 
 .sbdocs-preview.sbdocs-preview {
   color: var(--ds-text-primary);

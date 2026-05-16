@@ -1,0 +1,98 @@
+/* ============================================================
+   Typography — @studiob04/design-system
+   ============================================================ */
+
+/* --- Red Hat Display (sans-serif, variable: wght 300–900) --- */
+@font-face {
+  font-family: "Red Hat Display";
+  src:
+    local("Red Hat Display"),
+    local("Red-Hat-Display"),
+    url("@/fonts/Red_Hat_Display/RedHatDisplay-VariableFont_wght.ttf") format("truetype");
+  font-weight: 300 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Red Hat Display";
+  src:
+    local("Red Hat Display Italic"),
+    local("Red-Hat-Display-Italic"),
+    url("@/fonts/Red_Hat_Display/RedHatDisplay-Italic-VariableFont_wght.ttf") format("truetype");
+  font-weight: 300 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* --- Noto Serif (serif, variable: wdth + wght 100–900) --- */
+@font-face {
+  font-family: "Noto Serif";
+  src:
+    local("Noto Serif"),
+    local("Noto-Serif"),
+    url("@/fonts/Noto_Serif/NotoSerif-VariableFont_wdth,wght.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Noto Serif";
+  src:
+    local("Noto Serif Italic"),
+    local("Noto-Serif-Italic"),
+    url("@/fonts/Noto_Serif/NotoSerif-Italic-VariableFont_wdth,wght.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* --- Fira Code (monospace, variable: wght 300–700, no italic) --- */
+@font-face {
+  font-family: "Fira Code";
+  src:
+    local("Fira Code"),
+    local("Fira-Code"),
+    url("@/fonts/Fira_Code/FiraCode-VariableFont_wght.ttf") format("truetype");
+  font-weight: 300 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --ds-font-family-sans: "Red Hat Display", arial, sans-serif;
+  --ds-font-family-serif: "Noto Serif", ui-serif, georgia, serif;
+  --ds-font-family-mono: "Fira Code", menlo, monaco, monospace;
+
+  --ds-font-weight-regular: 400;
+  --ds-font-weight-medium: 500;
+  --ds-font-weight-semibold: 600;
+  --ds-font-weight-bold: 700;
+
+  --ds-font-size-text-xs: 0.75rem;
+  --ds-font-size-text-sm: 0.875rem;
+  --ds-font-size-text-md: 1rem;
+  --ds-font-size-text-lg: 1.125rem;
+  --ds-font-size-text-xl: 1.25rem;
+
+  --ds-line-height-text-xs: 1.125rem;
+  --ds-line-height-text-sm: 1.3125rem;
+  --ds-line-height-text-md: 1.5rem;
+  --ds-line-height-text-lg: 1.6875rem;
+  --ds-line-height-text-xl: 1.875rem;
+
+  --ds-font-size-title-2xs: 1rem;
+  --ds-font-size-title-xs: 1.25rem;
+  --ds-font-size-title-sm: 1.5rem;
+  --ds-font-size-title-md: 2rem;
+  --ds-font-size-title-lg: 2.5rem;
+  --ds-font-size-title-xl: 3.25rem;
+
+  --ds-line-height-title-2xs: 1.5rem;
+  --ds-line-height-title-xs: 1.8125rem;
+  --ds-line-height-title-sm: 2.25rem;
+  --ds-line-height-title-md: 2.6875rem;
+  --ds-line-height-title-lg: 3.125rem;
+  --ds-line-height-title-xl: 4rem;
+}

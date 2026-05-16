@@ -2,8 +2,108 @@
    Theme Dark — @studiob04/theme
    ============================================================ */
 
-@import url("./variables/colors.css");
+@import url("./../variables/colors.css");
 
+/* System dark mode — applies when OS prefers dark and no explicit light override */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-ds-theme="light"]) {
+    /* --- TEXT COLORS --- */
+    --ds-text-primary: var(--color-gray-100);
+    --ds-text-secondary: var(--color-gray-300);
+    --ds-text-tertiary: var(--color-gray-400);
+    --ds-text-placeholder: var(--color-gray-500);
+    --ds-text-white: var(--color-white);
+    --ds-text-black: var(--color-black);
+    --ds-text-brand: var(--color-fuschia-400);
+    --ds-text-alt: var(--color-teal-400);
+    --ds-text-info: var(--color-blue-400);
+    --ds-text-error: var(--color-red-400);
+    --ds-text-warning: var(--color-yellow-400);
+    --ds-text-success: var(--color-green-400);
+
+    /* --- BORDER COLORS --- */
+    --ds-border-primary: var(--color-gray-700);
+    --ds-border-secondary: var(--color-gray-800);
+    --ds-border-tertiary: var(--color-gray-900);
+    --ds-border-solid: var(--color-gray-400);
+
+    --ds-border-brand-primary: var(--color-fuschia-800);
+    --ds-border-brand-secondary: var(--color-fuschia-900);
+    --ds-border-brand-tertiary: var(--color-black);
+    --ds-border-brand-solid: var(--color-fuschia-500);
+
+    --ds-border-alt-primary: var(--color-teal-800);
+    --ds-border-alt-secondary: var(--color-teal-900);
+    --ds-border-alt-tertiary: var(--color-black);
+    --ds-border-alt-solid: var(--color-teal-500);
+
+    --ds-border-info-primary: var(--color-blue-800);
+    --ds-border-info-secondary: var(--color-blue-900);
+    --ds-border-info-tertiary: var(--color-black);
+    --ds-border-info-solid: var(--color-blue-500);
+
+    --ds-border-error-primary: var(--color-red-800);
+    --ds-border-error-secondary: var(--color-red-900);
+    --ds-border-error-tertiary: var(--color-black);
+    --ds-border-error-solid: var(--color-red-500);
+
+    --ds-border-warning-primary: var(--color-yellow-800);
+    --ds-border-warning-secondary: var(--color-yellow-900);
+    --ds-border-warning-tertiary: var(--color-black);
+    --ds-border-warning-solid: var(--color-yellow-500);
+
+    --ds-border-success-primary: var(--color-green-800);
+    --ds-border-success-secondary: var(--color-green-900);
+    --ds-border-success-tertiary: var(--color-black);
+    --ds-border-success-solid: var(--color-green-500);
+
+    /* --- BACKGROUND COLORS --- */
+    --ds-bg-primary: var(--color-gray-900);
+    --ds-bg-secondary: var(--color-gray-800);
+    --ds-bg-tertiary: var(--color-gray-700);
+
+    --ds-bg-brand-primary: var(--color-fuschia-900);
+    --ds-bg-brand-secondary: var(--color-fuschia-800);
+    --ds-bg-brand-tertiary: var(--color-fuschia-700);
+    --ds-bg-brand-solid: var(--color-fuschia-500);
+    --ds-bg-brand-solid-hover: var(--color-fuschia-400);
+
+    --ds-bg-alt-primary: var(--color-teal-900);
+    --ds-bg-alt-secondary: var(--color-teal-800);
+    --ds-bg-alt-tertiary: var(--color-teal-700);
+    --ds-bg-alt-solid: var(--color-teal-500);
+    --ds-bg-alt-solid-hover: var(--color-teal-400);
+
+    --ds-bg-info-primary: var(--color-blue-900);
+    --ds-bg-info-secondary: var(--color-blue-800);
+    --ds-bg-info-tertiary: var(--color-blue-700);
+    --ds-bg-info-solid: var(--color-blue-500);
+    --ds-bg-info-solid-hover: var(--color-blue-400);
+
+    --ds-bg-error-primary: var(--color-red-900);
+    --ds-bg-error-secondary: var(--color-red-800);
+    --ds-bg-error-tertiary: var(--color-red-700);
+    --ds-bg-error-solid: var(--color-red-500);
+    --ds-bg-error-solid-hover: var(--color-red-400);
+
+    --ds-bg-warning-primary: var(--color-yellow-900);
+    --ds-bg-warning-secondary: var(--color-yellow-800);
+    --ds-bg-warning-tertiary: var(--color-yellow-700);
+    --ds-bg-warning-solid: var(--color-yellow-500);
+    --ds-bg-warning-solid-hover: var(--color-yellow-400);
+
+    --ds-bg-success-primary: var(--color-green-900);
+    --ds-bg-success-secondary: var(--color-green-800);
+    --ds-bg-success-tertiary: var(--color-green-700);
+    --ds-bg-success-solid: var(--color-green-500);
+    --ds-bg-success-solid-hover: var(--color-green-400);
+
+    /* --- MISC COLORS --- */
+    --ds-focus-ring-color: var(--color-blue-400);
+  }
+}
+
+/* Explicit dark mode — overrides system preference in both directions */
 :root[data-ds-theme="dark"] {
   /* --- TEXT COLORS --- */
   --ds-text-primary: var(--color-gray-100);
@@ -64,37 +164,37 @@
   --ds-bg-brand-secondary: var(--color-fuschia-800);
   --ds-bg-brand-tertiary: var(--color-fuschia-700);
   --ds-bg-brand-solid: var(--color-fuschia-500);
-  --ds-bg-brand-solid_hover: var(--color-fuschia-400);
+  --ds-bg-brand-solid-hover: var(--color-fuschia-400);
 
   --ds-bg-alt-primary: var(--color-teal-900);
   --ds-bg-alt-secondary: var(--color-teal-800);
   --ds-bg-alt-tertiary: var(--color-teal-700);
   --ds-bg-alt-solid: var(--color-teal-500);
-  --ds-bg-alt-solid_hover: var(--color-teal-400);
+  --ds-bg-alt-solid-hover: var(--color-teal-400);
 
   --ds-bg-info-primary: var(--color-blue-900);
   --ds-bg-info-secondary: var(--color-blue-800);
   --ds-bg-info-tertiary: var(--color-blue-700);
   --ds-bg-info-solid: var(--color-blue-500);
-  --ds-bg-info-solid_hover: var(--color-blue-400);
+  --ds-bg-info-solid-hover: var(--color-blue-400);
 
   --ds-bg-error-primary: var(--color-red-900);
   --ds-bg-error-secondary: var(--color-red-800);
   --ds-bg-error-tertiary: var(--color-red-700);
   --ds-bg-error-solid: var(--color-red-500);
-  --ds-bg-error-solid_hover: var(--color-red-400);
+  --ds-bg-error-solid-hover: var(--color-red-400);
 
   --ds-bg-warning-primary: var(--color-yellow-900);
   --ds-bg-warning-secondary: var(--color-yellow-800);
   --ds-bg-warning-tertiary: var(--color-yellow-700);
   --ds-bg-warning-solid: var(--color-yellow-500);
-  --ds-bg-warning-solid_hover: var(--color-yellow-400);
+  --ds-bg-warning-solid-hover: var(--color-yellow-400);
 
   --ds-bg-success-primary: var(--color-green-900);
   --ds-bg-success-secondary: var(--color-green-800);
   --ds-bg-success-tertiary: var(--color-green-700);
   --ds-bg-success-solid: var(--color-green-500);
-  --ds-bg-success-solid_hover: var(--color-green-400);
+  --ds-bg-success-solid-hover: var(--color-green-400);
 
   /* --- MISC COLORS --- */
   --ds-focus-ring-color: var(--color-blue-400);
