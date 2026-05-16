@@ -1,0 +1,33 @@
+/* Typography - Value */
+:root {
+  --pui-font-weight-regular: 400;
+  --pui-font-weight-medium: 500;
+  --pui-font-weight-semibold: 600;
+  --pui-font-weight-bold: 700;
+
+  --pui-font-size-text-xs: 0.75rem;
+  --pui-font-size-text-sm: 0.875rem;
+  --pui-font-size-text-md: 1rem;
+  --pui-font-size-text-lg: 1.125rem;
+  --pui-font-size-text-xl: 1.25rem;
+
+  --pui-line-height-text-xs: 1.125rem;
+  --pui-line-height-text-sm: 1.3125rem;
+  --pui-line-height-text-md: 1.5rem;
+  --pui-line-height-text-lg: 1.6875rem;
+  --pui-line-height-text-xl: 1.875rem;
+
+  --pui-font-size-title-2xs: 1rem;
+  --pui-font-size-title-xs: 1.25rem;
+  --pui-font-size-title-sm: 1.5rem;
+  --pui-font-size-title-md: 2rem;
+  --pui-font-size-title-lg: 2.5rem;
+  --pui-font-size-title-xl: 3.25rem;
+
+  --pui-line-height-title-2xs: 1.5rem;
+  --pui-line-height-title-xs: 1.8125rem;
+  --pui-line-height-title-sm: 2.25rem;
+  --pui-line-height-title-md: 2.6875rem;
+  --pui-line-height-title-lg: 3.125rem;
+  --pui-line-height-title-xl: 4rem;
+}

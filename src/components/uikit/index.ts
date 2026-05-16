@@ -1,3 +1,3 @@
 "use client";
 
-export { default as Loader } from "./FakeComponent/FakeComponent";
+export { default as FakeComponent } from "./FakeComponent/FakeComponent";

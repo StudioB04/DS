@@ -48,13 +48,14 @@ export default defineConfig({
       entry: {
         index: resolve(__dirname, "src/index.ts"),
         components: resolve(__dirname, "src/components/index.ts"),
-        styles: resolve(__dirname, "src/styles/tokens.css"),
+        uikit: resolve(__dirname, "src/components/uikit/index.ts"),
+        tokens: resolve(__dirname, "src/styles/themes/tokens.css"),
         reset: resolve(__dirname, "src/styles/reset.css"),
       },
       formats: ["es"],
     },
     rollupOptions: {
-      external: ["react", "react-dom", "react/jsx-runtime"],
+      external: ["react", "react-dom", "react/jsx-runtime", "clsx"],
       output: {
         dir: "dist",
         entryFileNames: "[name].js",

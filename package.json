@@ -1,20 +1,28 @@
 {
-  "name": "@studiob04/ds",
+  "name": "@studio_b04/ds",
+  "description": "StudioB04 Design System",
   "version": "0.1.0",
   "type": "module",
   "files": [
     "dist"
   ],
-  "main": "dist/index.js",
-  "module": "./dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "dist/components.js",
+  "module": "./dist/components.js",
+  "types": "dist/components/index.d.ts",
   "exports": {
+    "./components": {
+      "import": "./dist/components.js",
+      "types": "./dist/components/index.d.ts"
+    },
     "./uikit": {
       "import": "./dist/components/uikit.js",
       "types": "./dist/components/uikit.d.ts"
     },
     "./styles": "./dist/styles.css",
     "./reset": "./dist/reset.css"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "scripts": {
     "start": "storybook dev -p 6006",
@@ -26,9 +34,6 @@
     "prettier": "prettier --check \"./src/**/*.{tsx,ts}\"",
     "prettier:fix": "prettier --write \"./src/**/*.{tsx,ts}\"",
     "build-storybook": "storybook build"
-  },
-  "dependencies": {
-    "clsx": "^2.1.1"
   },
   "peerDependencies": {
     "react": "^19.0.0",
@@ -47,6 +52,7 @@
     "@types/react-dom": "^19.0.0",
     "@vitejs/plugin-react": "^5.0.0",
     "@vitest/coverage-v8": "^4.0.0",
+    "clsx": "^2.1.1",
     "eslint": "^9.0.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-jsx-a11y": "^6.10.2",
