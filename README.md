@@ -18,7 +18,6 @@
   - [Theming](#theming)
   - [Reset](#reset)
   - [Tailwind 4 theme](#tailwind-4-theme)
-- [Fonts](#fonts)
 - [Components](#components)
 - [Development](#development)
 - [Release](#release)
@@ -44,12 +43,11 @@ npm install @studio_b04/ds
 
 ## What's included
 
-| Export     | Path in package             | Description                           |
-| ---------- | --------------------------- | ------------------------------------- |
-| Components | `@studio_b04/ds/components` | React UI components                   |
-| CSS tokens | `@studio_b04/ds/styles`     | Design tokens (variables + themes)    |
-| CSS reset  | `@studio_b04/ds/reset`      | Opinionated browser reset             |
-| Fonts      | `@studio_b04/ds` (JS)       | Font file references for `@font-face` |
+| Export     | Path in package             | Description                        |
+| ---------- | --------------------------- | ---------------------------------- |
+| Components | `@studio_b04/ds/components` | React UI components                |
+| CSS tokens | `@studio_b04/ds/styles`     | Design tokens (variables + themes) |
+| CSS reset  | `@studio_b04/ds/reset`      | Opinionated browser reset          |
 
 ---
 
@@ -136,20 +134,21 @@ This gives you access to all token values as Tailwind utilities:
 
 ## Fonts
 
-Three font families are included as TTF files (variable fonts + static cuts):
+By default, DS come with standard font for sans, serif and mono. But they can be overwritten in CSS, example :
 
-| Family              | Style      | Variable axes                      |
-| ------------------- | ---------- | ---------------------------------- |
-| **Red Hat Display** | Sans-serif | `wght` 300–900                     |
-| **Noto Serif**      | Serif      | `wght` 100–900 · `wdth` (4 widths) |
-| **Fira Code**       | Monospace  | `wght` 300–700                     |
+```css
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@300..900&display=swap") layer(fonts);
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Mono:wght@400..600&display=swap") layer(fonts);
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap")
+layer(fonts);
 
-`@font-face` declarations are automatically included when you import the token CSS (`@studio_b04/ds/styles`).
-
-You can also import individual font files from JavaScript for custom `@font-face` setups:
-
-```ts
-import { RedHatDisplay_VariableFont, NotoSerif_VariableFont, FiraCode_VariableFont } from "@studio_b04/ds";
+@layer fonts {
+  :root {
+    --ds-font-family-sans: "Red Hat Display";
+    --ds-font-family-mono: "Red Hat Mono";
+    --ds-font-family-serif: "Noto Serif";
+  }
+}
 ```
 
 ---

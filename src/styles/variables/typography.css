@@ -4,9 +4,9 @@
    ============================================================ */
 
 :root {
-  --ds-font-family-sans: "Red Hat Display", arial, sans-serif;
-  --ds-font-family-serif: "Noto Serif", ui-serif, georgia, serif;
-  --ds-font-family-mono: "Fira Code", menlo, monaco, monospace;
+  --ds-font-sans: var(--ds-font-family-sans), arial, sans-serif;
+  --ds-font-serif: var(--ds-font-family-serif), ui-serif, georgia, serif;
+  --ds-font-mono: var(--ds-font-family-mono), menlo, monaco, monospace;
 
   --ds-font-weight-regular: 400;
   --ds-font-weight-medium: 500;
