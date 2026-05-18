@@ -9,6 +9,7 @@ const __dirname = dirname(__filename);
 const config: StorybookConfig = {
   stories: ["../src/**/*.mdx", "../src/**/*.stories.@(ts|tsx)"],
   addons: ["@storybook/addon-docs", "@storybook/addon-a11y"],
+  staticDirs: [{ from: "../node_modules/lucide-static", to: "/lucide-static" }],
   framework: "@storybook/react-vite",
   core: {
     disableTelemetry: true,

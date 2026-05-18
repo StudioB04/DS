@@ -7,11 +7,11 @@ import "./Icon.css";
 
 const Icon = ({ src, size = 24, fat, className, ...restProps }: IconProps) => {
   const SVGProps = {
+    className: clsx("ds-icon", `ds-icon--size-${size}`, fat && "ds-icon--fat", className),
     width: size,
     height: size,
     viewBox: "0 0 24 24",
     xmlns: "http://www.w3.org/2000/svg",
-    className: clsx("ds-icon", `ds-icon--size-${size}`, fat && "ds-icon--fat", className),
     strokeWidth: (Math.pow(size / (fat ? 8 : 12), 0.9) * 24) / size,
     ...restProps,
   };
@@ -21,7 +21,7 @@ const Icon = ({ src, size = 24, fat, className, ...restProps }: IconProps) => {
   if (isLucideIcon) {
     return (
       <svg {...SVGProps} aria-hidden="true" className={clsx(SVGProps.className, `ds-icon--${src}`)}>
-        <use href={`node_modules/lucide-static/sprite.svg#${src}`} />
+        <use href={`/lucide-static/sprite.svg#${src}`} />
       </svg>
     );
   }

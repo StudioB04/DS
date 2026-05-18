@@ -20,7 +20,7 @@ export const Default: StoryObj<IconProps> = {
 };
 
 export const CustomFromPath: StoryObj<IconProps> = {
-  args: { src: "node_modules/lucide-static/icons/beer.svg", size: 48, fat: false },
+  args: { src: "/lucide-static/icons/beer.svg", size: 48, fat: false },
   argTypes: {
     src: {
       control: "text",

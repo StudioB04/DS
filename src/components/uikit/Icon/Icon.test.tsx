@@ -14,7 +14,7 @@ describe("Icon component", () => {
     });
 
     it("should have no violations in custom URL mode", async () => {
-      const { container } = render(<Icon src="node_modules/lucide-static/icons/beer.svg" />);
+      const { container } = render(<Icon src="lucide-static/icons/beer.svg" />);
       expect(await axe(container)).toHaveNoViolations();
     });
 
@@ -27,7 +27,7 @@ describe("Icon component", () => {
   describe("Lucide sprite mode", () => {
     it("renders a <use> pointing to the Lucide sprite for a known icon name", () => {
       const { container } = render(<Icon src="smile" />);
-      expect(container.querySelector("use")).toHaveAttribute("href", "node_modules/lucide-static/sprite.svg#smile");
+      expect(container.querySelector("use")).toHaveAttribute("href", "/lucide-static/sprite.svg#smile");
     });
 
     it("defaults to size 24", () => {
