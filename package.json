@@ -10,10 +10,6 @@
   "module": "./dist/components.js",
   "types": "dist/components/index.d.ts",
   "exports": {
-    "./components": {
-      "import": "./dist/components.js",
-      "types": "./dist/components/index.d.ts"
-    },
     "./uikit": {
       "import": "./dist/components/uikit.js",
       "types": "./dist/components/uikit.d.ts"
@@ -76,5 +72,8 @@
     "vite-tsconfig-paths": "^5.0.0",
     "vitest": "^4.0.0",
     "vitest-axe": "^0.1.0"
+  },
+  "dependencies": {
+    "lucide-static": "^1.16.0"
   }
 }

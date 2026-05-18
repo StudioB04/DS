@@ -47,7 +47,6 @@ export default defineConfig({
       name: "@StudioB04/DS",
       entry: {
         index: resolve(__dirname, "src/index.ts"),
-        components: resolve(__dirname, "src/components/index.ts"),
         uikit: resolve(__dirname, "src/components/uikit/index.ts"),
         tokens: resolve(__dirname, "src/styles/themes/tokens.css"),
         reset: resolve(__dirname, "src/styles/reset.css"),

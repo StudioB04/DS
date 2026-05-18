@@ -7,7 +7,18 @@
 @import url("@/styles/themes/dark.css") layer(tokens);
 @import url("@/styles/themes/tokens") layer(tokens);
 
-@import url("@/styles/fonts/red-hat-display") layer(fonts);
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@300..900&display=swap") layer(fonts);
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Mono:wght@400..600&display=swap") layer(fonts);
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap")
+layer(fonts);
+
+@layer fonts {
+  :root {
+    --ds-font-family-sans: "Red Hat Display";
+    --ds-font-family-mono: "Red Hat Mono";
+    --ds-font-family-serif: "Noto Serif";
+  }
+}
 
 .sbdocs-preview.sbdocs-preview {
   color: var(--ds-text-primary);

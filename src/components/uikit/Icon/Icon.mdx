@@ -1,0 +1,90 @@
+import { Canvas, Controls, Meta } from "@storybook/addon-docs/blocks";
+import * as IconStories from "./Icon.stories";
+
+<Meta of={IconStories} />
+
+# Icon
+
+The `Icon` component renders SVG icons with consistent sizing and adaptive stroke weight. It supports three source modes — Lucide sprite, custom sprite/URL, and raw SVG strings — through a single `src` prop.
+
+## Default
+
+<Canvas of={IconStories.Default} />
+<Controls of={IconStories.Default} />
+
+---
+
+## Source modes
+
+### 1. Lucide icon (sprite)
+
+Pass any name from the [Lucide icon library](https://lucide.dev/icons/). The component resolves it against the local sprite file.
+
+```tsx
+import { Icon } from "@studio_b04/ds/uikit";
+
+<Icon src="smile" size={24} />
+<Icon src="circle-check" size={24} />
+<Icon src="triangle-alert" size={24} />
+```
+
+### 2. Custom file URL
+
+Any string that does not match a Lucide name and does not start with `<svg` is treated as a raw `href` for a `<use>` element. Use this for your own sprite sheets or standalone SVG files.
+
+The custom icon must respect a "0 0 24 24" viewBox and use `currentColor` for strokes to ensure proper scaling and theming.
+
+```tsx
+<Icon src="any-path/icons/beer.svg" size={32} />
+```
+
+<Canvas of={IconStories.CustomFromPath} />
+
+### 3. Inline SVG string
+
+If `src` contains a raw `<svg …>` string (e.g. a named export from `lucide-static`), the component parses and renders it inline. This lets you embed icons without a sprite file.
+
+```tsx
+import { Album } from "lucide-static";
+import { Icon } from "@studio_b04/ds/uikit";
+
+<Icon src={Album} size={48} />
+```
+
+<Canvas of={IconStories.CustomFromSvgInline} />
+
+---
+
+## Fat stroke
+
+The `fat` prop increases stroke weight, which improves legibility at larger display sizes. Stroke width scales proportionally — the formula adapts to `size` so strokes stay visually balanced.
+
+```tsx
+<Icon src="smile" size={48} />
+<Icon src="smile" size={48} fat />
+```
+
+---
+
+## Sizing
+
+
+```tsx
+<Icon src="star" size={16} />
+<Icon src="star" size={24} />
+<Icon src="star" size={40} fat />
+```
+
+---
+
+## Accessibility
+
+Icons are decorative by default (`aria-hidden="true"`). If an icon conveys meaning without accompanying text, add an accessible label via the standard SVG attribute:
+
+```tsx
+// Decorative (default) — screen readers skip this
+<Icon src="star" size={24} />
+
+// Meaningful — provide a label
+<Icon src="star" size={24} aria-hidden="false" aria-label="Favourite" role="img" />
+```

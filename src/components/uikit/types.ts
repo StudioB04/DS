@@ -1,3 +1,3 @@
 "use client";
 
-export * from "./FakeComponent/FakeComponent.types";
+export * from "./Icon/Icon.types";

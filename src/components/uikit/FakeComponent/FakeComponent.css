@@ -1,8 +1,0 @@
-.ds-fake-component {
-  font-size: 10rem;
-  color: var(--ds-text-success);
-  background-color: var(--ds-bg-success-primary);
-  border: var(--ds-border-success-solid-3px);
-  padding: var(--ds-spacing-3xl);
-  box-shadow: var(--ds-box-shadow-lg);
-}
