@@ -27,7 +27,7 @@ describe("Icon component", () => {
   describe("Lucide sprite mode", () => {
     it("renders a <use> pointing to the Lucide sprite for a known icon name", () => {
       const { container } = render(<Icon src="smile" />);
-      expect(container.querySelector("use")).toHaveAttribute("href", "/lucide-static/sprite.svg#smile");
+      expect(container.querySelector("use")).toHaveAttribute("href", "lucide-static/sprite.svg#smile");
     });
 
     it("defaults to size 24", () => {

@@ -21,7 +21,7 @@ const Icon = ({ src, size = 24, fat, className, ...restProps }: IconProps) => {
   if (isLucideIcon) {
     return (
       <svg {...SVGProps} aria-hidden="true" className={clsx(SVGProps.className, `ds-icon--${src}`)}>
-        <use href={`/lucide-static/sprite.svg#${src}`} />
+        <use href={`lucide-static/sprite.svg#${src}`} />
       </svg>
     );
   }
