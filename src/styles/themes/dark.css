@@ -20,6 +20,7 @@
     --ds-text-error: var(--color-red-400);
     --ds-text-warning: var(--color-yellow-400);
     --ds-text-success: var(--color-green-400);
+    --ds-text-inverse: var(--color-gray-800);
 
     /* --- BORDER COLORS --- */
     --ds-border-primary: var(--color-gray-700);

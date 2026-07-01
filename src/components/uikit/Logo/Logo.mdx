@@ -1,0 +1,55 @@
+import { Canvas, Controls, Meta } from "@storybook/addon-docs/blocks";
+import * as LogoStories from "./Logo.stories";
+
+<Meta of={LogoStories} />
+
+# Logo
+
+The `Logo` component renders the StudioB04 SVG logo with two layouts: `small` and `full`. Use `variant` to adapt the mark to the surrounding surface.
+
+## Default
+
+<Canvas of={LogoStories.Default} />
+<Controls of={LogoStories.Default} />
+
+---
+
+## Types
+
+### `small`
+
+Use the compact logo for headers, navigation, and tight spaces.
+
+```tsx
+<Logo type="small" variant="brand" />
+```
+
+### `full`
+
+Use the full logo when you have enough horizontal space.
+
+```tsx
+<Logo type="full" variant="brand" />
+```
+
+---
+
+## Variants
+
+`variant` changes the logo treatment so it can sit on different backgrounds.
+
+```tsx
+<Logo type="small" variant="brand" />
+<Logo type="small" variant="inverse" />
+<Logo type="small" variant="alt" />
+```
+
+---
+
+## Accessibility
+
+The logo is decorative by default. If it needs a meaningful label, pass standard SVG accessibility props:
+
+```tsx
+<Logo type="small" aria-label="StudioB04" role="img" />
+```

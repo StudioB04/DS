@@ -1,0 +1,52 @@
+.ds-logo {
+  block-size: 1em;
+  inline-size: auto;
+
+  .ds-logo__background {
+    fill: var(--ds-logo-background-color, transparent);
+  }
+
+  .ds-logo__inner {
+    fill: var(--ds-logo-inner-color, currentcolor);
+  }
+
+  &.ds-logo--type-small {
+    &.ds-logo--variant-brand {
+      --ds-logo-background-color: var(--ds-bg-brand-solid);
+      --ds-logo-inner-color: var(--ds-text-white);
+    }
+
+    &.ds-logo--variant-alt {
+      --ds-logo-background-color: var(--ds-bg-alt-solid);
+      --ds-logo-inner-color: var(--ds-text-white);
+    }
+
+    &.ds-logo--variant-inverse {
+      --ds-logo-background-color: var(--ds-text-primary);
+      --ds-logo-inner-color: var(--ds-bg-tertiary);
+    }
+
+    &.ds-logo--variant-default {
+      --ds-logo-background-color: var(--ds-bg-tertiary);
+      --ds-logo-inner-color: var(--ds-text-primary);
+    }
+  }
+
+  &.ds-logo--type-full {
+    &.ds-logo--variant-brand {
+      --ds-logo-inner-color: var(--ds-bg-brand-solid);
+    }
+
+    &.ds-logo--variant-alt {
+      --ds-logo-inner-color: var(--ds-bg-alt-solid);
+    }
+
+    &.ds-logo--variant-inverse {
+      --ds-logo-inner-color: var(--ds-bg-secondary);
+    }
+
+    &.ds-logo--variant-default {
+      --ds-logo-inner-color: var(--ds-text-primary);
+    }
+  }
+}

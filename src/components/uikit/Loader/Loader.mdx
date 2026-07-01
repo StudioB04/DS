@@ -1,0 +1,53 @@
+import { Canvas, Controls, Meta } from "@storybook/addon-docs/blocks";
+import * as LoaderStories from "./Loader.stories";
+
+<Meta of={LoaderStories} />
+
+# Loader
+
+The `Loader` component displays an SVG loading indicator inside a `dialog`. It lazily loads the requested animation by `name`.
+
+## Default
+
+<Canvas of={LoaderStories.Default} />
+<Controls of={LoaderStories.Default} />
+
+---
+
+## Loader names
+
+### `Dots`
+
+The default animated dots spinner.
+
+```tsx
+<Loader name="Dots" />
+```
+
+### `Ring`
+
+A circular spinner variant.
+
+```tsx
+<Loader name="Ring" />
+```
+
+---
+
+## Usage
+
+`Loader` is best used as a visual loading state for asynchronous content.
+
+```tsx
+<Loader name="Dots" className="my-loader" />
+```
+
+---
+
+## Accessibility
+
+The loader is decorative unless you provide an accessible label on the `dialog` element:
+
+```tsx
+<Loader name="Dots" aria-label="Loading content" />
+```

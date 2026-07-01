@@ -1,0 +1,11 @@
+.ds-loader {
+  position: relative;
+  display: inline-flex;
+}
+
+.ds-loader__svg {
+  width: 1em;
+  height: 1em;
+  aspect-ratio: 1;
+  fill: currentColor;
+}
