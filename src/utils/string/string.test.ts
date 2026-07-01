@@ -45,6 +45,7 @@ describe("string util", () => {
     expect(getInitials("This is a test")).toBe("TI");
     expect(getInitials("Another Test")).toBe("AT");
     expect(getInitials("One More Test")).toBe("OM");
+    expect(getInitials("")).toBe("");
   });
 
   it("should humanize", () => {
@@ -52,5 +53,6 @@ describe("string util", () => {
     expect(humanize("this-is-a-test")).toBe("this is a test");
     expect(humanize("Another_Test")).toBe("another test");
     expect(humanize("OneMoreTest")).toBe("one more test");
+    expect(humanize("")).toBe("");
   });
 });

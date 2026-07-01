@@ -9,6 +9,19 @@ import dts from "vite-plugin-dts";
 import { libInjectCss } from "vite-plugin-lib-inject-css";
 import tsconfigPaths from "vite-tsconfig-paths";
 
+const textExclusion = [
+  "**/node_modules/**",
+  "src/setup-tests.ts",
+  "src/components/**/*.{css,scss,less}",
+  "src/components/**/*.stories.{ts,tsx}",
+  "src/components/**/*.types.{ts,tsx}",
+  "src/components/uikit/Loader/loaders/**",
+  "**/index.{ts,tsx}",
+  "**/types.{ts,tsx}",
+  "vite-env.d.ts",
+  "vitest.d.ts",
+];
+
 export default defineConfig({
   resolve: {
     alias: {
@@ -30,14 +43,16 @@ export default defineConfig({
     clearMocks: true,
     environment: "jsdom",
     setupFiles: ["./src/setup-tests.ts"],
+    include: ["src/**/*.test.{ts,tsx}"],
+    exclude: textExclusion,
     coverage: {
       enabled: true,
       clean: true,
       provider: "v8",
       reportsDirectory: "coverage",
       reporter: ["text", "text-summary", "json", "html"],
-      include: ["src/components/**/*.tsx"],
-      exclude: ["**/index.{ts,tsx}", "**/*.{stories,test}.{ts,tsx}"],
+      include: ["src/**/*.{ts,tsx}"],
+      exclude: textExclusion,
     },
   },
   build: {
