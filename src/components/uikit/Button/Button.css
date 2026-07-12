@@ -6,7 +6,6 @@
   justify-content: center;
   inline-size: fit-content;
   font-weight: var(--ds-font-weight-medium);
-  transition: all var(--ds-transition-fast);
   flex-shrink: 0;
   block-size: var(--ds-button-size);
   padding-inline: var(--ds-button-padding-inline);
@@ -57,6 +56,10 @@
 
   &.ds-button--block {
     inline-size: 100%;
+  }
+
+  &.ds-button--pill {
+    border-radius: var(--ds-radius-full);
   }
 
   &.ds-button--icon-only {

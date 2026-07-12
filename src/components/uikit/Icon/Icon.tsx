@@ -6,7 +6,7 @@ import { LucideIconMap, type IconProps, type LucideIconName } from "./Icon.types
 
 import "./Icon.css";
 
-export default ({ src, size = 24, fat, className, ...restProps }: IconProps) => {
+export default function Icon({ src, size = 24, fat, className, ...restProps }: IconProps) {
   const SVGProps = {
     className: clsx("ds-icon", `ds-icon--size-${size}`, fat && "ds-icon--fat", className),
     width: size,
@@ -47,4 +47,4 @@ export default ({ src, size = 24, fat, className, ...restProps }: IconProps) => 
       <g dangerouslySetInnerHTML={{ __html: innerSVG }} />
     </svg>
   );
-};
+}

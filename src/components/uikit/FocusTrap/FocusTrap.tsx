@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import type { FocusTrapProps } from "./FocusTrap.types";
 import { getInteractiveDomNodes } from "./FocusTrap.utils";
 
-const FocusTrap = ({ children }: FocusTrapProps) => {
+export default function FocusTrap({ children }: FocusTrapProps) {
   const topAnchor = useRef<HTMLButtonElement>(null);
   const bottomAnchor = useRef<HTMLButtonElement>(null);
   const childrenRef = useRef<HTMLDivElement>(null);
@@ -44,6 +44,4 @@ const FocusTrap = ({ children }: FocusTrapProps) => {
       <button ref={bottomAnchor} type="button" className="ds-focus-trap__button" aria-hidden="true" />
     </div>
   );
-};
-
-export default FocusTrap;
+}

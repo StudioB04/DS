@@ -72,6 +72,20 @@ describe("Button component", () => {
     expect(container.querySelector(".ds-button__icon--external")).toBeInTheDocument();
   });
 
+  it("applies pill and block modifiers when provided", () => {
+    render(<Button label="Pill block" size="md" shape="pill" block />);
+
+    expect(screen.getByRole("button", { name: "Pill block" })).toHaveClass("ds-button--pill", "ds-button--block");
+  });
+
+  it("renders start and end icons when iconStart and iconEnd are provided", () => {
+    const { container } = render(<Button label="With icons" size="md" iconStart="smile" iconEnd="x" />);
+
+    expect(container.querySelector(".ds-button__icon--start")).toBeInTheDocument();
+    expect(container.querySelector(".ds-button__icon--end")).toBeInTheDocument();
+    expect(container.querySelector(".ds-button__icon--external")).not.toBeInTheDocument();
+  });
+
   it("renders slot content on both sides", () => {
     render(<Button label="Slot" size="md" slotStart={<span>Left</span>} slotEnd={<span>Right</span>} />);
 

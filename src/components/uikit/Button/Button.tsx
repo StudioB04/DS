@@ -5,7 +5,7 @@ import type { ElementType } from "react";
 
 import "./Button.css";
 
-const Button = ({
+export default function Button({
   label,
   type = "button",
   shape = "square",
@@ -24,7 +24,7 @@ const Button = ({
   className,
   title,
   ...restProps
-}: ButtonProps) => {
+}: ButtonProps) {
   const ButtonComponent = (href ? "a" : "button") as ElementType;
 
   return (
@@ -34,6 +34,7 @@ const Button = ({
         `ds-button--shape-${shape}`,
         `ds-button--size-${size}`,
         `ds-button--variant-${variant}`,
+        shape === "pill" && "ds-button--pill",
         iconOnly && "ds-button--icon-only",
         block && "ds-button--block",
         loading && "ds-button--loading",
@@ -76,6 +77,4 @@ const Button = ({
       )}
     </ButtonComponent>
   );
-};
-
-export default Button;
+}

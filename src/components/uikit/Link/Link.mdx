@@ -1,0 +1,44 @@
+import { Canvas, Controls, Meta } from "@storybook/addon-docs/blocks";
+import * as LinkStories from "./Link.stories";
+
+<Meta of={LinkStories} />
+
+# Link
+
+The `Link` component renders text links with optional icons and markdown label support.
+
+## Default
+
+<Canvas of={LinkStories.Default} />
+<Controls of={LinkStories.Default} />
+
+---
+
+## Usage
+
+```tsx
+import { Link } from "@studio_b04/ds/uikit";
+
+<Link label="Read documentation" href="/docs" />
+```
+
+---
+
+## External links
+
+When `external` is enabled with an `href`, the link opens in a new tab and shows an external icon.
+
+```tsx
+<Link label="Open external docs" href="https://example.com" external />
+```
+
+---
+
+## Icon support
+
+You can display icons at the start or end of the label.
+
+```tsx
+<Link label="Back" iconStart="arrow-left" />
+<Link label="Next" iconEnd="arrow-right" />
+```

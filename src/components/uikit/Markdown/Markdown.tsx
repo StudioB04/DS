@@ -5,13 +5,13 @@ import type { MarkdownProps } from "./Markdown.types";
 
 import "./Markdown.css";
 
-const Markdown = ({
+export default function Markdown({
   children,
   allowHtml = false,
   allowTags = ["p", "a", "strong", "em", "h1", "h2", "h3", "h4", "ul", "ol", "li", "hr", "br", "code", "img"],
   className,
   ...restProps
-}: MarkdownProps) => {
+}: MarkdownProps) {
   const ignoreTag = { component: ({ children }: { children: string }) => children };
 
   const setOverride = (tag: string, className: string) => {
@@ -83,6 +83,4 @@ const Markdown = ({
       {children?.replace(/(?<!\n)\n(?!\n)/g, br)}
     </MarkdownComponent>
   );
-};
-
-export default Markdown;
+}

@@ -17,17 +17,12 @@ export default {
       description: "The color variant of the button.",
     },
     size: {
-      control: "select",
+      control: "inline-radio",
       options: ["sm", "md", "lg"],
       description: "The size of the button.",
     },
-    type: {
-      control: "select",
-      options: ["button", "submit", "reset"],
-      description: "The type of the button.",
-    },
     shape: {
-      control: "select",
+      control: "inline-radio",
       options: ["square", "pill"],
       description: "The shape of the button.",
     },
@@ -76,6 +71,21 @@ export const Default: StoryObj<ButtonProps> = {
     size: "md",
     type: "button",
     shape: "square",
+    href: "",
+    external: false,
+    loading: false,
+    disabled: false,
+    block: false,
+  },
+};
+
+export const Pill: StoryObj<ButtonProps> = {
+  args: {
+    label: "click **me** !",
+    variant: "primary",
+    size: "md",
+    type: "button",
+    shape: "pill",
     href: "",
     external: false,
     loading: false,

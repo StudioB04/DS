@@ -20,4 +20,11 @@ describe("Loader component", () => {
     expect(dialog).toHaveClass("custom-loader");
     expect(dialog).toHaveAttribute("data-testid", "loader");
   });
+
+  it("should display label", () => {
+    const { container } = render(<Loader label="loading..." />);
+    const dialog = container.querySelector("dialog");
+
+    expect(dialog).toHaveTextContent("loading...");
+  });
 });
