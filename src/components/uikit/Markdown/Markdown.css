@@ -1,0 +1,119 @@
+.ds-markdown {
+  color: inherit;
+  text-align: inherit;
+
+  * {
+    font-size: inherit;
+  }
+}
+
+.ds-markdown__p {
+  text-align: inherit;
+
+  & + * {
+    margin-block-start: 1rem;
+  }
+}
+
+.ds-markdown__link {
+  position: relative;
+  display: inline-block;
+  border-radius: var(--ds-radius-xs);
+  color: var(--ds-text-brand);
+  font-weight: var(--ds-font-weight-medium);
+  padding-inline: var(--ds-spacing-sm);
+  margin-inline: calc(-1 * var(--ds-spacing-sm));
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset-block-end: 0;
+    inset-inline-start: var(--ds-spacing-sm);
+    inset-inline-end: 100%;
+    block-size: var(--ds-size-1px);
+    background-color: currentcolor;
+    transition: inset-inline-end var(--ds-transition-regular);
+  }
+
+  &:focus-visible {
+    outline-offset: calc(-1 * var(--ds-size-3px));
+  }
+
+  &:hover {
+    color: var(--ds-bg-brand-solid_hover);
+
+    &::after {
+      inset-inline-end: var(--ds-spacing-sm);
+    }
+  }
+}
+
+.ds-markdown__title {
+  font-weight: var(--ds-font-weight-semibold);
+  text-align: inherit;
+
+  &.ds-markdown__title--h1 {
+    font-size: var(--ds-font-size-title-sm);
+    line-height: var(--ds-line-height-title-sm);
+  }
+
+  &.ds-markdown__title--h2 {
+    font-size: var(--ds-font-size-title-xs);
+    line-height: var(--ds-line-height-title-xs);
+  }
+
+  &.ds-markdown__title--h3 {
+    font-size: var(--ds-font-size-title-2xs);
+    line-height: var(--ds-line-height-title-2xs);
+  }
+
+  &.ds-markdown__title--h4 {
+    font-size: var(--ds-font-size-text-md);
+    line-height: var(--ds-line-height-text-md);
+  }
+}
+
+.ds-markdown__hr {
+  inline-size: 100%;
+  block-size: var(--ds-size-1px);
+  margin-block: 1em;
+  background-color: var(--ds-border-secondary);
+}
+
+.ds-markdown__em {
+  font-style: italic;
+}
+
+.ds-markdown__strong {
+  font-weight: var(--ds-font-weight-semibold);
+}
+
+.ds-markdown__img {
+  max-inline-size: 100%;
+  block-size: auto;
+}
+
+.ds-markdown__ul {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-spacing-md);
+
+  .ds-markdown__li {
+    list-style-type: disc;
+  }
+}
+
+.ds-markdown__ol {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-spacing-md);
+
+  .ds-markdown__li {
+    list-style-type: decimal;
+  }
+}
+
+.ds-markdown__li {
+  display: list-item;
+  margin-inline-start: 1.25em;
+}

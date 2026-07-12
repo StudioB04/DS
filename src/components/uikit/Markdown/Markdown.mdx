@@ -1,0 +1,49 @@
+import { Canvas, Controls, Meta } from "@storybook/addon-docs/blocks";
+import * as MarkdownStories from "./Markdown.stories";
+
+<Meta of={MarkdownStories} />
+
+# Markdown
+
+`Markdown` renders markdown syntax through `markdown-to-jsx`, with a small set of styled overrides for common tags and links.
+
+## Default
+
+<Canvas of={MarkdownStories.Default} />
+<Controls of={MarkdownStories.Default} />
+
+---
+
+## External links
+
+Links prefixed with `!!` open in a new tab.
+
+<Canvas of={MarkdownStories.ExternalLink} />
+
+---
+
+## Rich content
+
+`Markdown` supports headings, emphasis, lists, code blocks, and images.
+
+<Canvas of={MarkdownStories.Complex} />
+
+--- 
+
+## HTML tags
+
+Raw HTML can be enabled when the source is trusted.
+
+<Canvas of={MarkdownStories.WithHTMLTags} />
+
+---
+
+## Usage
+
+```tsx
+import { Markdown } from "@studio_b04/ds/uikit";
+
+<Markdown allowTags={["a", "strong", "em"]}>
+  {`Hello, **world**! Visit [docs](/docs).`}
+</Markdown>;
+```

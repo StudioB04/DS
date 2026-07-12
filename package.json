@@ -74,6 +74,7 @@
     "vitest-axe": "^0.1.0"
   },
   "dependencies": {
-    "lucide-static": "^1.16.0"
+    "lucide-static": "^1.16.0",
+    "markdown-to-jsx": "^9.8.2"
   }
 }

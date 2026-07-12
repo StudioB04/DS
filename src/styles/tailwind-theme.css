@@ -242,37 +242,37 @@
   --color-bg-brand-secondary: var(--ds-bg-brand-secondary);
   --color-bg-brand-tertiary: var(--ds-bg-brand-tertiary);
   --color-bg-brand-solid: var(--ds-bg-brand-solid);
-  --color-bg-brand-solid-hover: var(--ds-bg-brand-solid-hover);
+  --color-bg-brand-solid_hover: var(--ds-bg-brand-solid_hover);
 
   --color-bg-alt-primary: var(--ds-bg-alt-primary);
   --color-bg-alt-secondary: var(--ds-bg-alt-secondary);
   --color-bg-alt-tertiary: var(--ds-bg-alt-tertiary);
   --color-bg-alt-solid: var(--ds-bg-alt-solid);
-  --color-bg-alt-solid-hover: var(--ds-bg-alt-solid-hover);
+  --color-bg-alt-solid_hover: var(--ds-bg-alt-solid_hover);
 
   --color-bg-info-primary: var(--ds-bg-info-primary);
   --color-bg-info-secondary: var(--ds-bg-info-secondary);
   --color-bg-info-tertiary: var(--ds-bg-info-tertiary);
   --color-bg-info-solid: var(--ds-bg-info-solid);
-  --color-bg-info-solid-hover: var(--ds-bg-info-solid-hover);
+  --color-bg-info-solid_hover: var(--ds-bg-info-solid_hover);
 
   --color-bg-error-primary: var(--ds-bg-error-primary);
   --color-bg-error-secondary: var(--ds-bg-error-secondary);
   --color-bg-error-tertiary: var(--ds-bg-error-tertiary);
   --color-bg-error-solid: var(--ds-bg-error-solid);
-  --color-bg-error-solid-hover: var(--ds-bg-error-solid-hover);
+  --color-bg-error-solid_hover: var(--ds-bg-error-solid_hover);
 
   --color-bg-warning-primary: var(--ds-bg-warning-primary);
   --color-bg-warning-secondary: var(--ds-bg-warning-secondary);
   --color-bg-warning-tertiary: var(--ds-bg-warning-tertiary);
   --color-bg-warning-solid: var(--ds-bg-warning-solid);
-  --color-bg-warning-solid-hover: var(--ds-bg-warning-solid-hover);
+  --color-bg-warning-solid_hover: var(--ds-bg-warning-solid_hover);
 
   --color-bg-success-primary: var(--ds-bg-success-primary);
   --color-bg-success-secondary: var(--ds-bg-success-secondary);
   --color-bg-success-tertiary: var(--ds-bg-success-tertiary);
   --color-bg-success-solid: var(--ds-bg-success-solid);
-  --color-bg-success-solid-hover: var(--ds-bg-success-solid-hover);
+  --color-bg-success-solid_hover: var(--ds-bg-success-solid_hover);
 
   /* ============================================================
      FOCUS

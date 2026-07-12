@@ -14,7 +14,7 @@ const loaderLoaders: Record<LoaderName, () => Promise<{ default: ComponentType }
   pulse: () => import("./loaders/Pulse"),
 };
 
-const Loader = ({ name = "spinning-dots", className, ...restProps }: LoaderProps) => {
+export default ({ name = "spinning-dots", className, ...restProps }: LoaderProps) => {
   const LoaderInner = lazy(loaderLoaders[name]);
 
   return (
@@ -27,5 +27,3 @@ const Loader = ({ name = "spinning-dots", className, ...restProps }: LoaderProps
     </dialog>
   );
 };
-
-export default Loader;

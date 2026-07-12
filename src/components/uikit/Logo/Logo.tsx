@@ -3,7 +3,7 @@ import type { LogoProps } from "./Logo.types";
 
 import "./Logo.css";
 
-const Logo = ({ variant = "brand", type = "small", className, ...restProps }: LogoProps) => {
+export default ({ variant = "brand", type = "small", className, ...restProps }: LogoProps) => {
   const dimensions: Record<typeof type, Record<string, string>> = {
     small: {
       width: "1000",
@@ -36,5 +36,3 @@ const Logo = ({ variant = "brand", type = "small", className, ...restProps }: Lo
     </svg>
   );
 };
-
-export default Logo;

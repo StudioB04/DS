@@ -5,7 +5,7 @@ import { LucideIconMap, type IconProps, type LucideIconName } from "./Icon.types
 
 import "./Icon.css";
 
-const Icon = ({ src, size = 24, fat, className, ...restProps }: IconProps) => {
+export default ({ src, size = 24, fat, className, ...restProps }: IconProps) => {
   const SVGProps = {
     className: clsx("ds-icon", `ds-icon--size-${size}`, fat && "ds-icon--fat", className),
     width: size,
@@ -47,5 +47,3 @@ const Icon = ({ src, size = 24, fat, className, ...restProps }: IconProps) => {
     </svg>
   );
 };
-
-export default Icon;
