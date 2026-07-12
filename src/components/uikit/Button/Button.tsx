@@ -2,7 +2,6 @@ import { Icon, Loader, Markdown } from "$uikit";
 import clsx from "clsx";
 import type { ButtonProps } from "./Button.types";
 import type { ElementType } from "react";
-import { ButtonColorVariant, Size } from "$/types";
 
 import "./Button.css";
 
@@ -10,8 +9,8 @@ const Button = ({
   label,
   type = "button",
   shape = "square",
-  size = Size.md,
-  variant = ButtonColorVariant.primary,
+  size = "md",
+  variant = "primary",
   href,
   external,
   loading,

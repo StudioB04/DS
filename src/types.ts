@@ -2,19 +2,14 @@ import type { ButtonHTMLAttributes, LinkHTMLAttributes } from "react";
 
 export type ButtonOrLinkProps = ButtonHTMLAttributes<HTMLButtonElement> & LinkHTMLAttributes<HTMLLinkElement>;
 
-export enum Size {
-  sm = "sm",
-  md = "md",
-  lg = "lg",
-}
+export type Size = "sm" | "md" | "lg";
 
-export enum ButtonColorVariant {
-  primary = "primary",
-  secondary = "secondary",
-  tertiary = "tertiary",
-  success = "success",
-  error = "error",
-  warning = "warning",
-  info = "info",
-  inverse = "inverse",
-}
+export type ButtonColorVariant =
+  | "primary"
+  | "secondary"
+  | "tertiary"
+  | "success"
+  | "error"
+  | "warning"
+  | "info"
+  | "inverse";

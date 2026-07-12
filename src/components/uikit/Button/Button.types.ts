@@ -4,7 +4,7 @@ import type { ReactNode } from "react";
 
 export interface ButtonProps extends ButtonOrLinkProps {
   label: string;
-  size: Size;
+  size?: Size;
   shape?: "pill" | "square";
   variant?: ButtonColorVariant;
   external?: boolean;

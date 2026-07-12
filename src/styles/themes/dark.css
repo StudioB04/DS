@@ -62,20 +62,20 @@
   --ds-bg-secondary: var(--color-gray-800);
   --ds-bg-tertiary: var(--color-gray-700);
 
-  --ds-bg-inverse: var(--color-gray-200);
-  --ds-bg-inverse_hover: var(--color-gray-100);
+  --ds-bg-inverse: var(--color-gray-600);
+  --ds-bg-inverse_hover: var(--color-gray-500);
 
   --ds-bg-brand-primary: var(--color-fuschia-900);
   --ds-bg-brand-secondary: var(--color-fuschia-800);
   --ds-bg-brand-tertiary: var(--color-fuschia-700);
-  --ds-bg-brand-solid: var(--color-fuschia-500);
-  --ds-bg-brand-solid_hover: var(--color-fuschia-400);
+  --ds-bg-brand-solid: var(--color-fuschia-600);
+  --ds-bg-brand-solid_hover: var(--color-fuschia-500);
 
   --ds-bg-alt-primary: var(--color-teal-900);
   --ds-bg-alt-secondary: var(--color-teal-800);
   --ds-bg-alt-tertiary: var(--color-teal-700);
-  --ds-bg-alt-solid: var(--color-teal-500);
-  --ds-bg-alt-solid_hover: var(--color-teal-400);
+  --ds-bg-alt-solid: var(--color-teal-600);
+  --ds-bg-alt-solid_hover: var(--color-teal-500);
 
   --ds-bg-neutral-primary: var(--color-gray-900);
   --ds-bg-neutral-secondary: var(--color-gray-800);
@@ -86,26 +86,26 @@
   --ds-bg-info-primary: var(--color-blue-900);
   --ds-bg-info-secondary: var(--color-blue-800);
   --ds-bg-info-tertiary: var(--color-blue-700);
-  --ds-bg-info-solid: var(--color-blue-500);
-  --ds-bg-info-solid_hover: var(--color-blue-400);
+  --ds-bg-info-solid: var(--color-blue-600);
+  --ds-bg-info-solid_hover: var(--color-blue-500);
 
   --ds-bg-error-primary: var(--color-red-900);
   --ds-bg-error-secondary: var(--color-red-800);
   --ds-bg-error-tertiary: var(--color-red-700);
-  --ds-bg-error-solid: var(--color-red-500);
-  --ds-bg-error-solid_hover: var(--color-red-400);
+  --ds-bg-error-solid: var(--color-red-600);
+  --ds-bg-error-solid_hover: var(--color-red-500);
 
   --ds-bg-warning-primary: var(--color-yellow-900);
   --ds-bg-warning-secondary: var(--color-yellow-800);
   --ds-bg-warning-tertiary: var(--color-yellow-700);
-  --ds-bg-warning-solid: var(--color-yellow-500);
-  --ds-bg-warning-solid_hover: var(--color-yellow-400);
+  --ds-bg-warning-solid: var(--color-yellow-600);
+  --ds-bg-warning-solid_hover: var(--color-yellow-500);
 
   --ds-bg-success-primary: var(--color-green-900);
   --ds-bg-success-secondary: var(--color-green-800);
   --ds-bg-success-tertiary: var(--color-green-700);
-  --ds-bg-success-solid: var(--color-green-500);
-  --ds-bg-success-solid_hover: var(--color-green-400);
+  --ds-bg-success-solid: var(--color-green-600);
+  --ds-bg-success-solid_hover: var(--color-green-500);
 
   /* --- MISC COLORS --- */
   --ds-focus-ring-color: var(--color-gray-300);

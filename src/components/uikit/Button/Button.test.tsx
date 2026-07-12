@@ -2,17 +2,16 @@ import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 import { axe } from "vitest-axe";
 
-import { Size } from "$/types";
 import Button from "./Button";
 
 describe("Button component", () => {
   it("should have no accessibility violations", async () => {
-    const { container } = render(<Button label="Click me" size={Size.md} />);
+    const { container } = render(<Button label="Click me" size="md" />);
     expect(await axe(container, { rules: { "color-contrast": { enabled: false } } })).toHaveNoViolations();
   });
 
   it("renders a button by default with expected classes", () => {
-    render(<Button label="Click me" size={Size.md} />);
+    render(<Button label="Click me" size="md" />);
 
     const button = screen.getByRole("button", { name: "Click me" });
     expect(button).toHaveClass(
@@ -26,7 +25,7 @@ describe("Button component", () => {
   });
 
   it("renders an anchor when href is provided", () => {
-    render(<Button label="Read docs" size={Size.md} href="/docs" />);
+    render(<Button label="Read docs" size="md" href="/docs" />);
 
     const link = screen.getByRole("link", { name: "Read docs" });
     expect(link).toHaveAttribute("href", "/docs");
@@ -34,7 +33,7 @@ describe("Button component", () => {
   });
 
   it("adds external link attributes when external is true", () => {
-    render(<Button label="External" size={Size.md} href="https://example.com" external />);
+    render(<Button label="External" size="md" href="https://example.com" external />);
 
     const link = screen.getByRole("link", { name: "External" });
     expect(link).toHaveAttribute("target", "_blank");
@@ -42,7 +41,7 @@ describe("Button component", () => {
   });
 
   it("applies loading state with loader and disabled interaction", () => {
-    const { container } = render(<Button label="Loading" size={Size.md} loading />);
+    const { container } = render(<Button label="Loading" size="md" loading />);
 
     const button = screen.getByRole("button", { name: "Loading" });
     expect(button).toBeDisabled();
@@ -52,7 +51,7 @@ describe("Button component", () => {
   });
 
   it("applies disabled state when disabled is true", () => {
-    render(<Button label="Disabled" size={Size.md} disabled />);
+    render(<Button label="Disabled" size="md" disabled />);
 
     const button = screen.getByRole("button", { name: "Disabled" });
     expect(button).toBeDisabled();
@@ -60,7 +59,7 @@ describe("Button component", () => {
   });
 
   it("renders iconOnly mode", () => {
-    const { container } = render(<Button label="Icon" size={Size.md} iconOnly="smile" />);
+    const { container } = render(<Button label="Icon" size="md" iconOnly="smile" />);
 
     expect(screen.getByRole("button", { name: "Icon" })).toHaveClass("ds-button--icon-only");
     expect(container.querySelector(".ds-button__icon--only")).toBeInTheDocument();
@@ -68,26 +67,26 @@ describe("Button component", () => {
   });
 
   it("renders external-link icon when href is external and iconEnd is not provided", () => {
-    const { container } = render(<Button label="Docs" size={Size.md} href="https://example.com" external />);
+    const { container } = render(<Button label="Docs" size="md" href="https://example.com" external />);
 
     expect(container.querySelector(".ds-button__icon--external")).toBeInTheDocument();
   });
 
   it("renders slot content on both sides", () => {
-    render(<Button label="Slot" size={Size.md} slotStart={<span>Left</span>} slotEnd={<span>Right</span>} />);
+    render(<Button label="Slot" size="md" slotStart={<span>Left</span>} slotEnd={<span>Right</span>} />);
 
     expect(screen.getByText("Left")).toBeInTheDocument();
     expect(screen.getByText("Right")).toBeInTheDocument();
   });
 
   it("uses explicit title when provided", () => {
-    render(<Button label="Click me" size={Size.md} title="Custom title" />);
+    render(<Button label="Click me" size="md" title="Custom title" />);
 
     expect(screen.getByRole("button", { name: "Click me" })).toHaveAttribute("title", "Custom title");
   });
 
   it("renders markdown in label", () => {
-    render(<Button label="Click **me**" size={Size.md} />);
+    render(<Button label="Click **me**" size="md" />);
 
     expect(screen.getByText("me")).toHaveClass("ds-markdown__strong");
   });

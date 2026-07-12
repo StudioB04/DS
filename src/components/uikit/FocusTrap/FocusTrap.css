@@ -1,0 +1,8 @@
+.ds-focus-trap,
+.ds-focus-trap__content {
+  display: contents;
+}
+
+.ds-focus-trap__button {
+  position: absolute;
+}

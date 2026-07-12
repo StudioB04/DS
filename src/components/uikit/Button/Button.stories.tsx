@@ -1,7 +1,6 @@
 import type { StoryObj } from "@storybook/react-vite";
 import type { ButtonProps } from "./Button.types";
 import Button from "./Button";
-import { ButtonColorVariant, Size } from "$/types";
 import { LucideIconMap } from "$uikit/types";
 
 export default {
@@ -14,12 +13,12 @@ export default {
     },
     variant: {
       control: "select",
-      options: Object.values(ButtonColorVariant),
+      options: ["primary", "secondary", "tertiary", "success", "error", "warning", "info", "inverse"],
       description: "The color variant of the button.",
     },
     size: {
       control: "select",
-      options: Object.values(Size),
+      options: ["sm", "md", "lg"],
       description: "The size of the button.",
     },
     type: {
@@ -29,7 +28,7 @@ export default {
     },
     shape: {
       control: "select",
-      options: ["square", "rounded", "pill"],
+      options: ["square", "pill"],
       description: "The shape of the button.",
     },
     href: {
@@ -73,8 +72,8 @@ export default {
 export const Default: StoryObj<ButtonProps> = {
   args: {
     label: "click **me** !",
-    variant: ButtonColorVariant.primary,
-    size: Size.md,
+    variant: "primary",
+    size: "md",
     type: "button",
     shape: "square",
     href: "",
@@ -88,8 +87,8 @@ export const Default: StoryObj<ButtonProps> = {
 export const WithIconStart: StoryObj<ButtonProps> = {
   args: {
     label: "click **me** !",
-    variant: ButtonColorVariant.primary,
-    size: Size.md,
+    variant: "primary",
+    size: "md",
     type: "button",
     shape: "square",
     href: "",
@@ -104,8 +103,8 @@ export const WithIconStart: StoryObj<ButtonProps> = {
 export const WithIconOnly: StoryObj<ButtonProps> = {
   args: {
     label: "click **me** !",
-    variant: ButtonColorVariant.primary,
-    size: Size.md,
+    variant: "primary",
+    size: "md",
     type: "button",
     shape: "square",
     href: "",
@@ -120,8 +119,8 @@ export const WithIconOnly: StoryObj<ButtonProps> = {
 export const Loading: StoryObj<ButtonProps> = {
   args: {
     label: "click **me** !",
-    variant: ButtonColorVariant.primary,
-    size: Size.md,
+    variant: "primary",
+    size: "md",
     type: "button",
     shape: "square",
     href: "",

@@ -1,0 +1,18 @@
+import { Canvas } from "@storybook/addon-docs/blocks";
+import { Default } from "./FocusTrap.stories";
+
+# FocusTrap
+
+The `FocusTrap` component will force its children to be focusable and will trap the focus within the component. It is useful for modals, popups, and other components that require user interaction.
+
+## Demo
+
+<Canvas of={Default} />
+
+## Usage
+
+```tsx
+import { FocusTrap } from "@partner/ui";
+
+<FocusTrap>...</FocusTrap>;
+```
