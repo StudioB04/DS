@@ -18,7 +18,11 @@
     "ignoreDeprecations": "5.0",
     "resolveJsonModule": true,
     "paths": {
-      "@/*": ["./src/*"]
+      "$uikit": ["./src/components/uikit"],
+      "$uikit/*": ["./src/components/uikit/*"],
+      "$utils": ["./src/utils"],
+      "$utils/*": ["./src/utils/*"],
+      "$/*": ["./src/*"]
     }
   },
   "include": ["src"],

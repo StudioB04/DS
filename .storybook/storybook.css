@@ -1,11 +1,10 @@
 @layer reset, fonts, tokens, base, components;
 
-@import url("@/styles/reset") layer(reset);
-@import url("@/styles/base") layer(base);
-
-@import url("@/styles/themes/light.css") layer(tokens);
-@import url("@/styles/themes/dark.css") layer(tokens);
-@import url("@/styles/themes/tokens") layer(tokens);
+@import url("$/styles/reset") layer(reset);
+@import url("$/styles/base") layer(base);
+@import url("$/styles/themes/light.css") layer(tokens);
+@import url("$/styles/themes/dark.css") layer(tokens);
+@import url("$/styles/themes/tokens") layer(tokens);
 
 @import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@300..900&display=swap") layer(fonts);
 @import url("https://fonts.googleapis.com/css2?family=Red+Hat+Mono:wght@400..600&display=swap") layer(fonts);

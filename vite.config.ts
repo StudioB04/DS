@@ -25,7 +25,9 @@ const textExclusion = [
 export default defineConfig({
   resolve: {
     alias: {
-      "@": resolve(__dirname, "src"),
+      $: resolve(__dirname, "src"),
+      $uikit: resolve(__dirname, "src/components/uikit"),
+      $utils: resolve(__dirname, "src/utils"),
     },
   },
   plugins: [

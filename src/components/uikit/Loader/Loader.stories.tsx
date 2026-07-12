@@ -22,5 +22,5 @@ export default {
 };
 
 export const Default: StoryObj<LoaderProps> = {
-  args: { name: "BouncingDots" },
+  args: { name: "bouncing-dots" },
 };
