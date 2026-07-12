@@ -2,6 +2,22 @@ import type { ButtonHTMLAttributes, LinkHTMLAttributes } from "react";
 
 export type ButtonOrLinkProps = ButtonHTMLAttributes<HTMLButtonElement> & LinkHTMLAttributes<HTMLLinkElement>;
 
-export type Size = "xs" | "sm" | "md" | "lg" | "xl";
+export enum Size {
+  xxs = "xxs",
+  xs = "xs",
+  sm = "sm",
+  md = "md",
+  lg = "lg",
+  xl = "xl",
+  xxl = "xxl",
+}
 
-export type ButtonColorVariants = "primary" | "secondary" | "tertiary" | "success" | "error" | "warning" | "info";
+export enum ButtonColorVariant {
+  primary = "primary",
+  secondary = "secondary",
+  tertiary = "tertiary",
+  success = "success",
+  error = "error",
+  warning = "warning",
+  info = "info",
+}

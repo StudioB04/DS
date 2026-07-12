@@ -9,10 +9,9 @@ export const globalTypes = {
     description: "Set color scheme",
     defaultValue: "light",
     toolbar: {
-      icon: "paintbrush",
       items: [
-        { value: "light", title: "Light" },
-        { value: "dark", title: "Dark" },
+        { value: "light", title: "Light", icon: "sun" },
+        { value: "dark", title: "Dark", icon: "moon" },
       ],
       showName: true,
       dynamicTitle: true,
@@ -25,7 +24,7 @@ const preview: Preview = {
     layout: "centered",
     controls: {
       expanded: true,
-      exclude: ["id", "className", "style", "children", "defaultValue", "ref"],
+      exclude: ["id", "className", "style", "children", "defaultValue", "ref", "slot", "slotStart", "slotEnd"],
       matchers: {
         color: /(background|color)$/i,
         date: /Date$/i,

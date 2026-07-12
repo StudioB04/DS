@@ -1,0 +1,46 @@
+.ds-button {
+  --ds-button-size: var(--size-24px);
+  --ds-button-font-size: var(--ds-font-size-text-md);
+  --ds-button-color: var(--ds-text-primary);
+  --ds-button-background-color: var(--ds-bg-secondary);
+  --ds-button-background-color_hover: var(--ds-bg-tertiary);
+
+  position: relative;
+  display: inline-flex;
+  gap: 1em;
+  place-items: center;
+  justify-content: center;
+  inline-size: fit-content;
+  font-weight: var(--ds-font-weight-regular);
+  transition: all var(--ds-transition-fast);
+  flex-shrink: 0;
+  block-size: var(--ds-button-size);
+  padding-inline: 1em;
+  font-size: var(--ds-button-font-size);
+  line-height: 1.35;
+  color: var(--ds-button-color);
+  background-color: var(--ds-button-background-color);
+
+  &:is(:hover, :focus-visible) {
+    background-color: var(--ds-button-background-color_hover);
+  }
+}
+
+.ds-button__icon {
+  inline-size: 1em;
+  block-size: 1em;
+}
+
+/* ##### VARIANTS ###################### */
+.ds-button--variant-primary {
+  --ds-button-color: var(--ds-text-white);
+  --ds-button-background-color: var(--ds-bg-brand-solid);
+  --ds-button-background-color_hover: var(--ds-bg-brand-solid_hover);
+}
+
+/* ##### VARIANTS ###################### */
+.ds-button--variant-secondary {
+  --ds-button-color: var(--ds-text-white);
+  --ds-button-background-color: var(--ds-bg-alt-solid);
+  --ds-button-background-color_hover: var(--ds-bg-alt-solid_hover);
+}

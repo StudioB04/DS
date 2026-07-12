@@ -1,22 +1,29 @@
-import { Markdown } from "$uikit";
+import { Icon, Markdown } from "$uikit";
 import clsx from "clsx";
 import type { ButtonProps } from "./Button.types";
 import type { ElementType } from "react";
+import { ButtonColorVariant, Size } from "$/types";
 
-export default ({
+import "./Button.css";
+
+const Button = ({
   label,
   type = "button",
-  size,
+  shape = "square",
+  size = Size.md,
+  variant = ButtonColorVariant.primary,
   href,
   external,
   loading,
   disabled,
-  shape,
   block,
-  variant,
+  iconStart,
+  iconEnd,
+  iconOnly,
   slotStart,
   slotEnd,
   className,
+  title,
   ...restProps
 }: ButtonProps) => {
   const ButtonComponent = (href ? "a" : "button") as ElementType;
@@ -38,13 +45,26 @@ export default ({
       href={href}
       target={href && external ? "_blank" : undefined}
       rel={href && external ? "noopener noreferrer" : undefined}
+      title={title ?? label}
       {...restProps}
     >
       {slotStart && <span className="ds-button__slot ds-button__slot--start">{slotStart}</span>}
 
-      <Markdown allowTags={["strong", "em", "br"]}>{label}</Markdown>
+      {iconOnly ? (
+        <Icon src={iconOnly} className="ds-button__icon ds-button__icon--only" />
+      ) : (
+        <>
+          {iconStart && <Icon className="ds-button__icon ds-button__icon--start" src={iconStart} />}
+
+          <Markdown allowTags={["strong", "em", "br"]}>{label}</Markdown>
+
+          {iconEnd && <Icon className="ds-button__icon ds-button__icon--end" src={iconEnd} />}
+        </>
+      )}
 
       {slotEnd && <span className="ds-button__slot ds-button__slot--end">{slotEnd}</span>}
     </ButtonComponent>
   );
 };
+
+export default Button;
