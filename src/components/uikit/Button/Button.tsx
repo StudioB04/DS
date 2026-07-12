@@ -1,4 +1,4 @@
-import { Icon, Markdown } from "$uikit";
+import { Icon, Loader, Markdown } from "$uikit";
 import clsx from "clsx";
 import type { ButtonProps } from "./Button.types";
 import type { ElementType } from "react";
@@ -35,12 +35,14 @@ const Button = ({
         `ds-button--shape-${shape}`,
         `ds-button--size-${size}`,
         `ds-button--variant-${variant}`,
+        iconOnly && "ds-button--icon-only",
         block && "ds-button--block",
         loading && "ds-button--loading",
         disabled && "ds-button--disabled",
         className,
       )}
       disabled={!href ? disabled === true || loading === true : undefined}
+      inert={!href ? disabled === true || loading === true : undefined}
       type={!href && type ? type : undefined}
       href={href}
       target={href && external ? "_blank" : undefined}
@@ -58,11 +60,21 @@ const Button = ({
 
           <Markdown allowTags={["strong", "em", "br"]}>{label}</Markdown>
 
+          {href && external && !iconEnd && (
+            <Icon className="ds-button__icon ds-button__icon--external" src="external-link" />
+          )}
+
           {iconEnd && <Icon className="ds-button__icon ds-button__icon--end" src={iconEnd} />}
         </>
       )}
 
       {slotEnd && <span className="ds-button__slot ds-button__slot--end">{slotEnd}</span>}
+
+      {loading && (
+        <div className="ds-button__loader">
+          <Loader />
+        </div>
+      )}
     </ButtonComponent>
   );
 };

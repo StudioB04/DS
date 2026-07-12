@@ -58,7 +58,7 @@ const Markdown = ({
         slugify: (str) => `anchor-${str}`,
         disableAutoLink: true,
         disableParsingRawHTML: !allowHtml,
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+
         overrides: {
           a: CustomLink,
           p: setOverride("p", "ds-markdown__p"),

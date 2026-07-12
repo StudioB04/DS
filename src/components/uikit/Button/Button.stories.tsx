@@ -84,3 +84,50 @@ export const Default: StoryObj<ButtonProps> = {
     block: false,
   },
 };
+
+export const WithIconStart: StoryObj<ButtonProps> = {
+  args: {
+    label: "click **me** !",
+    variant: ButtonColorVariant.primary,
+    size: Size.md,
+    type: "button",
+    shape: "square",
+    href: "",
+    external: false,
+    loading: false,
+    disabled: false,
+    block: false,
+    iconStart: "ambulance",
+  },
+};
+
+export const WithIconOnly: StoryObj<ButtonProps> = {
+  args: {
+    label: "click **me** !",
+    variant: ButtonColorVariant.primary,
+    size: Size.md,
+    type: "button",
+    shape: "square",
+    href: "",
+    external: false,
+    loading: false,
+    disabled: false,
+    block: false,
+    iconOnly: "git-pull-request-arrow",
+  },
+};
+
+export const Loading: StoryObj<ButtonProps> = {
+  args: {
+    label: "click **me** !",
+    variant: ButtonColorVariant.primary,
+    size: Size.md,
+    type: "button",
+    shape: "square",
+    href: "",
+    external: false,
+    loading: true,
+    disabled: false,
+    block: false,
+  },
+};

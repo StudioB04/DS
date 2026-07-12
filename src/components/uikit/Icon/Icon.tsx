@@ -1,6 +1,7 @@
 // https://lucide.dev/guide/static/svg-sprite
 /* eslint-disable react/no-danger */
 import clsx from "clsx";
+import spriteUrl from "lucide-static/sprite.svg?url";
 import { LucideIconMap, type IconProps, type LucideIconName } from "./Icon.types";
 
 import "./Icon.css";
@@ -21,7 +22,7 @@ export default ({ src, size = 24, fat, className, ...restProps }: IconProps) => 
   if (isLucideIcon) {
     return (
       <svg {...SVGProps} aria-hidden="true" className={clsx(SVGProps.className, `ds-icon--${src}`)}>
-        <use href={`lucide-static/sprite.svg#${src}`} />
+        <use href={`${spriteUrl}#${src}`} />
       </svg>
     );
   }

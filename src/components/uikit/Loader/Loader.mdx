@@ -5,7 +5,7 @@ import * as LoaderStories from "./Loader.stories";
 
 # Loader
 
-The `Loader` component displays an SVG loading indicator inside a `dialog`. It lazily loads the requested animation by `name`.
+The `Loader` component displays a single SVG loading indicator inside a `dialog`.
 
 ## Default
 
@@ -14,23 +14,11 @@ The `Loader` component displays an SVG loading indicator inside a `dialog`. It l
 
 ---
 
-## Loader names
 
-### `Dots`
+## With Label
 
-The default animated dots spinner.
-
-```tsx
-<Loader name="Dots" />
-```
-
-### `Ring`
-
-A circular spinner variant.
-
-```tsx
-<Loader name="Ring" />
-```
+<Canvas of={LoaderStories.WithLabel} />
+<Controls of={LoaderStories.WithLabel} />
 
 ---
 
@@ -39,7 +27,7 @@ A circular spinner variant.
 `Loader` is best used as a visual loading state for asynchronous content.
 
 ```tsx
-<Loader name="Dots" className="my-loader" />
+<Loader className="my-loader" />
 ```
 
 ---
@@ -49,5 +37,5 @@ A circular spinner variant.
 The loader is decorative unless you provide an accessible label on the `dialog` element:
 
 ```tsx
-<Loader name="Dots" aria-label="Loading content" />
+<Loader aria-label="Loading content" />
 ```

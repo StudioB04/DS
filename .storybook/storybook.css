@@ -23,3 +23,11 @@ layer(fonts);
   color: var(--ds-text-primary);
   background-color: var(--ds-bg-primary);
 }
+
+#storybook-root:not([hidden="true"]) {
+  inline-size: 100dvw;
+  block-size: 100dvh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

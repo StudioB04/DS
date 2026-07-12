@@ -66,7 +66,7 @@ All three index files start with `"use client";` for Next.js / RSC compatibility
 2. **Semantic tokens** (`src/styles/themes/light.css` + `dark.css`) — purpose-based aliases referencing primitives
    - `--ds-text-primary`, `--ds-bg-secondary`, `--ds-border-brand-solid`, etc.
 
-Theme switching uses `data-ds-theme="light|dark"` on `<html>`. The light theme also applies when no attribute is set (SSR-safe). Dark mode also responds to `prefers-color-scheme: dark` via media query.
+Theme switching uses `data-ds-theme="light|dark"` on `<html>`. The light theme also applies when no attribute is set (SSR-safe). Dark mode is applied only when `data-ds-theme="dark"` is set.
 
 ---
 

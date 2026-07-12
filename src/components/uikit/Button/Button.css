@@ -1,34 +1,92 @@
 .ds-button {
-  --ds-button-size: var(--size-24px);
-  --ds-button-font-size: var(--ds-font-size-text-md);
-  --ds-button-color: var(--ds-text-primary);
-  --ds-button-background-color: var(--ds-bg-secondary);
-  --ds-button-background-color_hover: var(--ds-bg-tertiary);
-
   position: relative;
   display: inline-flex;
-  gap: 1em;
+  gap: calc(0.5 * var(--ds-button-padding-inline));
   place-items: center;
   justify-content: center;
   inline-size: fit-content;
-  font-weight: var(--ds-font-weight-regular);
+  font-weight: var(--ds-font-weight-medium);
   transition: all var(--ds-transition-fast);
   flex-shrink: 0;
   block-size: var(--ds-button-size);
-  padding-inline: 1em;
+  padding-inline: var(--ds-button-padding-inline);
   font-size: var(--ds-button-font-size);
-  line-height: 1.35;
+  line-height: 1.2;
   color: var(--ds-button-color);
+  border-radius: var(--ds-button-radius);
   background-color: var(--ds-button-background-color);
+  transition: box-shadow var(--ds-transition-fast);
+  cursor: pointer;
+  box-shadow: inset 0 0 0 0 var(--ds-button-background-color_hover);
 
   &:is(:hover, :focus-visible) {
-    background-color: var(--ds-button-background-color_hover);
+    box-shadow:
+      inset 0 0 var(--ds-button-size) 0 var(--ds-button-background-color_hover),
+      0 0 var(--ds-size-8px) 0 var(--ds-button-background-color);
+  }
+
+  &:not(:has(.ds-button__icon--start)) {
+    padding-inline-start: calc(2 * var(--ds-button-padding-inline));
+  }
+
+  &:not(:has(.ds-button__icon--end)) {
+    padding-inline-end: calc(2 * var(--ds-button-padding-inline));
+  }
+
+  &[disabled] {
+    cursor: not-allowed;
+  }
+
+  .ds-button__loader {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: inherit;
+    background-color: inherit;
+    border-radius: inherit;
+  }
+
+  &.ds-button--disabled {
+    --ds-button-background-color: var(--ds-bg-neutral-solid);
+    --ds-button-background-color_hover: var(--ds-bg-neutral-solid_hover);
+  }
+
+  &.ds-button--block {
+    inline-size: 100%;
+  }
+
+  &.ds-button--icon-only {
+    padding-inline: var(--ds-button-padding-inline);
+    aspect-ratio: 1;
+  }
+
+  .ds-button__icon--external {
+    block-size: 1em;
+    inline-size: 1em;
   }
 }
 
-.ds-button__icon {
-  inline-size: 1em;
-  block-size: 1em;
+/* ##### SIZE ########################## */
+.ds-button--size-sm {
+  --ds-button-size: var(--ds-size-40px);
+  --ds-button-font-size: var(--ds-font-size-text-md);
+  --ds-button-padding-inline: var(--ds-spacing-lg);
+  --ds-button-radius: var(--ds-radius-md);
+}
+.ds-button--size-md {
+  --ds-button-size: var(--ds-size-48px);
+  --ds-button-font-size: var(--ds-font-size-text-lg);
+  --ds-button-padding-inline: var(--ds-spacing-xl);
+  --ds-button-radius: var(--ds-radius-lg);
+}
+
+.ds-button--size-lg {
+  --ds-button-size: var(--ds-size-56px);
+  --ds-button-font-size: var(--ds-font-size-text-xl);
+  --ds-button-padding-inline: var(--ds-spacing-2xl);
+  --ds-button-radius: var(--ds-radius-xl);
 }
 
 /* ##### VARIANTS ###################### */
@@ -38,9 +96,44 @@
   --ds-button-background-color_hover: var(--ds-bg-brand-solid_hover);
 }
 
-/* ##### VARIANTS ###################### */
 .ds-button--variant-secondary {
   --ds-button-color: var(--ds-text-white);
   --ds-button-background-color: var(--ds-bg-alt-solid);
   --ds-button-background-color_hover: var(--ds-bg-alt-solid_hover);
+}
+
+.ds-button--variant-tertiary {
+  --ds-button-color: var(--ds-text-primary);
+  --ds-button-background-color: var(--ds-bg-secondary);
+  --ds-button-background-color_hover: var(--ds-bg-tertiary);
+}
+
+.ds-button--variant-success {
+  --ds-button-color: var(--ds-text-white);
+  --ds-button-background-color: var(--ds-bg-success-solid);
+  --ds-button-background-color_hover: var(--ds-bg-success-solid_hover);
+}
+
+.ds-button--variant-warning {
+  --ds-button-color: var(--ds-text-white);
+  --ds-button-background-color: var(--ds-bg-warning-solid);
+  --ds-button-background-color_hover: var(--ds-bg-warning-solid_hover);
+}
+
+.ds-button--variant-error {
+  --ds-button-color: var(--ds-text-white);
+  --ds-button-background-color: var(--ds-bg-error-solid);
+  --ds-button-background-color_hover: var(--ds-bg-error-solid_hover);
+}
+
+.ds-button--variant-info {
+  --ds-button-color: var(--ds-text-white);
+  --ds-button-background-color: var(--ds-bg-info-solid);
+  --ds-button-background-color_hover: var(--ds-bg-info-solid_hover);
+}
+
+.ds-button--variant-inverse {
+  --ds-button-color: var(--ds-text-inverse);
+  --ds-button-background-color: var(--ds-bg-inverse);
+  --ds-button-background-color_hover: var(--ds-bg-inverse_hover);
 }

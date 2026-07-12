@@ -43,3 +43,11 @@ body {
   padding: 0;
   margin: 0;
 }
+
+*:focus-visible {
+  outline-style: solid;
+  outline-width: var(--ds-focus-ring-size);
+  outline-offset: var(--ds-focus-ring-size);
+  outline-color: var(--ds-focus-ring-color);
+  z-index: 1;
+}

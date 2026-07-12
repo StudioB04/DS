@@ -99,7 +99,7 @@ The design system ships with a **light** (default) and **dark** theme using sema
 <html data-ds-theme="dark"></html>
 ```
 
-The dark theme also responds to `@media (prefers-color-scheme: dark)` automatically — no JavaScript required for users with a system dark mode preference.
+Dark mode is applied only when `data-ds-theme="dark"` is set.
 
 ```tsx
 document.documentElement.dataset.dsTheme = "dark";

@@ -1,0 +1,58 @@
+import { Canvas, Controls, Meta } from "@storybook/addon-docs/blocks";
+import * as ButtonStories from "./Button.stories";
+
+<Meta of={ButtonStories} />
+
+# Button
+
+The `Button` component renders a semantic `<button>` by default and switches to an anchor when `href` is provided. Labels support basic markdown (`strong`, `em`, `br`).
+
+## Default
+
+<Canvas of={ButtonStories.Default} />
+<Controls of={ButtonStories.Default} />
+
+---
+
+## Loading state
+
+Use `loading` to display a loader overlay and disable interaction.
+
+<Canvas of={ButtonStories.Loading} />
+
+---
+
+## Usage
+
+```tsx
+import { Button } from "@studio_b04/ds/uikit";
+
+<Button
+  label="Save changes"
+  variant="primary"
+  size="md"
+  iconStart="check"
+/>
+```
+
+---
+
+## Link mode
+
+When `href` is provided, the component renders an anchor. With `external`, it adds the external icon and link security attributes:
+
+```tsx
+<Button label="Open docs" href="/docs" />
+<Button label="External link" href="https://example.com" external />
+```
+
+---
+
+## Icon-only and slots
+
+You can render only an icon with `iconOnly`, or inject custom content with `slotStart` / `slotEnd`.
+
+```tsx
+<Button label="Settings" iconOnly="settings" />
+<Button label="Filter" slotStart={<span>◀</span>} slotEnd={<span>▶</span>} />
+```

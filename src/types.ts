@@ -3,13 +3,9 @@ import type { ButtonHTMLAttributes, LinkHTMLAttributes } from "react";
 export type ButtonOrLinkProps = ButtonHTMLAttributes<HTMLButtonElement> & LinkHTMLAttributes<HTMLLinkElement>;
 
 export enum Size {
-  xxs = "xxs",
-  xs = "xs",
   sm = "sm",
   md = "md",
   lg = "lg",
-  xl = "xl",
-  xxl = "xxl",
 }
 
 export enum ButtonColorVariant {
@@ -20,4 +16,5 @@ export enum ButtonColorVariant {
   error = "error",
   warning = "warning",
   info = "info",
+  inverse = "inverse",
 }

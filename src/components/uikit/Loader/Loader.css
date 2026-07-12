@@ -1,11 +1,18 @@
 .ds-loader {
   position: relative;
   display: inline-flex;
-}
+  background-color: transparent;
+  color: inherit;
+  align-items: center;
+  gap: 0.35em;
 
-.ds-loader__svg {
-  width: 1em;
-  height: 1em;
-  aspect-ratio: 1;
-  fill: currentColor;
+  .ds-loader__svg {
+    width: 1.5em;
+    height: 1.5em;
+    aspect-ratio: 1;
+    fill: currentColor;
+  }
+
+  .ds-loader__label {
+  }
 }

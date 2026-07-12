@@ -8,31 +8,9 @@ describe("Loader component", () => {
   it("should have no accessibility violations", async () => {
     const { container } = render(<Loader />);
     await waitFor(() => {
-      expect(container.querySelector("circle")).toBeInTheDocument();
-    });
-    expect(await axe(container)).toHaveNoViolations();
-  });
-
-  it("renders spinning-dots loader by default", async () => {
-    const { container } = render(<Loader />);
-    const dialog = container.querySelector("dialog");
-
-    expect(dialog).toHaveClass("ds-loader", "ds-loader--spinning-dots");
-
-    await waitFor(() => {
-      expect(container.querySelector("circle")).toBeInTheDocument();
-    });
-  });
-
-  it("renders ring loader when requested", async () => {
-    const { container } = render(<Loader name="ring" />);
-    const dialog = container.querySelector("dialog");
-
-    expect(dialog).toHaveClass("ds-loader", "ds-loader--ring");
-
-    await waitFor(() => {
       expect(container.querySelector("path")).toBeInTheDocument();
     });
+    expect(await axe(container)).toHaveNoViolations();
   });
 
   it("merges className and forwards additional props", () => {
