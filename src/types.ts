@@ -13,3 +13,16 @@ export type ButtonColorVariant =
   | "warning"
   | "info"
   | "inverse";
+
+export type BadgeColorVariant =
+  | "neutral"
+  | "primary"
+  | "secondary"
+  | "success"
+  | "error"
+  | "warning"
+  | "info"
+  | "inverse"
+  | "purple"
+  | "yellow"
+  | "pink";

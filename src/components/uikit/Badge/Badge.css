@@ -1,0 +1,196 @@
+.ds-badge {
+  display: inline-flex;
+  min-inline-size: max-content;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--ds-radius-full);
+  font-size: var(--ds-badge-font-size);
+  line-height: 1.2;
+  font-weight: var(--ds-font-weight-medium);
+  gap: calc(0.5 * var(--ds-badge-padding-inline));
+  padding-inline: var(--ds-badge-padding-inline);
+  padding-block: var(--ds-badge-padding-block);
+  background-color: var(--ds-badge-background-color);
+  border: var(--ds-size-1px) solid var(--ds-badge-border-color);
+  color: var(--ds-badge-color);
+
+  &:has(.ds-badge__icon--start) {
+    padding-inline-start: calc(0.5 * var(--ds-badge-padding-inline));
+  }
+
+  &:has(.ds-badge__icon--end) {
+    padding-inline-end: calc(0.5 * var(--ds-badge-padding-inline));
+  }
+
+  &:has(.ds-badge__icon--only) {
+    aspect-ratio: 1;
+    padding-inline: calc(0.5 * var(--ds-badge-padding-inline));
+  }
+
+  &:has(.ds-badge__icon--end) {
+    padding-inline-end: calc(0.5 * var(--ds-badge-padding-inline));
+  }
+
+  .ds-badge__icon {
+    block-size: 1em;
+    inline-size: 1em;
+  }
+}
+
+/* ##### SIZE ########################## */
+.ds-badge--size-sm {
+  --ds-badge-font-size: var(--ds-font-size-text-md);
+  --ds-badge-padding-block: var(--ds-spacing-xs);
+  --ds-badge-padding-inline: var(--ds-spacing-xl);
+}
+.ds-badge--size-md {
+  --ds-badge-font-size: var(--ds-font-size-text-lg);
+  --ds-badge-padding-block: var(--ds-spacing-sm);
+  --ds-badge-padding-inline: var(--ds-spacing-2xl);
+}
+
+.ds-badge--size-lg {
+  --ds-badge-font-size: var(--ds-font-size-text-xl);
+  --ds-badge-padding-block: var(--ds-spacing-md);
+  --ds-badge-padding-inline: var(--ds-spacing-3xl);
+}
+
+/* ##### TYPE ########################## */
+.ds-badge--type-light {
+  /* ##### VARIANTS ###################### */
+  &.ds-badge--variant-neutral {
+    --ds-badge-color: var(--ds-text-primary);
+    --ds-badge-border-color: var(--ds-border-solid);
+    --ds-badge-background-color: var(--ds-bg-secondary);
+  }
+
+  &.ds-badge--variant-primary {
+    --ds-badge-color: var(--ds-text-brand);
+    --ds-badge-border-color: var(--ds-border-brand-solid);
+    --ds-badge-background-color: var(--ds-bg-brand-primary);
+  }
+
+  &.ds-badge--variant-secondary {
+    --ds-badge-color: var(--ds-text-alt);
+    --ds-badge-border-color: var(--ds-border-alt-solid);
+    --ds-badge-background-color: var(--ds-bg-alt-primary);
+  }
+
+  &.ds-badge--variant-success {
+    --ds-badge-color: var(--ds-text-success);
+    --ds-badge-border-color: var(--ds-border-success-solid);
+    --ds-badge-background-color: var(--ds-bg-success-primary);
+  }
+
+  &.ds-badge--variant-warning {
+    --ds-badge-color: var(--ds-text-warning);
+    --ds-badge-border-color: var(--ds-border-warning-solid);
+    --ds-badge-background-color: var(--ds-bg-warning-primary);
+  }
+
+  &.ds-badge--variant-error {
+    --ds-badge-color: var(--ds-text-error);
+    --ds-badge-border-color: var(--ds-border-error-solid);
+    --ds-badge-background-color: var(--ds-bg-error-primary);
+  }
+
+  &.ds-badge--variant-info {
+    --ds-badge-color: var(--ds-text-info);
+    --ds-badge-border-color: var(--ds-border-info-solid);
+    --ds-badge-background-color: var(--ds-bg-info-primary);
+  }
+
+  &.ds-badge--variant-inverse {
+    --ds-badge-color: var(--ds-text-inverse);
+    --ds-badge-border-color: var(--ds-border-inverse);
+    --ds-badge-background-color: var(--ds-bg-inverse);
+  }
+
+  &.ds-badge--variant-purple {
+    --ds-badge-color: var(--ds-text-purple);
+    --ds-badge-border-color: var(--ds-border-purple-solid);
+    --ds-badge-background-color: var(--ds-bg-purple-primary);
+  }
+
+  &.ds-badge--variant-yellow {
+    --ds-badge-color: var(--ds-text-yellow);
+    --ds-badge-border-color: var(--ds-border-yellow-solid);
+    --ds-badge-background-color: var(--ds-bg-yellow-primary);
+  }
+
+  &.ds-badge--variant-pink {
+    --ds-badge-color: var(--ds-text-pink);
+    --ds-badge-border-color: var(--ds-border-pink-solid);
+    --ds-badge-background-color: var(--ds-bg-pink-primary);
+  }
+}
+
+/* ##### TYPE ########################## */
+.ds-badge--type-plain {
+  /* ##### VARIANTS ###################### */
+  &.ds-badge--variant-neutral {
+    --ds-badge-color: var(--ds-text-inverse);
+    --ds-badge-border-color: var(--ds-border-solid);
+    --ds-badge-background-color: var(--ds-bg-solid);
+  }
+
+  &.ds-badge--variant-primary {
+    --ds-badge-color: var(--ds-text-white);
+    --ds-badge-border-color: var(--ds-border-brand-solid);
+    --ds-badge-background-color: var(--ds-bg-brand-solid);
+  }
+
+  &.ds-badge--variant-secondary {
+    --ds-badge-color: var(--ds-text-white);
+    --ds-badge-border-color: var(--ds-border-alt-solid);
+    --ds-badge-background-color: var(--ds-bg-alt-solid);
+  }
+
+  &.ds-badge--variant-success {
+    --ds-badge-color: var(--ds-text-white);
+    --ds-badge-border-color: var(--ds-border-success-solid);
+    --ds-badge-background-color: var(--ds-bg-success-solid);
+  }
+
+  &.ds-badge--variant-warning {
+    --ds-badge-color: var(--ds-text-white);
+    --ds-badge-border-color: var(--ds-border-warning-solid);
+    --ds-badge-background-color: var(--ds-bg-warning-solid);
+  }
+
+  &.ds-badge--variant-error {
+    --ds-badge-color: var(--ds-text-white);
+    --ds-badge-border-color: var(--ds-border-error-solid);
+    --ds-badge-background-color: var(--ds-bg-error-solid);
+  }
+
+  &.ds-badge--variant-info {
+    --ds-badge-color: var(--ds-text-white);
+    --ds-badge-border-color: var(--ds-border-info-solid);
+    --ds-badge-background-color: var(--ds-bg-info-solid);
+  }
+
+  &.ds-badge--variant-inverse {
+    --ds-badge-color: var(--ds-text-inverse);
+    --ds-badge-border-color: var(--ds-bg-inverse);
+    --ds-badge-background-color: var(--ds-bg-inverse);
+  }
+
+  &.ds-badge--variant-purple {
+    --ds-badge-color: var(--ds-text-white);
+    --ds-badge-border-color: var(--ds-border-purple-solid);
+    --ds-badge-background-color: var(--ds-bg-purple-solid);
+  }
+
+  &.ds-badge--variant-yellow {
+    --ds-badge-color: var(--ds-text-secondary);
+    --ds-badge-border-color: var(--ds-border-yellow-solid);
+    --ds-badge-background-color: var(--ds-bg-yellow-solid);
+  }
+
+  &.ds-badge--variant-pink {
+    --ds-badge-color: var(--ds-text-white);
+    --ds-badge-border-color: var(--ds-border-pink-solid);
+    --ds-badge-background-color: var(--ds-bg-pink-solid);
+  }
+}
