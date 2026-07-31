@@ -38,8 +38,14 @@
       inset var(--ds-transition-regular);
   }
 
-  &:not(.ds-link--disabled):is(:hover, :focus-visible)::after {
-    inset-inline: 0.25em;
+  &:not(.ds-link--disabled):is(:hover, :focus-visible) {
+    &:not(:active) {
+      color: var(--ds-link-color_hover);
+    }
+
+    &::after {
+      inset-inline: 0.25em;
+    }
   }
 
   &[disabled] {
@@ -54,32 +60,40 @@
 /* ##### VARIANTS ###################### */
 .ds-link--variant-primary {
   --ds-link-color: var(--ds-text-brand);
+  --ds-link-color_hover: var(--ds-bg-brand-solid);
 }
 
 .ds-link--variant-secondary {
   --ds-link-color: var(--ds-text-alt);
+  --ds-link-color_hover: var(--ds-bg-alt-solid);
 }
 
 .ds-link--variant-tertiary {
   --ds-link-color: var(--ds-text-tertiary);
+  --ds-link-color_hover: var(--ds-text-primary);
 }
 
 .ds-link--variant-success {
   --ds-link-color: var(--ds-text-success);
+  --ds-link-color_hover: var(--ds-bg-success-solid);
 }
 
 .ds-link--variant-warning {
   --ds-link-color: var(--ds-text-warning);
+  --ds-link-color_hover: var(--ds-bg-warning-solid);
 }
 
 .ds-link--variant-error {
   --ds-link-color: var(--ds-text-error);
+  --ds-link-color_hover: var(--ds-bg-error-solid);
 }
 
 .ds-link--variant-info {
   --ds-link-color: var(--ds-text-info);
+  --ds-link-color_hover: var(--ds-bg-info-solid);
 }
 
 .ds-link--variant-inverse {
   --ds-link-color: var(--ds-text-inverse);
+  --ds-link-color_hover: var(--ds-text-inverse);
 }

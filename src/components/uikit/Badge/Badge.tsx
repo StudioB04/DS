@@ -9,13 +9,20 @@ export default function Badge({
   variant = "neutral",
   size = "md",
   type = "light",
+  shape = "pill",
   iconEnd,
   iconStart,
   iconOnly,
 }: BadgeProps) {
   return (
     <span
-      className={clsx("ds-badge", `ds-badge--size-${size}`, `ds-badge--type-${type}`, `ds-badge--variant-${variant}`)}
+      className={clsx(
+        "ds-badge",
+        `ds-badge--size-${size}`,
+        `ds-badge--type-${type}`,
+        `ds-badge--shape-${shape}`,
+        `ds-badge--variant-${variant}`,
+      )}
     >
       {iconOnly ? (
         <Icon src={iconOnly} className="ds-badge__icon ds-badge__icon--only" />

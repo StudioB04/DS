@@ -1,11 +1,11 @@
-import type { ButtonColorVariant, ButtonOrLinkProps, Size } from "$/types";
+import type { ButtonColorVariant, ButtonOrLinkProps, Shape, Size } from "$/types";
 import type { IconProps } from "$uikit/types";
 import type { ReactNode } from "react";
 
 export interface ButtonProps extends ButtonOrLinkProps {
   label: string;
   size?: Size;
-  shape?: "pill" | "square";
+  shape?: Shape;
   variant?: ButtonColorVariant;
   external?: boolean;
   loading?: boolean;

@@ -1,0 +1,96 @@
+import { Canvas, Controls, Meta } from "@storybook/addon-docs/blocks";
+import * as BadgeStories from "./Badge.stories";
+
+<Meta of={BadgeStories} />
+
+# Badge
+
+The `Badge` component is a compact label used to display status, categories, or metadata. It supports color variants, two visual types, two shapes, and optional icons. The label supports basic markdown.
+
+## Default
+
+<Canvas of={BadgeStories.Default} />
+<Controls of={BadgeStories.Default} />
+
+---
+
+## Usage
+
+```tsx
+import { Badge } from "@studio_b04/ds/uikit";
+
+<Badge label="New" variant="primary" type="light" shape="pill" />
+```
+
+---
+
+## Variants
+
+The `variant` prop controls the color palette. Use semantic variants (`success`, `error`, `warning`, `info`) to convey meaning, or extended palette variants (`purple`, `yellow`, `pink`) for decorative use.
+
+```tsx
+<Badge label="Neutral"   variant="neutral"   type="light" shape="pill" />
+<Badge label="Primary"   variant="primary"   type="light" shape="pill" />
+<Badge label="Secondary" variant="secondary" type="light" shape="pill" />
+<Badge label="Success"   variant="success"   type="light" shape="pill" />
+<Badge label="Error"     variant="error"     type="light" shape="pill" />
+<Badge label="Warning"   variant="warning"   type="light" shape="pill" />
+<Badge label="Info"      variant="info"      type="light" shape="pill" />
+<Badge label="Inverse"   variant="inverse"   type="light" shape="pill" />
+<Badge label="Purple"    variant="purple"    type="light" shape="pill" />
+<Badge label="Yellow"    variant="yellow"    type="light" shape="pill" />
+<Badge label="Pink"      variant="pink"      type="light" shape="pill" />
+```
+
+---
+
+## Type
+
+The `type` prop switches between a tinted background (`light`) and a solid filled background (`plain`).
+
+<Canvas of={BadgeStories.Plain} />
+
+```tsx
+<Badge label="Light" variant="primary" type="light" shape="pill" />
+<Badge label="Plain" variant="primary" type="plain" shape="pill" />
+```
+
+---
+
+## Shape
+
+The `shape` prop controls the border radius: `pill` for fully rounded corners, `square` for a rectangular badge.
+
+<Canvas of={BadgeStories.Square} />
+
+```tsx
+<Badge label="Pill"   variant="primary" type="light" shape="pill" />
+<Badge label="Square" variant="primary" type="light" shape="square" />
+```
+
+---
+
+## Sizes
+
+```tsx
+<Badge label="Small"  variant="neutral" type="light" shape="pill" size="sm" />
+<Badge label="Medium" variant="neutral" type="light" shape="pill" size="md" />
+<Badge label="Large"  variant="neutral" type="light" shape="pill" size="lg" />
+```
+
+---
+
+## Icon support
+
+You can display an icon at the start or end of the label with `iconStart` / `iconEnd`, or render an icon-only badge with `iconOnly`. The `label` prop is always required, even in icon-only mode — it serves as the accessible label.
+
+<Canvas of={BadgeStories.WithIconEnd} />
+<Canvas of={BadgeStories.WithIconOnly} />
+
+```tsx
+<Badge label="Tagged"   variant="info"    type="light" shape="pill" iconStart="tag" />
+<Badge label="Archived" variant="neutral" type="light" shape="pill" iconEnd="archive" />
+
+{/* Icon only */}
+<Badge label="Check" variant="success" type="plain" shape="pill" iconOnly="circle-check" />
+```

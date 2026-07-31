@@ -4,6 +4,8 @@ export type ButtonOrLinkProps = ButtonHTMLAttributes<HTMLButtonElement> & LinkHT
 
 export type Size = "sm" | "md" | "lg";
 
+export type Shape = "pill" | "square";
+
 export type ButtonColorVariant =
   | "primary"
   | "secondary"

@@ -3,7 +3,6 @@
   min-inline-size: max-content;
   align-items: center;
   justify-content: center;
-  border-radius: var(--ds-radius-full);
   font-size: var(--ds-badge-font-size);
   line-height: 1.2;
   font-weight: var(--ds-font-weight-medium);
@@ -55,6 +54,15 @@
   --ds-badge-padding-inline: var(--ds-spacing-3xl);
 }
 
+/* ##### SHAPE ######################### */
+.ds-badge--shape-pill {
+  border-radius: var(--ds-radius-full);
+}
+
+.ds-badge--shape-square {
+  border-radius: var(--ds-radius-xs);
+}
+
 /* ##### TYPE ########################## */
 .ds-badge--type-light {
   /* ##### VARIANTS ###################### */
@@ -101,9 +109,9 @@
   }
 
   &.ds-badge--variant-inverse {
-    --ds-badge-color: var(--ds-text-inverse);
+    --ds-badge-color: var(--ds-text-primary);
     --ds-badge-border-color: var(--ds-border-inverse);
-    --ds-badge-background-color: var(--ds-bg-inverse);
+    --ds-badge-background-color: var(--ds-bg-tertiary);
   }
 
   &.ds-badge--variant-purple {

@@ -16,6 +16,16 @@ export default {
       options: ["sm", "md", "lg"],
       description: "The size of the Badge.",
     },
+    type: {
+      control: "radio",
+      options: ["light", "plain"],
+      description: "The type of the Badge.",
+    },
+    shape: {
+      control: "radio",
+      options: ["pill", "square"],
+      description: "The type of the Badge.",
+    },
     variant: {
       control: "select",
       options: [
@@ -32,11 +42,6 @@ export default {
         "pink",
       ],
       description: "The color variant of the Badge.",
-    },
-    type: {
-      control: "select",
-      options: ["light", "plain"],
-      description: "The type of the Badge.",
     },
     iconStart: {
       control: "select",
@@ -60,7 +65,63 @@ export const Default: StoryObj<BadgeProps> = {
   args: {
     label: "Badge",
     size: "md",
-    variant: "neutral",
+    variant: "primary",
     type: "light",
+    shape: "pill",
+    iconEnd: undefined,
+    iconStart: undefined,
+    iconOnly: undefined,
+  },
+};
+
+export const Square: StoryObj<BadgeProps> = {
+  args: {
+    label: "Badge",
+    size: "md",
+    variant: "primary",
+    type: "light",
+    shape: "square",
+    iconEnd: undefined,
+    iconStart: undefined,
+    iconOnly: undefined,
+  },
+};
+
+export const Plain: StoryObj<BadgeProps> = {
+  args: {
+    label: "Badge",
+    size: "md",
+    variant: "primary",
+    type: "plain",
+    shape: "pill",
+    iconEnd: undefined,
+    iconStart: undefined,
+    iconOnly: undefined,
+  },
+};
+
+export const WithIconEnd: StoryObj<BadgeProps> = {
+  args: {
+    label: "Badge",
+    size: "md",
+    variant: "primary",
+    type: "plain",
+    shape: "pill",
+    iconEnd: "accessibility",
+    iconStart: undefined,
+    iconOnly: undefined,
+  },
+};
+
+export const WithIconOnly: StoryObj<BadgeProps> = {
+  args: {
+    label: "Badge",
+    size: "md",
+    variant: "primary",
+    type: "plain",
+    shape: "pill",
+    iconEnd: undefined,
+    iconStart: undefined,
+    iconOnly: "accessibility",
   },
 };
