@@ -19,13 +19,13 @@ export default {
       control: "select",
       options: [
         "neutral",
-        "primary",
-        "secondary",
-        "success",
-        "error",
-        "warning",
-        "info",
         "inverse",
+        "brand",
+        "alt",
+        "green",
+        "red",
+        "orange",
+        "blue",
         "purple",
         "yellow",
         "pink",
@@ -43,7 +43,7 @@ export const Default: StoryObj<NotificationProps> = {
   args: {
     value: 3,
     size: "md",
-    variant: "primary",
+    variant: "brand",
     max: 99,
   },
   decorators: [
@@ -60,7 +60,7 @@ export const NoLimit: StoryObj<NotificationProps> = {
   args: {
     value: 223976,
     size: "md",
-    variant: "primary",
+    variant: "brand",
     max: 999999999999,
   },
   decorators: [
@@ -77,7 +77,7 @@ export const Small: StoryObj<NotificationProps> = {
   args: {
     value: 12,
     size: "sm",
-    variant: "primary",
+    variant: "brand",
     max: 99,
   },
   decorators: [

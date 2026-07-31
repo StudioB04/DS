@@ -13,7 +13,7 @@ export default {
     },
     variant: {
       control: "select",
-      options: ["primary", "secondary", "tertiary", "success", "error", "warning", "info", "inverse"],
+      options: ["neutral", "inverse", "brand", "alt", "green", "red", "orange", "blue", "purple", "yellow", "pink"],
       description: "The color variant of the Link.",
     },
     href: {
@@ -44,7 +44,7 @@ export default {
 export const Default: StoryObj<LinkProps> = {
   args: {
     label: "click **me** !",
-    variant: "primary",
+    variant: "brand",
     href: "#",
     external: false,
     disabled: false,

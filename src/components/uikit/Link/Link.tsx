@@ -9,7 +9,7 @@ import "./Link.css";
 export default function Link({
   label,
   type = "button",
-  variant = "primary",
+  variant = "brand",
   href,
   disabled,
   external,

@@ -6,25 +6,15 @@ export type Size = "sm" | "md" | "lg";
 
 export type Shape = "pill" | "square";
 
-export type ButtonColorVariant =
-  | "primary"
-  | "secondary"
-  | "tertiary"
-  | "success"
-  | "error"
-  | "warning"
-  | "info"
-  | "inverse";
-
-export type BadgeColorVariant =
+export type Variant =
   | "neutral"
-  | "primary"
-  | "secondary"
-  | "success"
-  | "error"
-  | "warning"
-  | "info"
   | "inverse"
+  | "brand"
+  | "alt"
+  | "green"
+  | "red"
+  | "orange"
+  | "blue"
   | "purple"
   | "yellow"
   | "pink";

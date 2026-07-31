@@ -19,23 +19,23 @@ The `Badge` component is a compact label used to display status, categories, or 
 ```tsx
 import { Badge } from "@studio_b04/ds/uikit";
 
-<Badge label="New" variant="primary" type="light" shape="pill" />
+<Badge label="New" variant="brand" type="light" shape="pill" />
 ```
 
 ---
 
 ## Variants
 
-The `variant` prop controls the color palette. Use semantic variants (`success`, `error`, `warning`, `info`) to convey meaning, or extended palette variants (`purple`, `yellow`, `pink`) for decorative use.
+The `variant` prop controls the color palette. Use semantic variants (`green`, `red`, `orange`, `blue`) to convey meaning, or extended palette variants (`purple`, `yellow`, `pink`) for decorative use.
 
 ```tsx
 <Badge label="Neutral"   variant="neutral"   type="light" shape="pill" />
-<Badge label="Primary"   variant="primary"   type="light" shape="pill" />
-<Badge label="Secondary" variant="secondary" type="light" shape="pill" />
-<Badge label="Success"   variant="success"   type="light" shape="pill" />
-<Badge label="Error"     variant="error"     type="light" shape="pill" />
-<Badge label="Warning"   variant="warning"   type="light" shape="pill" />
-<Badge label="Info"      variant="info"      type="light" shape="pill" />
+<Badge label="Brand"     variant="brand"     type="light" shape="pill" />
+<Badge label="Alt"       variant="alt"       type="light" shape="pill" />
+<Badge label="Green"     variant="green"     type="light" shape="pill" />
+<Badge label="Red"       variant="red"       type="light" shape="pill" />
+<Badge label="Orange"    variant="orange"    type="light" shape="pill" />
+<Badge label="Blue"      variant="blue"      type="light" shape="pill" />
 <Badge label="Inverse"   variant="inverse"   type="light" shape="pill" />
 <Badge label="Purple"    variant="purple"    type="light" shape="pill" />
 <Badge label="Yellow"    variant="yellow"    type="light" shape="pill" />
@@ -51,8 +51,8 @@ The `type` prop switches between a tinted background (`light`) and a solid fille
 <Canvas of={BadgeStories.Plain} />
 
 ```tsx
-<Badge label="Light" variant="primary" type="light" shape="pill" />
-<Badge label="Plain" variant="primary" type="plain" shape="pill" />
+<Badge label="Light" variant="brand" type="light" shape="pill" />
+<Badge label="Plain" variant="brand" type="plain" shape="pill" />
 ```
 
 ---
@@ -64,8 +64,8 @@ The `shape` prop controls the border radius: `pill` for fully rounded corners, `
 <Canvas of={BadgeStories.Square} />
 
 ```tsx
-<Badge label="Pill"   variant="primary" type="light" shape="pill" />
-<Badge label="Square" variant="primary" type="light" shape="square" />
+<Badge label="Pill"   variant="brand" type="light" shape="pill" />
+<Badge label="Square" variant="brand" type="light" shape="square" />
 ```
 
 ---
@@ -88,9 +88,9 @@ You can display an icon at the start or end of the label with `iconStart` / `ico
 <Canvas of={BadgeStories.WithIconOnly} />
 
 ```tsx
-<Badge label="Tagged"   variant="info"    type="light" shape="pill" iconStart="tag" />
+<Badge label="Tagged"   variant="blue"    type="light" shape="pill" iconStart="tag" />
 <Badge label="Archived" variant="neutral" type="light" shape="pill" iconEnd="archive" />
 
 {/* Icon only */}
-<Badge label="Check" variant="success" type="plain" shape="pill" iconOnly="circle-check" />
+<Badge label="Check" variant="green" type="plain" shape="pill" iconOnly="circle-check" />
 ```

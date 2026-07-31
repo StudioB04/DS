@@ -98,53 +98,53 @@
 }
 
 /* ##### VARIANTS ###################### */
-.ds-button--variant-primary {
+.ds-button--variant-brand {
   --ds-button-color: var(--ds-text-white);
   --ds-button-border-color: var(--ds-bg-brand-solid);
   --ds-button-background-color: var(--ds-bg-brand-solid);
   --ds-button-background-color_hover: var(--ds-bg-brand-solid_hover);
 }
 
-.ds-button--variant-secondary {
+.ds-button--variant-alt {
   --ds-button-color: var(--ds-text-white);
   --ds-button-border-color: var(--ds-bg-alt-solid);
   --ds-button-background-color: var(--ds-bg-alt-solid);
   --ds-button-background-color_hover: var(--ds-bg-alt-solid_hover);
 }
 
-.ds-button--variant-tertiary {
+.ds-button--variant-neutral {
   --ds-button-color: var(--ds-text-primary);
   --ds-button-border-color: var(--ds-text-tertiary);
   --ds-button-background-color: var(--ds-bg-secondary);
   --ds-button-background-color_hover: var(--ds-bg-tertiary);
 }
 
-.ds-button--variant-success {
+.ds-button--variant-green {
   --ds-button-color: var(--ds-text-white);
-  --ds-button-border-color: var(--ds-bg-success-solid);
-  --ds-button-background-color: var(--ds-bg-success-solid);
-  --ds-button-background-color_hover: var(--ds-bg-success-solid_hover);
+  --ds-button-border-color: var(--ds-bg-green-solid);
+  --ds-button-background-color: var(--ds-bg-green-solid);
+  --ds-button-background-color_hover: var(--ds-bg-green-solid_hover);
 }
 
-.ds-button--variant-warning {
+.ds-button--variant-orange {
   --ds-button-color: var(--ds-text-white);
   --ds-button-border-color: var(--ds-bg-warnning-solid);
-  --ds-button-background-color: var(--ds-bg-warning-solid);
-  --ds-button-background-color_hover: var(--ds-bg-warning-solid_hover);
+  --ds-button-background-color: var(--ds-bg-orange-solid);
+  --ds-button-background-color_hover: var(--ds-bg-orange-solid_hover);
 }
 
-.ds-button--variant-error {
+.ds-button--variant-red {
   --ds-button-color: var(--ds-text-white);
-  --ds-button-border-color: var(--ds-bg-error-solid);
-  --ds-button-background-color: var(--ds-bg-error-solid);
-  --ds-button-background-color_hover: var(--ds-bg-error-solid_hover);
+  --ds-button-border-color: var(--ds-bg-red-solid);
+  --ds-button-background-color: var(--ds-bg-red-solid);
+  --ds-button-background-color_hover: var(--ds-bg-red-solid_hover);
 }
 
-.ds-button--variant-info {
+.ds-button--variant-blue {
   --ds-button-color: var(--ds-text-white);
-  --ds-button-border-color: var(--ds-bg-info-solid);
-  --ds-button-background-color: var(--ds-bg-info-solid);
-  --ds-button-background-color_hover: var(--ds-bg-info-solid_hover);
+  --ds-button-border-color: var(--ds-bg-blue-solid);
+  --ds-button-background-color: var(--ds-bg-blue-solid);
+  --ds-button-background-color_hover: var(--ds-bg-blue-solid_hover);
 }
 
 .ds-button--variant-inverse {

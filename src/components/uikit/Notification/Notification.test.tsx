@@ -16,7 +16,7 @@ describe("Notification component", () => {
       const notification = container.querySelector(".ds-notification");
 
       expect(notification?.tagName).toBe("SPAN");
-      expect(notification).toHaveClass("ds-notification", "ds-notification--size-md", "ds-notification--variant-error");
+      expect(notification).toHaveClass("ds-notification", "ds-notification--size-md", "ds-notification--variant-red");
     });
 
     it("renders the numeric value", () => {
@@ -48,19 +48,19 @@ describe("Notification component", () => {
   });
 
   describe("variant modifier", () => {
-    it("applies error variant class by default", () => {
+    it("applies red variant class by default", () => {
       const { container } = render(<Notification value={3} />);
-      expect(container.querySelector(".ds-notification")).toHaveClass("ds-notification--variant-error");
+      expect(container.querySelector(".ds-notification")).toHaveClass("ds-notification--variant-red");
     });
 
     it.each([
       "neutral",
-      "primary",
-      "secondary",
-      "success",
-      "error",
-      "warning",
-      "info",
+      "brand",
+      "alt",
+      "green",
+      "red",
+      "orange",
+      "blue",
       "inverse",
       "purple",
       "yellow",

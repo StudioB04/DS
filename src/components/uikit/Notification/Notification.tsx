@@ -3,7 +3,7 @@ import type { NotificationProps } from "./Notification.types";
 
 import "./Notification.css";
 
-export default function Notification({ value = 0, size = "md", variant = "error", max = 99 }: NotificationProps) {
+export default function Notification({ value = 0, size = "md", variant = "red", max = 99 }: NotificationProps) {
   return (
     <span
       className={clsx("ds-notification", `ds-notification--size-${size}`, `ds-notification--variant-${variant}`)}

@@ -10,7 +10,7 @@ export default function Button({
   type = "button",
   shape = "square",
   size = "md",
-  variant = "primary",
+  variant = "brand",
   href,
   external,
   loading,

@@ -1,9 +1,9 @@
-import type { ButtonColorVariant, ButtonOrLinkProps } from "$/types";
+import type { ButtonOrLinkProps, Variant } from "$/types";
 import type { IconProps } from "$uikit/types";
 
 export interface LinkProps extends ButtonOrLinkProps {
   label: string;
-  variant?: ButtonColorVariant;
+  variant?: Variant;
   external?: boolean;
   disabled?: boolean;
   iconStart?: IconProps["name"];

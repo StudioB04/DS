@@ -91,17 +91,17 @@
   --color-red-950: #450e0a;
 
   /* --- Purple --- */
-  --color-purple-50: #f9f6f7;
-  --color-purple-100: #f4eff1;
-  --color-purple-200: #ebdfe4;
-  --color-purple-300: #dcc5cf;
-  --color-purple-400: #c6a0af;
-  --color-purple-500: #b18394;
-  --color-purple-600: #9b6778;
-  --color-purple-700: #8a5867;
-  --color-purple-800: #6d4752;
-  --color-purple-900: #5d3e47;
-  --color-purple-950: #362127;
+  --color-purple-50: #faf3ff;
+  --color-purple-100: #f4e3ff;
+  --color-purple-200: #ebcdff;
+  --color-purple-300: #dba5ff;
+  --color-purple-400: #c76cff;
+  --color-purple-500: #b435ff;
+  --color-purple-600: #a90fff;
+  --color-purple-700: #a600ff;
+  --color-purple-800: #8406c3;
+  --color-purple-900: #6c079c;
+  --color-purple-950: #500076;
 
   /* --- Yellow --- */
   --color-yellow-50: #fffde5;
@@ -117,15 +117,15 @@
   --color-yellow-950: #492000;
 
   /* --- Pink --- */
-  --color-pink-50: #fdf2f8;
-  --color-pink-100: #fcdef0;
-  --color-pink-200: #fdcdea;
-  --color-pink-300: #fca5d7;
-  --color-pink-400: #f96dba;
-  --color-pink-500: #f2429e;
-  --color-pink-600: #e1217c;
-  --color-pink-700: #c41261;
-  --color-pink-800: #a21250;
-  --color-pink-900: #871446;
-  --color-pink-950: #530426;
+  --color-pink-50: #fff2fe;
+  --color-pink-100: #ffe3fe;
+  --color-pink-200: #ffc6fc;
+  --color-pink-300: #ff99f5;
+  --color-pink-400: #ff5ded;
+  --color-pink-500: #ff21e6;
+  --color-pink-600: #ff00dd;
+  --color-pink-700: #cf00af;
+  --color-pink-800: #a9008d;
+  --color-pink-900: #890670;
+  --color-pink-950: #5e004c;
 }

@@ -16,13 +16,13 @@
   --ds-text-black: var(--color-black);
   --ds-text-brand: var(--color-fuschia-700);
   --ds-text-alt: var(--color-teal-700);
-  --ds-text-info: var(--color-blue-700);
-  --ds-text-error: var(--color-red-700);
-  --ds-text-warning: var(--color-orange-700);
+  --ds-text-blue: var(--color-blue-700);
+  --ds-text-red: var(--color-red-700);
+  --ds-text-orange: var(--color-orange-700);
   --ds-text-purple: var(--color-purple-700);
   --ds-text-yellow: var(--color-yellow-700);
   --ds-text-pink: var(--color-pink-700);
-  --ds-text-success: var(--color-green-700);
+  --ds-text-green: var(--color-green-700);
   --ds-text-inverse: var(--color-gray-100);
 
   /* --- BORDER COLORS --- */
@@ -42,25 +42,25 @@
   --ds-border-alt-tertiary: var(--color-teal-100);
   --ds-border-alt-solid: var(--color-teal-500);
 
-  --ds-border-info-primary: var(--color-blue-300);
-  --ds-border-info-secondary: var(--color-blue-200);
-  --ds-border-info-tertiary: var(--color-blue-100);
-  --ds-border-info-solid: var(--color-blue-500);
+  --ds-border-blue-primary: var(--color-blue-300);
+  --ds-border-blue-secondary: var(--color-blue-200);
+  --ds-border-blue-tertiary: var(--color-blue-100);
+  --ds-border-blue-solid: var(--color-blue-500);
 
-  --ds-border-error-primary: var(--color-red-300);
-  --ds-border-error-secondary: var(--color-red-200);
-  --ds-border-error-tertiary: var(--color-red-100);
-  --ds-border-error-solid: var(--color-red-500);
+  --ds-border-red-primary: var(--color-red-300);
+  --ds-border-red-secondary: var(--color-red-200);
+  --ds-border-red-tertiary: var(--color-red-100);
+  --ds-border-red-solid: var(--color-red-500);
 
-  --ds-border-warning-primary: var(--color-orange-300);
-  --ds-border-warning-secondary: var(--color-orange-200);
-  --ds-border-warning-tertiary: var(--color-orange-100);
-  --ds-border-warning-solid: var(--color-orange-500);
+  --ds-border-orange-primary: var(--color-orange-300);
+  --ds-border-orange-secondary: var(--color-orange-200);
+  --ds-border-orange-tertiary: var(--color-orange-100);
+  --ds-border-orange-solid: var(--color-orange-500);
 
-  --ds-border-success-primary: var(--color-green-300);
-  --ds-border-success-secondary: var(--color-green-200);
-  --ds-border-success-tertiary: var(--color-green-100);
-  --ds-border-success-solid: var(--color-green-500);
+  --ds-border-green-primary: var(--color-green-300);
+  --ds-border-green-secondary: var(--color-green-200);
+  --ds-border-green-tertiary: var(--color-green-100);
+  --ds-border-green-solid: var(--color-green-500);
 
   --ds-border-purple-primary: var(--color-purple-300);
   --ds-border-purple-secondary: var(--color-purple-200);
@@ -104,29 +104,29 @@
   --ds-bg-neutral-solid: var(--color-gray-400);
   --ds-bg-neutral-solid_hover: var(--color-gray-600);
 
-  --ds-bg-info-primary: var(--color-blue-50);
-  --ds-bg-info-secondary: var(--color-blue-100);
-  --ds-bg-info-tertiary: var(--color-blue-200);
-  --ds-bg-info-solid: var(--color-blue-500);
-  --ds-bg-info-solid_hover: var(--color-blue-700);
+  --ds-bg-blue-primary: var(--color-blue-50);
+  --ds-bg-blue-secondary: var(--color-blue-100);
+  --ds-bg-blue-tertiary: var(--color-blue-200);
+  --ds-bg-blue-solid: var(--color-blue-500);
+  --ds-bg-blue-solid_hover: var(--color-blue-700);
 
-  --ds-bg-error-primary: var(--color-red-50);
-  --ds-bg-error-secondary: var(--color-red-100);
-  --ds-bg-error-tertiary: var(--color-red-200);
-  --ds-bg-error-solid: var(--color-red-500);
-  --ds-bg-error-solid_hover: var(--color-red-700);
+  --ds-bg-red-primary: var(--color-red-50);
+  --ds-bg-red-secondary: var(--color-red-100);
+  --ds-bg-red-tertiary: var(--color-red-200);
+  --ds-bg-red-solid: var(--color-red-500);
+  --ds-bg-red-solid_hover: var(--color-red-700);
 
-  --ds-bg-warning-primary: var(--color-orange-50);
-  --ds-bg-warning-secondary: var(--color-orange-100);
-  --ds-bg-warning-tertiary: var(--color-orange-200);
-  --ds-bg-warning-solid: var(--color-orange-500);
-  --ds-bg-warning-solid_hover: var(--color-orange-700);
+  --ds-bg-orange-primary: var(--color-orange-50);
+  --ds-bg-orange-secondary: var(--color-orange-100);
+  --ds-bg-orange-tertiary: var(--color-orange-200);
+  --ds-bg-orange-solid: var(--color-orange-500);
+  --ds-bg-orange-solid_hover: var(--color-orange-700);
 
-  --ds-bg-success-primary: var(--color-green-50);
-  --ds-bg-success-secondary: var(--color-green-100);
-  --ds-bg-success-tertiary: var(--color-green-200);
-  --ds-bg-success-solid: var(--color-green-500);
-  --ds-bg-success-solid_hover: var(--color-green-700);
+  --ds-bg-green-primary: var(--color-green-50);
+  --ds-bg-green-secondary: var(--color-green-100);
+  --ds-bg-green-tertiary: var(--color-green-200);
+  --ds-bg-green-solid: var(--color-green-500);
+  --ds-bg-green-solid_hover: var(--color-green-700);
 
   --ds-bg-purple-primary: var(--color-purple-50);
   --ds-bg-purple-secondary: var(--color-purple-100);

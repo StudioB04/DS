@@ -89,12 +89,12 @@ describe("Badge component", () => {
     });
 
     it.each([
-      "primary",
-      "secondary",
-      "success",
-      "error",
-      "warning",
-      "info",
+      "brand",
+      "alt",
+      "green",
+      "red",
+      "orange",
+      "blue",
       "inverse",
       "purple",
       "yellow",

@@ -13,7 +13,7 @@ export default {
     },
     variant: {
       control: "select",
-      options: ["primary", "secondary", "tertiary", "success", "error", "warning", "info", "inverse"],
+      options: ["neutral", "inverse", "brand", "alt", "green", "red", "orange", "blue", "purple", "yellow", "pink"],
       description: "The color variant of the button.",
     },
     size: {
@@ -67,7 +67,7 @@ export default {
 export const Default: StoryObj<ButtonProps> = {
   args: {
     label: "click **me** !",
-    variant: "primary",
+    variant: "brand",
     size: "md",
     type: "button",
     shape: "square",
@@ -82,7 +82,7 @@ export const Default: StoryObj<ButtonProps> = {
 export const Pill: StoryObj<ButtonProps> = {
   args: {
     label: "click **me** !",
-    variant: "primary",
+    variant: "brand",
     size: "md",
     type: "button",
     shape: "pill",
@@ -97,7 +97,7 @@ export const Pill: StoryObj<ButtonProps> = {
 export const WithIconStart: StoryObj<ButtonProps> = {
   args: {
     label: "click **me** !",
-    variant: "primary",
+    variant: "brand",
     size: "md",
     type: "button",
     shape: "square",
@@ -113,7 +113,7 @@ export const WithIconStart: StoryObj<ButtonProps> = {
 export const WithIconOnly: StoryObj<ButtonProps> = {
   args: {
     label: "click **me** !",
-    variant: "primary",
+    variant: "brand",
     size: "md",
     type: "button",
     shape: "square",
@@ -129,7 +129,7 @@ export const WithIconOnly: StoryObj<ButtonProps> = {
 export const Loading: StoryObj<ButtonProps> = {
   args: {
     label: "click **me** !",
-    variant: "primary",
+    variant: "brand",
     size: "md",
     type: "button",
     shape: "square",

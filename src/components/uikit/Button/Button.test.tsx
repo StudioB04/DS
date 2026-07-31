@@ -18,7 +18,7 @@ describe("Button component", () => {
       "ds-button",
       "ds-button--size-md",
       "ds-button--shape-square",
-      "ds-button--variant-primary",
+      "ds-button--variant-brand",
     );
     expect(button).toHaveAttribute("type", "button");
     expect(button).toHaveAttribute("title", "Click me");

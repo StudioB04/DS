@@ -72,40 +72,40 @@
     --ds-badge-background-color: var(--ds-bg-secondary);
   }
 
-  &.ds-badge--variant-primary {
+  &.ds-badge--variant-brand {
     --ds-badge-color: var(--ds-text-brand);
     --ds-badge-border-color: var(--ds-border-brand-solid);
     --ds-badge-background-color: var(--ds-bg-brand-primary);
   }
 
-  &.ds-badge--variant-secondary {
+  &.ds-badge--variant-alt {
     --ds-badge-color: var(--ds-text-alt);
     --ds-badge-border-color: var(--ds-border-alt-solid);
     --ds-badge-background-color: var(--ds-bg-alt-primary);
   }
 
-  &.ds-badge--variant-success {
-    --ds-badge-color: var(--ds-text-success);
-    --ds-badge-border-color: var(--ds-border-success-solid);
-    --ds-badge-background-color: var(--ds-bg-success-primary);
+  &.ds-badge--variant-green {
+    --ds-badge-color: var(--ds-text-green);
+    --ds-badge-border-color: var(--ds-border-green-solid);
+    --ds-badge-background-color: var(--ds-bg-green-primary);
   }
 
-  &.ds-badge--variant-warning {
-    --ds-badge-color: var(--ds-text-warning);
-    --ds-badge-border-color: var(--ds-border-warning-solid);
-    --ds-badge-background-color: var(--ds-bg-warning-primary);
+  &.ds-badge--variant-orange {
+    --ds-badge-color: var(--ds-text-orange);
+    --ds-badge-border-color: var(--ds-border-orange-solid);
+    --ds-badge-background-color: var(--ds-bg-orange-primary);
   }
 
-  &.ds-badge--variant-error {
-    --ds-badge-color: var(--ds-text-error);
-    --ds-badge-border-color: var(--ds-border-error-solid);
-    --ds-badge-background-color: var(--ds-bg-error-primary);
+  &.ds-badge--variant-red {
+    --ds-badge-color: var(--ds-text-red);
+    --ds-badge-border-color: var(--ds-border-red-solid);
+    --ds-badge-background-color: var(--ds-bg-red-primary);
   }
 
-  &.ds-badge--variant-info {
-    --ds-badge-color: var(--ds-text-info);
-    --ds-badge-border-color: var(--ds-border-info-solid);
-    --ds-badge-background-color: var(--ds-bg-info-primary);
+  &.ds-badge--variant-blue {
+    --ds-badge-color: var(--ds-text-blue);
+    --ds-badge-border-color: var(--ds-border-blue-solid);
+    --ds-badge-background-color: var(--ds-bg-blue-primary);
   }
 
   &.ds-badge--variant-inverse {
@@ -142,40 +142,40 @@
     --ds-badge-background-color: var(--ds-bg-solid);
   }
 
-  &.ds-badge--variant-primary {
+  &.ds-badge--variant-brand {
     --ds-badge-color: var(--ds-text-white);
     --ds-badge-border-color: var(--ds-border-brand-solid);
     --ds-badge-background-color: var(--ds-bg-brand-solid);
   }
 
-  &.ds-badge--variant-secondary {
+  &.ds-badge--variant-alt {
     --ds-badge-color: var(--ds-text-white);
     --ds-badge-border-color: var(--ds-border-alt-solid);
     --ds-badge-background-color: var(--ds-bg-alt-solid);
   }
 
-  &.ds-badge--variant-success {
+  &.ds-badge--variant-green {
     --ds-badge-color: var(--ds-text-white);
-    --ds-badge-border-color: var(--ds-border-success-solid);
-    --ds-badge-background-color: var(--ds-bg-success-solid);
+    --ds-badge-border-color: var(--ds-border-green-solid);
+    --ds-badge-background-color: var(--ds-bg-green-solid);
   }
 
-  &.ds-badge--variant-warning {
+  &.ds-badge--variant-orange {
     --ds-badge-color: var(--ds-text-white);
-    --ds-badge-border-color: var(--ds-border-warning-solid);
-    --ds-badge-background-color: var(--ds-bg-warning-solid);
+    --ds-badge-border-color: var(--ds-border-orange-solid);
+    --ds-badge-background-color: var(--ds-bg-orange-solid);
   }
 
-  &.ds-badge--variant-error {
+  &.ds-badge--variant-red {
     --ds-badge-color: var(--ds-text-white);
-    --ds-badge-border-color: var(--ds-border-error-solid);
-    --ds-badge-background-color: var(--ds-bg-error-solid);
+    --ds-badge-border-color: var(--ds-border-red-solid);
+    --ds-badge-background-color: var(--ds-bg-red-solid);
   }
 
-  &.ds-badge--variant-info {
+  &.ds-badge--variant-blue {
     --ds-badge-color: var(--ds-text-white);
-    --ds-badge-border-color: var(--ds-border-info-solid);
-    --ds-badge-background-color: var(--ds-bg-info-solid);
+    --ds-badge-border-color: var(--ds-border-blue-solid);
+    --ds-badge-background-color: var(--ds-bg-blue-solid);
   }
 
   &.ds-badge--variant-inverse {
