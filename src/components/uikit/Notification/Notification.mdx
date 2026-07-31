@@ -1,0 +1,70 @@
+import { Canvas, Controls, Meta } from "@storybook/addon-docs/blocks";
+import * as NotificationStories from "./Notification.stories";
+
+<Meta of={NotificationStories} />
+
+# Notification
+
+The `Notification` component displays a compact counter, typically next to text or icons to indicate unread items or pending events.
+
+## Default
+
+<Canvas of={NotificationStories.Default} />
+<Controls of={NotificationStories.Default} />
+
+---
+
+## Usage
+
+```tsx
+import { Notification } from "@studio_b04/ds/uikit";
+
+<Notification value={3} size="md" variant="primary" max={99} />
+```
+
+---
+
+## Value and max
+
+`value` is the displayed count. When `value` is greater than `max`, the component displays `max+`.
+
+<Canvas of={NotificationStories.NoLimit} />
+
+```tsx
+<Notification value={8} max={99} />
+<Notification value={120} max={99} /> // displays: 99+
+```
+
+---
+
+## Sizes
+
+Use `size` to control the visual scale: `sm`, `md`, `lg`.
+
+<Canvas of={NotificationStories.Small} />
+
+```tsx
+<Notification value={1} size="sm" />
+<Notification value={12} size="md" />
+<Notification value={120} size="lg" />
+```
+
+---
+
+## Variants
+
+The `variant` prop controls the semantic color palette.
+
+```tsx
+<Notification value={3} variant="neutral" />
+<Notification value={3} variant="primary" />
+<Notification value={3} variant="secondary" />
+<Notification value={3} variant="success" />
+<Notification value={3} variant="error" />
+<Notification value={3} variant="warning" />
+<Notification value={3} variant="info" />
+<Notification value={3} variant="inverse" />
+<Notification value={3} variant="purple" />
+<Notification value={3} variant="yellow" />
+<Notification value={3} variant="pink" />
+```

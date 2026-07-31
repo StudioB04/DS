@@ -1,0 +1,88 @@
+.ds-notification {
+  display: inline-flex;
+  flex-shrink: 0;
+  vertical-align: super;
+  align-items: center;
+  justify-content: center;
+  color: var(--ds-notification-color);
+  background-color: var(--ds-notification-background-color);
+  border-radius: var(--ds-radius-full);
+  line-height: 1;
+  padding-inline: 0.35em;
+  text-align: center;
+  font-weight: var(--ds-font-weight-bold);
+  font-size: var(--ds-notification-font-size);
+  block-size: calc(1.5 * var(--ds-notification-font-size));
+  min-block-size: var(--ds-size-8px);
+  min-inline-size: max(var(--ds-size-8px), calc(1em + 0.5em));
+  margin-inline-start: var(--ds-size-4px);
+}
+
+/* ##### SIZE ########################## */
+.ds-notification--size-sm {
+  --ds-notification-font-size: 0;
+}
+
+.ds-notification--size-md {
+  --ds-notification-font-size: var(--ds-font-size-text-sm);
+}
+
+.ds-notification--size-lg {
+  --ds-notification-font-size: var(--ds-font-size-text-lg);
+}
+
+/* ##### VARIANTS ###################### */
+.ds-notification--variant-neutral {
+  --ds-notification-color: var(--ds-text-inverse);
+  --ds-notification-background-color: var(--ds-bg-solid);
+}
+
+.ds-notification--variant-primary {
+  --ds-notification-color: var(--ds-text-white);
+  --ds-notification-background-color: var(--ds-bg-brand-solid);
+}
+
+.ds-notification--variant-secondary {
+  --ds-notification-color: var(--ds-text-white);
+  --ds-notification-background-color: var(--ds-bg-alt-solid);
+}
+
+.ds-notification--variant-success {
+  --ds-notification-color: var(--ds-text-white);
+  --ds-notification-background-color: var(--ds-bg-success-solid);
+}
+
+.ds-notification--variant-warning {
+  --ds-notification-color: var(--ds-text-white);
+  --ds-notification-background-color: var(--ds-bg-warning-solid);
+}
+
+.ds-notification--variant-error {
+  --ds-notification-color: var(--ds-text-white);
+  --ds-notification-background-color: var(--ds-bg-error-solid);
+}
+
+.ds-notification--variant-info {
+  --ds-notification-color: var(--ds-text-white);
+  --ds-notification-background-color: var(--ds-bg-info-solid);
+}
+
+.ds-notification--variant-inverse {
+  --ds-notification-color: var(--ds-text-inverse);
+  --ds-notification-background-color: var(--ds-bg-inverse);
+}
+
+.ds-notification--variant-purple {
+  --ds-notification-color: var(--ds-text-white);
+  --ds-notification-background-color: var(--ds-bg-purple-solid);
+}
+
+.ds-notification--variant-yellow {
+  --ds-notification-color: var(--ds-text-secondary);
+  --ds-notification-background-color: var(--ds-bg-yellow-solid);
+}
+
+.ds-notification--variant-pink {
+  --ds-notification-color: var(--ds-text-white);
+  --ds-notification-background-color: var(--ds-bg-pink-solid);
+}
