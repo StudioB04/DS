@@ -127,25 +127,19 @@ describe("Badge component", () => {
     });
 
     it("renders both iconStart and iconEnd simultaneously", () => {
-      const { container } = render(
-        <Badge label="Tagged" type="light" shape="pill" iconStart="tag" iconEnd="x" />,
-      );
+      const { container } = render(<Badge label="Tagged" type="light" shape="pill" iconStart="tag" iconEnd="x" />);
       expect(container.querySelector(".ds-badge__icon--start")).toBeInTheDocument();
       expect(container.querySelector(".ds-badge__icon--end")).toBeInTheDocument();
     });
 
     it("renders iconOnly and hides label", () => {
-      const { container } = render(
-        <Badge label="Check" type="plain" shape="pill" iconOnly="circle-check" />,
-      );
+      const { container } = render(<Badge label="Check" type="plain" shape="pill" iconOnly="circle-check" />);
       expect(container.querySelector(".ds-badge__icon--only")).toBeInTheDocument();
       expect(container.querySelector(".ds-badge__label")).not.toBeInTheDocument();
     });
 
     it("does not render iconStart or iconEnd in icon-only mode", () => {
-      const { container } = render(
-        <Badge label="Check" type="plain" shape="pill" iconOnly="circle-check" />,
-      );
+      const { container } = render(<Badge label="Check" type="plain" shape="pill" iconOnly="circle-check" />);
       expect(container.querySelector(".ds-badge__icon--start")).not.toBeInTheDocument();
       expect(container.querySelector(".ds-badge__icon--end")).not.toBeInTheDocument();
     });
