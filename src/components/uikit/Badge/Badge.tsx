@@ -13,6 +13,8 @@ export default function Badge({
   iconEnd,
   iconStart,
   iconOnly,
+  className,
+  ...restProps
 }: BadgeProps) {
   return (
     <span
@@ -22,7 +24,9 @@ export default function Badge({
         `ds-badge--type-${type}`,
         `ds-badge--shape-${shape}`,
         `ds-badge--variant-${variant}`,
+        className,
       )}
+      {...restProps}
     >
       {iconOnly ? (
         <Icon src={iconOnly} className="ds-badge__icon ds-badge__icon--only" />

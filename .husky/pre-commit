@@ -1,6 +1,9 @@
 echo "###################### HUSKY ######################"
 
 echo "### RUNNING ESLint ################################"
+npm run build || exit 1
+
+echo "### RUNNING ESLint ################################"
 npm run lint:fix || exit 1
 
 echo "### RUNNING Prettier ##############################"

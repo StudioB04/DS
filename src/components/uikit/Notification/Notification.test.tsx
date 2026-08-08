@@ -45,6 +45,11 @@ describe("Notification component", () => {
       const { container } = render(<Notification value={3} size="lg" />);
       expect(container.querySelector(".ds-notification")).toHaveClass("ds-notification--size-lg");
     });
+
+    it.each(["sm", "md", "lg"] as const)("applies %s size class", (size) => {
+      const { container } = render(<Notification value={3} size={size} />);
+      expect(container.querySelector(".ds-notification")).toHaveClass(`ds-notification--size-${size}`);
+    });
   });
 
   describe("variant modifier", () => {
@@ -55,13 +60,13 @@ describe("Notification component", () => {
 
     it.each([
       "neutral",
+      "inverse",
       "brand",
       "alt",
       "green",
       "red",
       "orange",
       "blue",
-      "inverse",
       "purple",
       "yellow",
       "pink",
