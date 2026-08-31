@@ -7,7 +7,7 @@ export default {
   component: Notification,
   argTypes: {
     value: {
-      control: "text",
+      control: "number",
       description: "The text label of the Notification.",
     },
     size: {

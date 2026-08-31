@@ -23,11 +23,6 @@ describe("Notification component", () => {
       render(<Notification value={3} />);
       expect(screen.getByText("3")).toBeInTheDocument();
     });
-
-    it("sets title to the raw value", () => {
-      const { container } = render(<Notification value={123} max={99} />);
-      expect(container.querySelector(".ds-notification")).toHaveAttribute("title", "123");
-    });
   });
 
   describe("size modifier", () => {

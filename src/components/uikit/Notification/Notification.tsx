@@ -19,7 +19,6 @@ export default function Notification({
         `ds-notification--variant-${variant}`,
         className,
       )}
-      title={restProps.title ?? String(value)}
       {...restProps}
     >
       {value > max ? `${max}+` : value}
