@@ -43,11 +43,11 @@ npm install @studio_b04/ds
 
 ## What's included
 
-| Export     | Path in package             | Description                        |
-| ---------- | --------------------------- | ---------------------------------- |
-| Components | `@studio_b04/ds/components` | React UI components                |
-| CSS tokens | `@studio_b04/ds/styles`     | Design tokens (variables + themes) |
-| CSS reset  | `@studio_b04/ds/reset`      | Opinionated browser reset          |
+| Export     | Path in package         | Description                        |
+| ---------- | ----------------------- | ---------------------------------- |
+| Components | `@studio_b04/ds/uikit`  | React UI components                |
+| CSS tokens | `@studio_b04/ds/styles` | Design tokens (variables + themes) |
+| CSS reset  | `@studio_b04/ds/reset`  | Opinionated browser reset          |
 
 ---
 
@@ -157,14 +157,10 @@ layer(fonts);
 
 > 📖 **All components are documented and interactive in [Storybook](https://studiob04.github.io/DS).**
 
-Components are exported from two sub-paths:
+Components are exported from the UIKit sub-path:
 
 ```ts
-// All components
-import { FakeComponent } from "@studio_b04/ds/components";
-
-// UIKit components only
-import { FakeComponent } from "@studio_b04/ds/uikit";
+import { Button } from "@studio_b04/ds/uikit";
 ```
 
 All components:
@@ -222,8 +218,10 @@ npm run prettier:fix
 
 Releases are published to npm manually via the **GitHub Actions** workflow.
 
+Before the first release, configure an npm automation token with publish access as the `NPM_TOKEN` secret in the repository's `npm` environment.
+
 1. Go to **Actions** → **Release** → **Run workflow**
 2. Choose a version bump (`patch` / `minor` / `major`) or enter an exact version
 3. Optionally check **Dry run** to test the full pipeline without publishing
 
-The workflow runs lint → type check → tests → build → `npm publish`, then creates a GitHub Release with auto-generated notes.
+The workflow always checks out `main`, runs lint → type check → tests → build → `npm publish`, then commits the new version, creates its tag, and creates a GitHub Release with auto-generated notes.

@@ -65,8 +65,11 @@ export default defineConfig({
       entry: {
         index: resolve(__dirname, "src/index.ts"),
         uikit: resolve(__dirname, "src/components/uikit/index.ts"),
+        utils: resolve(__dirname, "src/utils/index.ts"),
+        hooks: resolve(__dirname, "src/hooks/index.ts"),
         tokens: resolve(__dirname, "src/styles/themes/tokens.css"),
         reset: resolve(__dirname, "src/styles/reset.css"),
+        "tailwind-theme": resolve(__dirname, "src/styles/tailwind-theme.css"),
       },
       formats: ["es"],
     },

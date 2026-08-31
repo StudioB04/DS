@@ -6,16 +6,25 @@
   "files": [
     "dist"
   ],
-  "main": "dist/components.js",
-  "module": "./dist/components.js",
-  "types": "dist/components/index.d.ts",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "exports": {
-    "./uikit": {
-      "import": "./dist/components/uikit.js",
-      "types": "./dist/components/uikit.d.ts"
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
     },
-    "./styles": "./dist/styles.css",
-    "./reset": "./dist/reset.css"
+    "./uikit": {
+      "import": "./dist/uikit.js",
+      "types": "./dist/components/uikit/index.d.ts"
+    },
+    "./utils": {
+      "import": "./dist/utils.js",
+      "types": "./dist/utils/index.d.ts"
+    },
+    "./styles": "./dist/tokens.css",
+    "./reset": "./dist/reset.css",
+    "./tailwind-theme": "./dist/tailwind-theme.css"
   },
   "publishConfig": {
     "access": "public"
