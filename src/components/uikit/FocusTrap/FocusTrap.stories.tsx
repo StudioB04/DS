@@ -10,9 +10,9 @@ export default {
   decorators: [
     (Story: React.FC) => (
       <div style={{ display: "flex", gap: 16, flexDirection: "column" }}>
-        <Button variant="tertiary" label="Outside focustrap" />
+        <Button variant="neutral" label="Outside focustrap" />
         <Story />
-        <Button variant="tertiary" label="Outside focustrap" />
+        <Button variant="neutral" label="Outside focustrap" />
       </div>
     ),
   ],
@@ -24,8 +24,8 @@ export const Default: StoryObj<FocusTrapProps> = {
       <div style={{ padding: 16, border: "1px solid currentColor" }}>
         <p>When the focus enter the focus trap, it is impossible to focus on an element outside</p>
         <div style={{ display: "flex", gap: 16, marginBlock: 16 }}>
-          <Button variant="tertiary" label="Inside focustrap" />
-          <Button variant="tertiary" label="Inside focustrap" />
+          <Button variant="neutral" label="Inside focustrap" />
+          <Button variant="neutral" label="Inside focustrap" />
         </div>
       </div>
     ),
