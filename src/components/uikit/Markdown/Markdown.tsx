@@ -1,4 +1,4 @@
-import type { AnchorHTMLAttributes, ReactElement } from "react";
+import type { AnchorHTMLAttributes, ReactElement, ReactNode } from "react";
 import clsx from "clsx";
 import MarkdownComponent from "markdown-to-jsx";
 import type { MarkdownProps } from "./Markdown.types";
@@ -31,7 +31,7 @@ export default function Markdown({
       return null;
     }
 
-    const [label] = children;
+    const [label] = children as ReactNode[];
     const isBlank = href.startsWith("!!");
 
     return (
