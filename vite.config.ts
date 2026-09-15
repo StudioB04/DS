@@ -58,7 +58,7 @@ export default defineConfig({
     },
   },
   build: {
-    cssCodeSplit: false,
+    cssCodeSplit: true,
     target: "esnext",
     lib: {
       name: "@StudioB04/DS",
@@ -78,6 +78,8 @@ export default defineConfig({
       output: {
         dir: "dist",
         entryFileNames: "[name].js",
+        preserveModules: true,
+        preserveModulesRoot: "src",
       },
     },
   },

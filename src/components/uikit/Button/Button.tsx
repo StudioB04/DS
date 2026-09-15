@@ -1,4 +1,6 @@
-import { Icon, Loader, Markdown } from "$uikit";
+import Icon from "$uikit/Icon/Icon";
+import Loader from "$uikit/Loader/Loader";
+import Markdown from "$uikit/Markdown/Markdown";
 import clsx from "clsx";
 import type { ButtonProps } from "./Button.types";
 import type { ElementType } from "react";
@@ -34,7 +36,7 @@ export default function Button({
         `ds-button--shape-${shape}`,
         `ds-button--size-${size}`,
         `ds-button--variant-${variant}`,
-        shape === "pill" && "ds-button--pill",
+        `ds-button--shape-${shape}`,
         iconOnly && "ds-button--icon-only",
         block && "ds-button--block",
         loading && "ds-button--loading",

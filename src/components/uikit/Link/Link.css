@@ -1,8 +1,7 @@
 .ds-link {
   position: relative;
   display: inline-flex;
-  gap: 0.5em;
-  padding-inline: 0.25em;
+  gap: 0.325em;
   place-items: center;
   justify-content: center;
   inline-size: fit-content;
@@ -16,25 +15,27 @@
   cursor: pointer;
 
   .ds-link__icon {
-    block-size: 1.25em;
-    inline-size: 1.25em;
+    block-size: 1.125em;
+    inline-size: 1.125em;
 
     &.ds-link__icon--external {
-      block-size: 0.75em;
-      inline-size: 0.75em;
-      margin-inline-start: calc(-1 * 0.25em);
+      block-size: .75em;
+      inline-size: .75em;
     }
   }
+
+
 
   &:not(.ds-link--disabled)::after {
     content: "";
     position: absolute;
-    inset-inline: 50%;
-    inset-block-end: 0;
-    block-size: var(--ds-size-1px);
-    background-color: currentColor;
+    inset: 0;
+    background-color: var(--ds-link-bg_hover);
+    z-index: -1;
+    border-radius: 0.5em;
+    opacity: 0;
     transition:
-      block-size var(--ds-transition-regular),
+      opacity var(--ds-transition-regular),
       inset var(--ds-transition-regular);
   }
 
@@ -44,7 +45,8 @@
     }
 
     &::after {
-      inset-inline: 0.25em;
+      opacity: 1;
+      inset: -0.25em -0.5em;
     }
   }
 
@@ -58,42 +60,74 @@
 }
 
 /* ##### VARIANTS ###################### */
+.ds-link--variant-neutral {
+  --ds-link-color: var(--ds-text-secondary);
+  --ds-link-color_hover: var(--ds-text-primary);
+  --ds-link-bg_hover: var(--ds-bg-secondary);
+}
+
+.ds-link--variant-inverse {
+  --ds-link-color: var(--ds-text-secondary);
+  --ds-link-color_hover: var(--ds-text-primary);
+  --ds-link-bg_hover: var(--ds-bg-secondary);
+}
+
 .ds-link--variant-brand {
   --ds-link-color: var(--ds-text-brand);
   --ds-link-color_hover: var(--ds-bg-brand-solid);
+  --ds-link-bg_hover: var(--ds-bg-brand-primary);
 }
 
 .ds-link--variant-alt {
   --ds-link-color: var(--ds-text-alt);
   --ds-link-color_hover: var(--ds-bg-alt-solid);
-}
-
-.ds-link--variant-neutral {
-  --ds-link-color: var(--ds-text-tertiary);
-  --ds-link-color_hover: var(--ds-text-primary);
+  --ds-link-bg_hover: var(--ds-bg-alt-primary);
 }
 
 .ds-link--variant-green {
   --ds-link-color: var(--ds-text-green);
-  --ds-link-color_hover: var(--ds-bg-green-solid);
+  --ds-link-color_hover: var(--ds-bg-green-solid_hover);
+  --ds-link-bg_hover: var(--ds-bg-green-primary);
 }
 
 .ds-link--variant-orange {
   --ds-link-color: var(--ds-text-orange);
-  --ds-link-color_hover: var(--ds-bg-orange-solid);
+  --ds-link-color_hover: var(--ds-bg-orange-solid_hover);
+  --ds-link-bg_hover: var(--ds-bg-orange-primary);
 }
 
 .ds-link--variant-red {
   --ds-link-color: var(--ds-text-red);
-  --ds-link-color_hover: var(--ds-bg-red-solid);
+  --ds-link-color_hover: var(--ds-bg-red-solid_hover);
+  --ds-link-bg_hover: var(--ds-bg-red-primary);
 }
 
 .ds-link--variant-blue {
   --ds-link-color: var(--ds-text-blue);
-  --ds-link-color_hover: var(--ds-bg-blue-solid);
+  --ds-link-color_hover: var(--ds-bg-blue-solid_hover);
+  --ds-link-bg_hover: var(--ds-bg-blue-primary);
 }
 
-.ds-link--variant-inverse {
-  --ds-link-color: var(--ds-text-inverse);
-  --ds-link-color_hover: var(--ds-text-inverse);
+.ds-link--variant-blue {
+  --ds-link-color: var(--ds-text-blue);
+  --ds-link-color_hover: var(--ds-bg-blue-solid_hover);
+  --ds-link-bg_hover: var(--ds-bg-blue-primary);
+}
+
+.ds-link--variant-yellow {
+  --ds-link-color: var(--ds-text-yellow);
+  --ds-link-color_hover: var(--ds-bg-yellow-solid_hover);
+  --ds-link-bg_hover: var(--ds-bg-yellow-primary);
+}
+
+.ds-link--variant-pink {
+  --ds-link-color: var(--ds-text-pink);
+  --ds-link-color_hover: var(--ds-bg-pink-solid_hover);
+  --ds-link-bg_hover: var(--ds-bg-pink-primary);
+}
+
+.ds-link--variant-purple {
+  --ds-link-color: var(--ds-text-purple);
+  --ds-link-color_hover: var(--ds-bg-purple-solid_hover);
+  --ds-link-bg_hover: var(--ds-bg-purple-primary);
 }

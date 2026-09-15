@@ -121,7 +121,7 @@ The package ships a `tailwind-theme.css` inside `dist/` that maps all design tok
 /* tailwind.css */
 @import "tailwindcss";
 @import "@studio_b04/ds/styles"; /* tokens on :root */
-@import "@studio_b04/ds/dist/tailwind-theme.css"; /* Tailwind overrides   */
+@import "@studio_b04/ds/tailwind-theme"; /* Tailwind overrides */
 ```
 
 This gives you access to all token values as Tailwind utilities:

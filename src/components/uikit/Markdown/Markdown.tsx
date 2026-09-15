@@ -4,6 +4,7 @@ import MarkdownComponent from "markdown-to-jsx";
 import type { MarkdownProps } from "./Markdown.types";
 
 import "./Markdown.css";
+import Link from "$uikit/Link/Link";
 
 export default function Markdown({
   children,
@@ -30,18 +31,16 @@ export default function Markdown({
       return null;
     }
 
+    const [label] = children;
     const isBlank = href.startsWith("!!");
 
     return (
-      <a
+      <Link
+        label={label as string}
         href={isBlank ? href.slice(2) : href}
-        target={isBlank ? "_blank" : undefined}
-        rel={isBlank ? "noopener noreferrer" : undefined}
-        {...props}
+        external={isBlank}
         className={clsx("ds-markdown__link", props.className)}
-      >
-        {children}
-      </a>
+      />
     );
   };
 

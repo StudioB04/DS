@@ -10,41 +10,8 @@
 .ds-markdown__p {
   text-align: inherit;
 
-  & + * {
+  &+* {
     margin-block-start: 1rem;
-  }
-}
-
-.ds-markdown__link {
-  position: relative;
-  display: inline-block;
-  border-radius: var(--ds-radius-xs);
-  color: var(--ds-text-brand);
-  font-weight: var(--ds-font-weight-medium);
-  padding-inline: var(--ds-spacing-sm);
-  margin-inline: calc(-1 * var(--ds-spacing-sm));
-
-  &::after {
-    content: "";
-    position: absolute;
-    inset-block-end: 0;
-    inset-inline-start: var(--ds-spacing-sm);
-    inset-inline-end: 100%;
-    block-size: var(--ds-size-1px);
-    background-color: currentcolor;
-    transition: inset-inline-end var(--ds-transition-regular);
-  }
-
-  &:focus-visible {
-    outline-offset: calc(-1 * var(--ds-size-3px));
-  }
-
-  &:hover {
-    color: var(--ds-bg-brand-solid_hover);
-
-    &::after {
-      inset-inline-end: var(--ds-spacing-sm);
-    }
   }
 }
 

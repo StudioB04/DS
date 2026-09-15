@@ -3,16 +3,16 @@
   --color-black: #090909;
 
   /* --- Gray --- */
-  --color-gray-50: #f8fafc;
-  --color-gray-100: #f1f5f9;
-  --color-gray-200: #e2e8f0;
-  --color-gray-300: #cbd5e1;
-  --color-gray-400: #94a3b8;
-  --color-gray-500: #64748b;
-  --color-gray-600: #475569;
-  --color-gray-700: #334155;
-  --color-gray-800: #1e293b;
-  --color-gray-900: #0f172a;
+  --color-gray-50: #fafafa;
+  --color-gray-100: #f4f4f5;
+  --color-gray-200: #e3e4e8;
+  --color-gray-300: #d3d4d9;
+  --color-gray-400: #9ea0ad;
+  --color-gray-500: #696b77;
+  --color-gray-600: #4f515e;
+  --color-gray-700: #3d3f48;
+  --color-gray-800: #26272b;
+  --color-gray-900: #17181c;
 
   /* --- Teal --- */
   --color-teal-50: #f0fdfa;
@@ -91,17 +91,17 @@
   --color-red-950: #450e0a;
 
   /* --- Purple --- */
-  --color-purple-50: #faf3ff;
-  --color-purple-100: #f4e3ff;
-  --color-purple-200: #ebcdff;
-  --color-purple-300: #dba5ff;
-  --color-purple-400: #c76cff;
-  --color-purple-500: #b435ff;
-  --color-purple-600: #a90fff;
-  --color-purple-700: #a600ff;
-  --color-purple-800: #8406c3;
-  --color-purple-900: #6c079c;
-  --color-purple-950: #500076;
+  --color-purple-50: #faf8fb;
+  --color-purple-100: #f5f0f7;
+  --color-purple-200: #ebe0ee;
+  --color-purple-300: #dbc7e0;
+  --color-purple-400: #c5a6cc;
+  --color-purple-500: #ab81b4;
+  --color-purple-600: #865d8e;
+  --color-purple-700: #764f7c;
+  --color-purple-800: #614266;
+  --color-purple-900: #523a55;
+  --color-purple-950: #321e34;
 
   /* --- Yellow --- */
   --color-yellow-50: #fffde5;
@@ -117,15 +117,15 @@
   --color-yellow-950: #492000;
 
   /* --- Pink --- */
-  --color-pink-50: #fff2fe;
-  --color-pink-100: #ffe3fe;
-  --color-pink-200: #ffc6fc;
-  --color-pink-300: #ff99f5;
-  --color-pink-400: #ff5ded;
-  --color-pink-500: #ff21e6;
-  --color-pink-600: #ff00dd;
-  --color-pink-700: #cf00af;
-  --color-pink-800: #a9008d;
-  --color-pink-900: #890670;
-  --color-pink-950: #5e004c;
+  --color-pink-50: #fff4ff;
+  --color-pink-100: #ffe7ff;
+  --color-pink-200: #ffd6fe;
+  --color-pink-300: #fea9f8;
+  --color-pink-400: #fc76f0;
+  --color-pink-500: #f342e3;
+  --color-pink-600: #d722c3;
+  --color-pink-700: #b2199e;
+  --color-pink-800: #921680;
+  --color-pink-900: #771867;
+  --color-pink-950: #500243;
 }

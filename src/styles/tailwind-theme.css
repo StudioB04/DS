@@ -51,9 +51,9 @@
      FONT FAMILY — from variables/typography.css
      ============================================================ */
   --font-*: initial;
-  --font-sans: var(--ds-font-family-sans);
-  --font-serif: var(--ds-font-family-serif);
-  --font-mono: var(--ds-font-family-mono);
+  --font-sans: var(--ds-font-sans);
+  --font-serif: var(--ds-font-serif);
+  --font-mono: var(--ds-font-mono);
 
   /* ============================================================
      FONT WEIGHT — from variables/typography.css

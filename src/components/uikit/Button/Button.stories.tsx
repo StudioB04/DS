@@ -23,7 +23,7 @@ export default {
     },
     shape: {
       control: "inline-radio",
-      options: ["square", "pill"],
+      options: ["square", "pill", "outline"],
       description: "The shape of the button.",
     },
     href: {

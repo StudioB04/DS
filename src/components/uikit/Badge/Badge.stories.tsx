@@ -18,7 +18,7 @@ export default {
     },
     type: {
       control: "radio",
-      options: ["light", "plain"],
+      options: ["light", "plain", "clear"],
       description: "The type of the Badge.",
     },
     shape: {

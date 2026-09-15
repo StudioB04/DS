@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import type { BadgeProps } from "./Badge.types";
-import { Icon, Markdown } from "$uikit";
+import Icon from "$uikit/Icon/Icon";
+import Markdown from "$uikit/Markdown/Markdown";
 
 import "./Badge.css";
 
