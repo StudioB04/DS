@@ -1,7 +1,7 @@
 {
   "name": "@studio_b04/ds",
   "description": "StudioB04 Design System",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "module",
   "files": [
     "dist"
@@ -34,6 +34,8 @@
     "start": "storybook dev -p 6006",
     "cleanup": "rm -rf ./dist",
     "build": "npm run cleanup && vite build",
+    "publish": "if [ \"$npm_command\" = \"publish\" ]; then exit 0; fi; npm run build && npm publish --access public --ignore-scripts",
+    "publish:ci": "npm publish --provenance --access public --ignore-scripts",
     "test": "vitest",
     "test:coverage": "vitest run --coverage",
     "lint": "eslint .",

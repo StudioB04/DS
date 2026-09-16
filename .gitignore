@@ -16,6 +16,7 @@ npm-debug.log*
 .env
 .env.local
 .env.*.local
+.tokens
 
 # OS
 .DS_Store
