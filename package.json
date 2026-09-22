@@ -65,7 +65,6 @@
     "@types/react-dom": "^19.0.0",
     "@vitejs/plugin-react": "^5.0.0",
     "@vitest/coverage-v8": "^4.0.0",
-    "clsx": "^2.1.1",
     "eslint": "^9.0.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-jsx-a11y": "^6.10.2",
@@ -89,6 +88,7 @@
     "vitest-axe": "^0.1.0"
   },
   "dependencies": {
+    "clsx": "^2.1.1",
     "lucide-static": "^1.16.0",
     "markdown-to-jsx": "^9.8.2"
   }
