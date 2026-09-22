@@ -28,24 +28,7 @@
   /* ============================================================
      SPACING — from variables/spacing.css
      ============================================================ */
-  --spacing-*: initial;
   --spacing: var(--ds-spacing-unit);
-  --spacing-none: var(--ds-spacing-none);
-  --spacing-2xs: var(--ds-spacing-2xs);
-  --spacing-xs: var(--ds-spacing-xs);
-  --spacing-sm: var(--ds-spacing-sm);
-  --spacing-md: var(--ds-spacing-md);
-  --spacing-lg: var(--ds-spacing-lg);
-  --spacing-xl: var(--ds-spacing-xl);
-  --spacing-2xl: var(--ds-spacing-2xl);
-  --spacing-3xl: var(--ds-spacing-3xl);
-  --spacing-4xl: var(--ds-spacing-4xl);
-  --spacing-5xl: var(--ds-spacing-5xl);
-  --spacing-6xl: var(--ds-spacing-6xl);
-  --spacing-7xl: var(--ds-spacing-7xl);
-  --spacing-8xl: var(--ds-spacing-8xl);
-  --spacing-9xl: var(--ds-spacing-9xl);
-  --spacing-10xl: var(--ds-spacing-10xl);
 
   /* ============================================================
      FONT FAMILY — from variables/typography.css

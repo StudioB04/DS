@@ -7,7 +7,7 @@ html {
 }
 
 body {
-  max-inline-size: 100vw;
+  max-inline-size: 100dvw;
   overflow-x: clip;
   color: var(--ds-text-primary);
   background-color: var(--ds-bg-primary);
