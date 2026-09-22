@@ -10,3 +10,12 @@
 @import url("./../variables/spacing.css");
 @import url("./../variables/transitions.css");
 @import url("./../variables/typography.css");
+
+/* Couche sémantique (texte/fond/bordures) + bascule clair/sombre.
+   Doit être importée APRÈS les variables ci-dessus : light.css et
+   dark.css consomment --color-*, --ds-size-*, etc. dark.css est
+   importé en dernier pour que son override forcé
+   (:root[data-ds-theme="dark"]) gagne la cascade sur le cas
+   limite "thème système clair + data-ds-theme="dark" forcé". */
+@import url("./light.css");
+@import url("./dark.css");
