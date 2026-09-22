@@ -1,6 +1,10 @@
 {
   "name": "@studio_b04/ds",
   "description": "StudioB04 Design System",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/StudioB04/DS"
+  },
   "version": "0.1.1",
   "type": "module",
   "files": [
