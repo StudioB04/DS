@@ -8,6 +8,40 @@ import react from "@vitejs/plugin-react";
 import dts from "vite-plugin-dts";
 import { libInjectCss } from "vite-plugin-lib-inject-css";
 import tsconfigPaths from "vite-tsconfig-paths";
+import type { Plugin } from "vite";
+
+/**
+ * Rollup strips module-level directives ("use client", "use server") when
+ * bundling, since they only make sense per-file. With `preserveModules: true`
+ * each source module maps to its own output chunk, so we can safely restore
+ * the directive on the matching chunk after the fact. Without this, none of
+ * the "use client" directives in src/components/uikit/**\/*.tsx survive the
+ * build, which breaks consumption from Next.js App Router / RSC.
+ */
+function preserveUseClientDirective(): Plugin {
+  const clientModules = new Set<string>();
+
+  return {
+    name: "preserve-use-client-directive",
+    transform(code, id) {
+      if (/^\s*["']use client["'];?/.test(code)) {
+        clientModules.add(id);
+      }
+      return null;
+    },
+    renderChunk(code, chunk) {
+      const isClientChunk =
+        Boolean(chunk.facadeModuleId && clientModules.has(chunk.facadeModuleId)) ||
+        chunk.moduleIds.some((id) => clientModules.has(id));
+
+      if (!isClientChunk || /^\s*["']use client["'];?/.test(code)) {
+        return null;
+      }
+
+      return { code: `"use client";\n${code}`, map: null };
+    },
+  };
+}
 
 const textExclusion = [
   "**/node_modules/**",
@@ -75,11 +109,16 @@ export default defineConfig({
     },
     rollupOptions: {
       external: ["react", "react-dom", "react/jsx-runtime", "clsx"],
+      plugins: [preserveUseClientDirective()],
       output: {
         dir: "dist",
         entryFileNames: "[name].js",
         preserveModules: true,
         preserveModulesRoot: "src",
+      },
+      onwarn(warning, warn) {
+        if (warning.code === "MODULE_LEVEL_DIRECTIVE") return;
+        warn(warning);
       },
     },
   },

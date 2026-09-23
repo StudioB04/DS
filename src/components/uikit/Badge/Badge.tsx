@@ -1,3 +1,5 @@
+"use client";
+
 import clsx from "clsx";
 import type { BadgeProps } from "./Badge.types";
 import Icon from "$uikit/Icon/Icon";

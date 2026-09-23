@@ -1,3 +1,5 @@
+"use client";
+
 import type { ElementType } from "react";
 import clsx from "clsx";
 import type { LinkProps } from "./Link.types";
