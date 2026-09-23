@@ -1,3 +1,5 @@
+"use client";
+
 import Icon from "$uikit/Icon/Icon";
 import Loader from "$uikit/Loader/Loader";
 import Markdown from "$uikit/Markdown/Markdown";

@@ -1,3 +1,5 @@
+"use client";
+
 import type { AnchorHTMLAttributes, ReactElement, ReactNode } from "react";
 import clsx from "clsx";
 import MarkdownComponent from "markdown-to-jsx";

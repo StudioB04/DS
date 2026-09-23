@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useRef } from "react";
 import type { FocusTrapProps } from "./FocusTrap.types";
 import { getInteractiveDomNodes } from "./FocusTrap.utils";

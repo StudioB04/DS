@@ -1,3 +1,5 @@
+"use client";
+
 // https://lucide.dev/guide/static/svg-sprite
 /* eslint-disable react/no-danger */
 import clsx from "clsx";

@@ -9,23 +9,6 @@
   --breakpoint-xl: 1800px;
 
   /* ============================================================
-     CONTAINERS
-     ============================================================ */
-  --container-*: initial;
-  --container-2xs: 20rem;
-  --container-xs: 24rem;
-  --container-sm: 30rem;
-  --container-md: 35rem;
-  --container-lg: 40rem;
-  --container-xl: 48rem;
-  --container-2xl: 64rem;
-  --container-3xl: 80rem;
-  --container-4xl: 90rem;
-  --container-5xl: 100rem;
-  --container-6xl: 120rem;
-  --container-paragraph: 45rem;
-
-  /* ============================================================
      SPACING — from variables/spacing.css
      ============================================================ */
   --spacing: var(--ds-spacing-unit);
