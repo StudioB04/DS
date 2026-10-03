@@ -8,6 +8,14 @@ const renderMarkdownStory = ({ children, allowHtml }: MarkdownProps) => (
 export default {
   title: "Components/uikit/Markdown",
   component: Markdown,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "Renders a markdown string (`children`) with styled elements, through `markdown-to-jsx`.\n\n`allowTags` restricts the rendered tags: the content of other tags is kept as plain text, and links are removed when `a` isn't allowed. Raw HTML is ignored unless `allowHtml` is set. Links use the `Link` component; prefix a URL with `!!` to open it in a new tab (`[Docs](!!https://example.com)`). A single line break becomes a `<br>`.",
+      },
+    },
+  },
   argTypes: {
     children: {
       control: "text",

@@ -22,7 +22,6 @@ export default function Alert({
   const [status, setStatus] = useState<"open" | "closed">("open");
 
   const handleClose = (event: MouseEvent<HTMLButtonElement>) => {
-    if (status !== "open") return;
     setStatus("closed");
     onClose?.(event);
   };

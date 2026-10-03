@@ -6,6 +6,14 @@ import { LucideIconMap } from "$uikit/types";
 export default {
   title: "Components/uikit/Link",
   component: Link,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'Renders a text link: an `<a>` when `href` is provided, a `<button>` otherwise. With `external`, the link opens in a new tab (`rel="noopener noreferrer"`) and gets an external-link icon. The label supports markdown (`strong`, `em`, `br`); add icons with `iconStart` / `iconEnd`.',
+      },
+    },
+  },
   argTypes: {
     label: {
       control: "text",

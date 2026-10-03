@@ -5,7 +5,15 @@ import Skeleton from "./Skeleton";
 export default {
   title: "Components/uikit/Skeleton",
   component: Skeleton,
-  parameters: { layout: "padded" },
+  parameters: {
+    layout: "padded",
+    docs: {
+      description: {
+        component:
+          'A placeholder displayed while content is loading, with a reflection sweeping from left to right (disabled when reduced motion is preferred). It is hidden from assistive technologies (`aria-hidden="true"`): announce the loading state elsewhere, e.g. with `aria-busy` on the container.\n\n`type` sets the shape: `block` (full width, rounded corners), `round` (a circle as wide as it is high) or `text` (full-width lines, the last one shorter; the height is rounded down to a whole number of lines). Set `height` in `px` or `rem`.',
+      },
+    },
+  },
   argTypes: {
     height: {
       control: "text",

@@ -6,6 +6,14 @@ import { LucideIconMap } from "$uikit/types";
 export default {
   title: "Components/uikit/Badge",
   component: Badge,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "A compact label to display a status, a category or metadata. The label supports markdown.\n\nIt comes in 3 `type`s (`light`: tinted background, `plain`: solid background, `clear`: outlined), 2 `shape`s (`pill`, `square`), 3 `size`s and every color `variant`. Add icons with `iconStart` / `iconEnd`, or replace the label with `iconOnly`.",
+      },
+    },
+  },
   argTypes: {
     label: {
       control: "text",

@@ -10,7 +10,15 @@ const paragraph =
 export default {
   title: "Components/uikit/Divider",
   component: Divider,
-  parameters: { layout: "padded" },
+  parameters: {
+    layout: "padded",
+    docs: {
+      description: {
+        component:
+          'Draws a 1px line to visually separate content. It is purely decorative (`aria-hidden="true"`).\n\n`variant` sets the color, from the strongest (`primary`) to the lightest (`tertiary`), and `size` the space around the line (`0`, `sm`, `md`, `lg`). Use `vertical` inside a flex row: the line stretches to the height of the row, with the space on its left and right.',
+      },
+    },
+  },
   argTypes: {
     variant: {
       control: "select",

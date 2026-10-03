@@ -6,6 +6,14 @@ import { LucideIconMap } from "$uikit/types";
 export default {
   title: "Components/uikit/Button",
   component: Button,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'Renders a `<button>` by default, or an `<a>` when `href` is provided. With `external`, the link opens in a new tab (`rel="noopener noreferrer"`) and gets an external-link icon. The label supports markdown (`strong`, `em`, `br`) and is used as the default `title`.\n\n`loading` shows a loader overlay and disables the button. Use `iconStart` / `iconEnd` for icons, `iconOnly` for an icon-only button, or `slotStart` / `slotEnd` for custom content. `block` makes it take the full width.',
+      },
+    },
+  },
   argTypes: {
     label: {
       control: "text",

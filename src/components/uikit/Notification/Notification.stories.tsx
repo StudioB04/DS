@@ -5,6 +5,14 @@ import Notification from "./Notification";
 export default {
   title: "Components/uikit/Notification",
   component: Notification,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "A compact counter, typically placed next to a text or an icon to show unread items or pending events. Above `max` (99 by default), it shows `max+`. The `sm` size shows a dot without the number. The default variant is `red`.",
+      },
+    },
+  },
   argTypes: {
     value: {
       control: "number",

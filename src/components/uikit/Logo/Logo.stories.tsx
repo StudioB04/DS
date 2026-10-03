@@ -6,6 +6,14 @@ import Logo from "./Logo";
 export default {
   title: "Components/uikit/Logo",
   component: Logo,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "Renders the StudioB04 logo as an inline SVG. `type` switches between the `small` mark and the `full` logo; `variant` (`brand`, `alt`, `inverse`, `default`) adapts its colors to the surrounding surface.",
+      },
+    },
+  },
   argTypes: {
     type: {
       control: "radio",

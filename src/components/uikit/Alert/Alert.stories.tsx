@@ -12,7 +12,15 @@ const content =
 export default {
   title: "Components/uikit/Alert",
   component: Alert,
-  parameters: { layout: "padded" },
+  parameters: {
+    layout: "padded",
+    docs: {
+      description: {
+        component:
+          'Displays a message with a required `title` (markdown: `strong`, `em`, `br`) and optional content (`children`). It has `role="alert"`, so screen readers announce it when it appears.\n\nThe close button removes the alert from the DOM, then calls `onClose`; set `closeLabel` to translate its accessible label. With `persistant`, there is no close button. `titleSlotStart` and `titleSlotEnd` place custom content (icon, badge…) before and right after the title.',
+      },
+    },
+  },
   argTypes: {
     title: {
       control: "text",

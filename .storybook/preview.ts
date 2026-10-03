@@ -20,6 +20,7 @@ export const globalTypes = {
 };
 
 const preview: Preview = {
+  tags: ['autodocs'],
   parameters: {
     layout: "centered",
     controls: {

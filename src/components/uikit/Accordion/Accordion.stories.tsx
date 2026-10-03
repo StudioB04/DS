@@ -11,7 +11,15 @@ const content =
 export default {
   title: "Components/uikit/Accordion",
   component: Accordion,
-  parameters: { layout: "padded" },
+  parameters: {
+    layout: "padded",
+    docs: {
+      description: {
+        component:
+          "Reveals and hides content. Built on the native `<details>` / `<summary>` elements: it works without JavaScript, is keyboard accessible (`Enter` / `Space` on the summary) and is announced correctly by screen readers.\n\nThe summary is laid out as `slotStart` → `label` (markdown: `strong`, `em`, `br`) → `slotEnd` → chevron. The content opens and closes with a height and opacity animation (pure CSS, disabled when reduced motion is preferred). Accordions sharing the same `name` form an exclusive group: only one can be open at a time.",
+      },
+    },
+  },
   argTypes: {
     label: {
       control: "text",

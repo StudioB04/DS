@@ -7,6 +7,14 @@ import { Button } from "$uikit";
 export default {
   title: "Components/uikit/FocusTrap",
   component: FocusTrap,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "Keeps keyboard focus inside its children: tabbing past the last focusable element brings focus back to the first one, and vice versa. On mount, focus moves to the first focusable element. Useful for modals, popups and other overlays.",
+      },
+    },
+  },
   decorators: [
     (Story: React.FC) => (
       <div style={{ display: "flex", gap: 16, flexDirection: "column" }}>

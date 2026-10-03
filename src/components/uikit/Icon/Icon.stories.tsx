@@ -7,6 +7,14 @@ import { Album } from "lucide-static";
 export default {
   title: "Components/uikit/Icon",
   component: Icon,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'Renders an SVG icon with a consistent size and a stroke width adapted to that size (`fat` makes it thicker). The icon is decorative (`aria-hidden="true"`) and uses the current text color.\n\n`src` accepts three kinds of sources: a [Lucide](https://lucide.dev/icons) icon name (rendered from the bundled sprite), a sprite URL with a fragment (`/sprite.svg#id`), or a raw `<svg>` string.',
+      },
+    },
+  },
   argTypes: {
     src: {
       control: "select",
