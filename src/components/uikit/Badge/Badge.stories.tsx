@@ -28,7 +28,7 @@ export default {
     },
     variant: {
       control: "select",
-      options: ["neutral", "inverse", "brand", "alt", "green", "red", "orange", "blue", "purple", "yellow", "pink"],
+      options: ["neutral", "brand", "alt", "green", "red", "orange", "blue", "purple", "yellow", "pink"],
       description: "The color variant of the Badge.",
     },
     iconStart: {

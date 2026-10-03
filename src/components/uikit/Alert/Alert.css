@@ -66,13 +66,6 @@
   --ds-alert-close-background-color_hover: var(--ds-bg-tertiary);
 }
 
-.ds-alert--variant-inverse {
-  --ds-alert-color: var(--ds-text-primary);
-  --ds-alert-border-color: var(--ds-border-inverse);
-  --ds-alert-background-color: var(--ds-bg-tertiary);
-  --ds-alert-close-background-color_hover: var(--ds-bg-secondary);
-}
-
 .ds-alert--variant-brand {
   --ds-alert-color: var(--ds-text-brand);
   --ds-alert-border-color: var(--ds-border-brand-solid);

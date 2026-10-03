@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Accordion, Alert, Badge, Button, Divider, Icon } from "$uikit";
 
 
-const VARIANTS = ["neutral", "inverse", "brand", "alt", "green", "red", "orange", "blue", "purple", "yellow", "pink"] as const;
+const VARIANTS = ["neutral", "brand", "alt", "green", "red", "orange", "blue", "purple", "yellow", "pink"] as const;
 
 export default function App() {
   const [theme, setTheme] = useState<"light" | "dark">("light");

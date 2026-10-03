@@ -115,11 +115,6 @@
     --ds-button-background-color_hover: var(--ds-bg-secondary);
   }
 
-  &.ds-button--variant-inverse {
-    --ds-button-color: var(--ds-text-tertiary);
-    --ds-button-background-color_hover: var(--ds-bg-secondary);
-  }
-
   &.ds-button--variant-brand {
     --ds-button-color: var(--ds-bg-brand-solid);
     --ds-button-background-color_hover: var(--ds-bg-brand-primary);
@@ -174,12 +169,6 @@
     --ds-button-background-color_hover: var(--ds-bg-tertiary);
 
     box-shadow: inset 0 0 0 var(--ds-size-1px) var(--ds-border-primary);
-  }
-
-  &.ds-button--variant-inverse {
-    --ds-button-color: var(--ds-text-white);
-    --ds-button-background-color: var(--ds-bg-inverse);
-    --ds-button-background-color_hover: var(--ds-bg-inverse_hover);
   }
 
   &.ds-button--variant-brand {

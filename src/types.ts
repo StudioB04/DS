@@ -4,15 +4,4 @@ export type ButtonOrLinkProps = ButtonHTMLAttributes<HTMLButtonElement> & LinkHT
 
 export type Size = "sm" | "md" | "lg";
 
-export type Variant =
-  | "neutral"
-  | "inverse"
-  | "brand"
-  | "alt"
-  | "green"
-  | "red"
-  | "orange"
-  | "blue"
-  | "purple"
-  | "yellow"
-  | "pink";
+export type Variant = "neutral" | "brand" | "alt" | "green" | "red" | "orange" | "blue" | "purple" | "yellow" | "pink";

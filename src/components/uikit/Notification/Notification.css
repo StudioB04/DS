@@ -67,11 +67,6 @@
   --ds-notification-background-color: var(--ds-bg-blue-solid);
 }
 
-.ds-notification--variant-inverse {
-  --ds-notification-color: var(--ds-text-inverse);
-  --ds-notification-background-color: var(--ds-bg-inverse);
-}
-
 .ds-notification--variant-purple {
   --ds-notification-color: var(--ds-text-white);
   --ds-notification-background-color: var(--ds-bg-purple-solid);

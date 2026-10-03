@@ -4,7 +4,7 @@ import Alert from "./Alert";
 import Badge from "$uikit/Badge/Badge";
 import Icon from "$uikit/Icon/Icon";
 
-const VARIANTS = ["neutral", "inverse", "brand", "alt", "green", "red", "orange", "blue", "purple", "yellow", "pink"];
+const VARIANTS = ["neutral", "brand", "alt", "green", "red", "orange", "blue", "purple", "yellow", "pink"];
 
 const content =
   "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus.";

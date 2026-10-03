@@ -130,10 +130,4 @@
   --ds-border-success-solid-2px: var(--ds-size-2px) solid var(--ds-border-success-solid);
   --ds-border-success-solid-3px: var(--ds-size-3px) solid var(--ds-border-success-solid);
   --ds-border-success-solid-4px: var(--ds-size-4px) solid var(--ds-border-success-solid);
-
-  /* inverse */
-  --ds-border-inverse-1px: var(--ds-size-1px) solid var(--ds-border-inverse);
-  --ds-border-inverse-2px: var(--ds-size-2px) solid var(--ds-border-inverse);
-  --ds-border-inverse-3px: var(--ds-size-3px) solid var(--ds-border-inverse);
-  --ds-border-inverse-4px: var(--ds-size-4px) solid var(--ds-border-inverse);
 }

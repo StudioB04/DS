@@ -66,12 +66,6 @@
   --ds-link-bg_hover: var(--ds-bg-secondary);
 }
 
-.ds-link--variant-inverse {
-  --ds-link-color: var(--ds-text-secondary);
-  --ds-link-color_hover: var(--ds-text-primary);
-  --ds-link-bg_hover: var(--ds-bg-secondary);
-}
-
 .ds-link--variant-brand {
   --ds-link-color: var(--ds-text-brand);
   --ds-link-color_hover: var(--ds-bg-brand-solid);

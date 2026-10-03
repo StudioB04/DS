@@ -88,7 +88,7 @@ describe("Badge component", () => {
       expect(container.querySelector(".ds-badge")).toHaveClass("ds-badge--variant-neutral");
     });
 
-    it.each(["brand", "alt", "green", "red", "orange", "blue", "inverse", "purple", "yellow", "pink"] as const)(
+    it.each(["brand", "alt", "green", "red", "orange", "blue", "purple", "yellow", "pink"] as const)(
       "applies %s variant class",
       (variant) => {
         const { container } = render(<Badge label="Status" type="light" shape="pill" variant={variant} />);

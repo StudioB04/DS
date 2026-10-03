@@ -53,22 +53,13 @@ describe("Notification component", () => {
       expect(container.querySelector(".ds-notification")).toHaveClass("ds-notification--variant-red");
     });
 
-    it.each([
-      "neutral",
-      "inverse",
-      "brand",
-      "alt",
-      "green",
-      "red",
-      "orange",
-      "blue",
-      "purple",
-      "yellow",
-      "pink",
-    ] as const)("applies %s variant class", (variant) => {
-      const { container } = render(<Notification value={3} variant={variant} />);
-      expect(container.querySelector(".ds-notification")).toHaveClass(`ds-notification--variant-${variant}`);
-    });
+    it.each(["neutral", "brand", "alt", "green", "red", "orange", "blue", "purple", "yellow", "pink"] as const)(
+      "applies %s variant class",
+      (variant) => {
+        const { container } = render(<Notification value={3} variant={variant} />);
+        expect(container.querySelector(".ds-notification")).toHaveClass(`ds-notification--variant-${variant}`);
+      },
+    );
   });
 
   describe("value display", () => {

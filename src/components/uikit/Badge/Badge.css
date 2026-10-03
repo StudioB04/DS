@@ -110,12 +110,6 @@
     --ds-badge-background-color: var(--ds-bg-blue-primary);
   }
 
-  &.ds-badge--variant-inverse {
-    --ds-badge-color: var(--ds-text-primary);
-    --ds-badge-border-color: var(--ds-border-inverse);
-    --ds-badge-background-color: var(--ds-bg-tertiary);
-  }
-
   &.ds-badge--variant-purple {
     --ds-badge-color: var(--ds-text-purple);
     --ds-badge-border-color: var(--ds-border-purple-solid);
@@ -175,11 +169,6 @@
     --ds-badge-background-color: var(--ds-bg-blue-solid);
   }
 
-  &.ds-badge--variant-inverse {
-    --ds-badge-color: var(--ds-text-inverse);
-    --ds-badge-background-color: var(--ds-bg-inverse);
-  }
-
   &.ds-badge--variant-purple {
     --ds-badge-color: var(--ds-text-white);
     --ds-badge-background-color: var(--ds-bg-purple-solid);
@@ -229,10 +218,6 @@
 
   &.ds-badge--variant-blue {
     --ds-badge-color: var(--ds-text-blue);
-  }
-
-  &.ds-badge--variant-inverse {
-    --ds-badge-color: var(--ds-text-inverse);
   }
 
   &.ds-badge--variant-purple {

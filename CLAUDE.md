@@ -83,7 +83,7 @@ Then register in `uikit/index.ts` and `uikit/types.ts`.
 - Pattern: modifiers only set component-local custom props (`--ds-<name>-color`, `--ds-<name>-background-color`, `…_hover`, `--ds-<name>-font-size`, `--ds-<name>-padding-inline`); the root rule consumes them.
 - Use semantic tokens only (`--ds-text-*`, `--ds-bg-*`, `--ds-border-*`) + scale tokens (`--ds-spacing-*`, `--ds-size-Npx`, `--ds-radius-*`, `--ds-font-size-text-*`, `--ds-font-weight-*`, `--ds-transition-*`). Never `--color-*` in components.
 - Logical properties (`inline-size`, `block-size`, `padding-inline`, `margin-inline-start`).
-- Every `Variant` needs a rule: neutral, inverse, brand, alt, green, red, orange, blue, purple, yellow, pink. Solid fills use `--ds-bg-<v>-solid` (+ `_hover`) with `--ds-text-white` (yellow → dark text); tinted fills use `--ds-bg-<v>-primary` + `--ds-text-<v>` + `--ds-border-<v>-solid`.
+- Every `Variant` needs a rule: neutral, brand, alt, green, red, orange, blue, purple, yellow, pink. Solid fills use `--ds-bg-<v>-solid` (+ `_hover`) with `--ds-text-white` (yellow → dark text); tinted fills use `--ds-bg-<v>-primary` + `--ds-text-<v>` + `--ds-border-<v>-solid`.
 
 ### Tests
 - `describe("<Name> component")`; first test is axe: `expect(await axe(container, { rules: { "color-contrast": { enabled: false } } })).toHaveNoViolations()`.
