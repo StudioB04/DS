@@ -1,0 +1,63 @@
+.ds-skeleton {
+  position: relative;
+  display: block;
+  inline-size: 100%;
+  flex-shrink: 0;
+  block-size: var(--ds-skeleton-height);
+  overflow: hidden;
+  background-color: var(--ds-bg-tertiary);
+
+  &::after {
+    position: absolute;
+    inset: 0;
+    content: "";
+    background-image: linear-gradient(90deg, transparent, color-mix(in srgb, var(--ds-text-white) 45%, transparent), transparent);
+    translate: -100% 0;
+    rotate: 1deg;
+    animation: ds-skeleton-shine 2s ease-in-out infinite;
+  }
+}
+
+/* ##### TYPE ########################## */
+.ds-skeleton--type-block {
+  border-radius: var(--ds-radius-lg);
+}
+
+.ds-skeleton--type-round {
+  border-radius: var(--ds-radius-full);
+  inline-size: var(--ds-skeleton-height);
+}
+
+.ds-skeleton--type-text {
+  --ds-skeleton-line-size: var(--ds-size-12px);
+  --ds-skeleton-line-gap: var(--ds-size-10px);
+  --ds-skeleton-line-pitch: calc(var(--ds-skeleton-line-size) + var(--ds-skeleton-line-gap));
+  --ds-skeleton-last-line-width: 60%;
+
+  inline-size: 100%;
+  block-size: max(var(--ds-skeleton-line-size),
+      round(down,
+        var(--ds-skeleton-height) + var(--ds-skeleton-line-gap),
+        var(--ds-skeleton-line-pitch)) - var(--ds-skeleton-line-gap));
+  mask-image:
+    linear-gradient(#000 0 0),
+    linear-gradient(to bottom, transparent var(--ds-skeleton-line-gap), #000 var(--ds-skeleton-line-gap)),
+    linear-gradient(#000 0 0);
+  mask-position:
+    left bottom,
+    left bottom,
+    left top;
+  mask-size:
+    var(--ds-skeleton-last-line-width) var(--ds-skeleton-line-size),
+    100% var(--ds-skeleton-line-pitch),
+    100% calc(100% - var(--ds-skeleton-line-size));
+  mask-repeat: no-repeat, repeat-y, no-repeat;
+  mask-composite: add, intersect, add;
+}
+
+/* ##### ANIMATION ##################### */
+@keyframes ds-skeleton-shine {
+  to {
+    translate: 200% 0;
+  }
+}

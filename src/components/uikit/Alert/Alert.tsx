@@ -27,35 +27,37 @@ export default function Alert({
     onClose?.(event);
   };
 
-  return status === "open" && (
-    <div
-      role="alert"
-      className={clsx("ds-alert", `ds-alert--variant-${variant}`, persistant && "ds-alert--persistant", className)}
-      {...restProps}
-    >
-      <div className="ds-alert__header">
-        {titleSlotStart && <span className="ds-alert__slot ds-alert__slot--title-start">{titleSlotStart}</span>}
+  return (
+    status === "open" && (
+      <div
+        role="alert"
+        className={clsx("ds-alert", `ds-alert--variant-${variant}`, persistant && "ds-alert--persistant", className)}
+        {...restProps}
+      >
+        <div className="ds-alert__header">
+          {titleSlotStart && <span className="ds-alert__slot ds-alert__slot--title-start">{titleSlotStart}</span>}
 
-        <Markdown allowTags={["strong", "em", "br"]} className="ds-alert__title">
-          {title}
-        </Markdown>
+          <Markdown allowTags={["strong", "em", "br"]} className="ds-alert__title">
+            {title}
+          </Markdown>
 
-        {titleSlotEnd && <span className="ds-alert__slot ds-alert__slot--title-end">{titleSlotEnd}</span>}
+          {titleSlotEnd && <span className="ds-alert__slot ds-alert__slot--title-end">{titleSlotEnd}</span>}
 
-        {!persistant && (
-          <button
-            type="button"
-            className="ds-alert__close"
-            aria-label={closeLabel}
-            title={closeLabel}
-            onClick={handleClose}
-          >
-            <Icon src="x" size={20} className="ds-alert__close-icon" />
-          </button>
-        )}
+          {!persistant && (
+            <button
+              type="button"
+              className="ds-alert__close"
+              aria-label={closeLabel}
+              title={closeLabel}
+              onClick={handleClose}
+            >
+              <Icon src="x" size={20} className="ds-alert__close-icon" />
+            </button>
+          )}
+        </div>
+
+        {children && <div className="ds-alert__content">{children}</div>}
       </div>
-
-      {children && <div className="ds-alert__content">{children}</div>}
-    </div>
+    )
   );
 }

@@ -11,7 +11,6 @@
   background-color: var(--ds-divider-color);
   border: none;
 
-  /* Vertical: a 1px column that takes the height of its flex row. */
   &.ds-divider--vertical {
     inline-size: var(--ds-size-1px);
     block-size: auto;

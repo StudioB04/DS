@@ -1,0 +1,55 @@
+import { Canvas, Controls, Meta } from "@storybook/addon-docs/blocks";
+import * as SkeletonStories from "./Skeleton.stories";
+
+<Meta of={SkeletonStories} />
+
+# Skeleton
+
+The `Skeleton` component is a placeholder displayed while content is loading. A soft reflection sweeps across it from left to right. It has `aria-hidden="true"`: announce the loading state elsewhere (e.g. `aria-busy` on the container, or the `Loader` component).
+
+## Default
+
+<Canvas of={SkeletonStories.Default} />
+<Controls of={SkeletonStories.Default} />
+
+---
+
+## Usage
+
+```tsx
+import { Skeleton } from "@studio_b04/ds/uikit";
+
+<Skeleton height="48px" type="round" />
+<Skeleton height="5rem" type="text" />
+<Skeleton height="6rem" />
+```
+
+---
+
+## Props
+
+- `height` (`string`): height of the placeholder, in `px` or `rem` (e.g. `"48px"`, `"3rem"`). Without it, the skeleton has no height.
+- `type` (`"block" | "round" | "text"`, default `"block"`): shape of the placeholder.
+
+All other `<div>` attributes (`id`, `style`, `data-*`…) are forwarded to the root element.
+
+---
+
+## Types
+
+- `block`: takes the full width, with rounded corners.
+- `round`: a circle; its width equals its height.
+- `text`: takes the full width and draws lines of text (12px lines, 10px apart), the last one shorter (60% of the width).
+
+<Canvas of={SkeletonStories.Round} />
+<Canvas of={SkeletonStories.Text} />
+
+For `text`, the height is rounded down to a whole number of lines, so the last line is never cut: `100px` gives exactly 5 lines, `90px` gives 4 lines (78px). The minimum is one line; a single line is drawn shorter, like any last line.
+
+---
+
+## Animation
+
+A reflection (a light gradient, `--ds-skeleton-shine-color`) sweeps from left to right in a loop. For `text`, the lines are cut out with a CSS mask, so the reflection only shows on the lines, never in the gaps between them.
+
+The duration uses the `--ds-transition-delay-slow` token, so the reflection is disabled when the user prefers reduced motion.

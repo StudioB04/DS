@@ -68,6 +68,9 @@ Build: Vite lib mode, ES only, `preserveModules`, `vite-plugin-lib-inject-css` (
 
 Then register in `uikit/index.ts` and `uikit/types.ts`.
 
+### Comments
+- Don't add comments (JSDoc, CSS or inline) unless the user asks. Keep the existing ones as they are.
+
 ### TSX conventions
 - Destructure props with defaults in the signature (`size = "md"`, `variant = "brand"` / `"neutral"`), pull out `className`, spread `...restProps` last on the root.
 - Classes via `clsx`: `"ds-x"`, `` `ds-x--size-${size}` ``, `` `ds-x--variant-${variant}` ``, boolean modifiers `flag && "ds-x--flag"`, then `className`.

@@ -50,11 +50,6 @@
   }
 
   /* ##### OPENING ANIMATION ########### */
-  /* `::details-content` wraps everything after <summary>. Its height
-     goes from 0 to auto; `content-visibility` is discrete, so
-     `allow-discrete` keeps the content visible until the closing
-     transition has finished. Browsers without support simply open/close
-     instantly. Durations come from tokens, so reduced motion is respected. */
   &::details-content {
     block-size: 0;
     overflow-y: clip;

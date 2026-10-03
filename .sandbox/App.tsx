@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Accordion, Alert, Badge, Button, Divider, Icon } from "$uikit";
+import { Accordion, Alert, Badge, Button, Divider, Icon, Skeleton } from "$uikit";
 
 
 const VARIANTS = ["neutral", "brand", "alt", "green", "red", "orange", "blue", "purple", "yellow", "pink"] as const;
@@ -95,6 +95,18 @@ export default function App() {
             </Alert>
           ))}
         </div>
+      </section>
+
+      <section className="flex flex-col gap-2">
+        <h2 className="text-title-sm font-semibold">Skeleton</h2>
+        <div className="flex gap-4 items-start">
+          <Skeleton height="3rem" type="round" />
+          <div className="flex flex-1 flex-col gap-3">
+            <Skeleton height="12px" type="text" />
+            <Skeleton height="100px" type="text" />
+          </div>
+        </div>
+        <Skeleton height="6rem" type="block" />
       </section>
     </div >
   );
