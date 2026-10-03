@@ -1,0 +1,104 @@
+.ds-accordion {
+  interpolate-size: allow-keywords;
+  inline-size: 100%;
+
+  .ds-accordion__summary {
+    display: flex;
+    align-items: center;
+    gap: var(--ds-accordion-gap);
+    padding-block: var(--ds-accordion-padding-block);
+    padding-inline: var(--ds-accordion-padding-inline);
+    font-size: var(--ds-accordion-font-size);
+    font-weight: var(--ds-font-weight-medium);
+    line-height: 1.35;
+    color: var(--ds-text-primary);
+    cursor: pointer;
+    list-style: none;
+    transition: color var(--ds-transition-fast);
+
+    &::-webkit-details-marker {
+      display: none;
+    }
+
+    &:hover {
+      color: var(--ds-text-brand);
+    }
+  }
+
+  .ds-accordion__slot {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+  }
+
+  .ds-accordion__label {
+    flex-shrink: 1;
+  }
+
+  .ds-accordion__chevron {
+    flex-shrink: 0;
+    block-size: 1.25em;
+    inline-size: 1.25em;
+    margin-inline-start: auto;
+    color: currentColor;
+    transition: rotate var(--ds-transition-regular);
+  }
+
+
+  &[open] .ds-accordion__chevron {
+    rotate: -180deg;
+  }
+
+  /* ##### OPENING ANIMATION ########### */
+  /* `::details-content` wraps everything after <summary>. Its height
+     goes from 0 to auto; `content-visibility` is discrete, so
+     `allow-discrete` keeps the content visible until the closing
+     transition has finished. Browsers without support simply open/close
+     instantly. Durations come from tokens, so reduced motion is respected. */
+  &::details-content {
+    block-size: 0;
+    overflow-y: clip;
+    opacity: 0;
+    transition:
+      block-size var(--ds-transition-regular),
+      opacity var(--ds-transition-regular),
+      content-visibility var(--ds-transition-regular) allow-discrete;
+  }
+
+  &[open]::details-content {
+    block-size: auto;
+    opacity: 1;
+  }
+
+  .ds-accordion__content {
+    padding-block: 0 var(--ds-accordion-padding-block);
+    padding-inline: var(--ds-accordion-padding-inline);
+    font-size: var(--ds-accordion-content-font-size);
+    color: var(--ds-text-secondary);
+  }
+}
+
+/* ##### SIZE ########################## */
+.ds-accordion--size-sm {
+  --ds-accordion-font-size: var(--ds-font-size-text-md);
+  --ds-accordion-content-font-size: var(--ds-font-size-text-sm);
+  --ds-accordion-padding-block: var(--ds-spacing-lg);
+  --ds-accordion-padding-inline: var(--ds-spacing-md);
+  --ds-accordion-gap: var(--ds-spacing-md);
+}
+
+.ds-accordion--size-md {
+  --ds-accordion-font-size: var(--ds-font-size-text-lg);
+  --ds-accordion-content-font-size: var(--ds-font-size-text-md);
+  --ds-accordion-padding-block: var(--ds-spacing-xl);
+  --ds-accordion-padding-inline: var(--ds-spacing-lg);
+  --ds-accordion-gap: var(--ds-spacing-lg);
+}
+
+.ds-accordion--size-lg {
+  --ds-accordion-font-size: var(--ds-font-size-text-xl);
+  --ds-accordion-content-font-size: var(--ds-font-size-text-lg);
+  --ds-accordion-padding-block: var(--ds-spacing-2xl);
+  --ds-accordion-padding-inline: var(--ds-spacing-xl);
+  --ds-accordion-gap: var(--ds-spacing-xl);
+}

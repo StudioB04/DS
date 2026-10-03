@@ -1,6 +1,6 @@
 // Concatène le thème réel du DS (reset + base + tokens + light/dark) en un
 // seul fichier CSS statique servi tel quel par le bac à sable, via
-// sandbox/index.html (<link rel="stylesheet" href="/theme.css">) plutôt
+// .sandbox/index.html (<link rel="stylesheet" href="/theme.css">) plutôt
 // que via un import Vite/Tailwind.
 //
 // Pourquoi : le moteur CSS de Tailwind (Lightning CSS) a supprimé, à deux
@@ -14,14 +14,14 @@
 // des classes utilitaires (tailwind-theme.css).
 //
 // Regénéré automatiquement à chaque lancement de `npm run sandbox`
-// (voir le script "sandbox" dans package.json).
+// (voir le script "theme" dans .sandbox/package.json).
 import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const stylesDir = resolve(__dirname, "../src/styles");
-const outDir = resolve(__dirname, "../sandbox/public");
+const outDir = resolve(__dirname, "public");
 const outFile = resolve(outDir, "theme.css");
 
 const IMPORT_RE = /@import\s+url\(["']?(.+?)["']?\)\s*;/g;
@@ -47,7 +47,7 @@ function resolveImports(filePath, seen = new Set()) {
 // aussi ne ferait que les inliner une seconde fois pour rien.
 const seen = new Set();
 const parts = [
-  `/* Fichier genere par scripts/build-sandbox-theme.mjs -- ne pas editer a la main. */`,
+  `/* Fichier genere par .sandbox/build-theme.mjs -- ne pas editer a la main. */`,
   resolveImports(resolve(stylesDir, "reset.css"), seen),
   resolveImports(resolve(stylesDir, "base.css"), seen),
   resolveImports(resolve(stylesDir, "themes/tokens.css"), seen),

@@ -1,0 +1,26 @@
+{
+  "name": "@studio_b04/ds-sandbox",
+  "private": true,
+  "description": "Local playground for the StudioB04 Design System — imports ../src directly, never published",
+  "type": "module",
+  "scripts": {
+    "theme": "node build-theme.mjs",
+    "dev": "npm run theme && vite",
+    "build": "npm run theme && vite build",
+    "typecheck": "tsc --noEmit -p tsconfig.json"
+  },
+  "dependencies": {
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/node": "^25.6.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "^5.0.0",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^5.0.0",
+    "vite": "^6.0.0"
+  }
+}

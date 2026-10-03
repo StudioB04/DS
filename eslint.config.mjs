@@ -8,7 +8,7 @@ import jsxA11y from "eslint-plugin-jsx-a11y";
 import prettierConfig from "eslint-config-prettier";
 
 export default tseslint.config(
-  { ignores: ["dist", "storybook-static", "coverage"] },
+  { ignores: ["dist", "storybook-static", "coverage", ".sandbox"] },
 
   // ── Base JS + TS ────────────────────────────────────────────────
   {

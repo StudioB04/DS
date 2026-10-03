@@ -7,9 +7,7 @@
   "include": [
     "src/**/*",
     ".storybook/**/*",
-    "vite.config.ts",
-    "sandbox/**/*",
-    "vite.sandbox.config.ts"
+    "vite.config.ts"
   ],
   "exclude": [
     "node_modules",
