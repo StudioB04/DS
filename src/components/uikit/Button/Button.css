@@ -102,7 +102,7 @@
 .ds-button--shape-outline {
   border-radius: var(--ds-button-radius);
   background-color: transparent;
-  border: var(--ds-size-2px) solid var(--ds-button-color);
+  box-shadow: inset 0 0 0 var(--ds-size-2px) var(--ds-button-color);
   color: var(--ds-button-color);
 }
 
@@ -173,7 +173,7 @@
     --ds-button-background-color: var(--ds-bg-secondary);
     --ds-button-background-color_hover: var(--ds-bg-tertiary);
 
-    border: var(--ds-size-1px) solid var(--ds-border-primary);
+    box-shadow: inset 0 0 0 var(--ds-size-1px) var(--ds-border-primary);
   }
 
   &.ds-button--variant-inverse {

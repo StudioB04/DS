@@ -65,7 +65,7 @@
 .ds-badge--type-light {
   color: var(--ds-badge-color);
   background-color: var(--ds-badge-background-color);
-  border: var(--ds-size-1px) solid var(--ds-badge-border-color);
+  box-shadow: inset 0 0 0 var(--ds-size-1px) var(--ds-badge-border-color);
 
   /* ##### VARIANTS ###################### */
   &.ds-badge--variant-neutral {
@@ -200,7 +200,7 @@
 
 .ds-badge--type-clear {
   color: var(--ds-badge-color);
-  border: var(--ds-size-2px) solid var(--ds-badge-color);
+  box-shadow: inset 0 0 0 var(--ds-size-2px) var(--ds-badge-color);
 
   /* ##### VARIANTS ###################### */
   &.ds-badge--variant-neutral {

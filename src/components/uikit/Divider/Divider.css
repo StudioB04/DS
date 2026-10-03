@@ -1,0 +1,53 @@
+.ds-divider {
+  flex-shrink: 0;
+  align-self: stretch;
+  inline-size: auto;
+  block-size: var(--ds-size-1px);
+  margin-block: var(--ds-divider-spacing);
+  margin-inline: 0;
+  padding: 0;
+  overflow: visible;
+  color: inherit;
+  background-color: var(--ds-divider-color);
+  border: none;
+
+  /* Vertical: a 1px column that takes the height of its flex row. */
+  &.ds-divider--vertical {
+    inline-size: var(--ds-size-1px);
+    block-size: auto;
+    min-block-size: 1em;
+    margin-block: 0;
+    margin-inline: var(--ds-divider-spacing);
+  }
+}
+
+/* ##### SIZE ########################## */
+.ds-divider--size-0 {
+  --ds-divider-spacing: 0;
+}
+
+.ds-divider--size-sm {
+  --ds-divider-spacing: var(--ds-spacing-lg);
+}
+
+
+.ds-divider--size-md {
+  --ds-divider-spacing: var(--ds-spacing-3xl);
+}
+
+.ds-divider--size-lg {
+  --ds-divider-spacing: var(--ds-spacing-5xl);
+}
+
+/* ##### VARIANTS ###################### */
+.ds-divider--variant-primary {
+  --ds-divider-color: var(--ds-border-primary);
+}
+
+.ds-divider--variant-secondary {
+  --ds-divider-color: var(--ds-border-secondary);
+}
+
+.ds-divider--variant-tertiary {
+  --ds-divider-color: var(--ds-border-tertiary);
+}

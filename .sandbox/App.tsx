@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Accordion, Badge, Button, Icon } from "$uikit";
+import { Accordion, Badge, Button, Divider, Icon } from "$uikit";
 
 
 const VARIANTS = ["neutral", "brand", "alt", "green", "red", "orange", "blue", "purple", "yellow", "pink"] as const;
@@ -38,12 +38,18 @@ export default function App() {
         <h2 className="text-title-sm font-semibold ">Button — variants</h2>
         <div className="flex flex-wrap gap-1">
           {VARIANTS.map((variant) => (
-            <Button key={variant} label={variant} variant={variant} size="md" />
+            <Button key={variant} shape="square" label={variant} variant={variant} size="md" />
           ))}
-
-          <Button shape="square" label="square" variant="neutral" size="md" />
-          <Button shape="pill" label="pill" variant="neutral" size="md" />
-          <Button shape="outline" label="outline" variant="neutral" size="md" />
+        </div>
+        <div className="flex flex-wrap gap-1">
+          {VARIANTS.map((variant) => (
+            <Button key={variant} shape="pill" label={variant} variant={variant} size="md" />
+          ))}
+        </div>
+        <div className="flex flex-wrap gap-1">
+          {VARIANTS.map((variant) => (
+            <Button key={variant} shape="outline" label={variant} variant={variant} size="md" />
+          ))}
         </div>
       </section>
 
@@ -51,7 +57,17 @@ export default function App() {
         <h2 className="text-title-sm font-semibold">Badge — variants</h2>
         <div className="flex flex-wrap gap-3">
           {VARIANTS.map((variant) => (
-            <Badge key={variant} label={variant} variant={variant} />
+            <Badge key={variant} type="light" label={variant} variant={variant} />
+          ))}
+        </div>
+        <div className="flex flex-wrap gap-3">
+          {VARIANTS.map((variant) => (
+            <Badge key={variant} type="plain" label={variant} variant={variant} />
+          ))}
+        </div>
+        <div className="flex flex-wrap gap-3">
+          {VARIANTS.map((variant) => (
+            <Badge key={variant} type="clear" label={variant} variant={variant} />
           ))}
         </div>
       </section>
@@ -62,14 +78,11 @@ export default function App() {
           <Accordion name="accordion" label="Lorem *ipsum* dolor sit amet" slotStart={<Icon src="circle-question-mark" size={20} />}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.
           </Accordion>
-
+          <Divider size="sm" />
           <Accordion name="accordion" label="consectetur **adipisicing** elit. Delectus, porro." slotStart={<Icon src="circle-question-mark" size={20} />}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.
           </Accordion>
-
-          <Accordion name="accordion" label="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi." slotStart={<Icon src="circle-question-mark" size={20} />}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.
-          </Accordion>
+          <Divider size="sm" />
         </div>
       </section>
     </div >

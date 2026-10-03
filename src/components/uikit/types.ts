@@ -3,6 +3,7 @@
 export * from "./Accordion/Accordion.types";
 export * from "./Badge/Badge.types";
 export * from "./Button/Button.types";
+export * from "./Divider/Divider.types";
 export * from "./Icon/Icon.types";
 export * from "./Link/Link.types";
 export * from "./Loader/Loader.types";

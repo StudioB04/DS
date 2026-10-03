@@ -1,0 +1,74 @@
+import { Canvas, Controls, Meta } from "@storybook/addon-docs/blocks";
+import * as DividerStories from "./Divider.stories";
+
+<Meta of={DividerStories} />
+
+# Divider
+
+The `Divider` component draws a 1px line to visually separate content. It renders a `<div>` with `aria-hidden="true"`: it is purely decorative and ignored by assistive technologies, so the structure of your content (headings, lists, sections) should carry the meaning on its own.
+
+## Default
+
+<Canvas of={DividerStories.Default} />
+<Controls of={DividerStories.Default} />
+
+---
+
+## Usage
+
+```tsx
+import { Divider } from "@studio_b04/ds/uikit";
+
+<p>First section</p>
+<Divider />
+<p>Second section</p>
+```
+
+---
+
+## Variants
+
+The `variant` prop sets the color of the line, from the strongest to the lightest. Each one uses the matching border token, so it adapts to the light and dark themes.
+
+- `primary` (default): `--ds-border-primary`
+- `secondary`: `--ds-border-secondary`
+- `tertiary`: `--ds-border-tertiary`
+
+<Canvas of={DividerStories.Variants} />
+
+```tsx
+<Divider variant="primary" />
+<Divider variant="secondary" />
+<Divider variant="tertiary" />
+```
+
+---
+
+## Sizes
+
+The `size` prop sets the space around the line: above and below when horizontal, left and right when vertical.
+
+- `0` (or `"0"`): no space
+- `sm`: `--ds-spacing-lg` (0.625rem)
+- `md` (default): `--ds-spacing-3xl` (1.25rem)
+- `lg`: `--ds-spacing-5xl` (2rem)
+
+<Canvas of={DividerStories.Sizes} />
+
+---
+
+## Vertical
+
+Use `vertical` inside a flex container (`display: flex` with `flex-direction: row`). The line stretches to the height of the row and the spacing is applied on the left and right.
+
+<Canvas of={DividerStories.Vertical} />
+
+```tsx
+<nav style={{ display: "flex", alignItems: "center" }}>
+  <a href="/">Home</a>
+  <Divider vertical size="sm" />
+  <a href="/products">Products</a>
+</nav>
+```
+
+The vertical line has a minimum height of `1em`, so it stays visible even when the flex row has no explicit height. In a container that isn't a flex row, it has no height to stretch to.

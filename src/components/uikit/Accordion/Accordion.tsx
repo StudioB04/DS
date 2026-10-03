@@ -16,7 +16,7 @@ export default function Accordion({
   ...restProps
 }: AccordionProps) {
   return (
-    <details className={clsx("ds-accordion", `ds-accordion--size-${size}`, className)} name={name} {...restProps} >
+    <details className={clsx("ds-accordion", `ds-accordion--size-${size}`, className)} name={name} {...restProps}>
       <summary className="ds-accordion__summary">
         {slotStart && <span className="ds-accordion__slot ds-accordion__slot--start">{slotStart}</span>}
 
