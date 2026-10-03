@@ -4,6 +4,15 @@
     "rootDir": ".",
     "noEmit": true
   },
-  "include": ["src/**/*", ".storybook/**/*", "vite.config.ts"],
-  "exclude": ["node_modules", "dist"]
+  "include": [
+    "src/**/*",
+    ".storybook/**/*",
+    "vite.config.ts",
+    "sandbox/**/*",
+    "vite.sandbox.config.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
 }
