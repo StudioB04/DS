@@ -1,0 +1,93 @@
+import { Canvas, Controls, Meta } from "@storybook/addon-docs/blocks";
+import * as AlertStories from "./Alert.stories";
+
+<Meta of={AlertStories} />
+
+# Alert
+
+The `Alert` component displays a message with a title and an optional content. It can be dismissed with its close button, unless it is `persistant`. It has `role="alert"`, so screen readers announce it when it appears.
+
+## Default
+
+<Canvas of={AlertStories.Default} />
+<Controls of={AlertStories.Default} />
+
+---
+
+## Usage
+
+```tsx
+import { Alert } from "@studio_b04/ds/uikit";
+
+<Alert title="Changes saved" variant="green">
+  <p>Your profile has been updated.</p>
+</Alert>
+```
+
+---
+
+## Props
+
+- `title` (`string`, required): title, always displayed. Markdown is supported (`strong`, `em`, `br`).
+- `children` (`ReactNode`): content displayed under the title.
+- `variant` (`Variant`, default `"neutral"`): color of the alert.
+- `persistant` (`boolean`): hides the close button, so the alert can't be dismissed.
+- `titleSlotStart` (`ReactNode`): custom content before the title (icon, badge…).
+- `titleSlotEnd` (`ReactNode`): custom content right after the title (badge, counter…).
+- `closeLabel` (`string`, default `"Close"`): accessible label of the close button.
+- `onClose` (`(event) => void`): called when the close button is clicked, once the alert has been removed.
+
+All other `<div>` attributes (`id`, `data-*`, `aria-*`…) are forwarded to the root element.
+
+---
+
+## Title slots
+
+The header is laid out as: `titleSlotStart` → title → `titleSlotEnd` → close button, like the Accordion summary. The title only takes its own width, so `titleSlotEnd` sits right after it, and the close button is pushed to the end of the row.
+
+- `titleSlotStart`: an icon or any React content before the title.
+- `titleSlotEnd`: a badge, a counter… right after the title.
+
+<Canvas of={AlertStories.WithTitleSlotStart} />
+<Canvas of={AlertStories.WithTitleSlotEnd} />
+
+```tsx
+<Alert title="Payment accepted" variant="green" titleSlotStart={<Icon src="circle-check" size={20} />}>
+  …
+</Alert>
+
+<Alert
+  title="New features"
+  variant="brand"
+  titleSlotStart={<Icon src="sparkles" size={20} />}
+  titleSlotEnd={<Badge label="v0.2" variant="brand" type="plain" size="sm" />}
+>
+  …
+</Alert>
+```
+
+---
+
+## Persistant
+
+With `persistant`, the close button is not rendered and the alert stays on screen.
+
+<Canvas of={AlertStories.Persistant} />
+
+---
+
+## Closing
+
+Clicking the close button removes the alert from the DOM immediately, then calls `onClose`.
+
+Set `closeLabel` to translate the button's accessible label:
+
+```tsx
+<Alert title="Profil mis à jour" closeLabel="Fermer" onClose={() => console.log("closed")} />
+```
+
+---
+
+## Variants
+
+<Canvas of={AlertStories.Variants} />

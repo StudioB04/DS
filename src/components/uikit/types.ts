@@ -1,6 +1,7 @@
 "use client";
 
 export * from "./Accordion/Accordion.types";
+export * from "./Alert/Alert.types";
 export * from "./Badge/Badge.types";
 export * from "./Button/Button.types";
 export * from "./Divider/Divider.types";

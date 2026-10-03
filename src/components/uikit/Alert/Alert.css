@@ -1,0 +1,137 @@
+.ds-alert {
+  interpolate-size: allow-keywords;
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-spacing-sm);
+  inline-size: 100%;
+  padding-block: var(--ds-spacing-xl);
+  padding-inline: var(--ds-spacing-2xl);
+  color: var(--ds-alert-color);
+  background-color: var(--ds-alert-background-color);
+  box-shadow:
+    inset 0 0 0 var(--ds-size-1px) var(--ds-alert-border-color),
+    0 var(--ds-size-6px) var(--ds-size-12px) calc(-1 * var(--ds-size-10px)) var(--ds-alert-border-color);
+  border-radius: var(--ds-radius-lg);
+
+  .ds-alert__header {
+    display: flex;
+    align-items: center;
+    gap: var(--ds-spacing-md);
+  }
+
+  .ds-alert__slot {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+  }
+
+  .ds-alert__title {
+    flex: 0 1 auto;
+    min-inline-size: 0;
+    font-size: var(--ds-font-size-text-lg);
+    font-weight: var(--ds-font-weight-medium);
+    line-height: var(--ds-line-height-text-lg);
+  }
+
+  .ds-alert__close {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    padding: var(--ds-spacing-2xs);
+    margin-inline-start: auto;
+    color: inherit;
+    cursor: pointer;
+    background-color: transparent;
+    border-radius: var(--ds-radius-sm);
+    transition: background-color var(--ds-transition-fast);
+
+    &:is(:hover, :focus-visible) {
+      background-color: var(--ds-alert-close-background-color_hover);
+    }
+  }
+
+  .ds-alert__content {
+    font-size: var(--ds-font-size-text-md);
+    line-height: var(--ds-line-height-text-md);
+    color: var(--ds-text-secondary);
+  }
+}
+
+/* ##### VARIANTS ###################### */
+.ds-alert--variant-neutral {
+  --ds-alert-color: var(--ds-text-primary);
+  --ds-alert-border-color: var(--ds-border-primary);
+  --ds-alert-background-color: var(--ds-bg-secondary);
+  --ds-alert-close-background-color_hover: var(--ds-bg-tertiary);
+}
+
+.ds-alert--variant-inverse {
+  --ds-alert-color: var(--ds-text-primary);
+  --ds-alert-border-color: var(--ds-border-inverse);
+  --ds-alert-background-color: var(--ds-bg-tertiary);
+  --ds-alert-close-background-color_hover: var(--ds-bg-secondary);
+}
+
+.ds-alert--variant-brand {
+  --ds-alert-color: var(--ds-text-brand);
+  --ds-alert-border-color: var(--ds-border-brand-solid);
+  --ds-alert-background-color: var(--ds-bg-brand-primary);
+  --ds-alert-close-background-color_hover: var(--ds-bg-brand-secondary);
+}
+
+.ds-alert--variant-alt {
+  --ds-alert-color: var(--ds-text-alt);
+  --ds-alert-border-color: var(--ds-border-alt-solid);
+  --ds-alert-background-color: var(--ds-bg-alt-primary);
+  --ds-alert-close-background-color_hover: var(--ds-bg-alt-secondary);
+}
+
+.ds-alert--variant-green {
+  --ds-alert-color: var(--ds-text-green);
+  --ds-alert-border-color: var(--ds-border-green-solid);
+  --ds-alert-background-color: var(--ds-bg-green-primary);
+  --ds-alert-close-background-color_hover: var(--ds-bg-green-secondary);
+}
+
+.ds-alert--variant-red {
+  --ds-alert-color: var(--ds-text-red);
+  --ds-alert-border-color: var(--ds-border-red-solid);
+  --ds-alert-background-color: var(--ds-bg-red-primary);
+  --ds-alert-close-background-color_hover: var(--ds-bg-red-secondary);
+}
+
+.ds-alert--variant-orange {
+  --ds-alert-color: var(--ds-text-orange);
+  --ds-alert-border-color: var(--ds-border-orange-solid);
+  --ds-alert-background-color: var(--ds-bg-orange-primary);
+  --ds-alert-close-background-color_hover: var(--ds-bg-orange-secondary);
+}
+
+.ds-alert--variant-blue {
+  --ds-alert-color: var(--ds-text-blue);
+  --ds-alert-border-color: var(--ds-border-blue-solid);
+  --ds-alert-background-color: var(--ds-bg-blue-primary);
+  --ds-alert-close-background-color_hover: var(--ds-bg-blue-secondary);
+}
+
+.ds-alert--variant-purple {
+  --ds-alert-color: var(--ds-text-purple);
+  --ds-alert-border-color: var(--ds-border-purple-solid);
+  --ds-alert-background-color: var(--ds-bg-purple-primary);
+  --ds-alert-close-background-color_hover: var(--ds-bg-purple-secondary);
+}
+
+.ds-alert--variant-yellow {
+  --ds-alert-color: var(--ds-text-yellow);
+  --ds-alert-border-color: var(--ds-border-yellow-solid);
+  --ds-alert-background-color: var(--ds-bg-yellow-primary);
+  --ds-alert-close-background-color_hover: var(--ds-bg-yellow-secondary);
+}
+
+.ds-alert--variant-pink {
+  --ds-alert-color: var(--ds-text-pink);
+  --ds-alert-border-color: var(--ds-border-pink-solid);
+  --ds-alert-background-color: var(--ds-bg-pink-primary);
+  --ds-alert-close-background-color_hover: var(--ds-bg-pink-secondary);
+}

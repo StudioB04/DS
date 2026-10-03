@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { Accordion, Badge, Button, Divider, Icon } from "$uikit";
+import { Accordion, Alert, Badge, Button, Divider, Icon } from "$uikit";
 
 
-const VARIANTS = ["neutral", "brand", "alt", "green", "red", "orange", "blue", "purple", "yellow", "pink"] as const;
+const VARIANTS = ["neutral", "inverse", "brand", "alt", "green", "red", "orange", "blue", "purple", "yellow", "pink"] as const;
 
 export default function App() {
   const [theme, setTheme] = useState<"light" | "dark">("light");
@@ -14,7 +14,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-bs-dvh mx-auto max-w-5xl px-4 flex flex-col gap-6">
+    <div className="min-bs-dvh mx-auto max-w-5xl px-4 flex flex-col gap-6 pbe-10">
       <header className="flex items-center justify-between border-primary border-be py-4 mbe-4">
         <h1 className="text-title-lg font-bold">StudioB04 DS Sandbox</h1>
         <Button label={`Thème : ${theme}`} variant="neutral" shape="outline" size="sm" onClick={toggleTheme} />
@@ -83,6 +83,17 @@ export default function App() {
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.
           </Accordion>
           <Divider size="sm" />
+        </div>
+      </section>
+
+      <section className="flex flex-col gap-2">
+        <h2 className="text-title-sm font-semibold">Alert</h2>
+        <div className="grid grid-cols-[repeat(auto-fill,minmax(40rem,1fr))] gap-2">
+          {VARIANTS.map((variant) => (
+            <Alert key={variant} title={`Lorem **ipsum** (${variant})`} variant={variant} titleSlotStart={<Icon src="circle-check" size={20} />}>
+              lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.
+            </Alert>
+          ))}
         </div>
       </section>
     </div >
