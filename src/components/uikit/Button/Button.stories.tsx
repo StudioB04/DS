@@ -3,6 +3,22 @@ import type { ButtonProps } from "./Button.types";
 import Button from "./Button";
 import { LucideIconMap } from "$uikit/types";
 
+const defaultArgs: ButtonProps = {
+  label: "click **me** !",
+  variant: "brand",
+  size: "md",
+  type: "button",
+  shape: "square",
+  href: "",
+  external: false,
+  loading: false,
+  disabled: false,
+  block: false,
+  iconStart: undefined,
+  iconEnd: undefined,
+  iconOnly: undefined,
+};
+
 export default {
   title: "Components/uikit/Button",
   component: Button,
@@ -73,78 +89,33 @@ export default {
 };
 
 export const Default: StoryObj<ButtonProps> = {
-  args: {
-    label: "click **me** !",
-    variant: "brand",
-    size: "md",
-    type: "button",
-    shape: "square",
-    href: "",
-    external: false,
-    loading: false,
-    disabled: false,
-    block: false,
-  },
+  args: { ...defaultArgs },
 };
 
 export const Pill: StoryObj<ButtonProps> = {
   args: {
-    label: "click **me** !",
-    variant: "brand",
-    size: "md",
-    type: "button",
+    ...defaultArgs,
     shape: "pill",
-    href: "",
-    external: false,
-    loading: false,
-    disabled: false,
-    block: false,
   },
 };
 
 export const WithIconStart: StoryObj<ButtonProps> = {
   args: {
-    label: "click **me** !",
-    variant: "brand",
-    size: "md",
-    type: "button",
-    shape: "square",
-    href: "",
-    external: false,
-    loading: false,
-    disabled: false,
-    block: false,
+    ...defaultArgs,
     iconStart: "ambulance",
   },
 };
 
 export const WithIconOnly: StoryObj<ButtonProps> = {
   args: {
-    label: "click **me** !",
-    variant: "brand",
-    size: "md",
-    type: "button",
-    shape: "square",
-    href: "",
-    external: false,
-    loading: false,
-    disabled: false,
-    block: false,
+    ...defaultArgs,
     iconOnly: "git-pull-request-arrow",
   },
 };
 
 export const Loading: StoryObj<ButtonProps> = {
   args: {
-    label: "click **me** !",
-    variant: "brand",
-    size: "md",
-    type: "button",
-    shape: "square",
-    href: "",
-    external: false,
+    ...defaultArgs,
     loading: true,
-    disabled: false,
-    block: false,
   },
 };

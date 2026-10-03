@@ -3,6 +3,17 @@ import type { BadgeProps } from "./Badge.types";
 import Badge from "./Badge";
 import { LucideIconMap } from "$uikit/types";
 
+const defaultArgs: BadgeProps = {
+  label: "Badge",
+  variant: "neutral",
+  size: "md",
+  type: "light",
+  shape: "pill",
+  iconStart: undefined,
+  iconEnd: undefined,
+  iconOnly: undefined,
+};
+
 export default {
   title: "Components/uikit/Badge",
   component: Badge,
@@ -59,65 +70,41 @@ export default {
 
 export const Default: StoryObj<BadgeProps> = {
   args: {
-    label: "Badge",
-    size: "md",
+    ...defaultArgs,
     variant: "brand",
-    type: "light",
-    shape: "pill",
-    iconEnd: undefined,
-    iconStart: undefined,
-    iconOnly: undefined,
   },
 };
 
 export const Square: StoryObj<BadgeProps> = {
   args: {
-    label: "Badge",
-    size: "md",
+    ...defaultArgs,
     variant: "brand",
-    type: "light",
     shape: "square",
-    iconEnd: undefined,
-    iconStart: undefined,
-    iconOnly: undefined,
   },
 };
 
 export const Plain: StoryObj<BadgeProps> = {
   args: {
-    label: "Badge",
-    size: "md",
+    ...defaultArgs,
     variant: "brand",
     type: "plain",
-    shape: "pill",
-    iconEnd: undefined,
-    iconStart: undefined,
-    iconOnly: undefined,
   },
 };
 
 export const WithIconEnd: StoryObj<BadgeProps> = {
   args: {
-    label: "Badge",
-    size: "md",
+    ...defaultArgs,
     variant: "brand",
     type: "plain",
-    shape: "pill",
     iconEnd: "accessibility",
-    iconStart: undefined,
-    iconOnly: undefined,
   },
 };
 
 export const WithIconOnly: StoryObj<BadgeProps> = {
   args: {
-    label: "Badge",
-    size: "md",
+    ...defaultArgs,
     variant: "brand",
     type: "plain",
-    shape: "pill",
-    iconEnd: undefined,
-    iconStart: undefined,
     iconOnly: "accessibility",
   },
 };

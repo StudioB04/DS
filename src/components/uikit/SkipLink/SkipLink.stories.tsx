@@ -3,7 +3,7 @@ import type { SkipLinkProps } from "./SkipLink.types";
 import SkipLink from "./SkipLink";
 
 const withKeyboardHint: Decorator = (Story) => (
-  <div>
+  <div style={{ minBlockSize: "20rem", display: "flex", justifyContent: "center", alignItems: "center" }}>
     <Story />
     <p>
       The skip link is hidden until it gets the focus: click in this area, then press <kbd>Tab</kbd> to reveal it in the
@@ -11,6 +11,11 @@ const withKeyboardHint: Decorator = (Story) => (
     </p>
   </div>
 );
+
+const defaultArgs: SkipLinkProps = {
+  label: "Skip to main content",
+  anchor: "#content",
+};
 
 export default {
   title: "Components/uikit/SkipLink",
@@ -37,8 +42,5 @@ export default {
 };
 
 export const Default: StoryObj<SkipLinkProps> = {
-  args: {
-    label: "Skip to main content",
-    anchor: "#content",
-  },
+  args: { ...defaultArgs },
 };

@@ -3,6 +3,17 @@ import type { LinkProps } from "./Link.types";
 import Link from "./Link";
 import { LucideIconMap } from "$uikit/types";
 
+const defaultArgs: LinkProps = {
+  label: "click **me** !",
+  variant: "brand",
+  type: "button",
+  href: "",
+  external: false,
+  disabled: false,
+  iconStart: undefined,
+  iconEnd: undefined,
+};
+
 export default {
   title: "Components/uikit/Link",
   component: Link,
@@ -51,10 +62,7 @@ export default {
 
 export const Default: StoryObj<LinkProps> = {
   args: {
-    label: "click **me** !",
-    variant: "brand",
+    ...defaultArgs,
     href: "#",
-    external: false,
-    disabled: false,
   },
 };

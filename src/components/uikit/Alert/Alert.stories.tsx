@@ -9,6 +9,14 @@ const VARIANTS = ["neutral", "brand", "alt", "green", "red", "orange", "blue", "
 const content =
   "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus.";
 
+const defaultArgs: AlertProps = {
+  title: "Changes **saved**",
+  variant: "neutral",
+  persistant: false,
+  closeLabel: "Close",
+  children: content,
+};
+
 export default {
   title: "Components/uikit/Alert",
   component: Alert,
@@ -51,48 +59,44 @@ export default {
 };
 
 export const Default: StoryObj<AlertProps> = {
-  args: {
-    title: "Changes **saved**",
-    variant: "neutral",
-    persistant: false,
-    closeLabel: "Close",
-    children: content,
-  },
+  args: { ...defaultArgs },
 };
 
 export const WithTitleSlotStart: StoryObj<AlertProps> = {
   args: {
+    ...defaultArgs,
     title: "Payment accepted",
     variant: "green",
     titleSlotStart: <Icon src="circle-check" size={20} />,
-    children: content,
   },
 };
 
 export const WithTitleSlotEnd: StoryObj<AlertProps> = {
   args: {
+    ...defaultArgs,
     title: "New features",
     variant: "brand",
     titleSlotStart: <Icon src="sparkles" size={20} />,
     titleSlotEnd: <Badge label="v0.2" variant="brand" type="plain" size="sm" />,
-    children: content,
   },
 };
 
 export const Persistant: StoryObj<AlertProps> = {
   args: {
+    ...defaultArgs,
     title: "Maintenance scheduled on Sunday",
     variant: "orange",
     persistant: true,
     titleSlotStart: <Icon src="triangle-alert" size={20} />,
-    children: content,
   },
 };
 
 export const TitleOnly: StoryObj<AlertProps> = {
   args: {
+    ...defaultArgs,
     title: "New version available",
     variant: "blue",
+    children: undefined,
   },
 };
 
@@ -106,5 +110,5 @@ export const Variants: StoryObj<AlertProps> = {
       ))}
     </div>
   ),
-  args: {},
+  args: { ...defaultArgs },
 };

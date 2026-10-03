@@ -4,6 +4,12 @@ import { LucideIconMap, type IconProps } from "./Icon.types";
 
 import { Album } from "lucide-static";
 
+const defaultArgs: IconProps = {
+  src: "smile",
+  size: 24,
+  fat: false,
+};
+
 export default {
   title: "Components/uikit/Icon",
   component: Icon,
@@ -24,11 +30,18 @@ export default {
 };
 
 export const Default: StoryObj<IconProps> = {
-  args: { src: "smile", size: 48, fat: false },
+  args: {
+    ...defaultArgs,
+    size: 48,
+  },
 };
 
 export const CustomFromPath: StoryObj<IconProps> = {
-  args: { src: "lucide-static/icons/beer.svg", size: 48, fat: false },
+  args: {
+    ...defaultArgs,
+    src: "lucide-static/icons/beer.svg",
+    size: 48,
+  },
   argTypes: {
     src: {
       control: "text",
@@ -37,5 +50,9 @@ export const CustomFromPath: StoryObj<IconProps> = {
 };
 
 export const CustomFromSvgInline: StoryObj<IconProps> = {
-  args: { src: Album, size: 48, fat: false },
+  args: {
+    ...defaultArgs,
+    src: Album,
+    size: 48,
+  },
 };

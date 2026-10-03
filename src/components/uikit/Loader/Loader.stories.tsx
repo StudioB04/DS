@@ -2,6 +2,10 @@ import type { StoryObj } from "@storybook/react-vite";
 import Loader from "./Loader";
 import type { LoaderProps } from "./Loader.types";
 
+const defaultArgs: LoaderProps = {
+  label: "",
+};
+
 export default {
   title: "Components/uikit/Loader",
   component: Loader,
@@ -16,9 +20,12 @@ export default {
 };
 
 export const Default: StoryObj<LoaderProps> = {
-  args: { label: "" },
+  args: { ...defaultArgs },
 };
 
 export const WithLabel: StoryObj<LoaderProps> = {
-  args: { label: "Loading..." },
+  args: {
+    ...defaultArgs,
+    label: "Loading...",
+  },
 };

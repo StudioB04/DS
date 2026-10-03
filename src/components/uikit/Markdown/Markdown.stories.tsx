@@ -1,6 +1,12 @@
 import Markdown from "./Markdown";
 import type { MarkdownProps } from "./Markdown.types";
 
+const defaultArgs: MarkdownProps = {
+  children: "I am a **markdown** _syntax_ with a [link](/)",
+  allowHtml: false,
+  allowTags: ["p", "a", "strong", "em", "h1", "h2", "h3", "h4", "ul", "ol", "li", "hr", "br", "code", "img"],
+};
+
 const renderMarkdownStory = ({ children, allowHtml }: MarkdownProps) => (
   <Markdown allowHtml={allowHtml}>{children}</Markdown>
 );
@@ -28,24 +34,25 @@ export default {
 export const Default = {
   render: renderMarkdownStory,
   args: {
+    ...defaultArgs,
     children: `I am a **mardown** _syntax_ with a [link](/)`,
     allowTags: ["a", "strong", "em"],
-    allowHtml: false,
   },
 };
 
 export const ExternalLink = {
   render: renderMarkdownStory,
   args: {
+    ...defaultArgs,
     children: "This [link](!!/) will open a new tab",
     allowTags: ["a", "strong", "em"],
-    allowHtml: false,
   },
 };
 
 export const Complex = {
   render: renderMarkdownStory,
   args: {
+    ...defaultArgs,
     children: `
 Title
 =====
@@ -66,14 +73,13 @@ Here is a *complex* **Mardown syntax** with [links](/) and images
 2. Hello
 
   `,
-    allowTags: ["p", "a", "strong", "em", "h1", "h2", "h3", "h4", "ul", "ol", "li", "hr", "br", "code", "img"],
-    allowHtml: false,
   },
 };
 
 export const WithHTMLTags = {
   render: renderMarkdownStory,
   args: {
+    ...defaultArgs,
     children: "<strong>lorem</strong> ispum",
     allowTags: ["a", "strong", "em"],
     allowHtml: true,

@@ -165,7 +165,7 @@
 :is(.ds-button--shape-square, .ds-button--shape-pill) {
   &.ds-button--variant-neutral {
     --ds-button-color: var(--ds-text-primary);
-    --ds-button-background-color: var(--ds-bg-secondary);
+    --ds-button-background-color: var(--ds-bg-primary);
     --ds-button-background-color_hover: var(--ds-bg-tertiary);
 
     box-shadow: inset 0 0 0 var(--ds-size-1px) var(--ds-border-primary);

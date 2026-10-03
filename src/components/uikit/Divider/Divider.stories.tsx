@@ -7,6 +7,12 @@ const VARIANTS = ["primary", "secondary", "tertiary"];
 const paragraph =
   "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus.";
 
+const defaultArgs: DividerProps = {
+  variant: "primary",
+  size: "md",
+  vertical: false,
+};
+
 export default {
   title: "Components/uikit/Divider",
   component: Divider,
@@ -45,11 +51,7 @@ export const Default: StoryObj<DividerProps> = {
       <p>{paragraph}</p>
     </div>
   ),
-  args: {
-    variant: "primary",
-    size: "md",
-    vertical: false,
-  },
+  args: { ...defaultArgs },
 };
 
 export const Variants: StoryObj<DividerProps> = {
@@ -64,6 +66,7 @@ export const Variants: StoryObj<DividerProps> = {
     </div>
   ),
   args: {
+    ...defaultArgs,
     size: "sm",
   },
 };
@@ -82,9 +85,7 @@ export const Sizes: StoryObj<DividerProps> = {
       <p>End</p>
     </div>
   ),
-  args: {
-    variant: "primary",
-  },
+  args: { ...defaultArgs },
 };
 
 export const Vertical: StoryObj<DividerProps> = {
@@ -98,7 +99,7 @@ export const Vertical: StoryObj<DividerProps> = {
     </div>
   ),
   args: {
-    variant: "primary",
+    ...defaultArgs,
     size: "sm",
     vertical: true,
   },

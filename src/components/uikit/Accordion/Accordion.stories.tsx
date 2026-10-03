@@ -8,6 +8,14 @@ import Notification from "$uikit/Notification/Notification";
 const content =
   "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Cras mattis consectetur purus sit amet fermentum.";
 
+const defaultArgs: AccordionProps = {
+  label: "What is **StudioB04**?",
+  name: "",
+  open: false,
+  size: "md",
+  children: content,
+};
+
 export default {
   title: "Components/uikit/Accordion",
   component: Accordion,
@@ -50,57 +58,47 @@ export default {
 };
 
 export const Default: StoryObj<AccordionProps> = {
-  args: {
-    label: "What is **StudioB04**?",
-    size: "md",
-    open: false,
-    children: content,
-  },
+  args: { ...defaultArgs },
 };
 
 export const Open: StoryObj<AccordionProps> = {
   args: {
+    ...defaultArgs,
     label: "Opened by default",
-    size: "md",
     open: true,
-    children: content,
   },
 };
 
 export const WithSlotStart: StoryObj<AccordionProps> = {
   args: {
+    ...defaultArgs,
     label: "Need help?",
-    size: "md",
     slotStart: <Icon src="circle-question-mark" size={20} />,
-    children: content,
   },
 };
 
 export const WithBadgeSlot: StoryObj<AccordionProps> = {
   args: {
+    ...defaultArgs,
     label: "Release notes",
-    size: "md",
     slotStart: <Badge label="New" variant="brand" size="sm" />,
-    children: content,
   },
 };
 
 export const WithSlotEnd: StoryObj<AccordionProps> = {
   args: {
+    ...defaultArgs,
     label: "Notifications",
-    size: "md",
     slotEnd: <Notification value={3} variant="brand" />,
-    children: content,
   },
 };
 
 export const WithBothSlots: StoryObj<AccordionProps> = {
   args: {
+    ...defaultArgs,
     label: "Release notes",
-    size: "md",
     slotStart: <Icon src="rocket" size={20} />,
     slotEnd: <Badge label="v0.2" variant="neutral" size="sm" />,
-    children: content,
   },
 };
 
@@ -118,7 +116,7 @@ export const Sizes: StoryObj<AccordionProps> = {
       </Accordion>
     </div>
   ),
-  args: {},
+  args: { ...defaultArgs },
 };
 
 export const ExclusiveGroup: StoryObj<AccordionProps> = {
@@ -135,7 +133,5 @@ export const ExclusiveGroup: StoryObj<AccordionProps> = {
       </Accordion>
     </div>
   ),
-  args: {
-    size: "md",
-  },
+  args: { ...defaultArgs },
 };

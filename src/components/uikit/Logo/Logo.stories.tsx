@@ -3,6 +3,11 @@ import type { StoryObj } from "@storybook/react-vite";
 import type { LogoProps } from "./Logo.types";
 import Logo from "./Logo";
 
+const defaultArgs: LogoProps = {
+  type: "small",
+  variant: "brand",
+};
+
 export default {
   title: "Components/uikit/Logo",
   component: Logo,
@@ -34,5 +39,5 @@ export default {
 };
 
 export const Default: StoryObj<LogoProps> = {
-  args: { type: "small", variant: "brand" },
+  args: { ...defaultArgs },
 };

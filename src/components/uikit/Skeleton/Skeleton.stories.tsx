@@ -2,6 +2,11 @@ import type { StoryObj } from "@storybook/react-vite";
 import type { SkeletonProps } from "./Skeleton.types";
 import Skeleton from "./Skeleton";
 
+const defaultArgs: SkeletonProps = {
+  height: "4rem",
+  type: "block",
+};
+
 export default {
   title: "Components/uikit/Skeleton",
   component: Skeleton,
@@ -28,21 +33,19 @@ export default {
 };
 
 export const Default: StoryObj<SkeletonProps> = {
-  args: {
-    height: "4rem",
-    type: "block",
-  },
+  args: { ...defaultArgs },
 };
 
 export const Round: StoryObj<SkeletonProps> = {
   args: {
-    height: "4rem",
+    ...defaultArgs,
     type: "round",
   },
 };
 
 export const Text: StoryObj<SkeletonProps> = {
   args: {
+    ...defaultArgs,
     height: "100px",
     type: "text",
   },

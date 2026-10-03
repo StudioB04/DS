@@ -13,3 +13,4 @@ export { default as Markdown } from "./Markdown/Markdown";
 export { default as Notification } from "./Notification/Notification";
 export { default as Skeleton } from "./Skeleton/Skeleton";
 export { default as SkipLink } from "./SkipLink/SkipLink";
+export { default as Slider } from "./Slider/Slider";

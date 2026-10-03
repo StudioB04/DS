@@ -2,6 +2,13 @@ import type { StoryObj } from "@storybook/react-vite";
 import type { NotificationProps } from "./Notification.types";
 import Notification from "./Notification";
 
+const defaultArgs: NotificationProps = {
+  value: 0,
+  size: "md",
+  variant: "red",
+  max: 99,
+};
+
 export default {
   title: "Components/uikit/Notification",
   component: Notification,
@@ -37,10 +44,9 @@ export default {
 
 export const Default: StoryObj<NotificationProps> = {
   args: {
+    ...defaultArgs,
     value: 3,
-    size: "md",
     variant: "brand",
-    max: 99,
   },
   decorators: [
     (Story) => (
@@ -54,8 +60,8 @@ export const Default: StoryObj<NotificationProps> = {
 
 export const NoLimit: StoryObj<NotificationProps> = {
   args: {
+    ...defaultArgs,
     value: 223976,
-    size: "md",
     variant: "brand",
     max: 999999999999,
   },
@@ -71,10 +77,10 @@ export const NoLimit: StoryObj<NotificationProps> = {
 
 export const Small: StoryObj<NotificationProps> = {
   args: {
+    ...defaultArgs,
     value: 12,
     size: "sm",
     variant: "brand",
-    max: 99,
   },
   decorators: [
     (Story) => (

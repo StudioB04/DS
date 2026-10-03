@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Accordion, Alert, Badge, Button, Divider, Icon, Skeleton, SkipLink } from "$uikit";
+import { Accordion, Alert, Badge, Button, Divider, Icon, Skeleton, SkipLink, Slider } from "$uikit";
 
 
 const VARIANTS = ["neutral", "brand", "alt", "green", "red", "orange", "blue", "purple", "yellow", "pink"] as const;
@@ -14,14 +14,16 @@ export default function App() {
   };
 
   return (
-    <div className="min-bs-dvh mx-auto max-w-5xl px-4 flex flex-col gap-6 pbe-10">
-      <SkipLink label="Aller au contenu" anchor="#content" />
+    <div className="min-bs-dvh mx-auto  px-4 flex flex-col gap-6 pbe-10">
+      <SkipLink label="Go to section colors" anchor="#colors" />
+      <SkipLink label="Go to section buttons" anchor="#buttons" />
+
       <header className="flex items-center justify-between border-primary border-be py-4 mbe-4">
         <h1 className="text-title-lg font-bold">StudioB04 DS Sandbox</h1>
         <Button label={`Thème : ${theme}`} variant="neutral" shape="outline" size="sm" onClick={toggleTheme} />
       </header>
 
-      <section id="content" className="flex flex-col gap-2">
+      <section id="colors" className="flex flex-col gap-2">
         <h2 className="text-title-sm font-semibold">Couleurs sémantiques</h2>
         <div className="flex flex-wrap gap-3">
           <div className="bg-primary border border-primary rounded-md p-4 w-40 text-sm">bg-primary</div>
@@ -35,7 +37,7 @@ export default function App() {
         </div>
       </section>
 
-      <section className="flex flex-col gap-2">
+      <section id="buttons" className="flex flex-col gap-2">
         <h2 className="text-title-sm font-semibold ">Button — variants</h2>
         <div className="flex flex-wrap gap-1">
           {VARIANTS.map((variant) => (
@@ -108,6 +110,20 @@ export default function App() {
           </div>
         </div>
         <Skeleton height="6rem" type="block" />
+      </section>
+
+      <section className="flex flex-col gap-2">
+        <h2 className="text-title-sm font-semibold">Slider</h2>
+        <Slider
+          aria-label="Exemple de slider"
+          dots
+          autoPlay={4000}
+          items={["60cqi", "35cqi", "45cqi", "70cqi", "30cqi", "50cqi"].map((width, i) => (
+            <div className="grid place-items-center bg-secondary rounded-lg text-title-sm font-semibold" style={{ inlineSize: width, minInlineSize: "12rem", blockSize: "10rem" }}>
+              Slide {i + 1}
+            </div>
+          ))}
+        />
       </section>
     </div >
   );
