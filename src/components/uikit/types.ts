@@ -12,3 +12,4 @@ export * from "./Logo/Logo.types";
 export * from "./Markdown/Markdown.types";
 export * from "./Notification/Notification.types";
 export * from "./Skeleton/Skeleton.types";
+export * from "./SkipLink/SkipLink.types";

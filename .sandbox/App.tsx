@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Accordion, Alert, Badge, Button, Divider, Icon, Skeleton } from "$uikit";
+import { Accordion, Alert, Badge, Button, Divider, Icon, Skeleton, SkipLink } from "$uikit";
 
 
 const VARIANTS = ["neutral", "brand", "alt", "green", "red", "orange", "blue", "purple", "yellow", "pink"] as const;
@@ -15,12 +15,13 @@ export default function App() {
 
   return (
     <div className="min-bs-dvh mx-auto max-w-5xl px-4 flex flex-col gap-6 pbe-10">
+      <SkipLink label="Aller au contenu" anchor="#content" />
       <header className="flex items-center justify-between border-primary border-be py-4 mbe-4">
         <h1 className="text-title-lg font-bold">StudioB04 DS Sandbox</h1>
         <Button label={`Thème : ${theme}`} variant="neutral" shape="outline" size="sm" onClick={toggleTheme} />
       </header>
 
-      <section className="flex flex-col gap-2">
+      <section id="content" className="flex flex-col gap-2">
         <h2 className="text-title-sm font-semibold">Couleurs sémantiques</h2>
         <div className="flex flex-wrap gap-3">
           <div className="bg-primary border border-primary rounded-md p-4 w-40 text-sm">bg-primary</div>

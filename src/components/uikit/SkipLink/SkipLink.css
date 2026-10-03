@@ -1,0 +1,25 @@
+.ds-skip-link {
+  position: fixed;
+  inset-block-start: var(--ds-spacing-3xl);
+  inset-inline-start: var(--ds-spacing-3xl);
+  z-index: 1000;
+  padding-block: var(--ds-spacing-sm);
+  padding-inline: var(--ds-spacing-lg);
+  font-size: var(--ds-font-size-text-md);
+  font-weight: var(--ds-font-weight-semibold);
+  line-height: var(--ds-line-height-text-md);
+  background-color: var(--ds-bg-primary);
+  color: var(--ds-text-brand);
+  border-radius: var(--ds-radius-md);
+  box-shadow: var(--ds-box-shadow-md);
+  text-decoration: none;
+
+  &:not(:focus) {
+    inline-size: var(--ds-size-1px);
+    block-size: var(--ds-size-1px);
+    padding: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    clip-path: inset(50%);
+  }
+}
