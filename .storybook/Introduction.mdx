@@ -1,0 +1,225 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+import IntroductionShowcase from "./IntroductionShowcase";
+
+<Meta title="Introduction" />
+
+# StudioB04 Design System
+
+`@studio_b04/ds` is the React component library and CSS token system shared by every StudioB04 website. It gives each project the same building blocks, the same visual language and the same level of accessibility, so teams can focus on their product instead of rebuilding buttons.
+
+<IntroductionShowcase />
+
+Everything above is made of real components from the library: use the **Theme** toolbar button to see them in dark mode.
+
+## What's inside
+
+<table>
+  <thead>
+    <tr>
+      <th>Export</th>
+      <th>Import</th>
+      <th>Content</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Components</td>
+      <td><code>@studio_b04/ds/uikit</code></td>
+      <td>React 19 components (<code>"use client"</code>, ready for Next.js)</td>
+    </tr>
+    <tr>
+      <td>Utils</td>
+      <td><code>@studio_b04/ds/utils</code></td>
+      <td>Small string helpers (<code>slugify</code>, <code>camelCase</code>, …)</td>
+    </tr>
+    <tr>
+      <td>Tokens</td>
+      <td><code>@studio_b04/ds/styles</code></td>
+      <td>CSS custom properties: colours, spacing, sizes, radius, typography, shadows, transitions, plus the light and dark themes</td>
+    </tr>
+    <tr>
+      <td>Reset</td>
+      <td><code>@studio_b04/ds/reset</code></td>
+      <td>An opinionated CSS reset based on the tokens</td>
+    </tr>
+    <tr>
+      <td>Tailwind theme</td>
+      <td><code>@studio_b04/ds/tailwind-theme</code></td>
+      <td>A Tailwind 4 <code>@theme</code> that maps the tokens to utilities</td>
+    </tr>
+  </tbody>
+</table>
+
+Every component:
+
+- extends the props of its HTML element and accepts a `className`;
+- follows the [W3C ARIA Authoring Practices](https://www.w3.org/WAI/ARIA/apg/) and is tested with axe;
+- only uses design tokens, so it follows the theme and can be customised with CSS custom properties;
+- respects the user's reduced motion preference.
+
+## Getting started
+
+### 1. Install
+
+React 19 and React DOM 19 are peer dependencies.
+
+```bash
+npm install @studio_b04/ds
+```
+
+### 2. Load the styles
+
+Import the tokens once, in your global CSS. The reset is optional but recommended.
+
+```css
+@import "@studio_b04/ds/reset";
+@import "@studio_b04/ds/styles";
+```
+
+With Tailwind 4, add the theme after Tailwind to get the tokens as utilities:
+
+```css
+@import "tailwindcss";
+@import "@studio_b04/ds/styles";
+@import "@studio_b04/ds/tailwind-theme";
+```
+
+### 3. Use the components
+
+Each component imports its own CSS, so there is nothing else to load.
+
+```tsx
+import { Alert, Button } from "@studio_b04/ds/uikit";
+
+export default function Example() {
+  return (
+    <Alert title="Welcome" variant="brand">
+      <Button label="Get started" variant="brand" iconEnd="arrow-right" />
+    </Alert>
+  );
+}
+```
+
+Browse the **Components** section of the sidebar: every page shows the live component, its props and its usage notes.
+
+### 4. Choose a theme
+
+The light theme is the default, and the dark theme follows `prefers-color-scheme`. Set `data-ds-theme` on `<html>` to force one:
+
+```tsx
+document.documentElement.dataset.dsTheme = "dark";
+```
+
+### 5. Customise
+
+Fonts and most component settings are CSS custom properties. Override them in your own CSS:
+
+```css
+:root {
+  --ds-font-family-sans: "Inter";
+}
+
+.my-carousel {
+  --ds-slider-gap: var(--ds-spacing-md);
+}
+```
+
+## Contributing
+
+### Set up
+
+```bash
+git clone https://github.com/StudioB04/DS.git
+cd DS
+npm install
+npm start
+```
+
+Storybook opens on [localhost:6006](http://localhost:6006). For a quick test outside Storybook, the `.sandbox/` folder is a small Vite + Tailwind app with its own dependencies: run `npm run sandbox:install` once, then `npm run sandbox`.
+
+<table>
+  <thead>
+    <tr>
+      <th>Command</th>
+      <th>What it does</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>npm start</code></td>
+      <td>Storybook in development mode</td>
+    </tr>
+    <tr>
+      <td><code>npm test</code></td>
+      <td>Vitest in watch mode</td>
+    </tr>
+    <tr>
+      <td><code>npm run test:coverage</code></td>
+      <td>Tests with a coverage report</td>
+    </tr>
+    <tr>
+      <td><code>npm run lint</code></td>
+      <td>ESLint (type-checked, with accessibility rules)</td>
+    </tr>
+    <tr>
+      <td><code>npm run prettier:fix</code></td>
+      <td>Formats the code</td>
+    </tr>
+    <tr>
+      <td><code>npm run build</code></td>
+      <td>Builds the library into <code>dist/</code></td>
+    </tr>
+  </tbody>
+</table>
+
+### Add a component
+
+Each component lives in its own folder, `src/components/uikit/<Name>/`:
+
+<table>
+  <thead>
+    <tr>
+      <th>File</th>
+      <th>Content</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>&lt;Name&gt;.tsx</code></td>
+      <td>The component: a default-exported function that imports its CSS</td>
+    </tr>
+    <tr>
+      <td><code>&lt;Name&gt;.types.ts</code></td>
+      <td>The props, extending the attributes of the root HTML element</td>
+    </tr>
+    <tr>
+      <td><code>&lt;Name&gt;.css</code></td>
+      <td>The styles, in BEM with the <code>ds-</code> prefix</td>
+    </tr>
+    <tr>
+      <td><code>&lt;Name&gt;.test.tsx</code></td>
+      <td>Vitest, Testing Library and axe tests</td>
+    </tr>
+    <tr>
+      <td><code>&lt;Name&gt;.stories.tsx</code></td>
+      <td>The Storybook stories and documentation</td>
+    </tr>
+  </tbody>
+</table>
+
+Then export it from `src/components/uikit/index.ts` and `src/components/uikit/types.ts`, in alphabetical order.
+
+### Conventions
+
+- **Accessibility first:** follow the W3C pattern of the component, keep interactive targets at least 24 × 24 px, and start each test file with an axe test.
+- **Tokens only:** use the semantic tokens (`--ds-text-*`, `--ds-bg-*`, `--ds-border-*`) and the scale tokens (`--ds-spacing-*`, `--ds-radius-*`, …), never raw values or palette colours.
+- **CSS:** BEM classes (`.ds-name`, `.ds-name__element`, `.ds-name--prop-value`), native nesting, logical properties, and modifiers that only set local custom properties.
+- **TypeScript:** `import type` for types, no `any`, defaults in the props destructuring, `className` and the remaining props forwarded to the root element.
+- **Stories:** a `defaultArgs` object that every story extends, and an English description in `parameters.docs.description.component`. The documentation pages are generated by `autodocs`.
+- **Tests:** cover every prop, variant and state; aim for 100 % coverage.
+
+### Commit and release
+
+A pre-commit hook runs the build, the linter, Prettier and the tests: all of them must pass. Open a pull request on `main`; Storybook is published automatically once it is merged.
+
+Releases are made with the **Release** GitHub Actions workflow (patch, minor or major, with a dry-run option). Never change the version in `package.json` by hand.

@@ -20,9 +20,14 @@ export const globalTypes = {
 };
 
 const preview: Preview = {
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   parameters: {
     layout: "centered",
+    options: {
+      storySort: {
+        order: ["Introduction", "Components"],
+      },
+    },
     controls: {
       expanded: true,
       exclude: ["id", "className", "style", "children", "defaultValue", "ref", "slot", "slotStart", "slotEnd"],

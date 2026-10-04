@@ -1,0 +1,99 @@
+.sb-intro-showcase {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+  gap: var(--ds-spacing-xl);
+  padding: var(--ds-spacing-3xl);
+  margin-block: var(--ds-spacing-3xl);
+  font-family: var(--ds-font-sans);
+  color: var(--ds-text-primary);
+  background-color: var(--ds-bg-secondary);
+  border-radius: var(--ds-radius-2xl);
+}
+
+.sb-intro-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-spacing-lg);
+  min-inline-size: 0;
+  padding: var(--ds-spacing-2xl);
+  background-color: var(--ds-bg-primary);
+  border: var(--ds-border-primary-1px);
+  border-radius: var(--ds-radius-xl);
+  box-shadow: var(--ds-box-shadow-sm);
+}
+
+.sb-intro-card--hero,
+.sb-intro-card--wide {
+  grid-column: 1 / -1;
+}
+
+.sb-intro-logo {
+  block-size: var(--ds-size-40px);
+  inline-size: auto;
+  align-self: flex-start;
+}
+
+.sb-intro-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ds-spacing-md);
+  align-items: center;
+}
+
+.sb-intro-row--nowrap {
+  flex-wrap: nowrap;
+}
+
+.sb-intro-stack {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--ds-spacing-sm);
+}
+
+.sb-intro-title {
+  margin: 0;
+  font-size: var(--ds-font-size-title-sm);
+  font-weight: var(--ds-font-weight-bold);
+}
+
+.sb-intro-text {
+  margin: 0;
+  font-size: var(--ds-font-size-text-lg);
+  color: var(--ds-text-secondary);
+}
+
+.sb-intro-tile {
+  display: grid;
+  place-items: center;
+  inline-size: 30cqi;
+  min-inline-size: 10rem;
+  block-size: 7rem;
+  background-color: var(--sb-intro-tile-color);
+  border-radius: var(--ds-radius-lg);
+}
+
+.sb-intro-tile--brand {
+  --sb-intro-tile-color: var(--ds-bg-brand-primary);
+}
+.sb-intro-tile--alt {
+  --sb-intro-tile-color: var(--ds-bg-alt-primary);
+}
+.sb-intro-tile--green {
+  --sb-intro-tile-color: var(--ds-bg-green-primary);
+}
+.sb-intro-tile--blue {
+  --sb-intro-tile-color: var(--ds-bg-blue-primary);
+}
+.sb-intro-tile--purple {
+  --sb-intro-tile-color: var(--ds-bg-purple-primary);
+}
+.sb-intro-tile--orange {
+  --sb-intro-tile-color: var(--ds-bg-orange-primary);
+}
+.sb-intro-tile--pink {
+  --sb-intro-tile-color: var(--ds-bg-pink-primary);
+}
+.sb-intro-tile--yellow {
+  --sb-intro-tile-color: var(--ds-bg-yellow-primary);
+}

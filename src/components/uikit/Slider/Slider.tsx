@@ -12,7 +12,6 @@ import "./Slider.css";
 const SETTLE_DELAY = 150;
 const DRAG_THRESHOLD = 10;
 
-
 const isRtlTrack = (track: HTMLElement) => getComputedStyle(track).direction === "rtl";
 
 const getSlideStart = (track: HTMLElement, slide: HTMLElement) =>
