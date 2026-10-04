@@ -11,9 +11,17 @@ import "./Slider.css";
 
 const SETTLE_DELAY = 150;
 const DRAG_THRESHOLD = 10;
-const DRAGGING_CLASS = "ds-slider__track--dragging";
 
-const isFormField = (element: HTMLElement) => element.matches("input, textarea, select, [contenteditable]");
+
+const isRtlTrack = (track: HTMLElement) => getComputedStyle(track).direction === "rtl";
+
+const getSlideStart = (track: HTMLElement, slide: HTMLElement) =>
+  isRtlTrack(track) ? track.clientWidth - slide.offsetLeft - slide.offsetWidth : slide.offsetLeft;
+
+const getScrollPosition = (track: HTMLElement) => (isRtlTrack(track) ? -track.scrollLeft : track.scrollLeft);
+
+const scrollTrackTo = (track: HTMLElement, position: number, behavior?: ScrollBehavior) =>
+  track.scrollTo?.({ left: isRtlTrack(track) ? -position : position, ...(behavior && { behavior }) });
 
 export default function Slider({
   items,
@@ -27,6 +35,7 @@ export default function Slider({
   playLabel = "Start automatic slide show",
   pauseLabel = "Stop automatic slide show",
   dotLabel = "Go to slide",
+  slideLabel = "{index} of {total}",
   className,
   style,
   ...restProps
@@ -39,7 +48,7 @@ export default function Slider({
   const trackRef = useRef<HTMLUListElement>(null);
   const isPointerDown = useRef(false);
   const settleTimer = useRef(0);
-  const edgeTimer = useRef(0);
+  const targetTimer = useRef(0);
   const scrollTarget = useRef<number | null>(null);
   const drag = useRef<{ x: number; scrollLeft: number; moved: boolean } | null>(null);
   const preventClick = useRef(false);
@@ -56,50 +65,57 @@ export default function Slider({
 
   const getTrack = () => trackRef.current as HTMLUListElement;
   const getSlides = () => Array.from(getTrack().children) as HTMLElement[];
+  const isRtl = () => isRtlTrack(getTrack());
+  const startOf = (slide: HTMLElement) => getSlideStart(getTrack(), slide);
+  const getPosition = () => getScrollPosition(getTrack());
+  const scrollToPosition = (position: number, behavior?: ScrollBehavior) =>
+    scrollTrackTo(getTrack(), position, behavior);
 
-  const getClosest = useCallback(() => {
-    const track = trackRef.current as HTMLUListElement;
-    const slides = Array.from(track.children) as HTMLElement[];
-    const distance = (slide: HTMLElement) => Math.abs(slide.offsetLeft - track.scrollLeft);
+  const getClosest = () => {
+    const position = getPosition();
+    const slides = getSlides();
+    const distance = (slide: HTMLElement) => Math.abs(startOf(slide) - position);
 
     return slides.reduce((closest, slide, i) => (distance(slide) < distance(slides[closest]) ? i : closest), 0);
-  }, []);
+  };
 
-  const recenter = useCallback(() => {
-    const track = trackRef.current as HTMLUListElement;
-    const slides = Array.from(track.children) as HTMLElement[];
+  const recenter = () => {
     if (drag.current?.moved) return;
 
+    const slides = getSlides();
     const closest = getClosest();
-    const setWidth = slides[total].offsetLeft - slides[0].offsetLeft;
+    const setWidth = startOf(slides[total]) - startOf(slides[0]);
 
-    if (closest < total) track.scrollTo?.({ left: track.scrollLeft + setWidth, behavior: "instant" });
-    if (closest >= 2 * total) track.scrollTo?.({ left: track.scrollLeft - setWidth, behavior: "instant" });
-  }, [getClosest, total]);
+    if (closest < total) scrollToPosition(getPosition() + setWidth, "instant");
+    if (closest >= 2 * total) scrollToPosition(getPosition() - setWidth, "instant");
+  };
 
-  const syncView = useCallback((left: number) => {
-    const { clientWidth, scrollWidth, children } = trackRef.current as HTMLUListElement;
-    const heights = (Array.from(children) as HTMLElement[])
-      .filter((slide) => slide.offsetLeft + slide.offsetWidth > left + 1 && slide.offsetLeft < left + clientWidth - 1)
+  const syncView = (position: number) => {
+    const { clientWidth, scrollWidth } = getTrack();
+    const heights = getSlides()
+      .filter(
+        (slide) => startOf(slide) + slide.offsetWidth > position + 1 && startOf(slide) < position + clientWidth - 1,
+      )
       .map((slide) => (slide.firstElementChild as HTMLElement).offsetHeight);
 
-    setAtStart(left <= 1);
-    setAtEnd(left + clientWidth >= scrollWidth - 1);
+    setAtStart(position <= 1);
+    setAtEnd(position + clientWidth >= scrollWidth - 1);
     setHeight(heights.length > 0 ? Math.max(...heights) : undefined);
-  }, []);
+  };
 
-  const update = useCallback(() => {
-    const { scrollLeft, clientWidth, scrollWidth, children } = trackRef.current as HTMLUListElement;
+  const update = () => {
+    const { clientWidth, scrollWidth } = getTrack();
+    const position = getPosition();
     const target = scrollTarget.current;
 
-    window.clearTimeout(edgeTimer.current);
-    if (target === null || Math.abs(scrollLeft - target) <= 1) {
+    window.clearTimeout(targetTimer.current);
+    if (target === null || Math.abs(position - target) <= 1) {
       scrollTarget.current = null;
-      syncView(scrollLeft);
+      syncView(position);
     } else {
-      edgeTimer.current = window.setTimeout(() => {
+      targetTimer.current = window.setTimeout(() => {
         scrollTarget.current = null;
-        syncView((trackRef.current as HTMLUListElement).scrollLeft);
+        syncView(getPosition());
       }, SETTLE_DELAY);
     }
 
@@ -110,45 +126,50 @@ export default function Slider({
       return;
     }
 
-    const isAtStart = scrollLeft <= 1;
-    const isAtEnd = scrollLeft + clientWidth >= scrollWidth - 1;
-    setIndex(isAtEnd && !isAtStart ? children.length - 1 : getClosest());
-  }, [loop, total, getClosest, recenter, syncView]);
+    const isAtEnd = position > 1 && position + clientWidth >= scrollWidth - 1;
+    setIndex(isAtEnd ? total - 1 : getClosest());
+  };
+
+  const updateRef = useRef(update);
+  updateRef.current = update;
+  const handleScroll = useCallback(() => updateRef.current(), []);
 
   useEffect(() => {
     const track = trackRef.current as HTMLUListElement;
     const firstSlide = track.children[offset] as HTMLElement | undefined;
 
-    if (loop && firstSlide) track.scrollTo?.({ left: firstSlide.offsetLeft, behavior: "instant" });
-    update();
-    window.addEventListener("resize", update);
+    if (loop && firstSlide) scrollTrackTo(track, getSlideStart(track, firstSlide), "instant");
+    handleScroll();
+  }, [loop, offset, handleScroll]);
 
-    return () => {
-      window.removeEventListener("resize", update);
+  useEffect(
+    () => () => {
       window.clearTimeout(settleTimer.current);
-      window.clearTimeout(edgeTimer.current);
-    };
-  }, [update, loop, offset]);
+      window.clearTimeout(targetTimer.current);
+    },
+    [],
+  );
 
   useEffect(() => {
     if (typeof ResizeObserver === "undefined") return;
 
     const track = trackRef.current as HTMLUListElement;
-    const observer = new ResizeObserver(() => syncView(scrollTarget.current ?? track.scrollLeft));
+    const observer = new ResizeObserver(handleScroll);
+    observer.observe(track);
     Array.from(track.children).forEach((slide) => observer.observe(slide.firstElementChild as Element));
 
     return () => observer.disconnect();
-  }, [items, syncView]);
+  }, [total, loop, handleScroll]);
 
   const goTo = (target: number) => {
     const slide = getSlides()[target];
     if (!slide) return;
 
-    const track = getTrack();
-    const left = Math.min(slide.offsetLeft, track.scrollWidth - track.clientWidth);
-    scrollTarget.current = left;
-    syncView(left);
-    track.scrollTo?.({ left: slide.offsetLeft });
+    const { scrollWidth, clientWidth } = getTrack();
+    const position = Math.min(startOf(slide), scrollWidth - clientWidth);
+    scrollTarget.current = position;
+    syncView(position);
+    scrollToPosition(startOf(slide));
   };
 
   const isPreviousDisabled = !loop && atStart;
@@ -158,10 +179,11 @@ export default function Slider({
   const next = () => {
     if (isNextDisabled) return;
 
-    const { scrollLeft, clientWidth } = getTrack();
+    const { clientWidth } = getTrack();
+    const position = getPosition();
     const current = getCurrent();
     const target = slidePerPage
-      ? getSlides().findIndex((slide) => slide.offsetLeft + slide.offsetWidth > scrollLeft + clientWidth + 1)
+      ? getSlides().findIndex((slide) => startOf(slide) + slide.offsetWidth > position + clientWidth + 1)
       : current + 1;
     goTo(Math.max(target, current + 1));
   };
@@ -169,10 +191,11 @@ export default function Slider({
   const previous = () => {
     if (isPreviousDisabled) return;
 
-    const { scrollLeft, clientWidth } = getTrack();
+    const { clientWidth } = getTrack();
+    const position = getPosition();
     const current = getCurrent();
     const target = slidePerPage
-      ? getSlides().findIndex((slide) => slide.offsetLeft >= scrollLeft - clientWidth - 1)
+      ? getSlides().findIndex((slide) => startOf(slide) >= position - clientWidth - 1)
       : current - 1;
     goTo(Math.min(target, current - 1));
   };
@@ -188,26 +211,13 @@ export default function Slider({
     setIsPlaying(!isPlaying);
   };
 
-  const handleViewportKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
-    if (isFormField(event.target as HTMLElement)) return;
+  const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
+    if ((event.target as HTMLElement).matches("input, textarea, select, [contenteditable]")) return;
 
+    const rtl = isRtl();
     const actions: Record<string, () => void> = {
-      ArrowLeft: previous,
-      ArrowRight: next,
-      Home: () => goTo(offset),
-      End: () => goTo(offset + total - 1),
-    };
-    const action = actions[event.key];
-    if (!action) return;
-
-    event.preventDefault();
-    action();
-  };
-
-  const handleDotsKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
-    const actions: Record<string, () => void> = {
-      ArrowLeft: previous,
-      ArrowRight: next,
+      ArrowLeft: rtl ? next : previous,
+      ArrowRight: rtl ? previous : next,
       Home: () => goTo(offset),
       End: () => goTo(offset + total - 1),
     };
@@ -232,7 +242,7 @@ export default function Slider({
 
     if (!drag.current.moved) {
       drag.current.moved = true;
-      track.classList.add(DRAGGING_CLASS);
+      track.classList.add("ds-slider__track--dragging");
       track.setPointerCapture?.(event.pointerId);
     }
     track.scrollLeft = drag.current.scrollLeft - distance;
@@ -243,14 +253,13 @@ export default function Slider({
     drag.current = null;
     if (!current?.moved) return;
 
-    const track = getTrack();
-    const { scrollLeft } = track;
+    const position = getPosition();
     const slides = getSlides();
-    const isForward = event.clientX < current.x;
-    const ahead = slides.findIndex((slide) => slide.offsetLeft > scrollLeft + 1);
-    const behind = slides.reduce((last, slide, i) => (slide.offsetLeft < scrollLeft - 1 ? i : last), 0);
+    const isForward = isRtl() ? event.clientX > current.x : event.clientX < current.x;
+    const ahead = slides.findIndex((slide) => startOf(slide) > position + 1);
+    const behind = slides.reduce((last, slide, i) => (startOf(slide) < position - 1 ? i : last), 0);
 
-    track.classList.remove(DRAGGING_CLASS);
+    getTrack().classList.remove("ds-slider__track--dragging");
     preventClick.current = true;
     window.setTimeout(() => (preventClick.current = false));
     goTo(isForward ? (ahead === -1 ? slides.length - 1 : ahead) : behind);
@@ -273,6 +282,7 @@ export default function Slider({
 
   const slideId = (i: number) => `${id}-slide-${i}`;
   const dotId = (i: number) => `${id}-dot-${i}`;
+  const getSlideLabel = (i: number) => slideLabel.replace("{index}", String(i + 1)).replace("{total}", String(total));
 
   const renderClones = () =>
     Children.map(items, (item) => (
@@ -307,6 +317,7 @@ export default function Slider({
             type="button"
             className="ds-slider__play"
             onClick={toggleRotation}
+            aria-label={isPlaying ? pauseLabel : playLabel}
             title={isPlaying ? pauseLabel : playLabel}
           >
             <Icon src={isPlaying ? "pause" : "play"} size={16} />
@@ -315,7 +326,7 @@ export default function Slider({
 
         <div
           className="ds-slider__viewport"
-          onKeyDown={handleViewportKeyDown}
+          onKeyDown={handleKeyDown}
           onPointerDown={handlePointerDown}
           onPointerMove={handlePointerMove}
           onPointerUp={handlePointerUp}
@@ -342,9 +353,7 @@ export default function Slider({
             className="ds-slider__track"
             style={height === undefined ? undefined : ({ "--ds-slider-height": `${height}px` } as CSSProperties)}
             tabIndex={0}
-            aria-live={isRotating ? "off" : "polite"}
-            aria-atomic="false"
-            onScroll={update}
+            onScroll={handleScroll}
           >
             {loop && renderClones()}
             {Children.map(items, (item, i) => (
@@ -353,6 +362,7 @@ export default function Slider({
                   id={slideId(i)}
                   role={dots ? "tabpanel" : "group"}
                   aria-roledescription="slide"
+                  aria-label={getSlideLabel(i)}
                   className="ds-slider__slide-content"
                 >
                   {item}
@@ -376,6 +386,10 @@ export default function Slider({
           )}
         </div>
 
+        <div className="ds-slider__status" aria-live={isRotating ? "off" : "polite"} aria-atomic="true">
+          {getSlideLabel(index)}
+        </div>
+
         {hasAutoPlay && (
           <div className="ds-slider__progress" aria-hidden="true">
             <span key={cycle} className="ds-slider__progress-bar" onAnimationEnd={advance} />
@@ -388,7 +402,7 @@ export default function Slider({
             tabIndex={0}
             aria-activedescendant={dotId(index)}
             className="ds-slider__dots"
-            onKeyDown={handleDotsKeyDown}
+            onKeyDown={handleKeyDown}
           >
             {Children.map(items, (_item, i) => (
               <button

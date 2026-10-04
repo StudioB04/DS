@@ -1,6 +1,7 @@
 import type { HTMLAttributes, ReactNode } from "react";
 
-export interface SliderProps extends Omit<HTMLAttributes<HTMLElement>, "children"> {
+export interface SliderProps extends Omit<HTMLAttributes<HTMLElement>, "children" | "aria-label"> {
+  "aria-label": string;
   items: ReactNode[];
   arrows?: boolean;
   dots?: boolean;
@@ -12,4 +13,5 @@ export interface SliderProps extends Omit<HTMLAttributes<HTMLElement>, "children
   playLabel?: string;
   pauseLabel?: string;
   dotLabel?: string;
+  slideLabel?: string;
 }

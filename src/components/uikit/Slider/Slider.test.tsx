@@ -1,9 +1,10 @@
 import { act, createEvent, fireEvent, render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { describe, expect, it, vi } from "vitest";
+import { afterEach, describe, expect, it, vi } from "vitest";
 import { axe } from "vitest-axe";
 
 import Slider from "./Slider";
+import type { SliderProps } from "./Slider.types";
 
 class TestPointerEvent extends MouseEvent {
   pointerId: number;
@@ -28,13 +29,19 @@ function getTrack() {
   return screen.getByRole("list");
 }
 
-function mockLayout(slideWidth = 100, clientWidth = 250) {
+function getStatus() {
+  return document.querySelector(".ds-slider__status") as HTMLElement;
+}
+
+function mockLayout(slideWidth = 100, clientWidth = 250, rtl = false) {
   const track = getTrack();
   const slides = Array.from(track.children) as HTMLElement[];
+  const maxScroll = slides.length * slideWidth - clientWidth;
   let scrollLeft = 0;
 
   slides.forEach((slide, i) => {
-    Object.defineProperty(slide, "offsetLeft", { configurable: true, value: i * slideWidth });
+    const offsetLeft = rtl ? clientWidth - (i + 1) * slideWidth : i * slideWidth;
+    Object.defineProperty(slide, "offsetLeft", { configurable: true, value: offsetLeft });
     Object.defineProperty(slide, "offsetWidth", { configurable: true, value: slideWidth });
   });
   Object.defineProperty(track, "clientWidth", { configurable: true, value: clientWidth });
@@ -47,8 +54,8 @@ function mockLayout(slideWidth = 100, clientWidth = 250) {
     },
   });
 
-  const scrollTo = vi.fn(({ left }: ScrollToOptions) => {
-    scrollLeft = Math.min(left ?? 0, slides.length * slideWidth - clientWidth);
+  const scrollTo = vi.fn(({ left = 0 }: ScrollToOptions) => {
+    scrollLeft = rtl ? Math.min(Math.max(left, -maxScroll), 0) : Math.min(left, maxScroll);
     fireEvent.scroll(track);
   });
   track.scrollTo = scrollTo as typeof track.scrollTo;
@@ -59,30 +66,30 @@ function mockLayout(slideWidth = 100, clientWidth = 250) {
 
 describe("Slider component", () => {
   it("should have no accessibility violations", async () => {
-    const { container } = render(<Slider items={items} />);
+    const { container } = render(<Slider aria-label="Carousel" items={items} />);
     expect(await axe(container, { rules: { "color-contrast": { enabled: false } } })).toHaveNoViolations();
   });
 
   it("should have no accessibility violations with dots and autoplay", async () => {
-    const { container } = render(<Slider items={items} dots autoPlay={5000} />);
+    const { container } = render(<Slider aria-label="Carousel" items={items} dots autoPlay={5000} />);
     expect(await axe(container, { rules: { "color-contrast": { enabled: false } } })).toHaveNoViolations();
   });
 
   describe("structure", () => {
     it("renders a carousel section", () => {
-      render(<Slider items={items} />);
+      render(<Slider aria-label="Carousel" items={items} />);
 
       expect(getCarousel().tagName).toBe("SECTION");
       expect(getCarousel()).toHaveAttribute("aria-roledescription", "carousel");
     });
 
     it("becomes a named region with an aria-label", () => {
-      render(<Slider items={items} aria-label="Featured products" />);
+      render(<Slider aria-label="Featured products" items={items} />);
       expect(screen.getByRole("region", { name: "Featured products" })).toBeInTheDocument();
     });
 
     it("renders each item in a list item, inside a slide group", () => {
-      render(<Slider items={items} />);
+      render(<Slider aria-label="Carousel" items={items} />);
       const listItems = within(getTrack()).getAllByRole("listitem");
       const slides = screen.getAllByRole("group");
 
@@ -92,16 +99,38 @@ describe("Slider component", () => {
       expect(within(slides[0]).getByText("One")).toBeInTheDocument();
     });
 
-    it("makes the list focusable and politely live when not rotating", () => {
-      render(<Slider items={items} />);
+    it("makes the list focusable", () => {
+      render(<Slider aria-label="Carousel" items={items} />);
 
       expect(getTrack()).toHaveAttribute("tabindex", "0");
-      expect(getTrack()).toHaveAttribute("aria-live", "polite");
-      expect(getTrack()).toHaveAttribute("aria-atomic", "false");
+      expect(getTrack()).not.toHaveAttribute("aria-live");
+    });
+
+    it("names each slide with its position", () => {
+      render(<Slider aria-label="Carousel" items={items} />);
+      const slides = screen.getAllByRole("group");
+
+      expect(slides[0]).toHaveAccessibleName("1 of 4");
+      expect(slides[3]).toHaveAccessibleName("4 of 4");
+    });
+
+    it("politely announces the current slide when not rotating", () => {
+      render(<Slider aria-label="Carousel" items={items} />);
+      mockLayout();
+      const status = getStatus();
+
+      expect(status).toHaveAttribute("aria-live", "polite");
+      expect(status).toHaveAttribute("aria-atomic", "true");
+      expect(status).toHaveTextContent("1 of 4");
+
+      fireEvent.keyDown(getTrack(), { key: "ArrowRight" });
+      expect(status).toHaveTextContent("2 of 4");
     });
 
     it("forwards native attributes, className and style", () => {
-      render(<Slider items={items} id="slider" className="custom" style={{ marginTop: "8px" }} />);
+      render(
+        <Slider aria-label="Carousel" items={items} id="slider" className="custom" style={{ marginTop: "8px" }} />,
+      );
       const region = getCarousel();
 
       expect(region).toHaveAttribute("id", "slider");
@@ -112,21 +141,21 @@ describe("Slider component", () => {
 
   describe("arrows", () => {
     it("renders previous and next buttons by default", () => {
-      render(<Slider items={items} />);
+      render(<Slider aria-label="Carousel" items={items} />);
 
       expect(screen.getByTitle("Previous slide")).toBeInTheDocument();
       expect(screen.getByTitle("Next slide")).toBeInTheDocument();
     });
 
     it("hides the buttons when arrows is false", () => {
-      render(<Slider items={items} arrows={false} />);
+      render(<Slider aria-label="Carousel" items={items} arrows={false} />);
 
       expect(screen.queryByTitle("Previous slide")).not.toBeInTheDocument();
       expect(screen.queryByTitle("Next slide")).not.toBeInTheDocument();
     });
 
     it("goes to the next and previous slides", async () => {
-      render(<Slider items={items} />);
+      render(<Slider aria-label="Carousel" items={items} />);
       const scrollTo = mockLayout();
 
       await userEvent.click(screen.getByTitle("Next slide"));
@@ -137,7 +166,7 @@ describe("Slider component", () => {
     });
 
     it("disables previous at the start and next at the end, without looping", () => {
-      render(<Slider items={items} />);
+      render(<Slider aria-label="Carousel" items={items} />);
       const scrollTo = mockLayout();
       const previousButton = screen.getByTitle("Previous slide");
       const nextButton = screen.getByTitle("Next slide");
@@ -156,7 +185,9 @@ describe("Slider component", () => {
     });
 
     it("goes page by page with slidePerPage", async () => {
-      render(<Slider items={[...items, <p key="five">Five</p>, <p key="six">Six</p>]} slidePerPage />);
+      render(
+        <Slider aria-label="Carousel" items={[...items, <p key="five">Five</p>, <p key="six">Six</p>]} slidePerPage />,
+      );
       const scrollTo = mockLayout();
 
       await userEvent.click(screen.getByTitle("Next slide"));
@@ -169,7 +200,7 @@ describe("Slider component", () => {
 
   describe("keyboard", () => {
     it("navigates with the arrow keys, Home and End when the list is focused", () => {
-      render(<Slider items={items} />);
+      render(<Slider aria-label="Carousel" items={items} />);
       const scrollTo = mockLayout();
       const track = getTrack();
 
@@ -187,7 +218,7 @@ describe("Slider component", () => {
     });
 
     it("ignores other keys", () => {
-      render(<Slider items={items} />);
+      render(<Slider aria-label="Carousel" items={items} />);
       const scrollTo = mockLayout();
 
       fireEvent.keyDown(getTrack(), { key: "Enter" });
@@ -195,7 +226,7 @@ describe("Slider component", () => {
     });
 
     it("ignores the keys typed in a form field inside a slide", () => {
-      render(<Slider items={[<input key="field" aria-label="Search" />, ...items]} />);
+      render(<Slider aria-label="Carousel" items={[<input key="field" aria-label="Search" />, ...items]} />);
       const scrollTo = mockLayout();
 
       fireEvent.keyDown(screen.getByRole("textbox", { name: "Search" }), { key: "ArrowRight" });
@@ -203,7 +234,7 @@ describe("Slider component", () => {
     });
 
     it("does nothing when there is no slide to go to", () => {
-      render(<Slider items={[]} />);
+      render(<Slider aria-label="Carousel" items={[]} />);
       const scrollTo = mockLayout();
 
       fireEvent.keyDown(getTrack(), { key: "End" });
@@ -213,7 +244,7 @@ describe("Slider component", () => {
 
   describe("dots", () => {
     it("renders a single focusable tab list, with one tab per slide, and tab panels", () => {
-      render(<Slider items={items} dots />);
+      render(<Slider aria-label="Carousel" items={items} dots />);
       const tablist = screen.getByRole("tablist");
       const tabs = within(tablist).getAllByRole("tab");
       const panels = screen.getAllByRole("tabpanel");
@@ -229,7 +260,7 @@ describe("Slider component", () => {
     });
 
     it("goes to the slide of the clicked tab and selects it", async () => {
-      render(<Slider items={items} dots />);
+      render(<Slider aria-label="Carousel" items={items} dots />);
       const scrollTo = mockLayout();
       const tabs = screen.getAllByRole("tab");
 
@@ -241,7 +272,7 @@ describe("Slider component", () => {
     });
 
     it("selects the last tab when the list is scrolled to the end", () => {
-      render(<Slider items={items} dots />);
+      render(<Slider aria-label="Carousel" items={items} dots />);
       mockLayout();
 
       fireEvent.keyDown(getTrack(), { key: "End" });
@@ -249,7 +280,7 @@ describe("Slider component", () => {
     });
 
     it("navigates the carousel with the arrow keys, Home and End, while the list keeps the focus", () => {
-      render(<Slider items={items} dots />);
+      render(<Slider aria-label="Carousel" items={items} dots />);
       const scrollTo = mockLayout();
       const tablist = screen.getByRole("tablist");
       tablist.focus();
@@ -270,7 +301,7 @@ describe("Slider component", () => {
     });
 
     it("ignores other keys on the tab list", () => {
-      render(<Slider items={items} dots />);
+      render(<Slider aria-label="Carousel" items={items} dots />);
       const scrollTo = mockLayout();
 
       fireEvent.keyDown(screen.getByRole("tablist"), { key: "Enter" });
@@ -280,29 +311,29 @@ describe("Slider component", () => {
 
   describe("autoplay", () => {
     it("renders no rotation controls by default or with a 0 delay", () => {
-      const { rerender, container } = render(<Slider items={items} />);
+      const { rerender, container } = render(<Slider aria-label="Carousel" items={items} />);
       expect(container.querySelector(".ds-slider__controls")).not.toBeInTheDocument();
 
-      rerender(<Slider items={items} autoPlay={0} />);
+      rerender(<Slider aria-label="Carousel" items={items} autoPlay={0} />);
       expect(container.querySelector(".ds-slider__controls")).not.toBeInTheDocument();
     });
 
     it("renders the rotation button first, and a hidden progress bar", () => {
-      const { container } = render(<Slider items={items} autoPlay={5000} arrows dots />);
+      const { container } = render(<Slider aria-label="Carousel" items={items} autoPlay={5000} arrows dots />);
       const buttons = screen.getAllByRole("button");
 
       expect(buttons[0]).toHaveAccessibleName("Stop automatic slide show");
       expect(container.querySelector(".ds-slider__progress")).toHaveAttribute("aria-hidden", "true");
-      expect(getTrack()).toHaveAttribute("aria-live", "off");
+      expect(getStatus()).toHaveAttribute("aria-live", "off");
     });
 
     it("uses the given delay", () => {
-      render(<Slider items={items} autoPlay={3000} />);
+      render(<Slider aria-label="Carousel" items={items} autoPlay={3000} />);
       expect(getCarousel().style.getPropertyValue("--ds-slider-delay")).toBe("3000ms");
     });
 
     it("goes to the next slide at the end of the progress bar, and loops", () => {
-      const { container } = render(<Slider items={items} autoPlay={5000} />);
+      const { container } = render(<Slider aria-label="Carousel" items={items} autoPlay={5000} />);
       const scrollTo = mockLayout();
       const progress = () => container.querySelector(".ds-slider__progress-bar") as HTMLElement;
 
@@ -315,19 +346,19 @@ describe("Slider component", () => {
     });
 
     it("stops and restarts with the rotation button", async () => {
-      render(<Slider items={items} autoPlay={5000} />);
+      render(<Slider aria-label="Carousel" items={items} autoPlay={5000} />);
 
       await userEvent.click(screen.getByRole("button", { name: "Stop automatic slide show" }));
       expect(getCarousel()).toHaveClass("ds-slider--paused");
-      expect(getTrack()).toHaveAttribute("aria-live", "polite");
+      expect(getStatus()).toHaveAttribute("aria-live", "polite");
 
       await userEvent.click(screen.getByRole("button", { name: "Start automatic slide show" }));
       expect(getCarousel()).not.toHaveClass("ds-slider--paused");
-      expect(getTrack()).toHaveAttribute("aria-live", "off");
+      expect(getStatus()).toHaveAttribute("aria-live", "off");
     });
 
     it("pauses while hovered", () => {
-      const { container } = render(<Slider items={items} autoPlay={5000} />);
+      const { container } = render(<Slider aria-label="Carousel" items={items} autoPlay={5000} />);
       const inner = container.querySelector(".ds-slider__inner") as HTMLElement;
 
       fireEvent.mouseEnter(inner);
@@ -338,7 +369,7 @@ describe("Slider component", () => {
     });
 
     it("rotates while hovered once restarted explicitly, until the mouse leaves", () => {
-      const { container } = render(<Slider items={items} autoPlay={5000} />);
+      const { container } = render(<Slider aria-label="Carousel" items={items} autoPlay={5000} />);
       const inner = container.querySelector(".ds-slider__inner") as HTMLElement;
       const button = () => screen.getByRole("button", { name: /automatic slide show/ });
 
@@ -356,7 +387,7 @@ describe("Slider component", () => {
       render(
         <>
           <button type="button">Before</button>
-          <Slider items={items} autoPlay={5000} />
+          <Slider aria-label="Carousel" items={items} autoPlay={5000} />
         </>,
       );
 
@@ -374,7 +405,7 @@ describe("Slider component", () => {
       render(
         <>
           <button type="button">Before</button>
-          <Slider items={items} autoPlay={5000} />
+          <Slider aria-label="Carousel" items={items} autoPlay={5000} />
         </>,
       );
 
@@ -393,7 +424,7 @@ describe("Slider component", () => {
     };
 
     it("renders hidden and inert clones before and after the slides", () => {
-      const { container } = render(<Slider items={items} loop />);
+      const { container } = render(<Slider aria-label="Carousel" items={items} loop />);
       const clones = container.querySelectorAll(".ds-slider__slide[aria-hidden='true']");
 
       expect(container.querySelectorAll(".ds-slider__slide")).toHaveLength(12);
@@ -406,19 +437,19 @@ describe("Slider component", () => {
     it("starts on the first real slide", () => {
       const scrollTo = vi.fn();
       HTMLElement.prototype.scrollTo = scrollTo;
-      render(<Slider items={items} loop />);
+      render(<Slider aria-label="Carousel" items={items} loop />);
 
       expect(scrollTo).toHaveBeenCalledWith({ left: 0, behavior: "instant" });
       delete (HTMLElement.prototype as Partial<HTMLElement>).scrollTo;
     });
 
     it("does not fail where scrollTo is not supported", () => {
-      render(<Slider items={items} loop />);
+      render(<Slider aria-label="Carousel" items={items} loop />);
       expect(() => fireEvent.click(screen.getByTitle("Next slide"))).not.toThrow();
     });
 
     it("never disables the arrows", () => {
-      render(<Slider items={items} loop />);
+      render(<Slider aria-label="Carousel" items={items} loop />);
       mockLayout();
 
       expect(screen.getByTitle("Previous slide")).toHaveAttribute("aria-disabled", "false");
@@ -427,7 +458,7 @@ describe("Slider component", () => {
 
     it("goes forward from the last slide to the first one, then recenters on the real slides", () => {
       vi.useFakeTimers();
-      render(<Slider items={items} loop dots />);
+      render(<Slider aria-label="Carousel" items={items} loop dots />);
       const scrollTo = mockLayout();
 
       setScroll(700);
@@ -444,7 +475,7 @@ describe("Slider component", () => {
 
     it("goes backward from the first slide to the last one, then recenters on the real slides", () => {
       vi.useFakeTimers();
-      render(<Slider items={items} loop dots />);
+      render(<Slider aria-label="Carousel" items={items} loop dots />);
       const scrollTo = mockLayout();
 
       setScroll(400);
@@ -458,7 +489,7 @@ describe("Slider component", () => {
     });
 
     it("targets the real slides with the dots, Home and End", () => {
-      render(<Slider items={items} loop dots />);
+      render(<Slider aria-label="Carousel" items={items} loop dots />);
       const scrollTo = mockLayout();
 
       fireEvent.click(screen.getAllByRole("tab")[1]);
@@ -475,7 +506,7 @@ describe("Slider component", () => {
     });
 
     it("keeps going forward with autoplay", () => {
-      const { container } = render(<Slider items={items} loop autoPlay={5000} />);
+      const { container } = render(<Slider aria-label="Carousel" items={items} loop autoPlay={5000} />);
       const scrollTo = mockLayout();
 
       setScroll(700);
@@ -486,14 +517,14 @@ describe("Slider component", () => {
 
   describe("edge fade", () => {
     it("fades no edge when every slide fits", () => {
-      render(<Slider items={items} />);
+      render(<Slider aria-label="Carousel" items={items} />);
 
       expect(getCarousel()).not.toHaveClass("ds-slider--fade-start");
       expect(getCarousel()).not.toHaveClass("ds-slider--fade-end");
     });
 
     it("fades the edges that have more slides beyond them", () => {
-      render(<Slider items={items} />);
+      render(<Slider aria-label="Carousel" items={items} />);
       mockLayout();
       const track = getTrack();
 
@@ -511,7 +542,7 @@ describe("Slider component", () => {
 
     it("updates the edges as soon as a scroll towards them starts", () => {
       vi.useFakeTimers();
-      render(<Slider items={items} />);
+      render(<Slider aria-label="Carousel" items={items} />);
       mockLayout();
       const track = getTrack();
       track.scrollTo = vi.fn() as typeof track.scrollTo;
@@ -533,7 +564,7 @@ describe("Slider component", () => {
 
     it("restores the edges when the scroll stops before its target", () => {
       vi.useFakeTimers();
-      render(<Slider items={items} />);
+      render(<Slider aria-label="Carousel" items={items} />);
       mockLayout();
       const track = getTrack();
       track.scrollTo = vi.fn() as typeof track.scrollTo;
@@ -548,7 +579,7 @@ describe("Slider component", () => {
     });
 
     it("always fades both edges with loop", () => {
-      render(<Slider items={items} loop />);
+      render(<Slider aria-label="Carousel" items={items} loop />);
       expect(getCarousel()).toHaveClass("ds-slider--fade-start", "ds-slider--fade-end");
     });
   });
@@ -560,13 +591,13 @@ describe("Slider component", () => {
       );
 
     it("keeps its natural height until a slide is visible", () => {
-      render(<Slider items={items} />);
+      render(<Slider aria-label="Carousel" items={items} />);
 
       expect(getTrack().style.getPropertyValue("--ds-slider-height")).toBe("");
     });
 
     it("fits the tallest visible slide", () => {
-      render(<Slider items={items} />);
+      render(<Slider aria-label="Carousel" items={items} />);
       mockHeights([50, 80, 120, 300]);
       mockLayout();
       const track = getTrack();
@@ -579,7 +610,7 @@ describe("Slider component", () => {
     });
 
     it("fits the slides visible at the scroll target as soon as the scroll starts", () => {
-      render(<Slider items={items} />);
+      render(<Slider aria-label="Carousel" items={items} />);
       mockHeights([50, 80, 120, 300]);
       mockLayout();
       const track = getTrack();
@@ -604,10 +635,10 @@ describe("Slider component", () => {
         },
       );
 
-      const { unmount } = render(<Slider items={items} />);
+      const { unmount } = render(<Slider aria-label="Carousel" items={items} />);
       mockHeights([50, 80, 120, 300]);
       mockLayout();
-      expect(observe).toHaveBeenCalledTimes(items.length);
+      expect(observe).toHaveBeenCalledTimes(items.length + 1);
 
       mockHeights([50, 80, 200, 300]);
       act(onResize);
@@ -628,7 +659,7 @@ describe("Slider component", () => {
     });
 
     it("scrolls with the mouse while dragging, then snaps to the next slide", () => {
-      render(<Slider items={items} />);
+      render(<Slider aria-label="Carousel" items={items} />);
       const scrollTo = mockLayout();
       const track = getTrack();
 
@@ -649,7 +680,7 @@ describe("Slider component", () => {
     });
 
     it("snaps to the previous slide when dragging backward", () => {
-      render(<Slider items={items} />);
+      render(<Slider aria-label="Carousel" items={items} />);
       const scrollTo = mockLayout();
       const track = getTrack();
       track.scrollLeft = 250;
@@ -662,7 +693,7 @@ describe("Slider component", () => {
     });
 
     it("snaps to the last slide when dragging forward past the last snap point", () => {
-      render(<Slider items={items} />);
+      render(<Slider aria-label="Carousel" items={items} />);
       const scrollTo = mockLayout();
       const track = getTrack();
 
@@ -678,6 +709,7 @@ describe("Slider component", () => {
       const onClick = vi.fn();
       render(
         <Slider
+          aria-label="Carousel"
           items={[
             <button key="cta" type="button" onClick={onClick}>
               Open
@@ -702,7 +734,7 @@ describe("Slider component", () => {
     });
 
     it("ignores touch, other mouse buttons, the arrows and simple clicks", () => {
-      render(<Slider items={items} />);
+      render(<Slider aria-label="Carousel" items={items} />);
       const scrollTo = mockLayout();
       const track = getTrack();
 
@@ -720,7 +752,7 @@ describe("Slider component", () => {
     });
 
     it("prevents the native drag of images and links", () => {
-      render(<Slider items={items} />);
+      render(<Slider aria-label="Carousel" items={items} />);
       const event = createEvent.dragStart(screen.getByText("One"));
 
       fireEvent(screen.getByText("One"), event);
@@ -729,7 +761,7 @@ describe("Slider component", () => {
 
     it("does not recenter a loop while dragging", () => {
       vi.useFakeTimers();
-      render(<Slider items={items} loop />);
+      render(<Slider aria-label="Carousel" items={items} loop />);
       const scrollTo = mockLayout();
       const track = getTrack();
 
@@ -747,6 +779,7 @@ describe("Slider component", () => {
     it("uses the custom accessible labels", () => {
       render(
         <Slider
+          aria-label="Carousel"
           items={items}
           dots
           autoPlay={5000}
@@ -764,23 +797,91 @@ describe("Slider component", () => {
     });
 
     it("uses the custom play label once stopped", async () => {
-      render(<Slider items={items} autoPlay={5000} playLabel="Lancer le défilement" />);
+      render(<Slider aria-label="Carousel" items={items} autoPlay={5000} playLabel="Lancer le défilement" />);
 
       await userEvent.click(screen.getByRole("button", { name: "Stop automatic slide show" }));
       expect(screen.getByRole("button", { name: "Lancer le défilement" })).toBeInTheDocument();
     });
   });
 
-  it("updates on window resize and stops listening once unmounted", () => {
-    const removeEventListener = vi.spyOn(window, "removeEventListener");
-    const { unmount } = render(<Slider items={items} dots />);
+  it("updates when the slider is resized", () => {
+    let onResize = () => {};
+    vi.stubGlobal(
+      "ResizeObserver",
+      class {
+        constructor(callback: () => void) {
+          onResize = callback;
+        }
+        observe = vi.fn();
+        disconnect = vi.fn();
+      },
+    );
+
+    render(<Slider aria-label="Carousel" items={items} dots />);
     mockLayout();
     getTrack().scrollLeft = 300;
 
-    fireEvent(window, new Event("resize"));
+    act(onResize);
     expect(screen.getAllByRole("tab")[3]).toHaveAttribute("aria-selected", "true");
+    vi.unstubAllGlobals();
+  });
 
-    unmount();
-    expect(removeEventListener).toHaveBeenCalledWith("resize", expect.any(Function));
+  describe("right to left", () => {
+    const renderRtl = (props: Partial<SliderProps> = {}) => {
+      vi.spyOn(window, "getComputedStyle").mockReturnValue({ direction: "rtl" } as CSSStyleDeclaration);
+      render(<Slider aria-label="Carousel" items={items} {...props} />);
+      return mockLayout(100, 250, true);
+    };
+
+    afterEach(() => vi.restoreAllMocks());
+
+    it("goes forward with the left arrow key and backward with the right one", () => {
+      const scrollTo = renderRtl();
+      const track = getTrack();
+
+      fireEvent.keyDown(track, { key: "ArrowLeft" });
+      expect(scrollTo).toHaveBeenLastCalledWith({ left: -100 });
+      expect(getStatus()).toHaveTextContent("2 of 4");
+
+      fireEvent.keyDown(track, { key: "ArrowRight" });
+      expect(scrollTo).toHaveBeenLastCalledWith({ left: -0 });
+      expect(getStatus()).toHaveTextContent("1 of 4");
+    });
+
+    it("updates the edges from the scroll position", () => {
+      renderRtl();
+      const track = getTrack();
+
+      expect(getCarousel()).not.toHaveClass("ds-slider--fade-start");
+      expect(getCarousel()).toHaveClass("ds-slider--fade-end");
+
+      fireEvent.keyDown(track, { key: "End" });
+      expect(track.scrollLeft).toBe(-150);
+      expect(getCarousel()).toHaveClass("ds-slider--fade-start");
+      expect(getCarousel()).not.toHaveClass("ds-slider--fade-end");
+    });
+
+    it("goes forward when dragging to the right", () => {
+      const scrollTo = renderRtl();
+      const track = getTrack();
+      const pointer = (clientX: number) => ({ clientX, pointerType: "mouse", button: 0, pointerId: 1 });
+
+      fireEvent.pointerDown(screen.getByText("One"), pointer(100));
+      fireEvent.pointerMove(track, pointer(160));
+      expect(track.scrollLeft).toBe(-60);
+
+      fireEvent.pointerUp(track, pointer(160));
+      expect(scrollTo).toHaveBeenLastCalledWith({ left: -100 });
+    });
+
+    it("recenters on the real slides with loop", () => {
+      vi.useFakeTimers();
+      const scrollTo = renderRtl({ loop: true });
+
+      expect(scrollTo).not.toHaveBeenCalled();
+      fireEvent.keyDown(getTrack(), { key: "Home" });
+      expect(scrollTo).toHaveBeenLastCalledWith({ left: -400 });
+      vi.useRealTimers();
+    });
   });
 });
