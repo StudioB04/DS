@@ -47,7 +47,7 @@
     "prettier": "prettier --check \"./src/**/*.{tsx,ts}\"",
     "prettier:fix": "prettier --write \"./src/**/*.{tsx,ts}\"",
     "build-storybook": "storybook build",
-    "sandbox": "npm run dev --prefix .sandbox",
+    "sandbox": "npm run dev --prefix .sandbox -- --host",
     "sandbox:install": "npm install --prefix .sandbox"
   },
   "peerDependencies": {
