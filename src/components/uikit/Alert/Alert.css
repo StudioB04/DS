@@ -45,6 +45,7 @@
     background-color: transparent;
     border-radius: var(--ds-radius-sm);
     transition: background-color var(--ds-transition-fast);
+    translate: var(--ds-spacing-md) calc(-1 * var(--ds-spacing-sm));
 
     &:is(:hover, :focus-visible) {
       background-color: var(--ds-alert-close-background-color_hover);
