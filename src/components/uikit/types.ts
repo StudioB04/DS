@@ -16,3 +16,4 @@ export * from "./Notification/Notification.types";
 export * from "./Skeleton/Skeleton.types";
 export * from "./SkipLink/SkipLink.types";
 export * from "./Slider/Slider.types";
+export * from "./StudioB04Provider/StudioB04Provider.types";
