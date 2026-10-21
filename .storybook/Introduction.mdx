@@ -100,6 +100,37 @@ export default function Example() {
 }
 ```
 
+Dialogs can also be opened from code. Wrap your application once with `StudioB04Provider`, then use the `useDialog` hook anywhere below it:
+
+```tsx
+import { Button, StudioB04Provider, useDialog } from "@studio_b04/ds/uikit";
+
+function DeleteButton() {
+  const { showDialog, hideDialog } = useDialog();
+
+  return (
+    <Button
+      label="Delete"
+      onClick={() =>
+        showDialog({
+          title: "Delete this item?",
+          children: <p>This cannot be undone.</p>,
+          footer: <Button label="Cancel" onClick={hideDialog} />,
+        })
+      }
+    />
+  );
+}
+
+export default function App() {
+  return (
+    <StudioB04Provider>
+      <DeleteButton />
+    </StudioB04Provider>
+  );
+}
+```
+
 Browse the **Components** section of the sidebar: every page shows the live component, its props and its usage notes.
 
 ### 4. Choose a theme

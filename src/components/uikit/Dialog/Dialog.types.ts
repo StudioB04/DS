@@ -1,4 +1,4 @@
-import type { DialogHTMLAttributes, ReactNode, Ref } from "react";
+import type { DialogHTMLAttributes, ReactEventHandler, ReactNode, Ref } from "react";
 import type { Size } from "$/types";
 
 export interface DialogHandle {
@@ -18,6 +18,6 @@ export interface DialogProps extends DialogHTMLAttributes<HTMLDialogElement> {
   position?: "center" | "start" | "end" | "bottom";
   closeLabel?: string;
   onOpen?: () => void;
-  onClose?: () => void;
+  onClose?: ReactEventHandler<HTMLDialogElement>;
   ref?: Ref<DialogHandle>;
 }
