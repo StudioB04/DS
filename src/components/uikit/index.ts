@@ -5,6 +5,7 @@ export { default as Alert } from "./Alert/Alert";
 export { default as Badge } from "./Badge/Badge";
 export { default as Breadcrumb } from "./Breadcrumb/Breadcrumb";
 export { default as Button } from "./Button/Button";
+export { default as Dialog } from "./Dialog/Dialog";
 export { default as Divider } from "./Divider/Divider";
 export { default as Icon } from "./Icon/Icon";
 export { default as Link } from "./Link/Link";

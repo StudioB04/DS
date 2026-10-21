@@ -6,6 +6,7 @@ export * from "./Badge/Badge.types";
 export * from "./Breadcrumb/Breadcrumb.types";
 export * from "./Button/Button.types";
 export * from "./Divider/Divider.types";
+export * from "./Dialog/Dialog.types";
 export * from "./Icon/Icon.types";
 export * from "./Link/Link.types";
 export * from "./Loader/Loader.types";

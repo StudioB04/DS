@@ -4,6 +4,8 @@ import { useEffect, useRef } from "react";
 import type { FocusTrapProps } from "./FocusTrap.types";
 import { getInteractiveDomNodes } from "./FocusTrap.utils";
 
+import "./FocusTrap.css";
+
 export default function FocusTrap({ children }: FocusTrapProps) {
   const topAnchor = useRef<HTMLButtonElement>(null);
   const bottomAnchor = useRef<HTMLButtonElement>(null);

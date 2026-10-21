@@ -1,0 +1,172 @@
+:root:has(.ds-dialog[open]) {
+  overflow: hidden;
+}
+
+.ds-dialog {
+  --ds-dialog-width: calc(var(--ds-spacing-unit) * 64);
+  --ds-dialog-padding: var(--ds-spacing-2xl);
+  --ds-dialog-closed-translate: 0 calc(-1 * var(--ds-spacing-5xl));
+
+  position: fixed;
+  inline-size: 100%;
+  max-inline-size: min(var(--ds-dialog-width), calc(100dvw - 2 * var(--ds-spacing-xl)));
+  max-block-size: calc(100dvh - 2 * var(--ds-spacing-xl));
+  padding: 0;
+  margin: auto;
+  overflow: hidden;
+  color: var(--ds-text-primary);
+  background-color: var(--ds-bg-primary);
+  border: var(--ds-border-secondary-1px);
+  border-radius: var(--ds-radius-xl);
+  box-shadow: var(--ds-box-shadow-2xl);
+  opacity: 0;
+  display: none;
+  flex-direction: column;
+  translate: var(--ds-dialog-closed-translate);
+  transition:
+    opacity var(--ds-transition-regular),
+    translate var(--ds-transition-regular),
+    overlay var(--ds-transition-regular) allow-discrete,
+    display var(--ds-transition-regular) allow-discrete;
+
+  &:focus {
+    outline: none;
+  }
+
+  &[open] {
+    display: flex;
+    opacity: 1;
+    translate: 0 0;
+
+    @starting-style {
+      opacity: 0;
+      translate: var(--ds-dialog-closed-translate);
+    }
+  }
+
+  &::backdrop {
+    background-color: rgba(0 0 0 / 35%);
+    background-image: linear-gradient(to top, rgba(0 0 0 / 65%), rgba(0 0 0 / 25%));
+    backdrop-filter: blur(var(--ds-size-4px));
+    opacity: 0;
+    transition:
+      opacity var(--ds-transition-regular),
+      overlay var(--ds-transition-regular) allow-discrete,
+      display var(--ds-transition-regular) allow-discrete;
+  }
+
+  &[open]::backdrop {
+    opacity: 1;
+
+    @starting-style {
+      opacity: 0;
+    }
+  }
+
+  .ds-dialog__close {
+    position: absolute;
+    inset-block-start: var(--ds-spacing-md);
+    inset-inline-end: var(--ds-spacing-md);
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--ds-spacing-xs);
+    color: var(--ds-text-secondary);
+    cursor: pointer;
+    background-color: transparent;
+    border-radius: var(--ds-radius-sm);
+    transition: background-color var(--ds-transition-fast);
+
+    &:is(:hover, :focus-visible) {
+      background-color: var(--ds-bg-secondary);
+    }
+  }
+
+  .ds-dialog__header {
+    display: flex;
+    flex-shrink: 0;
+    flex-direction: column;
+    gap: var(--ds-spacing-xs);
+    padding: var(--ds-dialog-padding);
+    border-block-end: var(--ds-border-secondary-1px);
+    text-wrap: pretty;
+
+    .ds-dialog__header__title {
+      max-inline-size: calc(100% - var(--ds-spacing-3xl));
+      font-size: var(--ds-font-size-title-xs);
+      font-weight: var(--ds-font-weight-bold);
+    }
+
+    .ds-dialog__header__description {
+      font-size: var(--ds-font-size-text-md);
+      color: var(--ds-text-tertiary);
+    }
+  }
+
+  .ds-dialog__body {
+    flex-grow: 1;
+    padding: var(--ds-dialog-padding);
+    overflow: auto;
+  }
+
+  .ds-dialog__footer {
+    display: flex;
+    flex-shrink: 0;
+    gap: var(--ds-spacing-md);
+    justify-content: flex-end;
+    padding: var(--ds-spacing-lg) var(--ds-dialog-padding);
+    border-block-start: var(--ds-border-secondary-1px);
+  }
+}
+
+/* ##### SIZE ########################## */
+.ds-dialog--size-sm {
+  --ds-dialog-width: calc(var(--ds-spacing-unit) * 48);
+}
+
+.ds-dialog--size-md {
+  --ds-dialog-width: calc(var(--ds-spacing-unit) * 64);
+}
+
+.ds-dialog--size-lg {
+  --ds-dialog-width: calc(var(--ds-spacing-unit) * 80);
+}
+
+.ds-dialog--size-full {
+  --ds-dialog-width: 100dvw;
+}
+
+/* ##### POSITION ###################### */
+.ds-dialog--position-start,
+.ds-dialog--position-end {
+  inset-block: 0;
+  block-size: 100dvh;
+  max-block-size: 100dvh;
+  max-inline-size: min(var(--ds-dialog-width), calc(100dvw - var(--ds-spacing-2xl)));
+  border-radius: 0;
+}
+
+.ds-dialog--position-start {
+  --ds-dialog-closed-translate: -100% 0;
+
+  inset-inline: 0 auto;
+  margin-inline: 0 auto;
+}
+
+.ds-dialog--position-end {
+  --ds-dialog-closed-translate: 100% 0;
+
+  inset-inline: auto 0;
+  margin-inline: auto 0;
+}
+
+.ds-dialog--position-bottom {
+  --ds-dialog-closed-translate: 0 100%;
+
+  inset-block: auto 0;
+  max-inline-size: 100dvw;
+  max-block-size: calc(100dvh - var(--ds-spacing-2xl));
+  margin-block: auto 0;
+  border-radius: 0;
+}
