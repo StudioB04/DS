@@ -30,7 +30,6 @@ function DialogDemo(props: DialogProps) {
       <Dialog
         {...props}
         open={open}
-        onClose={() => setOpen(false)}
         footer={
           props.footer ? (
             <div style={{ display: "flex", gap: 8 }}>
