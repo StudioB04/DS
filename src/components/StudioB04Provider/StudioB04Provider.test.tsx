@@ -6,14 +6,24 @@ import StudioB04Provider from "./StudioB04Provider";
 import useDialog from "./useDialog";
 import type { DialogOptions } from "./StudioB04Provider.types";
 
-const showModal = vi.fn(function (this: HTMLDialogElement) {
-  this.setAttribute("open", "");
-});
-const close = vi.fn(function (this: HTMLDialogElement) {
-  if (!this.hasAttribute("open")) return;
-  this.removeAttribute("open");
-  if (this.contains(document.activeElement)) (document.activeElement as HTMLElement).blur();
-  this.dispatchEvent(new Event("close"));
+const togglePopover = vi.fn(function (this: HTMLElement, force?: boolean) {
+  const isShown = this.hasAttribute("data-popover-open");
+  const next = force ?? !isShown;
+  if (next === isShown) return next;
+
+  const state = { newState: next ? "open" : "closed", oldState: next ? "closed" : "open" };
+  const dispatch = (type: string) => this.dispatchEvent(Object.assign(new Event(type), state));
+
+  dispatch("beforetoggle");
+  if (next) {
+    this.setAttribute("data-popover-open", "");
+  } else {
+    this.removeAttribute("data-popover-open");
+    if (this.contains(document.activeElement)) (document.activeElement as HTMLElement).blur();
+  }
+  dispatch("toggle");
+
+  return next;
 });
 const getAnimations = vi.fn((): Animation[] => []);
 const focusDescriptor = Object.getOwnPropertyDescriptor(HTMLElement.prototype, "focus") as PropertyDescriptor;
@@ -47,11 +57,10 @@ const renderProvider = (options: DialogOptions = { title: "First dialog", childr
 
 describe("StudioB04Provider component", () => {
   beforeEach(() => {
-    HTMLDialogElement.prototype.showModal = showModal;
-    HTMLDialogElement.prototype.close = close;
+    HTMLElement.prototype.togglePopover = togglePopover;
     HTMLElement.prototype.getAnimations = getAnimations;
     HTMLElement.prototype.focus = function (this: HTMLElement, options?: FocusOptions) {
-      if (this.closest("dialog:not([open])")) return;
+      if (this.closest("dialog:not([data-popover-open])")) return;
       nativeFocus.call(this, options);
     };
   });
@@ -84,11 +93,11 @@ describe("StudioB04Provider component", () => {
     fireEvent.click(screen.getByRole("button", { name: "Open" }));
 
     expect(getDialogs()).toHaveLength(1);
-    expect(getDialogs()[0]).toHaveAttribute("open");
+    expect(getDialogs()[0]).toHaveAttribute("data-popover-open");
     expect(getDialogs()[0]).toHaveClass("ds-dialog--size-lg");
-    expect(screen.getByRole("heading", { name: "First dialog" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "First dialog", hidden: true })).toBeInTheDocument();
     expect(screen.getByText("First content")).toBeInTheDocument();
-    expect(showModal).toHaveBeenCalledTimes(1);
+    expect(togglePopover).toHaveBeenCalledWith(true);
     expect(onOpen).toHaveBeenCalledTimes(1);
   });
 
@@ -109,7 +118,7 @@ describe("StudioB04Provider component", () => {
     renderProvider({ title: "First dialog", onClose, children: <p>First content</p> });
     fireEvent.click(screen.getByRole("button", { name: "Open" }));
 
-    fireEvent.click(screen.getByRole("button", { name: "Close" }));
+    fireEvent.click(screen.getByRole("button", { name: "Close", hidden: true }));
     await flush();
 
     expect(onClose).toHaveBeenCalledTimes(1);
@@ -138,7 +147,7 @@ describe("StudioB04Provider component", () => {
     fireEvent.click(screen.getByRole("button", { name: "Hide" }));
     await flush();
     expect(getDialogs()).toHaveLength(1);
-    expect(getDialogs()[0]).not.toHaveAttribute("open");
+    expect(getDialogs()[0]).not.toHaveAttribute("data-popover-open");
 
     finish();
     await flush();
@@ -177,8 +186,8 @@ describe("StudioB04Provider component", () => {
     fireEvent.click(screen.getByRole("button", { name: "Open second", hidden: true }));
 
     expect(getDialogs()).toHaveLength(1);
-    expect(getDialogs()[0]).toHaveAttribute("open");
-    expect(screen.getByRole("heading", { name: "Second dialog" })).toBeInTheDocument();
+    expect(getDialogs()[0]).toHaveAttribute("data-popover-open");
+    expect(screen.getByRole("heading", { name: "Second dialog", hidden: true })).toBeInTheDocument();
     expect(screen.queryByText("First content")).not.toBeInTheDocument();
   });
 
@@ -201,7 +210,7 @@ describe("StudioB04Provider component", () => {
     finish();
     await flush();
 
-    expect(screen.getByRole("heading", { name: "Second dialog" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "Second dialog", hidden: true })).toBeInTheDocument();
   });
 
   describe("focus", () => {

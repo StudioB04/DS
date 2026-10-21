@@ -5,7 +5,7 @@ export interface StudioB04ProviderProps {
   children: ReactNode;
 }
 
-export type DialogOptions = Omit<DialogProps, "open" | "ref">;
+export type DialogOptions = Omit<DialogProps, "ref">;
 
 export interface StudioB04ContextValue {
   showDialog: (options: DialogOptions) => void;

@@ -16,7 +16,6 @@ export default function Dialog({
   headerSlot,
   children,
   footer,
-  open = false,
   persistent = false,
   size = "md",
   position = "center",
@@ -30,74 +29,58 @@ export default function Dialog({
   const id = useId();
   const dialogRef = useRef<HTMLDialogElement>(null);
   const onOpenRef = useRef(onOpen);
+  const onCloseRef = useRef(onClose);
   const invokerRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
     onOpenRef.current = onOpen;
+    onCloseRef.current = onClose;
   });
 
-  const show = () => {
-    const dialog = dialogRef.current as HTMLDialogElement;
-    if (dialog.open) return;
+  const show = () => (dialogRef.current as HTMLDialogElement).togglePopover(true);
 
-    invokerRef.current = document.activeElement as HTMLElement | null;
-    dialog.showModal();
-
-    const [firstFocusable = dialog] = getInteractiveDomNodes(dialog).filter(
-      (element) => !element.classList.contains("ds-focus-trap__button"),
-    );
-    firstFocusable.focus();
-
-    onOpenRef.current?.();
-  };
-
-  const hide = () => dialogRef.current?.close();
+  const hide = () => (dialogRef.current as HTMLDialogElement).togglePopover(false);
 
   useImperativeHandle(ref, () => ({ open: show, close: hide }));
 
   useEffect(() => {
-    if (open) show();
-    else hide();
-  }, [open]);
-
-  useEffect(() => {
     const dialog = dialogRef.current as HTMLDialogElement;
-    let pressedTarget: EventTarget | null = null;
 
-    const handleMouseDown = (event: MouseEvent) => {
-      pressedTarget = event.target;
-    };
-    const handleClick = (event: MouseEvent) => {
-      if (!persistent && event.target === dialog && pressedTarget === dialog) hide();
+    const handleBeforeToggle = (event: Event) => {
+      if ((event as ToggleEvent).newState === "open") {
+        invokerRef.current = document.activeElement as HTMLElement | null;
+      }
     };
 
-    const handleClose = () => {
+    const handleToggle = (event: Event) => {
+      if ((event as ToggleEvent).newState === "open") {
+        const [firstFocusable = dialog] = getInteractiveDomNodes(dialog).filter(
+          (element) => !element.classList.contains("ds-focus-trap__button"),
+        );
+        firstFocusable.focus();
+        onOpenRef.current?.();
+        return;
+      }
+
       const invoker = invokerRef.current;
       if (invoker?.isConnected && invoker !== document.body) invoker.focus();
-    };
-
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (persistent && event.key === "Escape") event.preventDefault();
+      onCloseRef.current?.(event as ToggleEvent);
     };
 
     const ac = new AbortController();
 
-    dialog.addEventListener("mousedown", handleMouseDown, { signal: ac.signal });
-    dialog.addEventListener("click", handleClick, { signal: ac.signal });
-    dialog.addEventListener("keydown", handleKeyDown, { signal: ac.signal });
-    dialog.addEventListener("close", handleClose, { signal: ac.signal });
+    dialog.addEventListener("beforetoggle", handleBeforeToggle, { signal: ac.signal });
+    dialog.addEventListener("toggle", handleToggle, { signal: ac.signal });
 
     return () => ac.abort();
-  }, [persistent]);
-
-  useEffect(() => {}, [persistent]);
-
-  const hasHeader = Boolean(title) || Boolean(description);
+  }, []);
 
   return (
     <dialog
       ref={dialogRef}
-      aria-labelledby={title ? `${id}-title` : undefined}
+      popover={persistent ? "manual" : "auto"}
+      aria-modal="true"
+      aria-labelledby={`${id}-title`}
       aria-describedby={description ? `${id}-description` : undefined}
       className={clsx(
         "ds-dialog",
@@ -107,7 +90,6 @@ export default function Dialog({
         className,
       )}
       tabIndex={-1}
-      onClose={onClose}
       {...restProps}
     >
       <FocusTrap>
@@ -119,20 +101,16 @@ export default function Dialog({
 
         {headerSlot && <div className="ds-dialog__header__slot">{headerSlot}</div>}
 
-        {hasHeader && (
-          <header className="ds-dialog__header">
-            {title && (
-              <h2 id={`${id}-title`} className="ds-dialog__header__title">
-                {title}
-              </h2>
-            )}
-            {description && (
-              <div id={`${id}-description`} className="ds-dialog__header__description">
-                <Markdown>{description}</Markdown>
-              </div>
-            )}
-          </header>
-        )}
+        <header className="ds-dialog__header">
+          <h2 id={`${id}-title`} className="ds-dialog__header__title">
+            {title}
+          </h2>
+          {description && (
+            <div id={`${id}-description`} className="ds-dialog__header__description">
+              <Markdown>{description}</Markdown>
+            </div>
+          )}
+        </header>
 
         <div className="ds-dialog__body">{children}</div>
 

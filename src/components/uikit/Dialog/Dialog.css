@@ -1,5 +1,6 @@
-:root:has(.ds-dialog[open]) {
+:root:has(.ds-dialog:popover-open) {
   overflow: hidden;
+  pointer-events: none;
 }
 
 .ds-dialog {
@@ -8,7 +9,10 @@
   --ds-dialog-closed-translate: 0 calc(-1 * var(--ds-spacing-5xl));
 
   position: fixed;
+  inset: 0;
+  pointer-events: auto;
   inline-size: 100%;
+  block-size: fit-content;
   max-inline-size: min(var(--ds-dialog-width), calc(100dvw - 2 * var(--ds-spacing-xl)));
   max-block-size: calc(100dvh - 2 * var(--ds-spacing-xl));
   padding: 0;
@@ -33,7 +37,7 @@
     outline: none;
   }
 
-  &[open] {
+  &:popover-open {
     display: flex;
     opacity: 1;
     translate: 0 0;
@@ -55,7 +59,7 @@
       display var(--ds-transition-regular) allow-discrete;
   }
 
-  &[open]::backdrop {
+  &:popover-open::backdrop {
     opacity: 1;
 
     @starting-style {

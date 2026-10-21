@@ -1,4 +1,4 @@
-import type { DialogHTMLAttributes, ReactEventHandler, ReactNode, Ref } from "react";
+import type { DialogHTMLAttributes, ReactNode, Ref } from "react";
 import type { Size } from "$/types";
 
 export interface DialogHandle {
@@ -6,18 +6,17 @@ export interface DialogHandle {
   close: () => void;
 }
 
-export interface DialogProps extends DialogHTMLAttributes<HTMLDialogElement> {
+export interface DialogProps extends Omit<DialogHTMLAttributes<HTMLDialogElement>, "open" | "popover" | "onClose"> {
   title: string;
   description?: string;
   headerSlot?: ReactNode;
   children: ReactNode;
   footer?: ReactNode;
-  open?: boolean;
   persistent?: boolean;
   size?: Size | "full";
   position?: "center" | "start" | "end" | "bottom";
   closeLabel?: string;
   onOpen?: () => void;
-  onClose?: ReactEventHandler<HTMLDialogElement>;
+  onClose?: (event: ToggleEvent) => void;
   ref?: Ref<DialogHandle>;
 }

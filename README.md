@@ -204,12 +204,28 @@ showDialog({
 });
 ```
 
-- `showDialog(options)` takes the props of the `Dialog` component, except `open` and `ref`.
+- `showDialog(options)` takes the props of the `Dialog` component, except `ref`.
 - Only one dialog is mounted at a time, and only while it is displayed. Showing a dialog while another one is open replaces it.
 - When the dialog closes, the focus goes back to the element that opened it.
 - `useDialog()` throws if it is used outside of a `StudioB04Provider`.
 
 The provider is already added in Storybook and in the sandbox.
+
+### Dialog without the provider
+
+The `Dialog` is built on the native `<dialog>` and the Popover API: the browser keeps its open state, so there is no `open` prop and nothing to synchronise in your components. Give it an `id`, and open it with any button that targets it:
+
+```tsx
+import { Button, Dialog } from "@studio_b04/ds/uikit";
+
+<Button label="Open" popoverTarget="my-dialog" />
+
+<Dialog id="my-dialog" title="Dialog title" footer={<Button label="Close" popoverTarget="my-dialog" popoverTargetAction="hide" />}>
+  …
+</Dialog>
+```
+
+You can also open it from code with a `ref` (`ref.current?.open()` and `ref.current?.close()`). `Escape` and a click outside close it, unless it is `persistent`.
 
 ---
 

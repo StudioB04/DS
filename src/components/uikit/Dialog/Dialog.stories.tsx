@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useId } from "react";
 import type { StoryObj } from "@storybook/react-vite";
 import type { DialogProps } from "./Dialog.types";
 import Dialog from "./Dialog";
@@ -22,19 +22,19 @@ const defaultArgs: DialogProps = {
 };
 
 function DialogDemo(props: DialogProps) {
-  const [open, setOpen] = useState(false);
+  const id = useId();
 
   return (
     <>
-      <Button label="Open dialog" onClick={() => setOpen(true)} />
+      <Button label="Open dialog" popoverTarget={id} />
       <Dialog
         {...props}
-        open={open}
+        id={id}
         footer={
           props.footer ? (
             <div style={{ display: "flex", gap: 8 }}>
-              <Button size="sm" label="Cancel" variant="neutral" onClick={() => setOpen(false)} />
-              <Button size="sm" label="Continue" variant="brand" onClick={() => setOpen(false)} />
+              <Button size="sm" label="Cancel" variant="neutral" popoverTarget={id} popoverTargetAction="hide" />
+              <Button size="sm" label="Continue" variant="brand" popoverTarget={id} popoverTargetAction="hide" />
             </div>
           ) : null
         }
@@ -52,7 +52,7 @@ export default {
     docs: {
       description: {
         component:
-          "A modal window displayed above the page. Built on the native `<dialog>` element opened with `showModal()`: the browser makes the rest of the page inert, traps the focus inside the dialog, handles `Escape`, renders the `::backdrop` and gives the focus back to the element that opened it.\n\nThe dialog is opened and closed either with the `open` prop (keep it in sync with `onClose`, which is also called when the user closes the dialog with `Escape`, the close button or the backdrop) or imperatively with a `ref` exposing `open()` and `close()`. A `persistent` dialog has no close button and cannot be dismissed with `Escape` or a click on the backdrop. The `position` prop turns the modal into a side panel (`start`, `end`) or a bottom sheet (`bottom`). Give the dialog an accessible name with `title`, or with `aria-label` when there is no title.",
+          'A modal window displayed above the page. Built on the native `<dialog>` element and the Popover API: the browser keeps the open state, so there is no `open` prop and nothing to synchronise in your components.\n\nGive the dialog an `id` and open it with any button (or other invoker) that targets it: `<Button popoverTarget="my-dialog" />`. Use `popoverTargetAction="hide"` on a button inside the dialog to close it, or call `open()` and `close()` on a `ref`. The dialog can also be created on the fly with `showDialog()` and `hideDialog()` from `useDialog()`, which needs `StudioB04Provider` at the root of the app.\n\n`Escape` and a click outside close the dialog, unless it is `persistent`: a persistent dialog has no close button and can only be closed with the `ref`, `hideDialog()` or a `popoverTargetAction="hide"` button. The focus is moved inside the dialog and trapped there, then given back to the element that opened it. The `position` prop turns the modal into a side panel (`start`, `end`) or a bottom sheet (`bottom`).',
       },
     },
   },
@@ -72,15 +72,20 @@ export default {
     footer: {
       control: "boolean",
       description:
-        "Custom content (ReactNode) displayed in a footer. In this documentation, any truthy value shows a Close button.",
+        "Custom content (ReactNode) displayed in a footer. In this documentation, any truthy value shows Cancel and Continue buttons.",
     },
-    open: {
+    id: {
       control: false,
-      description: "Whether the dialog is open. Keep it in sync with `onClose`.",
+      description: "The id of the dialog. Buttons target it with `popoverTarget` to open or close it.",
+    },
+    headerSlot: {
+      control: false,
+      description: "Custom content (ReactNode) displayed above the header, such as an image or an icon.",
     },
     persistent: {
       control: "boolean",
-      description: "Removes the close button and prevents closing with `Escape` or a click on the backdrop.",
+      description:
+        'Removes the close button and prevents closing with `Escape` or a click outside. It is then a `manual` popover, closed with the `ref`, `hideDialog()` or a `popoverTargetAction="hide"` button.',
     },
     size: {
       control: "inline-radio",
@@ -99,11 +104,11 @@ export default {
     },
     onOpen: {
       control: false,
-      description: "Called when the dialog is opened.",
+      description: "Called when the dialog is opened, whatever the way it was opened.",
     },
     onClose: {
       control: false,
-      description: "Called when the dialog is closed, whatever the way it was closed.",
+      description: "Called with the toggle event when the dialog is closed, whatever the way it was closed.",
     },
     ref: {
       control: false,

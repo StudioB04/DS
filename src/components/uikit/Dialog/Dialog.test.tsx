@@ -5,22 +5,42 @@ import { axe } from "vitest-axe";
 import Dialog from "./Dialog";
 import type { DialogHandle, DialogProps } from "./Dialog.types";
 
-const showModal = vi.fn(function (this: HTMLDialogElement) {
-  this.setAttribute("open", "");
-});
-const close = vi.fn(function (this: HTMLDialogElement) {
-  if (!this.hasAttribute("open")) return;
-  this.removeAttribute("open");
-  if (this.contains(document.activeElement)) (document.activeElement as HTMLElement).blur();
-  this.dispatchEvent(new Event("close"));
+const togglePopover = vi.fn(function (this: HTMLElement, force?: boolean) {
+  const isShown = this.hasAttribute("data-popover-open");
+  const next = force ?? !isShown;
+  if (next === isShown) return next;
+
+  const state = { newState: next ? "open" : "closed", oldState: next ? "closed" : "open" };
+  const dispatch = (type: string) => this.dispatchEvent(Object.assign(new Event(type), state));
+
+  dispatch("beforetoggle");
+  if (next) {
+    this.setAttribute("data-popover-open", "");
+  } else {
+    this.removeAttribute("data-popover-open");
+    if (this.contains(document.activeElement)) (document.activeElement as HTMLElement).blur();
+  }
+  dispatch("toggle");
+
+  return next;
 });
 
 const getDialog = () => document.querySelector("dialog") as HTMLDialogElement;
+const isOpen = () => getDialog().hasAttribute("data-popover-open");
+
+const renderOpenable = (props: Partial<DialogProps> = {}) => {
+  const ref = createRef<DialogHandle>();
+  render(
+    <Dialog ref={ref} title="Dialog title" {...props}>
+      <p>lorem Ipsum</p>
+    </Dialog>,
+  );
+  return ref;
+};
 
 describe("Dialog component", () => {
   beforeEach(() => {
-    HTMLDialogElement.prototype.showModal = showModal;
-    HTMLDialogElement.prototype.close = close;
+    HTMLElement.prototype.togglePopover = togglePopover;
   });
 
   afterEach(() => {
@@ -34,13 +54,6 @@ describe("Dialog component", () => {
       </Dialog>,
     );
     expect(await axe(container, { rules: { "color-contrast": { enabled: false } } })).toHaveNoViolations();
-
-    const { container: opened } = render(
-      <Dialog open title="Dialog title" description="Dialog description">
-        <p>lorem Ipsum</p>
-      </Dialog>,
-    );
-    expect(await axe(opened, { rules: { "color-contrast": { enabled: false } } })).toHaveNoViolations();
   });
 
   describe("structure", () => {
@@ -125,235 +138,185 @@ describe("Dialog component", () => {
     });
   });
 
-  describe("opening and closing", () => {
-    it("is closed by default", () => {
-      render(
+  describe("popover", () => {
+    it("is an auto popover, announced as modal", () => {
+      renderOpenable();
+
+      expect(getDialog()).toHaveAttribute("popover", "auto");
+      expect(getDialog()).toHaveAttribute("aria-modal", "true");
+    });
+
+    it("is a manual popover when persistent", () => {
+      renderOpenable({ persistent: true });
+
+      expect(getDialog()).toHaveAttribute("popover", "manual");
+      expect(getDialog()).toHaveClass("ds-dialog--persistent");
+    });
+
+    it("uses the current persistent value after it changes", () => {
+      const { rerender } = render(
         <Dialog title="Dialog title">
           <p>lorem Ipsum</p>
         </Dialog>,
       );
-      expect(getDialog()).not.toHaveAttribute("open");
-    });
-
-    it("opens as a modal and calls onOpen when open is true", () => {
-      const onOpen = vi.fn();
-      render(
-        <Dialog title="Dialog title" open onOpen={onOpen}>
-          <p>lorem Ipsum</p>
-        </Dialog>,
-      );
-
-      expect(showModal).toHaveBeenCalledTimes(1);
-      expect(getDialog()).toHaveAttribute("open");
-      expect(onOpen).toHaveBeenCalledTimes(1);
-    });
-
-    it("follows the open prop", () => {
-      const onClose = vi.fn();
-      const { rerender } = render(
-        <Dialog title="Dialog title" open onClose={onClose}>
-          <p>lorem Ipsum</p>
-        </Dialog>,
-      );
 
       rerender(
-        <Dialog title="Dialog title" open={false} onClose={onClose}>
+        <Dialog title="Dialog title" persistent>
           <p>lorem Ipsum</p>
         </Dialog>,
       );
-      expect(getDialog()).not.toHaveAttribute("open");
-      expect(onClose).toHaveBeenCalledTimes(1);
+
+      expect(getDialog()).toHaveAttribute("popover", "manual");
     });
 
-    it("exposes open and close through the ref", () => {
-      const ref = createRef<DialogHandle>();
-      const onOpen = vi.fn();
-      const onClose = vi.fn();
+    it("cannot be overridden by the native attributes", () => {
       render(
-        <Dialog title="Dialog title" ref={ref} onOpen={onOpen} onClose={onClose}>
+        <Dialog title="Dialog title" {...({ popover: "manual", open: true } as object)}>
           <p>lorem Ipsum</p>
         </Dialog>,
       );
 
+      expect(getDialog()).toHaveAttribute("popover", "manual");
+    });
+
+    it("renders no close button when persistent", () => {
+      renderOpenable({ persistent: true });
+
+      expect(screen.queryByRole("button", { name: "Close", hidden: true })).not.toBeInTheDocument();
+    });
+  });
+
+  describe("opening and closing", () => {
+    it("is closed by default", () => {
+      renderOpenable();
+
+      expect(isOpen()).toBe(false);
+      expect(togglePopover).not.toHaveBeenCalled();
+    });
+
+    it("opens through the ref and calls onOpen once", () => {
+      const onOpen = vi.fn();
+      const ref = renderOpenable({ onOpen });
+
       act(() => ref.current?.open());
       act(() => ref.current?.open());
-      expect(getDialog()).toHaveAttribute("open");
+
+      expect(isOpen()).toBe(true);
       expect(onOpen).toHaveBeenCalledTimes(1);
+    });
+
+    it("closes through the ref and calls onClose with the toggle event", () => {
+      const onClose = vi.fn();
+      const ref = renderOpenable({ onClose });
+      act(() => ref.current?.open());
 
       act(() => ref.current?.close());
-      expect(getDialog()).not.toHaveAttribute("open");
+
+      expect(isOpen()).toBe(false);
       expect(onClose).toHaveBeenCalledTimes(1);
+      expect(onClose).toHaveBeenCalledWith(expect.objectContaining({ newState: "closed" }));
     });
 
-    it("uses the latest onOpen callback", () => {
+    it("works without onOpen and onClose", () => {
+      const ref = renderOpenable();
+
+      act(() => ref.current?.open());
+      act(() => ref.current?.close());
+
+      expect(isOpen()).toBe(false);
+    });
+
+    it("uses the latest onOpen and onClose callbacks", () => {
       const first = vi.fn();
       const second = vi.fn();
       const ref = createRef<DialogHandle>();
       const { rerender } = render(
-        <Dialog title="Dialog title" ref={ref} onOpen={first}>
+        <Dialog ref={ref} title="Dialog title" onOpen={first} onClose={first}>
           <p>lorem Ipsum</p>
         </Dialog>,
       );
 
       rerender(
-        <Dialog title="Dialog title" ref={ref} onOpen={second}>
+        <Dialog ref={ref} title="Dialog title" onOpen={second} onClose={second}>
           <p>lorem Ipsum</p>
         </Dialog>,
       );
       act(() => ref.current?.open());
+      act(() => ref.current?.close());
 
       expect(first).not.toHaveBeenCalled();
-      expect(second).toHaveBeenCalledTimes(1);
+      expect(second).toHaveBeenCalledTimes(2);
+    });
+
+    it("reacts when the browser toggles the popover by itself", () => {
+      const onOpen = vi.fn();
+      const onClose = vi.fn();
+      renderOpenable({ onOpen, onClose });
+
+      act(() => {
+        getDialog().togglePopover();
+      });
+      expect(onOpen).toHaveBeenCalledTimes(1);
+
+      act(() => {
+        getDialog().togglePopover();
+      });
+      expect(onClose).toHaveBeenCalledTimes(1);
     });
 
     it("closes with the close button", () => {
       const onClose = vi.fn();
-      render(
-        <Dialog title="Dialog title" open onClose={onClose}>
-          <p>lorem Ipsum</p>
-        </Dialog>,
-      );
+      const ref = renderOpenable({ onClose });
+      act(() => ref.current?.open());
 
       fireEvent.click(screen.getByRole("button", { name: "Close", hidden: true }));
 
-      expect(getDialog()).not.toHaveAttribute("open");
+      expect(isOpen()).toBe(false);
       expect(onClose).toHaveBeenCalledTimes(1);
     });
 
     it("uses the custom close label", () => {
-      render(
-        <Dialog title="Dialog title" closeLabel="Fermer">
-          <p>lorem Ipsum</p>
-        </Dialog>,
-      );
+      renderOpenable({ closeLabel: "Fermer" });
       const button = screen.getByRole("button", { name: "Fermer", hidden: true });
 
       expect(button).toHaveAttribute("title", "Fermer");
     });
   });
 
-  describe("closing by interaction", () => {
-    const renderOpen = (props: Partial<DialogProps> = {}) => {
-      render(
-        <Dialog open title="Dialog title" {...props}>
-          <p>lorem Ipsum</p>
-        </Dialog>,
-      );
-    };
-
-    it("lets the browser close the dialog with Escape", () => {
-      renderOpen();
-      expect(fireEvent.keyDown(getDialog(), { key: "Escape" })).toBe(true);
-    });
-
-    it("prevents Escape from closing a persistent dialog", () => {
-      renderOpen({ persistent: true });
-      expect(fireEvent.keyDown(getDialog(), { key: "Escape" })).toBe(false);
-    });
-
-    it("ignores the other keys on a persistent dialog", () => {
-      renderOpen({ persistent: true });
-      expect(fireEvent.keyDown(getDialog(), { key: "a" })).toBe(true);
-    });
-
-    it("renders no close button when persistent", () => {
-      renderOpen({ persistent: true });
-
-      expect(getDialog()).toHaveClass("ds-dialog--persistent");
-      expect(screen.queryByRole("button", { name: "Close", hidden: true })).not.toBeInTheDocument();
-    });
-
-    it("closes when the backdrop is clicked", () => {
-      renderOpen();
-
-      fireEvent.mouseDown(getDialog());
-      fireEvent.click(getDialog());
-
-      expect(getDialog()).not.toHaveAttribute("open");
-    });
-
-    it("does not close when the content is clicked", () => {
-      renderOpen();
-      const body = getDialog().querySelector(".ds-dialog__body") as HTMLElement;
-
-      fireEvent.mouseDown(body);
-      fireEvent.click(body);
-
-      expect(getDialog()).toHaveAttribute("open");
-    });
-
-    it("does not close when a selection started in the content ends on the backdrop", () => {
-      renderOpen();
-
-      fireEvent.mouseDown(getDialog().querySelector(".ds-dialog__body") as HTMLElement);
-      fireEvent.click(getDialog());
-
-      expect(getDialog()).toHaveAttribute("open");
-    });
-
-    it("does not close on a backdrop click when persistent", () => {
-      renderOpen({ persistent: true });
-
-      fireEvent.mouseDown(getDialog());
-      fireEvent.click(getDialog());
-
-      expect(getDialog()).toHaveAttribute("open");
-    });
-
-    it("uses the current persistent value after it changes", () => {
-      const { rerender } = render(
-        <Dialog title="Dialog title" open>
-          <p>lorem Ipsum</p>
-        </Dialog>,
-      );
-
-      rerender(
-        <Dialog title="Dialog title" open persistent>
-          <p>lorem Ipsum</p>
-        </Dialog>,
-      );
-      fireEvent.mouseDown(getDialog());
-      fireEvent.click(getDialog());
-
-      expect(getDialog()).toHaveAttribute("open");
-    });
-  });
-
   describe("focus management", () => {
     it("focuses the close button when the dialog opens", () => {
-      render(
-        <Dialog open title="Dialog title">
-          <button type="button">Action</button>
-        </Dialog>,
-      );
+      const ref = renderOpenable();
+
+      act(() => ref.current?.open());
 
       expect(screen.getByRole("button", { name: "Close", hidden: true })).toHaveFocus();
     });
 
     it("focuses the first focusable element when persistent", () => {
+      const ref = createRef<DialogHandle>();
       render(
-        <Dialog open persistent title="Dialog title">
+        <Dialog ref={ref} title="Dialog title" persistent>
           <button type="button">First</button>
           <button type="button">Second</button>
         </Dialog>,
       );
 
+      act(() => ref.current?.open());
+
       expect(screen.getByRole("button", { name: "First", hidden: true })).toHaveFocus();
     });
 
     it("focuses the dialog itself when it has no focusable element", () => {
-      render(
-        <Dialog open persistent title="Dialog title">
-          <p>lorem Ipsum</p>
-        </Dialog>,
-      );
+      const ref = renderOpenable({ persistent: true });
+
+      act(() => ref.current?.open());
 
       expect(getDialog()).toHaveFocus();
     });
 
     it("moves the focus to the last element when tabbing back from the first one", () => {
       render(
-        <Dialog title="Dialog title" open persistent>
+        <Dialog title="Dialog title" persistent>
           <button type="button">First</button>
           <button type="button">Last</button>
         </Dialog>,
@@ -408,12 +371,7 @@ describe("Dialog component", () => {
     });
 
     it("does nothing when no element was focused before opening", () => {
-      const ref = createRef<DialogHandle>();
-      render(
-        <Dialog ref={ref} title="Dialog title">
-          <p>lorem Ipsum</p>
-        </Dialog>,
-      );
+      const ref = renderOpenable();
 
       act(() => (document.activeElement as HTMLElement).blur());
       act(() => ref.current?.open());
