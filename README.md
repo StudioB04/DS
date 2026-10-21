@@ -19,6 +19,7 @@
   - [Reset](#reset)
   - [Tailwind 4 theme](#tailwind-4-theme)
 - [Components](#components)
+- [Provider](#provider)
 - [Development](#development)
 - [Release](#release)
 
@@ -46,6 +47,7 @@ npm install @studio_b04/ds
 | Export     | Path in package         | Description                        |
 | ---------- | ----------------------- | ---------------------------------- |
 | Components | `@studio_b04/ds/uikit`  | React UI components                |
+| Provider   | `@studio_b04/ds`        | `StudioB04Provider` and its hooks  |
 | CSS tokens | `@studio_b04/ds/styles` | Design tokens (variables + themes) |
 | CSS reset  | `@studio_b04/ds/reset`  | Opinionated browser reset          |
 
@@ -170,6 +172,44 @@ All components:
 - Extend the relevant HTML element's props (`HTMLAttributes<…>`)
 - Use `clsx` for class composition and accept a `className` prop
 - Are accessibility-tested with `vitest-axe`
+
+---
+
+## Provider
+
+Some features (opening a dialog from code with `useDialog`, and the services to come) need `StudioB04Provider`. It is not a UI kit component: it is exported from the root of the package, and **must be added once at the root of your application**.
+
+```tsx
+// main.tsx (Vite) or the root layout (Next.js)
+import { StudioB04Provider } from "@studio_b04/ds";
+
+createRoot(document.getElementById("root")!).render(
+  <StudioB04Provider>
+    <App />
+  </StudioB04Provider>,
+);
+```
+
+Then, anywhere below it:
+
+```tsx
+import { useDialog } from "@studio_b04/ds";
+
+const { showDialog, hideDialog } = useDialog();
+
+showDialog({
+  title: "Delete this item?",
+  children: <p>This cannot be undone.</p>,
+  footer: <Button label="Cancel" onClick={hideDialog} />,
+});
+```
+
+- `showDialog(options)` takes the props of the `Dialog` component, except `open` and `ref`.
+- Only one dialog is mounted at a time, and only while it is displayed. Showing a dialog while another one is open replaces it.
+- When the dialog closes, the focus goes back to the element that opened it.
+- `useDialog()` throws if it is used outside of a `StudioB04Provider`.
+
+The provider is already added in Storybook and in the sandbox.
 
 ---
 

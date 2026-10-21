@@ -28,6 +28,11 @@ Everything above is made of real components from the library: use the **Theme** 
       <td>React 19 components (<code>"use client"</code>, ready for Next.js)</td>
     </tr>
     <tr>
+      <td>Provider</td>
+      <td><code>@studio_b04/ds</code></td>
+      <td><code>StudioB04Provider</code> and its hooks (<code>useDialog</code>), to be added once at the root of your app</td>
+    </tr>
+    <tr>
       <td>Utils</td>
       <td><code>@studio_b04/ds/utils</code></td>
       <td>Small string helpers (<code>slugify</code>, <code>camelCase</code>, …)</td>
@@ -100,12 +105,29 @@ export default function Example() {
 }
 ```
 
-Dialogs can also be opened from code. Wrap your application once with `StudioB04Provider`, then use the `useDialog` hook anywhere below it:
+Browse the **Components** section of the sidebar: every page shows the live component, its props and its usage notes.
+
+### 4. Add the provider
+
+Some features, like opening a dialog from code, need `StudioB04Provider`. It is not a component of the UI kit: wrap your application with it **once**, as high as possible in the tree (the root layout of Next.js, or `main.tsx` with Vite).
 
 ```tsx
-import { Button, StudioB04Provider, useDialog } from "@studio_b04/ds/uikit";
+import { StudioB04Provider } from "@studio_b04/ds";
 
-function DeleteButton() {
+createRoot(document.getElementById("root")!).render(
+  <StudioB04Provider>
+    <App />
+  </StudioB04Provider>,
+);
+```
+
+Then use the hooks anywhere below it. `useDialog()` throws when the provider is missing.
+
+```tsx
+import { useDialog } from "@studio_b04/ds";
+import { Button } from "@studio_b04/ds/uikit";
+
+export default function DeleteButton() {
   const { showDialog, hideDialog } = useDialog();
 
   return (
@@ -121,19 +143,11 @@ function DeleteButton() {
     />
   );
 }
-
-export default function App() {
-  return (
-    <StudioB04Provider>
-      <DeleteButton />
-    </StudioB04Provider>
-  );
-}
 ```
 
-Browse the **Components** section of the sidebar: every page shows the live component, its props and its usage notes.
+`showDialog` accepts the props of the `Dialog` component, except `open` and `ref`. Only one dialog is mounted at a time, and only while it is displayed: showing a dialog while another one is open replaces it. In Storybook and in the sandbox, the provider is already added for you.
 
-### 4. Choose a theme
+### 5. Choose a theme
 
 The light theme is the default, and the dark theme follows `prefers-color-scheme`. Set `data-ds-theme` on `<html>` to force one:
 
@@ -141,7 +155,7 @@ The light theme is the default, and the dark theme follows `prefers-color-scheme
 document.documentElement.dataset.dsTheme = "dark";
 ```
 
-### 5. Customise
+### 6. Customise
 
 Fonts and most component settings are CSS custom properties. Override them in your own CSS:
 

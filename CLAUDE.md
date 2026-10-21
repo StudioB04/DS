@@ -25,8 +25,10 @@ Release: GitHub Actions → "Release" workflow (manual, patch/minor/major, dry-r
 
 ```
 src/
-  index.ts                     # "use client" — currently empty
+  index.ts                     # "use client"; exports StudioB04Provider, useDialog and their types (package root ".")
   types.ts                     # shared types: Size ("sm"|"md"|"lg"), Variant (11 colors), ButtonOrLinkProps
+  components/
+    StudioB04Provider/         # NOT a uikit component: provider + context + useDialog (showDialog/hideDialog), exported from src/index.ts
   components/uikit/
     index.ts                   # "use client"; `export { default as X } from "./X/X"` (alphabetical)
     types.ts                   # "use client"; `export * from "./X/X.types"` (alphabetical)
@@ -40,7 +42,7 @@ src/
     reset.css                  # → export "./reset"
     base.css                   # body colors, focus-visible ring, print, [popover]
     tailwind-theme.css         # Tailwind 4 @theme mapping → export "./tailwind-theme"
-.storybook/                    # Storybook 10; theme toolbar sets data-ds-theme on <html>
+.storybook/                    # Storybook 10; theme toolbar sets data-ds-theme on <html>; decorators wrap every story in StudioB04Provider
 .sandbox/                      # self-contained dev playground with its OWN package.json/node_modules, never shipped
                                # excluded from root ESLint + tsconfig.eslint.json; `npm run typecheck` inside it
   vite.config.ts               # sandbox Vite config (root = .sandbox, aliases → ../src)

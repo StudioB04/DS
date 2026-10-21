@@ -1,5 +1,6 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
+import StudioB04Provider from "$/components/StudioB04Provider/StudioB04Provider";
 import App from "./App";
 import "./index.css";
 
@@ -10,6 +11,8 @@ if (!container) {
 
 createRoot(container).render(
   <StrictMode>
-    <App />
+    <StudioB04Provider>
+      <App />
+    </StudioB04Provider>
   </StrictMode>,
 );

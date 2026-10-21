@@ -1,5 +1,5 @@
 import type { Preview } from "@storybook/react-vite";
-import { ThemeDecorator } from "./decorators";
+import { ProviderDecorator, ThemeDecorator } from "./decorators";
 
 import "./storybook.css";
 
@@ -37,7 +37,7 @@ const preview: Preview = {
       },
     },
   },
-  decorators: [ThemeDecorator],
+  decorators: [ThemeDecorator, ProviderDecorator],
 };
 
 export default preview;

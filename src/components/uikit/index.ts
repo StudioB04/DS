@@ -16,5 +16,3 @@ export { default as Notification } from "./Notification/Notification";
 export { default as Skeleton } from "./Skeleton/Skeleton";
 export { default as SkipLink } from "./SkipLink/SkipLink";
 export { default as Slider } from "./Slider/Slider";
-export { default as StudioB04Provider } from "./StudioB04Provider/StudioB04Provider";
-export { default as useDialog } from "./StudioB04Provider/useDialog";
