@@ -1,14 +1,17 @@
 import { render } from "@testing-library/react";
+import iconNodes from "lucide-static/icon-nodes.json";
 import { describe, it, expect } from "vitest";
 import { axe } from "vitest-axe";
 
 import Icon from "./Icon";
 
+const SMILE_NODES = iconNodes.smile as [string, Record<string, string>][];
+
 const MOCK_SVG = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2L2 22h20L12 2z"/></svg>';
 
 describe("Icon component", () => {
   describe("accessibility", () => {
-    it("should have no violations in Lucide sprite mode", async () => {
+    it("should have no violations in Lucide icon mode", async () => {
       const { container } = render(<Icon src="smile" />);
       expect(await axe(container)).toHaveNoViolations();
     });
@@ -24,10 +27,26 @@ describe("Icon component", () => {
     });
   });
 
-  describe("Lucide sprite mode", () => {
-    it("renders a <use> pointing to the Lucide sprite for a known icon name", () => {
+  describe("Lucide icon mode", () => {
+    it("draws the icon inline with one child element per node of the Lucide icon", () => {
       const { container } = render(<Icon src="smile" />);
-      expect(container.querySelector("use")?.getAttribute("href")).toMatch(/sprite\.svg#smile$/);
+      const svg = container.querySelector("svg") as SVGSVGElement;
+      expect(Array.from(svg.children).map((child) => child.tagName)).toEqual(SMILE_NODES.map(([tag]) => tag));
+    });
+
+    it("copies the attributes of each node of the Lucide icon", () => {
+      const { container } = render(<Icon src="smile" />);
+      const svg = container.querySelector("svg") as SVGSVGElement;
+      SMILE_NODES.forEach(([, attributes], index) => {
+        Object.entries(attributes).forEach(([name, value]) => {
+          expect(svg.children[index]).toHaveAttribute(name, value);
+        });
+      });
+    });
+
+    it("does not reference the sprite with a <use> element", () => {
+      const { container } = render(<Icon src="smile" />);
+      expect(container.querySelector("use")).toBeNull();
     });
 
     it("defaults to size 24", () => {

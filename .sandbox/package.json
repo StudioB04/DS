@@ -6,7 +6,7 @@
   "scripts": {
     "theme": "node build-theme.mjs",
     "dev": "npm run theme && vite",
-    "build": "npm run theme && vite build",
+    "build": "npm run theme && vite build && ! grep -rl \"data:image/svg\" dist",
     "typecheck": "tsc --noEmit -p tsconfig.json"
   },
   "dependencies": {

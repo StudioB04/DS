@@ -1,9 +1,9 @@
 "use client";
 
-// https://lucide.dev/guide/static/svg-sprite
 /* eslint-disable react/no-danger */
+import { createElement } from "react";
 import clsx from "clsx";
-import spriteUrl from "lucide-static/sprite.svg?url";
+import iconNodes from "lucide-static/icon-nodes.json";
 import { LucideIconMap, type IconProps, type LucideIconName } from "./Icon.types";
 
 import "./Icon.css";
@@ -22,9 +22,11 @@ export default function Icon({ src, size = 24, fat, className, ...restProps }: I
   const isLucideIcon = LucideIconMap.includes(src as LucideIconName);
 
   if (isLucideIcon) {
+    const nodes = iconNodes[src as LucideIconName] as [tag: string, attributes: Record<string, string>][];
+
     return (
       <svg {...SVGProps} aria-hidden="true" className={clsx(SVGProps.className, `ds-icon--${src}`)}>
-        <use href={`${spriteUrl}#${src}`} />
+        {nodes.map(([tag, attributes], index) => createElement(tag, { key: index, ...attributes }))}
       </svg>
     );
   }
