@@ -1,5 +1,3 @@
-@source "./";
-
 @layer base, properties, theme, fonts, utilities, components;
 
 @import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@300..900&display=swap");
@@ -7,13 +5,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap");
 
 @import "tailwindcss";
-@import "$styles/tailwind-theme.css";
-
-@import "$styles" layer(base);
-@import "$styles/reset" layer(base);
-
-@import "tailwindcss" layer(theme);
-@import "$/tailwind-theme" layer(theme);
+@import "$/styles/tailwind-theme.css" layer(theme);
 
 @layer fonts {
   :root {
