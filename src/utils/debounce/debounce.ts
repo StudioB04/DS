@@ -1,0 +1,29 @@
+/**
+ * Guarantee that a callback will be invoked only after small period of inactivity.
+ */
+export default function debounce<T extends (...args: unknown[]) => void>(
+  func: T,
+  wait: number,
+): ((...args: Parameters<T>) => void) & { cancel: () => void } {
+  let timeout: ReturnType<typeof setTimeout> | null = null;
+
+  const debounced = (...args: Parameters<T>): void => {
+    if (timeout) {
+      clearTimeout(timeout);
+    }
+
+    timeout = setTimeout(() => {
+      timeout = null;
+      func(...args);
+    }, wait);
+  };
+
+  debounced.cancel = () => {
+    if (timeout !== null) {
+      clearTimeout(timeout);
+      timeout = null;
+    }
+  };
+
+  return debounced;
+}

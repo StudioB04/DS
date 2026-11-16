@@ -1,5 +1,9 @@
 :root {
   interpolate-size: allow-keywords;
+
+  --ds-font-family-sans: sans-serif;
+  --ds-font-family-mono: monospace;
+  --ds-font-family-serif: serif;
 }
 
 html {

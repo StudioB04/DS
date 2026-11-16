@@ -139,17 +139,14 @@ This gives you access to all token values as Tailwind utilities:
 By default, DS come with standard font for sans, serif and mono. But they can be overwritten in CSS, example :
 
 ```css
-@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@300..900&display=swap") layer(fonts);
-@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Mono:wght@400..600&display=swap") layer(fonts);
-@import url("https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap")
-layer(fonts);
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Mono:wght@400..600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap");
 
-@layer fonts {
-  :root {
-    --ds-font-family-sans: "Red Hat Display";
-    --ds-font-family-mono: "Red Hat Mono";
-    --ds-font-family-serif: "Noto Serif";
-  }
+:root {
+  --ds-font-family-sans: "Red Hat Display", sans-serif;
+  --ds-font-family-mono: "Red Hat Mono", monospace;
+  --ds-font-family-serif: "Noto Serif", serif;
 }
 ```
 

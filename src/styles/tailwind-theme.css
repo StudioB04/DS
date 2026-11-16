@@ -11,8 +11,78 @@
   /* ============================================================
      SPACING — from variables/spacing.css
      ============================================================ */
-  --spacing: var(--ds-spacing-unit);
-
+  --spacing-*: initial;
+  --spacing-none: var(--ds-spacing-none);
+  --spacing-2xs: var(--ds-spacing-2xs);
+  --spacing-xs: var(--ds-spacing-xs);
+  --spacing-sm: var(--ds-spacing-sm);
+  --spacing-md: var(--ds-spacing-md);
+  --spacing-lg: var(--ds-spacing-lg);
+  --spacing-xl: var(--ds-spacing-xl);
+  --spacing-2xl: var(--ds-spacing-2xl);
+  --spacing-3xl: var(--ds-spacing-3xl);
+  --spacing-4xl: var(--ds-spacing-4xl);
+  --spacing-5xl: var(--ds-spacing-5xl);
+  --spacing-6xl: var(--ds-spacing-6xl);
+  --spacing-7xl: var(--ds-spacing-7xl);
+  --spacing-8xl: var(--ds-spacing-8xl);
+  --spacing-9xl: var(--ds-spacing-9xl);
+  --spacing-10xl: var(--ds-spacing-10xl);
+  --spacing-1px: var(--ds-size-1px);
+  --spacing--2px: var(--ds-size-2px);
+  --spacing--3px: var(--ds-size-3px);
+  --spacing--4px: var(--ds-size-4px);
+  --spacing--5px: var(--ds-size-5px);
+  --spacing--6px: var(--ds-size-6px);
+  --spacing--7px: var(--ds-size-7px);
+  --spacing--8px: var(--ds-size-8px);
+  --spacing--9px: var(--ds-size-9px);
+  --spacing-10px: var(--ds-size-10px);
+  --spacing-11px: var(--ds-size-11px);
+  --spacing-12px: var(--ds-size-12px);
+  --spacing-13px: var(--ds-size-13px);
+  --spacing-14px: var(--ds-size-14px);
+  --spacing-15px: var(--ds-size-15px);
+  --spacing-16px: var(--ds-size-16px);
+  --spacing-17px: var(--ds-size-17px);
+  --spacing-18px: var(--ds-size-18px);
+  --spacing-19px: var(--ds-size-19px);
+  --spacing-20px: var(--ds-size-20px);
+  --spacing-21px: var(--ds-size-21px);
+  --spacing-22px: var(--ds-size-22px);
+  --spacing-23px: var(--ds-size-23px);
+  --spacing-24px: var(--ds-size-24px);
+  --spacing-25px: var(--ds-size-25px);
+  --spacing-26px: var(--ds-size-26px);
+  --spacing-27px: var(--ds-size-27px);
+  --spacing-28px: var(--ds-size-28px);
+  --spacing-29px: var(--ds-size-29px);
+  --spacing-30px: var(--ds-size-30px);
+  --spacing-31px: var(--ds-size-31px);
+  --spacing-32px: var(--ds-size-32px);
+  --spacing-33px: var(--ds-size-33px);
+  --spacing-34px: var(--ds-size-34px);
+  --spacing-35px: var(--ds-size-35px);
+  --spacing-36px: var(--ds-size-36px);
+  --spacing-37px: var(--ds-size-37px);
+  --spacing-38px: var(--ds-size-38px);
+  --spacing-39px: var(--ds-size-39px);
+  --spacing-40px: var(--ds-size-40px);
+  --spacing-41px: var(--ds-size-41px);
+  --spacing-42px: var(--ds-size-42px);
+  --spacing-43px: var(--ds-size-43px);
+  --spacing-44px: var(--ds-size-44px);
+  --spacing-45px: var(--ds-size-45px);
+  --spacing-46px: var(--ds-size-46px);
+  --spacing-47px: var(--ds-size-47px);
+  --spacing-48px: var(--ds-size-48px);
+  --spacing-52px: var(--ds-size-52px);
+  --spacing-56px: var(--ds-size-56px);
+  --spacing-60px: var(--ds-size-60px);
+  --spacing-64px: var(--ds-size-64px);
+  --spacing-72px: var(--ds-size-72px);
+  --spacing-80px: var(--ds-size-80px);
+  --spacing-96px: var(--ds-size-96px);
   /* ============================================================
      FONT FAMILY — from variables/typography.css
      ============================================================ */
