@@ -16,8 +16,16 @@ export function setHTMLCustomProp(
   updateHTMLCustomProp();
   globalThis.addEventListener("resize", handleResize);
 
+  // Suit aussi les changements de taille de l'élément (animation au scroll, contenu, polices, zoom…)
+  let observer: ResizeObserver | undefined;
+  if (element && typeof ResizeObserver !== "undefined") {
+    observer = new ResizeObserver(updateHTMLCustomProp);
+    observer.observe(element, { box: "border-box" });
+  }
+
   return () => {
     handleResize.cancel();
+    observer?.disconnect();
     updateHTMLCustomProp();
     globalThis.removeEventListener("resize", handleResize);
   };

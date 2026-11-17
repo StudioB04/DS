@@ -17,6 +17,7 @@ describe("htmlCustomProp util", () => {
   afterEach(() => {
     vi.runOnlyPendingTimers();
     vi.useRealTimers();
+    vi.unstubAllGlobals();
     document.documentElement.style.removeProperty("--custom-height");
     document.documentElement.style.removeProperty("--custom-width");
   });
@@ -96,5 +97,89 @@ describe("htmlCustomProp util", () => {
     vi.advanceTimersByTime(100);
 
     expect(document.documentElement.style.getPropertyValue("--custom-width")).toBe("48px");
+  });
+
+  describe("ResizeObserver", () => {
+    const observe = vi.fn();
+    const disconnect = vi.fn();
+    const created = vi.fn();
+    let notify: () => void;
+
+    beforeEach(() => {
+      vi.stubGlobal(
+        "ResizeObserver",
+        class {
+          constructor(callback: () => void) {
+            created();
+            notify = callback;
+          }
+          observe = observe;
+          disconnect = disconnect;
+        },
+      );
+    });
+
+    it("should observe the source element with the border-box size", () => {
+      const sourceElement = document.createElement("div");
+      const targetElement = document.createElement("div");
+
+      const cleanup = setHTMLCustomProp(sourceElement, "clientHeight", "--custom-height", targetElement);
+
+      expect(created).toHaveBeenCalledTimes(1);
+      expect(observe).toHaveBeenCalledWith(sourceElement, { box: "border-box" });
+
+      cleanup();
+    });
+
+    it("should update the custom property as soon as the element is resized", () => {
+      const sourceElement = document.createElement("div");
+      const targetElement = document.createElement("div");
+
+      defineElementProperty(sourceElement, "clientHeight", 20);
+
+      const cleanup = setHTMLCustomProp(sourceElement, "clientHeight", "--custom-height", targetElement);
+
+      defineElementProperty(sourceElement, "clientHeight", 80);
+      notify();
+
+      expect(targetElement.style.getPropertyValue("--custom-height")).toBe("80px");
+
+      cleanup();
+    });
+
+    it("should disconnect the observer on cleanup", () => {
+      const cleanup = setHTMLCustomProp(document.createElement("div"), "clientHeight", "--custom-height");
+
+      expect(disconnect).not.toHaveBeenCalled();
+
+      cleanup();
+
+      expect(disconnect).toHaveBeenCalledTimes(1);
+    });
+
+    it("should not create an observer when the source element is null", () => {
+      const cleanup = setHTMLCustomProp(null, "clientHeight", "--custom-height");
+
+      expect(created).not.toHaveBeenCalled();
+      expect(observe).not.toHaveBeenCalled();
+
+      cleanup();
+
+      expect(disconnect).not.toHaveBeenCalled();
+    });
+
+    it("should work when ResizeObserver is not supported", () => {
+      vi.stubGlobal("ResizeObserver", undefined);
+      const sourceElement = document.createElement("div");
+      const targetElement = document.createElement("div");
+
+      defineElementProperty(sourceElement, "clientHeight", 12);
+
+      const cleanup = setHTMLCustomProp(sourceElement, "clientHeight", "--custom-height", targetElement);
+
+      expect(targetElement.style.getPropertyValue("--custom-height")).toBe("12px");
+      expect(() => cleanup()).not.toThrow();
+      expect(created).not.toHaveBeenCalled();
+    });
   });
 });
