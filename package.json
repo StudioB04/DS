@@ -26,6 +26,10 @@
       "import": "./dist/utils.js",
       "types": "./dist/utils/index.d.ts"
     },
+    "./hooks": {
+      "import": "./dist/hooks.js",
+      "types": "./dist/hooks/index.d.ts"
+    },
     "./styles": "./dist/tokens.css",
     "./reset": "./dist/reset.css",
     "./tailwind-theme": "./dist/tailwind-theme.css"
