@@ -22,8 +22,8 @@ layer(fonts);
 }
 
 #storybook-root:not([hidden="true"]) {
-  inline-size: 100dvw;
-  block-size: 100dvh;
+  inline-size: auto;
+  block-size: auto;
   max-inline-size: 100%;
   max-block-size: 100%;
   display: flex;

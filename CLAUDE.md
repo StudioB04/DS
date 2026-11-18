@@ -42,6 +42,7 @@ src/
     themes/tokens.css          # aggregates variables + theme  → export "./styles"
     reset.css                  # → export "./reset"
     base.css                   # body colors, focus-visible ring, print, [popover]
+    styles.stories.tsx         # Storybook "Foundations/Colors" page (palette + semantic tokens, swatches read from the live CSS)
     tailwind-theme.css         # Tailwind 4 @theme mapping (only var(--ds-*) references, no hard-coded values) → export "./tailwind-theme"
 .storybook/                    # Storybook 10; theme toolbar sets data-ds-theme on <html>; decorators wrap every story in StudioB04Provider
 .sandbox/                      # self-contained dev playground with its OWN package.json/node_modules, never shipped

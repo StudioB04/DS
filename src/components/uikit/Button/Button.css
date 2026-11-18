@@ -163,8 +163,8 @@
   }
 
   &.ds-button--variant-inverse {
-    --ds-button-color: var(--ds-text-inverse-secondary);
-    --ds-button-background-color_hover: var(--ds-bg-inverse-primary);
+    --ds-button-color: var(--ds-text-inverse-primary);
+    --ds-button-background-color_hover: var(--ds-bg-inverse-solid);
   }
 }
 
