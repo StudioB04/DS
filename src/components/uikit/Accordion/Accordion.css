@@ -6,8 +6,11 @@
     display: flex;
     align-items: center;
     gap: var(--ds-accordion-gap);
-    padding-block: var(--ds-accordion-padding-block);
-    padding-inline: var(--ds-accordion-padding-inline);
+    border-radius: var(--ds-radius-md);
+    padding-block: calc(1 / 2 * var(--ds-accordion-padding-block));
+    padding-inline: calc(1 / 2 * var(--ds-accordion-padding-inline));
+    margin-block: calc(1 / 2 * var(--ds-accordion-padding-block));
+    margin-inline: calc(1 / 2 * var(--ds-accordion-padding-inline));
     font-size: var(--ds-accordion-font-size);
     font-weight: var(--ds-font-weight-medium);
     line-height: 1.35;
@@ -20,8 +23,9 @@
       display: none;
     }
 
-    &:hover {
-      color: var(--ds-text-brand);
+    &:is(:hover, :focus-visible) {
+      color: var(--ds-text-brand-primary);
+      background-color: var(--ds-bg-brand-primary);
     }
   }
 
@@ -43,7 +47,6 @@
     color: currentColor;
     transition: rotate var(--ds-transition-regular);
   }
-
 
   &[open] .ds-accordion__chevron {
     rotate: -180deg;

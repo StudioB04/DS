@@ -69,69 +69,73 @@
 
   /* ##### VARIANTS ###################### */
   &.ds-badge--variant-neutral {
-    --ds-badge-color: var(--ds-text-primary);
-    --ds-badge-border-color: var(--ds-border-solid);
+    --ds-badge-color: var(--ds-text-tertiary);
+    --ds-badge-border-color: var(--ds-border-primary);
     --ds-badge-background-color: var(--ds-bg-secondary);
   }
 
+  &.ds-badge--variant-inverse {
+    --ds-badge-color: var(--ds-text-inverse-tertiary);
+    --ds-badge-border-color: var(--ds-border-inverse-primary);
+    --ds-badge-background-color: var(--ds-bg-inverse-secondary);
+  }
+
   &.ds-badge--variant-brand {
-    --ds-badge-color: var(--ds-text-brand);
-    --ds-badge-border-color: var(--ds-border-brand-solid);
+    --ds-badge-color: var(--ds-text-brand-primary);
+    --ds-badge-border-color: var(--ds-border-brand-primary);
     --ds-badge-background-color: var(--ds-bg-brand-primary);
   }
 
   &.ds-badge--variant-alt {
-    --ds-badge-color: var(--ds-text-alt);
+    --ds-badge-color: var(--ds-text-alt-primary);
     --ds-badge-border-color: var(--ds-border-alt-solid);
     --ds-badge-background-color: var(--ds-bg-alt-primary);
   }
 
-  &.ds-badge--variant-green {
-    --ds-badge-color: var(--ds-text-green);
+  &.ds-badge--variant-green,
+  &.ds-badge--variant-success {
+    --ds-badge-color: var(--ds-text-green-primary);
     --ds-badge-border-color: var(--ds-border-green-solid);
     --ds-badge-background-color: var(--ds-bg-green-primary);
   }
 
-  &.ds-badge--variant-orange {
-    --ds-badge-color: var(--ds-text-orange);
+  &.ds-badge--variant-orange,
+  &.ds-badge--variant-warning {
+    --ds-badge-color: var(--ds-text-orange-primary);
     --ds-badge-border-color: var(--ds-border-orange-solid);
     --ds-badge-background-color: var(--ds-bg-orange-primary);
   }
 
-  &.ds-badge--variant-red {
-    --ds-badge-color: var(--ds-text-red);
+  &.ds-badge--variant-red,
+  &.ds-badge--variant-error {
+    --ds-badge-color: var(--ds-text-red-primary);
     --ds-badge-border-color: var(--ds-border-red-solid);
     --ds-badge-background-color: var(--ds-bg-red-primary);
   }
 
-  &.ds-badge--variant-blue {
-    --ds-badge-color: var(--ds-text-blue);
+  &.ds-badge--variant-blue,
+  &.ds-badge--variant-info {
+    --ds-badge-color: var(--ds-text-blue-primary);
     --ds-badge-border-color: var(--ds-border-blue-solid);
     --ds-badge-background-color: var(--ds-bg-blue-primary);
   }
 
   &.ds-badge--variant-purple {
-    --ds-badge-color: var(--ds-text-purple);
+    --ds-badge-color: var(--ds-text-purple-primary);
     --ds-badge-border-color: var(--ds-border-purple-solid);
     --ds-badge-background-color: var(--ds-bg-purple-primary);
   }
 
   &.ds-badge--variant-yellow {
-    --ds-badge-color: var(--ds-text-yellow);
+    --ds-badge-color: var(--ds-text-yellow-primary);
     --ds-badge-border-color: var(--ds-border-yellow-solid);
     --ds-badge-background-color: var(--ds-bg-yellow-primary);
   }
 
   &.ds-badge--variant-pink {
-    --ds-badge-color: var(--ds-text-pink);
+    --ds-badge-color: var(--ds-text-pink-primary);
     --ds-badge-border-color: var(--ds-border-pink-solid);
     --ds-badge-background-color: var(--ds-bg-pink-primary);
-  }
-
-  &.ds-badge--variant-inverse {
-    --ds-badge-color: var(--ds-text-inverse-primary);
-    --ds-badge-border-color: var(--ds-border-inverse-solid);
-    --ds-badge-background-color: var(--ds-bg-inverse-primary);
   }
 }
 
@@ -141,58 +145,62 @@
 
   /* ##### VARIANTS ###################### */
   &.ds-badge--variant-neutral {
+    --ds-badge-color: var(--ds-text-primary);
+    --ds-badge-background-color: var(--ds-bg-tertiary);
+  }
+
+  &.ds-badge--variant-inverse {
     --ds-badge-color: var(--ds-text-inverse-primary);
-    --ds-badge-background-color: var(--ds-bg-solid);
+    --ds-badge-background-color: var(--ds-bg-inverse-tertiary);
   }
 
   &.ds-badge--variant-brand {
-    --ds-badge-color: var(--ds-text-white);
+    --ds-badge-color: var(--ds-text-inverse-primary);
     --ds-badge-background-color: var(--ds-bg-brand-solid);
   }
 
   &.ds-badge--variant-alt {
-    --ds-badge-color: var(--ds-text-white);
+    --ds-badge-color: var(--ds-text-inverse-primary);
     --ds-badge-background-color: var(--ds-bg-alt-solid);
   }
 
-  &.ds-badge--variant-green {
-    --ds-badge-color: var(--ds-text-white);
-    --ds-badge-background-color: var(--ds-bg-green-solid);
+  &.ds-badge--variant-green,
+  &.ds-badge--variant-success {
+    --ds-badge-color: var(--ds-text-inverse-primary);
+    --ds-badge-background-color: var(--ds-bg-green-solid_hover);
   }
 
-  &.ds-badge--variant-orange {
-    --ds-badge-color: var(--ds-text-white);
-    --ds-badge-background-color: var(--ds-bg-orange-solid);
+  &.ds-badge--variant-red,
+  &.ds-badge--variant-error {
+    --ds-badge-color: var(--ds-text-inverse-primary);
+    --ds-badge-background-color: var(--ds-bg-red-solid_hover);
   }
 
-  &.ds-badge--variant-red {
-    --ds-badge-color: var(--ds-text-white);
-    --ds-badge-background-color: var(--ds-bg-red-solid);
+  &.ds-badge--variant-orange,
+  &.ds-badge--variant-warning {
+    --ds-badge-color: var(--ds-text-inverse-primary);
+    --ds-badge-background-color: var(--ds-bg-orange-solid_hover);
   }
 
-  &.ds-badge--variant-blue {
-    --ds-badge-color: var(--ds-text-white);
-    --ds-badge-background-color: var(--ds-bg-blue-solid);
+  &.ds-badge--variant-blue,
+  &.ds-badge--variant-info {
+    --ds-badge-color: var(--ds-text-inverse-primary);
+    --ds-badge-background-color: var(--ds-bg-blue-solid_hover);
   }
 
   &.ds-badge--variant-purple {
-    --ds-badge-color: var(--ds-text-white);
-    --ds-badge-background-color: var(--ds-bg-purple-solid);
+    --ds-badge-color: var(--ds-text-inverse-primary);
+    --ds-badge-background-color: var(--ds-bg-purple-solid_hover);
   }
 
   &.ds-badge--variant-yellow {
-    --ds-badge-color: var(--ds-text-secondary);
+    --ds-badge-color: var(--ds-text-primary);
     --ds-badge-background-color: var(--ds-bg-yellow-solid);
   }
 
   &.ds-badge--variant-pink {
-    --ds-badge-color: var(--ds-text-white);
+    --ds-badge-color: var(--ds-text-inverse-primary);
     --ds-badge-background-color: var(--ds-bg-pink-solid);
-  }
-
-  &.ds-badge--variant-inverse {
-    --ds-badge-color: var(--ds-text-primary);
-    --ds-badge-background-color: var(--ds-bg-inverse-solid);
   }
 }
 
@@ -202,46 +210,46 @@
 
   /* ##### VARIANTS ###################### */
   &.ds-badge--variant-neutral {
-    --ds-badge-color: var(--ds-text-tertiary);
-  }
-
-  &.ds-badge--variant-brand {
-    --ds-badge-color: var(--ds-text-brand);
-  }
-
-  &.ds-badge--variant-alt {
-    --ds-badge-color: var(--ds-text-alt);
-  }
-
-  &.ds-badge--variant-green {
-    --ds-badge-color: var(--ds-text-green);
-  }
-
-  &.ds-badge--variant-orange {
-    --ds-badge-color: var(--ds-text-orange);
-  }
-
-  &.ds-badge--variant-red {
-    --ds-badge-color: var(--ds-text-red);
-  }
-
-  &.ds-badge--variant-blue {
-    --ds-badge-color: var(--ds-text-blue);
-  }
-
-  &.ds-badge--variant-purple {
-    --ds-badge-color: var(--ds-text-purple);
-  }
-
-  &.ds-badge--variant-yellow {
-    --ds-badge-color: var(--ds-text-yellow);
-  }
-
-  &.ds-badge--variant-pink {
-    --ds-badge-color: var(--ds-text-pink);
+    --ds-badge-color: var(--ds-text-primary);
   }
 
   &.ds-badge--variant-inverse {
     --ds-badge-color: var(--ds-text-inverse-primary);
+  }
+
+  &.ds-badge--variant-brand {
+    --ds-badge-color: var(--ds-text-brand-primary);
+  }
+
+  &.ds-badge--variant-alt {
+    --ds-badge-color: var(--ds-text-alt-primary);
+  }
+
+  &.ds-badge--variant-green {
+    --ds-badge-color: var(--ds-text-green-primary);
+  }
+
+  &.ds-badge--variant-orange {
+    --ds-badge-color: var(--ds-text-orange-primary);
+  }
+
+  &.ds-badge--variant-red {
+    --ds-badge-color: var(--ds-text-red-primary);
+  }
+
+  &.ds-badge--variant-blue {
+    --ds-badge-color: var(--ds-text-blue-primary);
+  }
+
+  &.ds-badge--variant-purple {
+    --ds-badge-color: var(--ds-text-purple-primary);
+  }
+
+  &.ds-badge--variant-yellow {
+    --ds-badge-color: var(--ds-text-yellow-primary);
+  }
+
+  &.ds-badge--variant-pink {
+    --ds-badge-color: var(--ds-text-pink-primary);
   }
 }

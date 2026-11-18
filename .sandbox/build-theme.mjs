@@ -49,7 +49,6 @@ const seen = new Set();
 const parts = [
   `/* Fichier genere par .sandbox/build-theme.mjs -- ne pas editer a la main. */`,
   resolveImports(resolve(stylesDir, "reset.css"), seen),
-  resolveImports(resolve(stylesDir, "base.css"), seen),
   resolveImports(resolve(stylesDir, "themes/tokens.css"), seen),
 ];
 

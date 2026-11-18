@@ -83,6 +83,7 @@
   --spacing-72px: var(--ds-size-72px);
   --spacing-80px: var(--ds-size-80px);
   --spacing-96px: var(--ds-size-96px);
+
   /* ============================================================
      FONT FAMILY — from variables/typography.css
      ============================================================ */
@@ -94,10 +95,14 @@
   /* ============================================================
      FONT WEIGHT — from variables/typography.css
      ============================================================ */
+  --font-weight-thin: var(--ds-font-weight-thin);
+  --font-weight-light: var(--ds-font-weight-light);
   --font-weight-regular: var(--ds-font-weight-regular);
   --font-weight-medium: var(--ds-font-weight-medium);
   --font-weight-semibold: var(--ds-font-weight-semibold);
   --font-weight-bold: var(--ds-font-weight-bold);
+  --font-weight-extrabold: var(--ds-font-weight-extrabold);
+  --font-weight-extrabold: var(--ds-font-weight-extrabold);
 
   /* ============================================================
      FONT SIZE — from variables/typography.css
@@ -107,12 +112,14 @@
   --text-md: var(--ds-font-size-text-md);
   --text-lg: var(--ds-font-size-text-lg);
   --text-xl: var(--ds-font-size-text-xl);
+  --text-2xl: var(--ds-font-size-text-2xl);
   --text-title-2xs: var(--ds-font-size-title-2xs);
   --text-title-xs: var(--ds-font-size-title-xs);
   --text-title-sm: var(--ds-font-size-title-sm);
   --text-title-md: var(--ds-font-size-title-md);
   --text-title-lg: var(--ds-font-size-title-lg);
   --text-title-xl: var(--ds-font-size-title-xl);
+  --text-title-2xl: var(--ds-font-size-title-2xl);
 
   /* ============================================================
      LINE HEIGHT — from variables/typography.css
@@ -122,12 +129,14 @@
   --leading-md: var(--ds-line-height-text-md);
   --leading-lg: var(--ds-line-height-text-lg);
   --leading-xl: var(--ds-line-height-text-xl);
+  --leading-2xl: var(--ds-line-height-text-2xl);
   --leading-title-2xs: var(--ds-line-height-title-2xs);
   --leading-title-xs: var(--ds-line-height-title-xs);
   --leading-title-sm: var(--ds-line-height-title-sm);
   --leading-title-md: var(--ds-line-height-title-md);
   --leading-title-lg: var(--ds-line-height-title-lg);
   --leading-title-xl: var(--ds-line-height-title-xl);
+  --leading-title-2xl: var(--ds-line-height-title-2xl);
 
   /* ============================================================
      PRIMITIVE COLORS — from variables/colors.css

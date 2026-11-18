@@ -58,18 +58,14 @@
   a.ds-breadcrumb__item {
     cursor: pointer;
 
-    &:hover {
-      color: var(--ds-text-secondary);
-      background-color: var(--ds-bg-secondary);
-    }
-
-    &:focus-visible {
-      border-radius: var(--ds-radius-2xs);
+    &:is(:hover, :focus-visible) {
+      color: var(--ds-text-brand-primary);
+      background-color: var(--ds-bg-brand-primary);
     }
   }
 
   .ds-breadcrumb__item--current {
-    color: var(--ds-text-brand);
+    color: var(--ds-text-brand-primary);
   }
 
   .ds-breadcrumb__slot {

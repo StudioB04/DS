@@ -17,8 +17,8 @@
 /* MISCELLANEOUS */
 /* --- MISC COLORS --- */
 :root {
-  --ds-focus-ring-color: light-dark(var(--ds-color-fuschia-700), var(--ds-color-fuschia-300));
-  --ds-focus-ring-size: var(--ds-size-2px);
+  --ds-focus-ring-color: light-dark(var(--ds-color-gray-700), var(--ds-color-fuschia-300));
+  --ds-focus-ring-size: var(--ds-size-3px);
 }
 
 /* TEXTS COLORS */
@@ -33,39 +33,39 @@
 
   --ds-text-placeholder: light-dark(var(--ds-color-gray-400), var(--ds-color-gray-500));
 
-  --ds-text-brand-primary: light-dark(var(--ds-color-fuschia-700), var(--ds-color-fuschia-600));
+  --ds-text-brand-primary: light-dark(var(--ds-color-fuschia-600), var(--ds-color-fuschia-600));
   --ds-text-brand-secondary: light-dark(var(--ds-color-fuschia-400), var(--ds-color-fuschia-700));
   --ds-text-brand-tertiary: light-dark(var(--ds-color-fuschia-300), var(--ds-color-fuschia-800));
 
-  --ds-text-alt-primary: light-dark(var(--ds-color-teal-700), var(--ds-color-teal-600));
+  --ds-text-alt-primary: light-dark(var(--ds-color-teal-600), var(--ds-color-teal-600));
   --ds-text-alt-secondary: light-dark(var(--ds-color-teal-400), var(--ds-color-teal-700));
   --ds-text-alt-tertiary: light-dark(var(--ds-color-teal-300), var(--ds-color-teal-800));
 
-  --ds-text-blue-primary: light-dark(var(--ds-color-blue-700), var(--ds-color-blue-600));
+  --ds-text-blue-primary: light-dark(var(--ds-color-blue-600), var(--ds-color-blue-600));
   --ds-text-blue-secondary: light-dark(var(--ds-color-blue-400), var(--ds-color-blue-700));
   --ds-text-blue-tertiary: light-dark(var(--ds-color-blue-300), var(--ds-color-blue-800));
 
-  --ds-text-red-primary: light-dark(var(--ds-color-red-700), var(--ds-color-red-600));
+  --ds-text-red-primary: light-dark(var(--ds-color-red-600), var(--ds-color-red-600));
   --ds-text-red-secondary: light-dark(var(--ds-color-red-400), var(--ds-color-red-700));
   --ds-text-red-tertiary: light-dark(var(--ds-color-red-300), var(--ds-color-red-800));
 
-  --ds-text-orange-primary: light-dark(var(--ds-color-orange-700), var(--ds-color-orange-600));
+  --ds-text-orange-primary: light-dark(var(--ds-color-orange-600), var(--ds-color-orange-600));
   --ds-text-orange-secondary: light-dark(var(--ds-color-orange-400), var(--ds-color-orange-700));
   --ds-text-orange-tertiary: light-dark(var(--ds-color-orange-300), var(--ds-color-orange-800));
 
-  --ds-text-green-primary: light-dark(var(--ds-color-green-700), var(--ds-color-green-600));
+  --ds-text-green-primary: light-dark(var(--ds-color-green-600), var(--ds-color-green-600));
   --ds-text-green-secondary: light-dark(var(--ds-color-green-400), var(--ds-color-green-700));
   --ds-text-green-tertiary: light-dark(var(--ds-color-green-300), var(--ds-color-green-800));
 
-  --ds-text-purple-primary: light-dark(var(--ds-color-purple-700), var(--ds-color-purple-600));
+  --ds-text-purple-primary: light-dark(var(--ds-color-purple-600), var(--ds-color-purple-600));
   --ds-text-purple-secondary: light-dark(var(--ds-color-purple-400), var(--ds-color-purple-700));
   --ds-text-purple-tertiary: light-dark(var(--ds-color-purple-300), var(--ds-color-purple-800));
 
-  --ds-text-yellow-primary: light-dark(var(--ds-color-yellow-700), var(--ds-color-yellow-600));
+  --ds-text-yellow-primary: light-dark(var(--ds-color-yellow-600), var(--ds-color-yellow-600));
   --ds-text-yellow-secondary: light-dark(var(--ds-color-yellow-400), var(--ds-color-yellow-700));
   --ds-text-yellow-tertiary: light-dark(var(--ds-color-yellow-300), var(--ds-color-yellow-800));
 
-  --ds-text-pink-primary: light-dark(var(--ds-color-pink-700), var(--ds-color-pink-600));
+  --ds-text-pink-primary: light-dark(var(--ds-color-pink-600), var(--ds-color-pink-600));
   --ds-text-pink-secondary: light-dark(var(--ds-color-pink-400), var(--ds-color-pink-700));
   --ds-text-pink-tertiary: light-dark(var(--ds-color-pink-300), var(--ds-color-pink-800));
 }
@@ -133,10 +133,6 @@
   --ds-bg-pink-tertiary: light-dark(var(--ds-color-pink-300), var(--ds-color-pink-700));
   --ds-bg-pink-solid: light-dark(var(--ds-color-pink-500), var(--ds-color-pink-500));
   --ds-bg-pink-solid_hover: light-dark(var(--ds-color-pink-700), var(--ds-color-pink-400));
-
-  /* --- MISC COLORS --- */
-  --ds-focus-ring-color: light-dark(var(--ds-color-gray-700), var(--ds-color-gray-300));
-  --ds-focus-ring-size: var(--ds-size-3px);
 }
 
 /* --- BORDER COLORS --- */

@@ -8,9 +8,9 @@
   font-size: var(--ds-font-size-text-md);
   font-weight: var(--ds-font-weight-semibold);
   line-height: var(--ds-line-height-text-md);
-  background-color: var(--ds-bg-primary);
-  color: var(--ds-text-brand);
-  border-radius: var(--ds-radius-md);
+  background-color: var(--ds-bg-brand-primary);
+  color: var(--ds-text-brand-primary);
+  border-radius: var(--ds-radius-xs);
   box-shadow: var(--ds-box-shadow-md);
   text-decoration: none;
 
