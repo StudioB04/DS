@@ -20,6 +20,7 @@
 html {
   -webkit-text-size-adjust: 100%;
   tab-size: 4;
+  font-size: 16px;
 }
 
 body {
@@ -29,6 +30,9 @@ body {
   color: var(--ds-text-primary, #111827);
   font-optical-sizing: auto;
   -webkit-font-smoothing: antialiased;
+  max-inline-size: 100dvw;
+  background-color: var(--ds-bg-primary, #ffffff);
+  overflow-x: clip;
 }
 
 img,
@@ -85,23 +89,14 @@ table {
 
 /* ============================================================
    Base layout & accessibility defaults
-   (previously in styles/base.css, never shipped — merged here
-   so it's actually delivered as part of the reset)
    ============================================================ */
 
 :root {
   interpolate-size: allow-keywords;
-}
 
-html {
-  font-size: 16px;
-}
-
-body {
-  max-inline-size: 100dvw;
-  overflow-x: clip;
-  color: var(--ds-text-primary, inherit);
-  background-color: var(--ds-bg-primary, canvas);
+  --ds-font-family-sans: sans-serif;
+  --ds-font-family-mono: monospace;
+  --ds-font-family-serif: serif;
 }
 
 @media print {

@@ -10,7 +10,7 @@
 .ds-markdown__p {
   text-align: inherit;
 
-  &+* {
+  & + * {
     margin-block-start: 1rem;
   }
 }
@@ -20,23 +20,23 @@
   text-align: inherit;
 
   &.ds-markdown__title--h1 {
+    font-size: var(--ds-font-size-title-lg);
+    line-height: var(--ds-line-height-title-lg);
+  }
+
+  &.ds-markdown__title--h2 {
+    font-size: var(--ds-font-size-title-md);
+    line-height: var(--ds-line-height-title-md);
+  }
+
+  &.ds-markdown__title--h3 {
     font-size: var(--ds-font-size-title-sm);
     line-height: var(--ds-line-height-title-sm);
   }
 
-  &.ds-markdown__title--h2 {
-    font-size: var(--ds-font-size-title-xs);
-    line-height: var(--ds-line-height-title-xs);
-  }
-
-  &.ds-markdown__title--h3 {
-    font-size: var(--ds-font-size-title-2xs);
-    line-height: var(--ds-line-height-title-2xs);
-  }
-
   &.ds-markdown__title--h4 {
-    font-size: var(--ds-font-size-text-md);
-    line-height: var(--ds-line-height-text-md);
+    font-size: var(--ds-font-size-text-xs);
+    line-height: var(--ds-line-height-text-xs);
   }
 }
 

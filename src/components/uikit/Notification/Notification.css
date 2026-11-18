@@ -32,57 +32,62 @@
 }
 
 /* ##### VARIANTS ###################### */
+
 .ds-notification--variant-neutral {
   --ds-notification-color: var(--ds-text-inverse-primary);
-  --ds-notification-background-color: var(--ds-bg-solid);
-}
-
-.ds-notification--variant-brand {
-  --ds-notification-color: var(--ds-text-white);
-  --ds-notification-background-color: var(--ds-bg-brand-solid);
-}
-
-.ds-notification--variant-alt {
-  --ds-notification-color: var(--ds-text-white);
-  --ds-notification-background-color: var(--ds-bg-alt-solid);
-}
-
-.ds-notification--variant-green {
-  --ds-notification-color: var(--ds-text-white);
-  --ds-notification-background-color: var(--ds-bg-green-solid);
-}
-
-.ds-notification--variant-orange {
-  --ds-notification-color: var(--ds-text-white);
-  --ds-notification-background-color: var(--ds-bg-orange-solid);
-}
-
-.ds-notification--variant-red {
-  --ds-notification-color: var(--ds-text-white);
-  --ds-notification-background-color: var(--ds-bg-red-solid);
-}
-
-.ds-notification--variant-blue {
-  --ds-notification-color: var(--ds-text-white);
-  --ds-notification-background-color: var(--ds-bg-blue-solid);
-}
-
-.ds-notification--variant-purple {
-  --ds-notification-color: var(--ds-text-white);
-  --ds-notification-background-color: var(--ds-bg-purple-solid);
-}
-
-.ds-notification--variant-yellow {
-  --ds-notification-color: var(--ds-text-secondary);
-  --ds-notification-background-color: var(--ds-bg-yellow-solid);
-}
-
-.ds-notification--variant-pink {
-  --ds-notification-color: var(--ds-text-white);
-  --ds-notification-background-color: var(--ds-bg-pink-solid);
+  --ds-notification-background-color: var(--ds-bg-inverse-tertiary);
 }
 
 .ds-notification--variant-inverse {
   --ds-notification-color: var(--ds-text-primary);
-  --ds-notification-background-color: var(--ds-bg-inverse-solid);
+  --ds-notification-background-color: var(--ds-bg-tertiary);
+}
+
+.ds-notification--variant-brand {
+  --ds-notification-color: var(--ds-text-inverse-primary);
+  --ds-notification-background-color: var(--ds-bg-brand-solid);
+}
+
+.ds-notification--variant-alt {
+  --ds-notification-color: var(--ds-text-inverse-primary);
+  --ds-notification-background-color: var(--ds-bg-alt-solid);
+}
+
+.ds-notification--variant-green,
+.ds-notification--variant-success {
+  --ds-notification-color: var(--ds-text-inverse-primary);
+  --ds-notification-background-color: var(--ds-bg-green-solid_hover);
+}
+
+.ds-notification--variant-red,
+.ds-notification--variant-error {
+  --ds-notification-color: var(--ds-text-inverse-primary);
+  --ds-notification-background-color: var(--ds-bg-red-solid);
+}
+
+.ds-notification--variant-orange,
+.ds-notification--variant-warning {
+  --ds-notification-color: var(--ds-text-inverse-primary);
+  --ds-notification-background-color: var(--ds-bg-orange-solid);
+}
+
+.ds-notification--variant-blue,
+.ds-notification--variant-info {
+  --ds-notification-color: var(--ds-text-inverse-primary);
+  --ds-notification-background-color: var(--ds-bg-blue-solid);
+}
+
+.ds-notification--variant-purple {
+  --ds-notification-color: var(--ds-text-inverse-primary);
+  --ds-notification-background-color: var(--ds-bg-purple-solid);
+}
+
+.ds-notification--variant-yellow {
+  --ds-notification-color: var(--ds-text-primary);
+  --ds-notification-background-color: var(--ds-bg-yellow-solid);
+}
+
+.ds-notification--variant-pink {
+  --ds-notification-color: var(--ds-text-inverse-primary);
+  --ds-notification-background-color: var(--ds-bg-pink-solid);
 }

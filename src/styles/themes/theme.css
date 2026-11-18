@@ -5,219 +5,254 @@
 @import url("./../variables/colors.css");
 
 :root {
-  color-scheme: light dark;
+  &[data-ds-theme="light"] {
+    color-scheme: light;
+  }
 
-  /* --- TEXT COLORS --- */
-  --ds-text-primary: light-dark(var(--ds-color-gray-700), var(--ds-color-gray-100));
-  --ds-text-secondary: light-dark(var(--ds-color-gray-600), var(--ds-color-gray-300));
+  &[data-ds-theme="dark"] {
+    color-scheme: dark;
+  }
+}
+
+/* MISCELLANEOUS */
+/* --- MISC COLORS --- */
+:root {
+  --ds-focus-ring-color: light-dark(var(--ds-color-gray-700), var(--ds-color-fuschia-300));
+  --ds-focus-ring-size: var(--ds-size-3px);
+}
+
+/* TEXTS COLORS */
+:root {
+  --ds-text-primary: light-dark(var(--ds-color-gray-900), var(--ds-color-gray-50));
+  --ds-text-secondary: light-dark(var(--ds-color-gray-700), var(--ds-color-gray-300));
   --ds-text-tertiary: light-dark(var(--ds-color-gray-500), var(--ds-color-gray-400));
+
+  --ds-text-inverse-primary: light-dark(var(--ds-color-gray-50), var(--ds-color-gray-900));
+  --ds-text-inverse-secondary: light-dark(var(--ds-color-gray-300), var(--ds-color-gray-700));
+  --ds-text-inverse-tertiary: light-dark(var(--ds-color-gray-400), var(--ds-color-gray-500));
+
   --ds-text-placeholder: light-dark(var(--ds-color-gray-400), var(--ds-color-gray-500));
-  --ds-text-white: var(--ds-color-white);
-  --ds-text-black: var(--ds-color-black);
-  --ds-text-brand: light-dark(var(--ds-color-fuschia-700), var(--ds-color-fuschia-200));
-  --ds-text-alt: light-dark(var(--ds-color-teal-500), var(--ds-color-teal-400));
 
-  --ds-text-blue: light-dark(var(--ds-color-blue-700), var(--ds-color-blue-200));
-  --ds-text-info: var(--ds-text-blue);
+  --ds-text-brand-primary: light-dark(var(--ds-color-fuschia-600), var(--ds-color-fuschia-600));
+  --ds-text-brand-secondary: light-dark(var(--ds-color-fuschia-400), var(--ds-color-fuschia-700));
+  --ds-text-brand-tertiary: light-dark(var(--ds-color-fuschia-300), var(--ds-color-fuschia-800));
 
-  --ds-text-red: light-dark(var(--ds-color-red-700), var(--ds-color-red-200));
-  --ds-text-error: var(--ds-text-red);
+  --ds-text-alt-primary: light-dark(var(--ds-color-teal-600), var(--ds-color-teal-600));
+  --ds-text-alt-secondary: light-dark(var(--ds-color-teal-400), var(--ds-color-teal-700));
+  --ds-text-alt-tertiary: light-dark(var(--ds-color-teal-300), var(--ds-color-teal-800));
 
-  --ds-text-orange: light-dark(var(--ds-color-orange-700), var(--ds-color-orange-200));
-  --ds-text-warning: var(--ds-text-orange);
+  --ds-text-blue-primary: light-dark(var(--ds-color-blue-600), var(--ds-color-blue-600));
+  --ds-text-blue-secondary: light-dark(var(--ds-color-blue-400), var(--ds-color-blue-700));
+  --ds-text-blue-tertiary: light-dark(var(--ds-color-blue-300), var(--ds-color-blue-800));
 
-  --ds-text-green: light-dark(var(--ds-color-green-700), var(--ds-color-green-200));
-  --ds-text-success: var(--ds-text-green);
+  --ds-text-red-primary: light-dark(var(--ds-color-red-600), var(--ds-color-red-600));
+  --ds-text-red-secondary: light-dark(var(--ds-color-red-400), var(--ds-color-red-700));
+  --ds-text-red-tertiary: light-dark(var(--ds-color-red-300), var(--ds-color-red-800));
 
-  --ds-text-purple: light-dark(var(--ds-color-purple-700), var(--ds-color-purple-200));
-  --ds-text-yellow: light-dark(var(--ds-color-yellow-700), var(--ds-color-yellow-200));
-  --ds-text-pink: light-dark(var(--ds-color-pink-700), var(--ds-color-pink-200));
+  --ds-text-orange-primary: light-dark(var(--ds-color-orange-600), var(--ds-color-orange-600));
+  --ds-text-orange-secondary: light-dark(var(--ds-color-orange-400), var(--ds-color-orange-700));
+  --ds-text-orange-tertiary: light-dark(var(--ds-color-orange-300), var(--ds-color-orange-800));
 
-  --ds-text-inverse-primary: light-dark(var(--ds-color-gray-100), var(--ds-color-gray-900));
-  --ds-text-inverse-secondary: light-dark(var(--ds-color-gray-200), var(--ds-color-gray-800));
-  --ds-text-inverse-tertiary: light-dark(var(--ds-color-gray-300), var(--ds-color-gray-700));
+  --ds-text-green-primary: light-dark(var(--ds-color-green-600), var(--ds-color-green-600));
+  --ds-text-green-secondary: light-dark(var(--ds-color-green-400), var(--ds-color-green-700));
+  --ds-text-green-tertiary: light-dark(var(--ds-color-green-300), var(--ds-color-green-800));
 
-  /* --- BORDER COLORS --- */
-  --ds-border-primary: light-dark(var(--ds-color-gray-300), var(--ds-color-gray-700));
-  --ds-border-secondary: light-dark(var(--ds-color-gray-200), var(--ds-color-gray-800));
-  --ds-border-tertiary: light-dark(var(--ds-color-gray-100), var(--ds-color-gray-900));
-  --ds-border-solid: light-dark(var(--ds-color-gray-500), var(--ds-color-gray-400));
+  --ds-text-purple-primary: light-dark(var(--ds-color-purple-600), var(--ds-color-purple-600));
+  --ds-text-purple-secondary: light-dark(var(--ds-color-purple-400), var(--ds-color-purple-700));
+  --ds-text-purple-tertiary: light-dark(var(--ds-color-purple-300), var(--ds-color-purple-800));
 
-  --ds-border-brand-primary: light-dark(var(--ds-color-fuschia-300), var(--ds-color-fuschia-800));
-  --ds-border-brand-secondary: light-dark(var(--ds-color-fuschia-200), var(--ds-color-fuschia-900));
-  --ds-border-brand-tertiary: light-dark(var(--ds-color-fuschia-100), var(--ds-color-black));
-  --ds-border-brand-solid: var(--ds-color-fuschia-500);
+  --ds-text-yellow-primary: light-dark(var(--ds-color-yellow-600), var(--ds-color-yellow-600));
+  --ds-text-yellow-secondary: light-dark(var(--ds-color-yellow-400), var(--ds-color-yellow-700));
+  --ds-text-yellow-tertiary: light-dark(var(--ds-color-yellow-300), var(--ds-color-yellow-800));
 
-  --ds-border-alt-primary: light-dark(var(--ds-color-teal-300), var(--ds-color-teal-800));
-  --ds-border-alt-secondary: light-dark(var(--ds-color-teal-200), var(--ds-color-teal-900));
-  --ds-border-alt-tertiary: light-dark(var(--ds-color-teal-100), var(--ds-color-black));
-  --ds-border-alt-solid: var(--ds-color-teal-500);
+  --ds-text-pink-primary: light-dark(var(--ds-color-pink-600), var(--ds-color-pink-600));
+  --ds-text-pink-secondary: light-dark(var(--ds-color-pink-400), var(--ds-color-pink-700));
+  --ds-text-pink-tertiary: light-dark(var(--ds-color-pink-300), var(--ds-color-pink-800));
+}
 
-  --ds-border-blue-primary: light-dark(var(--ds-color-blue-300), var(--ds-color-blue-800));
-  --ds-border-blue-secondary: light-dark(var(--ds-color-blue-200), var(--ds-color-blue-900));
-  --ds-border-blue-tertiary: light-dark(var(--ds-color-blue-100), var(--ds-color-black));
-  --ds-border-blue-solid: var(--ds-color-blue-500);
-
-  --ds-border-info-primary: var(--ds-border-blue-primary);
-  --ds-border-info-secondary: var(--ds-border-blue-secondary);
-  --ds-border-info-tertiary: var(--ds-border-blue-tertiary);
-  --ds-border-info-solid: var(--ds-border-blue-solid);
-
-  --ds-border-red-primary: light-dark(var(--ds-color-red-300), var(--ds-color-red-800));
-  --ds-border-red-secondary: light-dark(var(--ds-color-red-200), var(--ds-color-red-900));
-  --ds-border-red-tertiary: light-dark(var(--ds-color-red-100), var(--ds-color-black));
-  --ds-border-red-solid: var(--ds-color-red-500);
-
-  --ds-border-error-primary: var(--ds-border-red-primary);
-  --ds-border-error-secondary: var(--ds-border-red-secondary);
-  --ds-border-error-tertiary: var(--ds-border-red-tertiary);
-  --ds-border-error-solid: var(--ds-border-red-solid);
-
-  --ds-border-orange-primary: light-dark(var(--ds-color-orange-300), var(--ds-color-orange-800));
-  --ds-border-orange-secondary: light-dark(var(--ds-color-orange-200), var(--ds-color-orange-900));
-  --ds-border-orange-tertiary: light-dark(var(--ds-color-orange-100), var(--ds-color-black));
-  --ds-border-orange-solid: var(--ds-color-orange-500);
-
-  --ds-border-warning-primary: var(--ds-border-orange-primary);
-  --ds-border-warning-secondary: var(--ds-border-orange-secondary);
-  --ds-border-warning-tertiary: var(--ds-border-orange-tertiary);
-  --ds-border-warning-solid: var(--ds-border-orange-solid);
-
-  --ds-border-green-primary: light-dark(var(--ds-color-green-300), var(--ds-color-green-800));
-  --ds-border-green-secondary: light-dark(var(--ds-color-green-200), var(--ds-color-green-900));
-  --ds-border-green-tertiary: light-dark(var(--ds-color-green-100), var(--ds-color-black));
-  --ds-border-green-solid: var(--ds-color-green-500);
-
-  --ds-border-success-primary: var(--ds-border-green-primary);
-  --ds-border-success-secondary: var(--ds-border-green-secondary);
-  --ds-border-success-tertiary: var(--ds-border-green-tertiary);
-  --ds-border-success-solid: var(--ds-border-green-solid);
-
-  --ds-border-purple-primary: light-dark(var(--ds-color-purple-300), var(--ds-color-purple-800));
-  --ds-border-purple-secondary: light-dark(var(--ds-color-purple-200), var(--ds-color-purple-900));
-  --ds-border-purple-tertiary: light-dark(var(--ds-color-purple-100), var(--ds-color-black));
-  --ds-border-purple-solid: var(--ds-color-purple-500);
-
-  --ds-border-yellow-primary: light-dark(var(--ds-color-yellow-300), var(--ds-color-yellow-800));
-  --ds-border-yellow-secondary: light-dark(var(--ds-color-yellow-200), var(--ds-color-yellow-900));
-  --ds-border-yellow-tertiary: light-dark(var(--ds-color-yellow-100), var(--ds-color-black));
-  --ds-border-yellow-solid: var(--ds-color-yellow-500);
-
-  --ds-border-pink-primary: light-dark(var(--ds-color-pink-300), var(--ds-color-pink-800));
-  --ds-border-pink-secondary: light-dark(var(--ds-color-pink-200), var(--ds-color-pink-900));
-  --ds-border-pink-tertiary: light-dark(var(--ds-color-pink-100), var(--ds-color-black));
-  --ds-border-pink-solid: var(--ds-color-pink-500);
-
-  --ds-border-inverse-primary: light-dark(var(--ds-color-gray-100), var(--ds-color-gray-900));
-  --ds-border-inverse-secondary: light-dark(var(--ds-color-gray-50), var(--ds-color-gray-950));
-  --ds-border-inverse-tertiary: light-dark(var(--ds-color-white), var(--ds-color-black));
-  --ds-border-inverse-solid: light-dark(var(--ds-color-white), var(--ds-color-black));
-
-  /* --- BACKGROUND COLORS --- */
-  --ds-bg-primary: light-dark(var(--ds-color-white), var(--ds-color-gray-950));
+/* --- BACKGROUND COLORS --- */
+:root {
+  --ds-bg-primary: light-dark(var(--ds-color-gray-50), var(--ds-color-gray-950));
   --ds-bg-secondary: light-dark(var(--ds-color-gray-100), var(--ds-color-gray-800));
   --ds-bg-tertiary: light-dark(var(--ds-color-gray-200), var(--ds-color-gray-700));
-  --ds-bg-solid: light-dark(var(--ds-color-gray-500), var(--ds-color-gray-400));
+
+  --ds-bg-inverse-primary: light-dark(var(--ds-color-gray-950), var(--ds-color-gray-50));
+  --ds-bg-inverse-secondary: light-dark(var(--ds-color-gray-800), var(--ds-color-gray-100));
+  --ds-bg-inverse-tertiary: light-dark(var(--ds-color-gray-700), var(--ds-color-gray-200));
 
   --ds-bg-brand-primary: light-dark(var(--ds-color-fuschia-50), var(--ds-color-fuschia-950));
-  --ds-bg-brand-secondary: light-dark(var(--ds-color-fuschia-100), var(--ds-color-fuschia-800));
-  --ds-bg-brand-tertiary: light-dark(var(--ds-color-fuschia-200), var(--ds-color-fuschia-700));
-  --ds-bg-brand-solid: var(--ds-color-fuschia-500);
+  --ds-bg-brand-secondary: light-dark(var(--ds-color-fuschia-200), var(--ds-color-fuschia-800));
+  --ds-bg-brand-tertiary: light-dark(var(--ds-color-fuschia-300), var(--ds-color-fuschia-700));
+  --ds-bg-brand-solid: light-dark(var(--ds-color-fuschia-500), var(--ds-color-fuschia-500));
   --ds-bg-brand-solid_hover: light-dark(var(--ds-color-fuschia-700), var(--ds-color-fuschia-400));
 
   --ds-bg-alt-primary: light-dark(var(--ds-color-teal-50), var(--ds-color-teal-950));
-  --ds-bg-alt-secondary: light-dark(var(--ds-color-teal-100), var(--ds-color-teal-800));
-  --ds-bg-alt-tertiary: light-dark(var(--ds-color-teal-200), var(--ds-color-teal-700));
-  --ds-bg-alt-solid: light-dark(var(--ds-color-teal-500), var(--ds-color-teal-600));
+  --ds-bg-alt-secondary: light-dark(var(--ds-color-teal-200), var(--ds-color-teal-800));
+  --ds-bg-alt-tertiary: light-dark(var(--ds-color-teal-300), var(--ds-color-teal-700));
+  --ds-bg-alt-solid: light-dark(var(--ds-color-teal-500), var(--ds-color-teal-500));
   --ds-bg-alt-solid_hover: light-dark(var(--ds-color-teal-700), var(--ds-color-teal-400));
 
-  --ds-bg-neutral-primary: light-dark(var(--ds-color-gray-50), var(--ds-color-gray-950));
-  --ds-bg-neutral-secondary: light-dark(var(--ds-color-gray-100), var(--ds-color-gray-800));
-  --ds-bg-neutral-tertiary: light-dark(var(--ds-color-gray-200), var(--ds-color-gray-700));
-  --ds-bg-neutral-solid: light-dark(var(--ds-color-gray-400), var(--ds-color-gray-600));
-  --ds-bg-neutral-solid_hover: light-dark(var(--ds-color-gray-600), var(--ds-color-gray-400));
-
   --ds-bg-blue-primary: light-dark(var(--ds-color-blue-50), var(--ds-color-blue-950));
-  --ds-bg-blue-secondary: light-dark(var(--ds-color-blue-100), var(--ds-color-blue-800));
-  --ds-bg-blue-tertiary: light-dark(var(--ds-color-blue-200), var(--ds-color-blue-700));
-  --ds-bg-blue-solid: light-dark(var(--ds-color-blue-500), var(--ds-color-blue-600));
+  --ds-bg-blue-secondary: light-dark(var(--ds-color-blue-200), var(--ds-color-blue-800));
+  --ds-bg-blue-tertiary: light-dark(var(--ds-color-blue-300), var(--ds-color-blue-700));
+  --ds-bg-blue-solid: light-dark(var(--ds-color-blue-500), var(--ds-color-blue-500));
   --ds-bg-blue-solid_hover: light-dark(var(--ds-color-blue-700), var(--ds-color-blue-400));
 
+  --ds-bg-red-primary: light-dark(var(--ds-color-red-50), var(--ds-color-red-950));
+  --ds-bg-red-secondary: light-dark(var(--ds-color-red-200), var(--ds-color-red-800));
+  --ds-bg-red-tertiary: light-dark(var(--ds-color-red-300), var(--ds-color-red-700));
+  --ds-bg-red-solid: light-dark(var(--ds-color-red-500), var(--ds-color-red-500));
+  --ds-bg-red-solid_hover: light-dark(var(--ds-color-red-700), var(--ds-color-red-400));
+
+  --ds-bg-orange-primary: light-dark(var(--ds-color-orange-50), var(--ds-color-orange-950));
+  --ds-bg-orange-secondary: light-dark(var(--ds-color-orange-200), var(--ds-color-orange-800));
+  --ds-bg-orange-tertiary: light-dark(var(--ds-color-orange-300), var(--ds-color-orange-700));
+  --ds-bg-orange-solid: light-dark(var(--ds-color-orange-500), var(--ds-color-orange-500));
+  --ds-bg-orange-solid_hover: light-dark(var(--ds-color-orange-700), var(--ds-color-orange-400));
+
+  --ds-bg-green-primary: light-dark(var(--ds-color-green-50), var(--ds-color-green-950));
+  --ds-bg-green-secondary: light-dark(var(--ds-color-green-200), var(--ds-color-green-800));
+  --ds-bg-green-tertiary: light-dark(var(--ds-color-green-300), var(--ds-color-green-700));
+  --ds-bg-green-solid: light-dark(var(--ds-color-green-500), var(--ds-color-green-500));
+  --ds-bg-green-solid_hover: light-dark(var(--ds-color-green-700), var(--ds-color-green-400));
+
+  --ds-bg-purple-primary: light-dark(var(--ds-color-purple-50), var(--ds-color-purple-950));
+  --ds-bg-purple-secondary: light-dark(var(--ds-color-purple-200), var(--ds-color-purple-800));
+  --ds-bg-purple-tertiary: light-dark(var(--ds-color-purple-300), var(--ds-color-purple-700));
+  --ds-bg-purple-solid: light-dark(var(--ds-color-purple-500), var(--ds-color-purple-500));
+  --ds-bg-purple-solid_hover: light-dark(var(--ds-color-purple-700), var(--ds-color-purple-400));
+
+  --ds-bg-yellow-primary: light-dark(var(--ds-color-yellow-50), var(--ds-color-yellow-950));
+  --ds-bg-yellow-secondary: light-dark(var(--ds-color-yellow-200), var(--ds-color-yellow-800));
+  --ds-bg-yellow-tertiary: light-dark(var(--ds-color-yellow-300), var(--ds-color-yellow-700));
+  --ds-bg-yellow-solid: light-dark(var(--ds-color-yellow-500), var(--ds-color-yellow-500));
+  --ds-bg-yellow-solid_hover: light-dark(var(--ds-color-yellow-700), var(--ds-color-yellow-400));
+
+  --ds-bg-pink-primary: light-dark(var(--ds-color-pink-50), var(--ds-color-pink-950));
+  --ds-bg-pink-secondary: light-dark(var(--ds-color-pink-200), var(--ds-color-pink-800));
+  --ds-bg-pink-tertiary: light-dark(var(--ds-color-pink-300), var(--ds-color-pink-700));
+  --ds-bg-pink-solid: light-dark(var(--ds-color-pink-500), var(--ds-color-pink-500));
+  --ds-bg-pink-solid_hover: light-dark(var(--ds-color-pink-700), var(--ds-color-pink-400));
+}
+
+/* --- BORDER COLORS --- */
+:root {
+  --ds-border-primary: light-dark(var(--ds-color-gray-300), var(--ds-color-gray-700));
+  --ds-border-secondary: light-dark(var(--ds-color-gray-200), var(--ds-color-gray-800));
+  --ds-border-tertiary: light-dark(var(--ds-color-gray-100), var(--ds-color-gray-900));
+  --ds-border-solid: light-dark(var(--ds-color-gray-600), var(--ds-color-gray-300));
+
+  --ds-border-inverse-primary: light-dark(var(--ds-color-gray-700), var(--ds-color-gray-300));
+  --ds-border-inverse-secondary: light-dark(var(--ds-color-gray-800), var(--ds-color-gray-200));
+  --ds-border-inverse-tertiary: light-dark(var(--ds-color-gray-900), var(--ds-color-gray-100));
+  --ds-border-inverse-solid: light-dark(var(--ds-color-gray-300), var(--ds-color-gray-600));
+
+  --ds-border-brand-primary: light-dark(var(--ds-color-fuschia-300), var(--ds-color-fuschia-700));
+  --ds-border-brand-secondary: light-dark(var(--ds-color-fuschia-200), var(--ds-color-fuschia-900));
+  --ds-border-brand-tertiary: light-dark(var(--ds-color-fuschia-100), var(--ds-color-fuschia-950));
+  --ds-border-brand-solid: light-dark(var(--ds-color-fuschia-600), var(--ds-color-fuschia-600));
+  --ds-border-brand-solid_hover: light-dark(var(--ds-color-fuschia-800), var(--ds-color-fuschia-500));
+
+  --ds-border-alt-primary: light-dark(var(--ds-color-teal-300), var(--ds-color-teal-700));
+  --ds-border-alt-secondary: light-dark(var(--ds-color-teal-200), var(--ds-color-teal-800));
+  --ds-border-alt-tertiary: light-dark(var(--ds-color-teal-100), var(--ds-color-teal-950));
+  --ds-border-alt-solid: light-dark(var(--ds-color-teal-600), var(--ds-color-teal-600));
+  --ds-border-alt-solid_hover: light-dark(var(--ds-color-teal-800), var(--ds-color-teal-500));
+
+  --ds-border-blue-primary: light-dark(var(--ds-color-blue-300), var(--ds-color-blue-700));
+  --ds-border-blue-secondary: light-dark(var(--ds-color-blue-200), var(--ds-color-blue-800));
+  --ds-border-blue-tertiary: light-dark(var(--ds-color-blue-100), var(--ds-color-blue-950));
+  --ds-border-blue-solid: light-dark(var(--ds-color-blue-600), var(--ds-color-blue-600));
+  --ds-border-blue-solid_hover: light-dark(var(--ds-color-blue-800), var(--ds-color-blue-500));
+
+  --ds-border-red-primary: light-dark(var(--ds-color-red-300), var(--ds-color-red-700));
+  --ds-border-red-secondary: light-dark(var(--ds-color-red-200), var(--ds-color-red-800));
+  --ds-border-red-tertiary: light-dark(var(--ds-color-red-100), var(--ds-color-red-950));
+  --ds-border-red-solid: light-dark(var(--ds-color-red-600), var(--ds-color-red-600));
+  --ds-border-red-solid_hover: light-dark(var(--ds-color-red-800), var(--ds-color-red-500));
+
+  --ds-border-orange-primary: light-dark(var(--ds-color-orange-300), var(--ds-color-orange-700));
+  --ds-border-orange-secondary: light-dark(var(--ds-color-orange-200), var(--ds-color-orange-800));
+  --ds-border-orange-tertiary: light-dark(var(--ds-color-orange-100), var(--ds-color-orange-950));
+  --ds-border-orange-solid: light-dark(var(--ds-color-orange-600), var(--ds-color-orange-600));
+  --ds-border-orange-solid_hover: light-dark(var(--ds-color-orange-800), var(--ds-color-orange-500));
+
+  --ds-border-green-primary: light-dark(var(--ds-color-green-300), var(--ds-color-green-700));
+  --ds-border-green-secondary: light-dark(var(--ds-color-green-200), var(--ds-color-green-800));
+  --ds-border-green-tertiary: light-dark(var(--ds-color-green-100), var(--ds-color-green-950));
+  --ds-border-green-solid: light-dark(var(--ds-color-green-600), var(--ds-color-green-600));
+  --ds-border-green-solid_hover: light-dark(var(--ds-color-green-800), var(--ds-color-green-500));
+
+  --ds-border-purple-primary: light-dark(var(--ds-color-purple-300), var(--ds-color-purple-700));
+  --ds-border-purple-secondary: light-dark(var(--ds-color-purple-200), var(--ds-color-purple-800));
+  --ds-border-purple-tertiary: light-dark(var(--ds-color-purple-100), var(--ds-color-purple-950));
+  --ds-border-purple-solid: light-dark(var(--ds-color-purple-600), var(--ds-color-purple-600));
+  --ds-border-purple-solid_hover: light-dark(var(--ds-color-purple-800), var(--ds-color-purple-500));
+
+  --ds-border-yellow-primary: light-dark(var(--ds-color-yellow-300), var(--ds-color-yellow-700));
+  --ds-border-yellow-secondary: light-dark(var(--ds-color-yellow-200), var(--ds-color-yellow-800));
+  --ds-border-yellow-tertiary: light-dark(var(--ds-color-yellow-100), var(--ds-color-yellow-950));
+  --ds-border-yellow-solid: light-dark(var(--ds-color-yellow-600), var(--ds-color-yellow-600));
+  --ds-border-yellow-solid_hover: light-dark(var(--ds-color-yellow-800), var(--ds-color-yellow-500));
+
+  --ds-border-pink-primary: light-dark(var(--ds-color-pink-300), var(--ds-color-pink-700));
+  --ds-border-pink-secondary: light-dark(var(--ds-color-pink-200), var(--ds-color-pink-800));
+  --ds-border-pink-tertiary: light-dark(var(--ds-color-pink-100), var(--ds-color-pink-950));
+  --ds-border-pink-solid: light-dark(var(--ds-color-pink-600), var(--ds-color-pink-600));
+  --ds-border-pink-solid_hover: light-dark(var(--ds-color-pink-800), var(--ds-color-pink-500));
+}
+
+/* SEMLANTIC ALIASES */
+:root {
+  /* INFO */
+  --ds-text-info: var(--ds-text-blue-primary);
   --ds-bg-info-primary: var(--ds-bg-blue-primary);
   --ds-bg-info-secondary: var(--ds-bg-blue-secondary);
   --ds-bg-info-tertiary: var(--ds-bg-blue-tertiary);
   --ds-bg-info-solid: var(--ds-bg-blue-solid);
   --ds-bg-info-solid_hover: var(--ds-bg-blue-solid_hover);
+  --ds-border-info-primary: var(--ds-border-blue-primary);
+  --ds-border-info-secondary: var(--ds-border-blue-secondary);
+  --ds-border-info-tertiary: var(--ds-border-blue-tertiary);
+  --ds-border-info-solid: var(--ds-border-blue-solid);
+  --ds-border-info-solid_hover: var(--ds-border-blue-solid_hover);
 
-  --ds-bg-red-primary: light-dark(var(--ds-color-red-50), var(--ds-color-red-950));
-  --ds-bg-red-secondary: light-dark(var(--ds-color-red-100), var(--ds-color-red-800));
-  --ds-bg-red-tertiary: light-dark(var(--ds-color-red-200), var(--ds-color-red-700));
-  --ds-bg-red-solid: light-dark(var(--ds-color-red-500), var(--ds-color-red-600));
-  --ds-bg-red-solid_hover: light-dark(var(--ds-color-red-700), var(--ds-color-red-400));
-
+  /* ERROR */
+  --ds-text-error: var(--ds-text-red-primary);
   --ds-bg-error-primary: var(--ds-bg-red-primary);
   --ds-bg-error-secondary: var(--ds-bg-red-secondary);
   --ds-bg-error-tertiary: var(--ds-bg-red-tertiary);
   --ds-bg-error-solid: var(--ds-bg-red-solid);
   --ds-bg-error-solid_hover: var(--ds-bg-red-solid_hover);
+  --ds-border-error-primary: var(--ds-border-red-primary);
+  --ds-border-error-secondary: var(--ds-border-red-secondary);
+  --ds-border-error-tertiary: var(--ds-border-red-tertiary);
+  --ds-border-error-solid: var(--ds-border-red-solid);
+  --ds-border-error-solid_hover: var(--ds-border-red-solid_hover);
 
-  --ds-bg-orange-primary: light-dark(var(--ds-color-orange-50), var(--ds-color-orange-950));
-  --ds-bg-orange-secondary: light-dark(var(--ds-color-orange-100), var(--ds-color-orange-800));
-  --ds-bg-orange-tertiary: light-dark(var(--ds-color-orange-200), var(--ds-color-orange-700));
-  --ds-bg-orange-solid: light-dark(var(--ds-color-orange-500), var(--ds-color-orange-600));
-  --ds-bg-orange-solid_hover: light-dark(var(--ds-color-orange-700), var(--ds-color-orange-400));
-
+  /* WARNING */
+  --ds-text-warning: var(--ds-text-orange-primary);
   --ds-bg-warning-primary: var(--ds-bg-orange-primary);
   --ds-bg-warning-secondary: var(--ds-bg-orange-secondary);
   --ds-bg-warning-tertiary: var(--ds-bg-orange-tertiary);
   --ds-bg-warning-solid: var(--ds-bg-orange-solid);
   --ds-bg-warning-solid_hover: var(--ds-bg-orange-solid_hover);
+  --ds-border-warning-primary: var(--ds-border-orange-primary);
+  --ds-border-warning-secondary: var(--ds-border-orange-secondary);
+  --ds-border-warning-tertiary: var(--ds-border-orange-tertiary);
+  --ds-border-warning-solid: var(--ds-border-orange-solid);
+  --ds-border-warning-solid_hover: var(--ds-border-orange-solid_hover);
 
-  --ds-bg-green-primary: light-dark(var(--ds-color-green-50), var(--ds-color-green-950));
-  --ds-bg-green-secondary: light-dark(var(--ds-color-green-100), var(--ds-color-green-800));
-  --ds-bg-green-tertiary: light-dark(var(--ds-color-green-200), var(--ds-color-green-700));
-  --ds-bg-green-solid: light-dark(var(--ds-color-green-500), var(--ds-color-green-600));
-  --ds-bg-green-solid_hover: light-dark(var(--ds-color-green-700), var(--ds-color-green-400));
-
+  /* SUCCESS */
+  --ds-text-success: var(--ds-text-green-primary);
   --ds-bg-success-primary: var(--ds-bg-green-primary);
   --ds-bg-success-secondary: var(--ds-bg-green-secondary);
   --ds-bg-success-tertiary: var(--ds-bg-green-tertiary);
   --ds-bg-success-solid: var(--ds-bg-green-solid);
   --ds-bg-success-solid_hover: var(--ds-bg-green-solid_hover);
-
-  --ds-bg-purple-primary: light-dark(var(--ds-color-purple-50), var(--ds-color-purple-950));
-  --ds-bg-purple-secondary: light-dark(var(--ds-color-purple-100), var(--ds-color-purple-800));
-  --ds-bg-purple-tertiary: light-dark(var(--ds-color-purple-200), var(--ds-color-purple-700));
-  --ds-bg-purple-solid: light-dark(var(--ds-color-purple-500), var(--ds-color-purple-600));
-  --ds-bg-purple-solid_hover: light-dark(var(--ds-color-purple-700), var(--ds-color-purple-400));
-
-  --ds-bg-yellow-primary: light-dark(var(--ds-color-yellow-50), var(--ds-color-yellow-950));
-  --ds-bg-yellow-secondary: light-dark(var(--ds-color-yellow-100), var(--ds-color-yellow-800));
-  --ds-bg-yellow-tertiary: light-dark(var(--ds-color-yellow-200), var(--ds-color-yellow-700));
-  --ds-bg-yellow-solid: light-dark(var(--ds-color-yellow-500), var(--ds-color-yellow-600));
-  --ds-bg-yellow-solid_hover: light-dark(var(--ds-color-yellow-600), var(--ds-color-yellow-400));
-
-  --ds-bg-pink-primary: light-dark(var(--ds-color-pink-50), var(--ds-color-pink-950));
-  --ds-bg-pink-secondary: light-dark(var(--ds-color-pink-100), var(--ds-color-pink-800));
-  --ds-bg-pink-tertiary: light-dark(var(--ds-color-pink-200), var(--ds-color-pink-700));
-  --ds-bg-pink-solid: light-dark(var(--ds-color-pink-500), var(--ds-color-pink-600));
-  --ds-bg-pink-solid_hover: light-dark(var(--ds-color-pink-700), var(--ds-color-pink-400));
-
-  --ds-bg-inverse-primary: light-dark(var(--ds-color-gray-700), var(--ds-color-black));
-  --ds-bg-inverse-secondary: light-dark(var(--ds-color-gray-600), var(--ds-color-gray-950));
-  --ds-bg-inverse-tertiary: light-dark(var(--ds-color-gray-500), var(--ds-color-gray-900));
-  --ds-bg-inverse-solid: light-dark(var(--ds-color-white), var(--ds-color-black));
-  --ds-bg-inverse-solid_hover: light-dark(var(--ds-color-gray-100), var(--ds-color-gray-900));
-
-  /* --- MISC COLORS --- */
-  --ds-focus-ring-color: light-dark(var(--ds-color-gray-700), var(--ds-color-gray-300));
-  --ds-focus-ring-size: var(--ds-size-3px);
-}
-
-:root[data-ds-theme="light"] {
-  color-scheme: light;
-}
-
-:root[data-ds-theme="dark"] {
-  color-scheme: dark;
+  --ds-border-success-primary: var(--ds-border-green-primary);
+  --ds-border-success-secondary: var(--ds-border-green-secondary);
+  --ds-border-success-tertiary: var(--ds-border-green-tertiary);
+  --ds-border-success-solid: var(--ds-border-green-solid);
+  --ds-border-success-solid_hover: var(--ds-border-green-solid_hover);
 }

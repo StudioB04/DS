@@ -83,6 +83,7 @@
   --spacing-72px: var(--ds-size-72px);
   --spacing-80px: var(--ds-size-80px);
   --spacing-96px: var(--ds-size-96px);
+
   /* ============================================================
      FONT FAMILY — from variables/typography.css
      ============================================================ */
@@ -94,10 +95,14 @@
   /* ============================================================
      FONT WEIGHT — from variables/typography.css
      ============================================================ */
+  --font-weight-thin: var(--ds-font-weight-thin);
+  --font-weight-light: var(--ds-font-weight-light);
   --font-weight-regular: var(--ds-font-weight-regular);
   --font-weight-medium: var(--ds-font-weight-medium);
   --font-weight-semibold: var(--ds-font-weight-semibold);
   --font-weight-bold: var(--ds-font-weight-bold);
+  --font-weight-extrabold: var(--ds-font-weight-extrabold);
+  --font-weight-extrabold: var(--ds-font-weight-extrabold);
 
   /* ============================================================
      FONT SIZE — from variables/typography.css
@@ -107,12 +112,14 @@
   --text-md: var(--ds-font-size-text-md);
   --text-lg: var(--ds-font-size-text-lg);
   --text-xl: var(--ds-font-size-text-xl);
+  --text-2xl: var(--ds-font-size-text-2xl);
   --text-title-2xs: var(--ds-font-size-title-2xs);
   --text-title-xs: var(--ds-font-size-title-xs);
   --text-title-sm: var(--ds-font-size-title-sm);
   --text-title-md: var(--ds-font-size-title-md);
   --text-title-lg: var(--ds-font-size-title-lg);
   --text-title-xl: var(--ds-font-size-title-xl);
+  --text-title-2xl: var(--ds-font-size-title-2xl);
 
   /* ============================================================
      LINE HEIGHT — from variables/typography.css
@@ -122,21 +129,20 @@
   --leading-md: var(--ds-line-height-text-md);
   --leading-lg: var(--ds-line-height-text-lg);
   --leading-xl: var(--ds-line-height-text-xl);
+  --leading-2xl: var(--ds-line-height-text-2xl);
   --leading-title-2xs: var(--ds-line-height-title-2xs);
   --leading-title-xs: var(--ds-line-height-title-xs);
   --leading-title-sm: var(--ds-line-height-title-sm);
   --leading-title-md: var(--ds-line-height-title-md);
   --leading-title-lg: var(--ds-line-height-title-lg);
   --leading-title-xl: var(--ds-line-height-title-xl);
+  --leading-title-2xl: var(--ds-line-height-title-2xl);
 
   /* ============================================================
      PRIMITIVE COLORS — from variables/colors.css
      ============================================================ */
   --color-*: initial;
-  --color-white: var(--ds-color-white);
-  --color-black: var(--ds-color-black);
 
-  --color-gray-050: var(--ds-color-gray-50);
   --color-gray-50: var(--ds-color-gray-50);
   --color-gray-100: var(--ds-color-gray-100);
   --color-gray-200: var(--ds-color-gray-200);
@@ -149,7 +155,6 @@
   --color-gray-900: var(--ds-color-gray-900);
   --color-gray-950: var(--ds-color-gray-950);
 
-  --color-teal-050: var(--ds-color-teal-50);
   --color-teal-50: var(--ds-color-teal-50);
   --color-teal-100: var(--ds-color-teal-100);
   --color-teal-200: var(--ds-color-teal-200);
@@ -160,8 +165,8 @@
   --color-teal-700: var(--ds-color-teal-700);
   --color-teal-800: var(--ds-color-teal-800);
   --color-teal-900: var(--ds-color-teal-900);
+  --color-teal-950: var(--ds-color-teal-950);
 
-  --color-fuschia-050: var(--ds-color-fuschia-50);
   --color-fuschia-50: var(--ds-color-fuschia-50);
   --color-fuschia-100: var(--ds-color-fuschia-100);
   --color-fuschia-200: var(--ds-color-fuschia-200);
@@ -172,8 +177,8 @@
   --color-fuschia-700: var(--ds-color-fuschia-700);
   --color-fuschia-800: var(--ds-color-fuschia-800);
   --color-fuschia-900: var(--ds-color-fuschia-900);
+  --color-fuschia-950: var(--ds-color-fuschia-950);
 
-  --color-green-050: var(--ds-color-green-50);
   --color-green-50: var(--ds-color-green-50);
   --color-green-100: var(--ds-color-green-100);
   --color-green-200: var(--ds-color-green-200);
@@ -186,7 +191,6 @@
   --color-green-900: var(--ds-color-green-900);
   --color-green-950: var(--ds-color-green-950);
 
-  --color-orange-050: var(--ds-color-orange-50);
   --color-orange-50: var(--ds-color-orange-50);
   --color-orange-100: var(--ds-color-orange-100);
   --color-orange-200: var(--ds-color-orange-200);
@@ -199,7 +203,6 @@
   --color-orange-900: var(--ds-color-orange-900);
   --color-orange-950: var(--ds-color-orange-950);
 
-  --color-blue-050: var(--ds-color-blue-50);
   --color-blue-50: var(--ds-color-blue-50);
   --color-blue-100: var(--ds-color-blue-100);
   --color-blue-200: var(--ds-color-blue-200);
@@ -212,7 +215,6 @@
   --color-blue-900: var(--ds-color-blue-900);
   --color-blue-950: var(--ds-color-blue-950);
 
-  --color-red-050: var(--ds-color-red-50);
   --color-red-50: var(--ds-color-red-50);
   --color-red-100: var(--ds-color-red-100);
   --color-red-200: var(--ds-color-red-200);
@@ -262,109 +264,65 @@
   --color-pink-950: var(--ds-color-pink-950);
 
   /* ============================================================
-     SEMANTIC TEXT COLORS — specific namespace so classes read
-     text-primary, text-brand, etc. instead of text-text-primary
+     SEMANTIC TEXT COLORS
      ============================================================ */
   --text-color-primary: var(--ds-text-primary);
   --text-color-secondary: var(--ds-text-secondary);
   --text-color-tertiary: var(--ds-text-tertiary);
+
   --text-color-placeholder: var(--ds-text-placeholder);
-  --text-color-white: var(--ds-text-white);
-  --text-color-black: var(--ds-text-black);
-  --text-color-inverse: var(--ds-text-inverse-primary);
-  --text-color-brand: var(--ds-text-brand);
-  --text-color-alt: var(--ds-text-alt);
-  --text-color-info: var(--ds-text-info);
-  --text-color-error: var(--ds-text-error);
-  --text-color-warning: var(--ds-text-warning);
-  --text-color-success: var(--ds-text-success);
-  --text-color-blue: var(--ds-text-blue);
-  --text-color-green: var(--ds-text-green);
-  --text-color-orange: var(--ds-text-orange);
-  --text-color-pink: var(--ds-text-pink);
-  --text-color-purple: var(--ds-text-purple);
-  --text-color-red: var(--ds-text-red);
-  --text-color-yellow: var(--ds-text-yellow);
 
-  /* ============================================================
-     SEMANTIC BORDER COLORS — specific namespace so classes read
-     border-primary, border-brand-solid, etc. instead of
-     border-border-primary
-     ============================================================ */
-  --border-color-primary: var(--ds-border-primary);
-  --border-color-secondary: var(--ds-border-secondary);
-  --border-color-tertiary: var(--ds-border-tertiary);
-  --border-color-solid: var(--ds-border-solid);
+  --text-color-inverse-primary: var(--ds-text-inverse-primary);
+  --text-color-inverse-secondary: var(--ds-text-inverse-secondary);
+  --text-color-inverse-tertiary: var(--ds-text-inverse-tertiary);
 
-  --border-color-brand-primary: var(--ds-border-brand-primary);
-  --border-color-brand-secondary: var(--ds-border-brand-secondary);
-  --border-color-brand-tertiary: var(--ds-border-brand-tertiary);
-  --border-color-brand-solid: var(--ds-border-brand-solid);
+  --text-color-brand-primary: var(--ds-text-brand-primary);
+  --text-color-brand-secondary: var(--ds-text-brand-secondary);
+  --text-color-brand-tertiary: var(--ds-text-brand-tertiary);
 
-  --border-color-alt-primary: var(--ds-border-alt-primary);
-  --border-color-alt-secondary: var(--ds-border-alt-secondary);
-  --border-color-alt-tertiary: var(--ds-border-alt-tertiary);
-  --border-color-alt-solid: var(--ds-border-alt-solid);
+  --text-color-alt-primary: var(--ds-text-alt-primary);
+  --text-color-alt-secondary: var(--ds-text-alt-secondary);
+  --text-color-alt-tertiary: var(--ds-text-alt-tertiary);
 
-  --border-color-info-primary: var(--ds-border-info-primary);
-  --border-color-info-secondary: var(--ds-border-info-secondary);
-  --border-color-info-tertiary: var(--ds-border-info-tertiary);
-  --border-color-info-solid: var(--ds-border-info-solid);
+  --text-color-info-primary: var(--ds-text-blue-primary);
+  --text-color-info-secondary: var(--ds-text-blue-secondary);
+  --text-color-info-tertiary: var(--ds-text-blue-tertiary);
+  --text-color-blue-primary: var(--ds-text-blue-primary);
+  --text-color-blue-secondary: var(--ds-text-blue-secondary);
+  --text-color-blue-tertiary: var(--ds-text-blue-tertiary);
 
-  --border-color-error-primary: var(--ds-border-error-primary);
-  --border-color-error-secondary: var(--ds-border-error-secondary);
-  --border-color-error-tertiary: var(--ds-border-error-tertiary);
-  --border-color-error-solid: var(--ds-border-error-solid);
+  --text-color-error-primary: var(--ds-text-red-primary);
+  --text-color-error-secondary: var(--ds-text-red-secondary);
+  --text-color-error-tertiary: var(--ds-text-red-tertiary);
+  --text-color-red-primary: var(--ds-text-red-primary);
+  --text-color-red-secondary: var(--ds-text-red-secondary);
+  --text-color-red-tertiary: var(--ds-text-red-tertiary);
 
-  --border-color-warning-primary: var(--ds-border-warning-primary);
-  --border-color-warning-secondary: var(--ds-border-warning-secondary);
-  --border-color-warning-tertiary: var(--ds-border-warning-tertiary);
-  --border-color-warning-solid: var(--ds-border-warning-solid);
+  --text-color-warning-primary: var(--ds-text-orange-primary);
+  --text-color-warning-secondary: var(--ds-text-orange-secondary);
+  --text-color-warning-tertiary: var(--ds-text-orange-tertiary);
+  --text-color-orange-primary: var(--ds-text-orange-primary);
+  --text-color-orange-secondary: var(--ds-text-orange-secondary);
+  --text-color-orange-tertiary: var(--ds-text-orange-tertiary);
 
-  --border-color-success-primary: var(--ds-border-success-primary);
-  --border-color-success-secondary: var(--ds-border-success-secondary);
-  --border-color-success-tertiary: var(--ds-border-success-tertiary);
-  --border-color-success-solid: var(--ds-border-success-solid);
+  --text-color-success-primary: var(--ds-text-green-primary);
+  --text-color-success-secondary: var(--ds-text-green-secondary);
+  --text-color-success-tertiary: var(--ds-text-green-tertiary);
+  --text-color-green-primary: var(--ds-text-green-primary);
+  --text-color-green-secondary: var(--ds-text-green-secondary);
+  --text-color-green-tertiary: var(--ds-text-green-tertiary);
 
-  --border-color-blue-primary: var(--ds-border-blue-primary);
-  --border-color-blue-secondary: var(--ds-border-blue-secondary);
-  --border-color-blue-tertiary: var(--ds-border-blue-tertiary);
-  --border-color-blue-solid: var(--ds-border-blue-solid);
+  --text-color-purple-primary: var(--ds-text-purple-primary);
+  --text-color-purple-secondary: var(--ds-text-purple-secondary);
+  --text-color-purple-tertiary: var(--ds-text-purple-tertiary);
 
-  --border-color-green-primary: var(--ds-border-green-primary);
-  --border-color-green-secondary: var(--ds-border-green-secondary);
-  --border-color-green-tertiary: var(--ds-border-green-tertiary);
-  --border-color-green-solid: var(--ds-border-green-solid);
+  --text-color-pink-primary: var(--ds-text-pink-primary);
+  --text-color-pink-secondary: var(--ds-text-pink-secondary);
+  --text-color-pink-tertiary: var(--ds-text-pink-tertiary);
 
-  --border-color-orange-primary: var(--ds-border-orange-primary);
-  --border-color-orange-secondary: var(--ds-border-orange-secondary);
-  --border-color-orange-tertiary: var(--ds-border-orange-tertiary);
-  --border-color-orange-solid: var(--ds-border-orange-solid);
-
-  --border-color-pink-primary: var(--ds-border-pink-primary);
-  --border-color-pink-secondary: var(--ds-border-pink-secondary);
-  --border-color-pink-tertiary: var(--ds-border-pink-tertiary);
-  --border-color-pink-solid: var(--ds-border-pink-solid);
-
-  --border-color-purple-primary: var(--ds-border-purple-primary);
-  --border-color-purple-secondary: var(--ds-border-purple-secondary);
-  --border-color-purple-tertiary: var(--ds-border-purple-tertiary);
-  --border-color-purple-solid: var(--ds-border-purple-solid);
-
-  --border-color-red-primary: var(--ds-border-red-primary);
-  --border-color-red-secondary: var(--ds-border-red-secondary);
-  --border-color-red-tertiary: var(--ds-border-red-tertiary);
-  --border-color-red-solid: var(--ds-border-red-solid);
-
-  --border-color-yellow-primary: var(--ds-border-yellow-primary);
-  --border-color-yellow-secondary: var(--ds-border-yellow-secondary);
-  --border-color-yellow-tertiary: var(--ds-border-yellow-tertiary);
-  --border-color-yellow-solid: var(--ds-border-yellow-solid);
-
-  --border-color-inverse-primary: var(--ds-border-inverse-primary);
-  --border-color-inverse-secondary: var(--ds-border-inverse-secondary);
-  --border-color-inverse-tertiary: var(--ds-border-inverse-tertiary);
-  --border-color-inverse-solid: var(--ds-border-inverse-solid);
+  --text-color-yellow-primary: var(--ds-text-yellow-primary);
+  --text-color-yellow-secondary: var(--ds-text-yellow-secondary);
+  --text-color-yellow-tertiary: var(--ds-text-yellow-tertiary);
 
   /* ============================================================
      SEMANTIC BACKGROUND COLORS — specific namespace so classes
@@ -373,7 +331,10 @@
   --background-color-primary: var(--ds-bg-primary);
   --background-color-secondary: var(--ds-bg-secondary);
   --background-color-tertiary: var(--ds-bg-tertiary);
-  --background-color-solid: var(--ds-bg-solid);
+
+  --background-color-inverse-primary: var(--ds-bg-inverse-primary);
+  --background-color-inverse-secondary: var(--ds-bg-inverse-secondary);
+  --background-color-inverse-tertiary: var(--ds-bg-inverse-tertiary);
 
   --background-color-brand-primary: var(--ds-bg-brand-primary);
   --background-color-brand-secondary: var(--ds-bg-brand-secondary);
@@ -387,59 +348,49 @@
   --background-color-alt-solid: var(--ds-bg-alt-solid);
   --background-color-alt-solid_hover: var(--ds-bg-alt-solid_hover);
 
-  --background-color-info-primary: var(--ds-bg-info-primary);
-  --background-color-info-secondary: var(--ds-bg-info-secondary);
-  --background-color-info-tertiary: var(--ds-bg-info-tertiary);
-  --background-color-info-solid: var(--ds-bg-info-solid);
-  --background-color-info-solid_hover: var(--ds-bg-info-solid_hover);
-
-  --background-color-error-primary: var(--ds-bg-error-primary);
-  --background-color-error-secondary: var(--ds-bg-error-secondary);
-  --background-color-error-tertiary: var(--ds-bg-error-tertiary);
-  --background-color-error-solid: var(--ds-bg-error-solid);
-  --background-color-error-solid_hover: var(--ds-bg-error-solid_hover);
-
-  --background-color-warning-primary: var(--ds-bg-warning-primary);
-  --background-color-warning-secondary: var(--ds-bg-warning-secondary);
-  --background-color-warning-tertiary: var(--ds-bg-warning-tertiary);
-  --background-color-warning-solid: var(--ds-bg-warning-solid);
-  --background-color-warning-solid_hover: var(--ds-bg-warning-solid_hover);
-
-  --background-color-success-primary: var(--ds-bg-success-primary);
-  --background-color-success-secondary: var(--ds-bg-success-secondary);
-  --background-color-success-tertiary: var(--ds-bg-success-tertiary);
-  --background-color-success-solid: var(--ds-bg-success-solid);
-  --background-color-success-solid_hover: var(--ds-bg-success-solid_hover);
-
-  --background-color-neutral-primary: var(--ds-bg-neutral-primary);
-  --background-color-neutral-secondary: var(--ds-bg-neutral-secondary);
-  --background-color-neutral-tertiary: var(--ds-bg-neutral-tertiary);
-  --background-color-neutral-solid: var(--ds-bg-neutral-solid);
-  --background-color-neutral-solid_hover: var(--ds-bg-neutral-solid_hover);
-
+  --background-color-info-primary: var(--ds-bg-blue-primary);
+  --background-color-info-secondary: var(--ds-bg-blue-secondary);
+  --background-color-info-tertiary: var(--ds-bg-blue-tertiary);
+  --background-color-info-solid: var(--ds-bg-blue-solid);
+  --background-color-info-solid_hover: var(--ds-bg-blue-solid_hover);
   --background-color-blue-primary: var(--ds-bg-blue-primary);
   --background-color-blue-secondary: var(--ds-bg-blue-secondary);
   --background-color-blue-tertiary: var(--ds-bg-blue-tertiary);
   --background-color-blue-solid: var(--ds-bg-blue-solid);
   --background-color-blue-solid_hover: var(--ds-bg-blue-solid_hover);
 
-  --background-color-green-primary: var(--ds-bg-green-primary);
-  --background-color-green-secondary: var(--ds-bg-green-secondary);
-  --background-color-green-tertiary: var(--ds-bg-green-tertiary);
-  --background-color-green-solid: var(--ds-bg-green-solid);
-  --background-color-green-solid_hover: var(--ds-bg-green-solid_hover);
+  --background-color-error-primary: var(--ds-bg-red-primary);
+  --background-color-error-secondary: var(--ds-bg-red-secondary);
+  --background-color-error-tertiary: var(--ds-bg-red-tertiary);
+  --background-color-error-solid: var(--ds-bg-red-solid);
+  --background-color-error-solid_hover: var(--ds-bg-red-solid_hover);
+  --background-color-red-primary: var(--ds-bg-red-primary);
+  --background-color-red-secondary: var(--ds-bg-red-secondary);
+  --background-color-red-tertiary: var(--ds-bg-red-tertiary);
+  --background-color-red-solid: var(--ds-bg-red-solid);
+  --background-color-red-solid_hover: var(--ds-bg-red-solid_hover);
 
+  --background-color-warning-primary: var(--ds-bg-orange-primary);
+  --background-color-warning-secondary: var(--ds-bg-orange-secondary);
+  --background-color-warning-tertiary: var(--ds-bg-orange-tertiary);
+  --background-color-warning-solid: var(--ds-bg-orange-solid);
+  --background-color-warning-solid_hover: var(--ds-bg-orange-solid_hover);
   --background-color-orange-primary: var(--ds-bg-orange-primary);
   --background-color-orange-secondary: var(--ds-bg-orange-secondary);
   --background-color-orange-tertiary: var(--ds-bg-orange-tertiary);
   --background-color-orange-solid: var(--ds-bg-orange-solid);
   --background-color-orange-solid_hover: var(--ds-bg-orange-solid_hover);
 
-  --background-color-pink-primary: var(--ds-bg-pink-primary);
-  --background-color-pink-secondary: var(--ds-bg-pink-secondary);
-  --background-color-pink-tertiary: var(--ds-bg-pink-tertiary);
-  --background-color-pink-solid: var(--ds-bg-pink-solid);
-  --background-color-pink-solid_hover: var(--ds-bg-pink-solid_hover);
+  --background-color-success-primary: var(--ds-bg-green-primary);
+  --background-color-success-secondary: var(--ds-bg-green-secondary);
+  --background-color-success-tertiary: var(--ds-bg-green-tertiary);
+  --background-color-success-solid: var(--ds-bg-green-solid);
+  --background-color-success-solid_hover: var(--ds-bg-green-solid_hover);
+  --background-color-green-primary: var(--ds-bg-green-primary);
+  --background-color-green-secondary: var(--ds-bg-green-secondary);
+  --background-color-green-tertiary: var(--ds-bg-green-tertiary);
+  --background-color-green-solid: var(--ds-bg-green-solid);
+  --background-color-green-solid_hover: var(--ds-bg-green-solid_hover);
 
   --background-color-purple-primary: var(--ds-bg-purple-primary);
   --background-color-purple-secondary: var(--ds-bg-purple-secondary);
@@ -447,28 +398,104 @@
   --background-color-purple-solid: var(--ds-bg-purple-solid);
   --background-color-purple-solid_hover: var(--ds-bg-purple-solid_hover);
 
-  --background-color-red-primary: var(--ds-bg-red-primary);
-  --background-color-red-secondary: var(--ds-bg-red-secondary);
-  --background-color-red-tertiary: var(--ds-bg-red-tertiary);
-  --background-color-red-solid: var(--ds-bg-red-solid);
-  --background-color-red-solid_hover: var(--ds-bg-red-solid_hover);
-
   --background-color-yellow-primary: var(--ds-bg-yellow-primary);
   --background-color-yellow-secondary: var(--ds-bg-yellow-secondary);
   --background-color-yellow-tertiary: var(--ds-bg-yellow-tertiary);
   --background-color-yellow-solid: var(--ds-bg-yellow-solid);
   --background-color-yellow-solid_hover: var(--ds-bg-yellow-solid_hover);
 
-  --background-color-inverse-primary: var(--ds-bg-inverse-primary);
-  --background-color-inverse-secondary: var(--ds-bg-inverse-secondary);
-  --background-color-inverse-tertiary: var(--ds-bg-inverse-tertiary);
-  --background-color-inverse-solid: var(--ds-bg-inverse-solid);
-  --background-color-inverse-solid_hover: var(--ds-bg-inverse-solid_hover);
+  --background-color-pink-primary: var(--ds-bg-pink-primary);
+  --background-color-pink-secondary: var(--ds-bg-pink-secondary);
+  --background-color-pink-tertiary: var(--ds-bg-pink-tertiary);
+  --background-color-pink-solid: var(--ds-bg-pink-solid);
+  --background-color-pink-solid_hover: var(--ds-bg-pink-solid_hover);
 
   /* ============================================================
-     FOCUS
+     SEMANTIC BORDER COLORS
      ============================================================ */
-  --color-focus-ring: var(--ds-focus-ring-color);
+  --border-color-primary: var(--ds-border-primary);
+  --border-color-secondary: var(--ds-border-secondary);
+  --border-color-tertiary: var(--ds-border-tertiary);
+  --border-color-solid: var(--ds-border-solid);
+
+  --border-color-inverse-primary: var(--ds-border-inverse-primary);
+  --border-color-inverse-secondary: var(--ds-border-inverse-secondary);
+  --border-color-inverse-tertiary: var(--ds-border-inverse-tertiary);
+  --border-color-inverse-solid: var(--ds-border-inverse-solid);
+
+  --border-color-brand-primary: var(--ds-border-brand-primary);
+  --border-color-brand-secondary: var(--ds-border-brand-secondary);
+  --border-color-brand-tertiary: var(--ds-border-brand-tertiary);
+  --border-color-brand-solid: var(--ds-border-brand-solid);
+  --border-color-brand-solid_hover: var(--ds-border-brand-solid_hover);
+
+  --border-color-alt-primary: var(--ds-border-alt-primary);
+  --border-color-alt-secondary: var(--ds-border-alt-secondary);
+  --border-color-alt-tertiary: var(--ds-border-alt-tertiary);
+  --border-color-alt-solid: var(--ds-border-alt-solid);
+  --border-color-alt-solid_hover: var(--ds-border-alt-solid_hover);
+
+  --border-color-blue-primary: var(--ds-border-blue-primary);
+  --border-color-blue-secondary: var(--ds-border-blue-secondary);
+  --border-color-blue-tertiary: var(--ds-border-blue-tertiary);
+  --border-color-blue-solid: var(--ds-border-blue-solid);
+  --border-color-blue-solid_hover: var(--ds-border-blue-solid_hover);
+  --border-color-info-primary: var(--ds-border-blue-primary);
+  --border-color-info-secondary: var(--ds-border-blue-secondary);
+  --border-color-info-tertiary: var(--ds-border-blue-tertiary);
+  --border-color-info-solid: var(--ds-border-blue-solid);
+  --border-color-info-solid_hover: var(--ds-border-blue-solid_hover);
+
+  --border-color-red-primary: var(--ds-border-red-primary);
+  --border-color-red-secondary: var(--ds-border-red-secondary);
+  --border-color-red-tertiary: var(--ds-border-red-tertiary);
+  --border-color-red-solid: var(--ds-border-red-solid);
+  --border-color-red-solid_hover: var(--ds-border-red-solid_hover);
+  --border-color-error-primary: var(--ds-border-red-primary);
+  --border-color-error-secondary: var(--ds-border-red-secondary);
+  --border-color-error-tertiary: var(--ds-border-red-tertiary);
+  --border-color-error-solid: var(--ds-border-red-solid);
+  --border-color-error-solid_hover: var(--ds-border-red-solid_hover);
+
+  --border-color-orange-primary: var(--ds-border-orange-primary);
+  --border-color-orange-secondary: var(--ds-border-orange-secondary);
+  --border-color-orange-tertiary: var(--ds-border-orange-tertiary);
+  --border-color-orange-solid: var(--ds-border-orange-solid);
+  --border-color-orange-solid_hover: var(--ds-border-orange-solid_hover);
+  --border-color-warning-primary: var(--ds-border-orange-primary);
+  --border-color-warning-secondary: var(--ds-border-orange-secondary);
+  --border-color-warning-tertiary: var(--ds-border-orange-tertiary);
+  --border-color-warning-solid: var(--ds-border-orange-solid);
+  --border-color-warning-solid_hover: var(--ds-border-orange-solid_hover);
+
+  --border-color-green-primary: var(--ds-border-green-primary);
+  --border-color-green-secondary: var(--ds-border-green-secondary);
+  --border-color-green-tertiary: var(--ds-border-green-tertiary);
+  --border-color-green-solid: var(--ds-border-green-solid);
+  --border-color-green-solid_hover: var(--ds-border-green-solid_hover);
+  --border-color-success-primary: var(--ds-border-green-primary);
+  --border-color-success-secondary: var(--ds-border-green-secondary);
+  --border-color-success-tertiary: var(--ds-border-green-tertiary);
+  --border-color-success-solid: var(--ds-border-green-solid);
+  --border-color-success-solid_hover: var(--ds-border-green-solid_hover);
+
+  --border-color-purple-primary: var(--ds-border-purple-primary);
+  --border-color-purple-secondary: var(--ds-border-purple-secondary);
+  --border-color-purple-tertiary: var(--ds-border-purple-tertiary);
+  --border-color-purple-solid: var(--ds-border-purple-solid);
+  --border-color-purple-solid_hover: var(--ds-border-purple-solid_hover);
+
+  --border-color-yellow-primary: var(--ds-border-yellow-primary);
+  --border-color-yellow-secondary: var(--ds-border-yellow-secondary);
+  --border-color-yellow-tertiary: var(--ds-border-yellow-tertiary);
+  --border-color-yellow-solid: var(--ds-border-yellow-solid);
+  --border-color-yellow-solid_hover: var(--ds-border-yellow-solid_hover);
+
+  --border-color-pink-primary: var(--ds-border-pink-primary);
+  --border-color-pink-secondary: var(--ds-border-pink-secondary);
+  --border-color-pink-tertiary: var(--ds-border-pink-tertiary);
+  --border-color-pink-solid: var(--ds-border-pink-solid);
+  --border-color-pink-solid_hover: var(--ds-border-pink-solid_hover);
 
   /* ============================================================
      BORDER RADIUS — from variables/radius.css
@@ -557,8 +584,7 @@
   --shadow-2xl: var(--ds-box-shadow-2xl);
 
   /* ============================================================
-     TRANSITION DURATIONS — from variables/transitions.css
-     (namespace read by duration-* utilities)
+     TRANSITION 
      ============================================================ */
   --transition-duration-faster: var(--ds-transition-delay-faster);
   --transition-duration-fast: var(--ds-transition-delay-fast);

@@ -2,8 +2,6 @@ import type { StoryObj } from "@storybook/react-vite";
 import type { DividerProps } from "./Divider.types";
 import Divider from "./Divider";
 
-const VARIANTS = ["primary", "secondary", "tertiary"];
-
 const paragraph =
   "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus.";
 
@@ -28,7 +26,7 @@ export default {
   argTypes: {
     variant: {
       control: "select",
-      options: VARIANTS,
+      options: ["primary", "secondary", "tertiary"],
       description: "The color of the line: `primary` (strongest) → `tertiary` (lightest).",
     },
     size: {
@@ -49,40 +47,6 @@ export const Default: StoryObj<DividerProps> = {
       <p>{paragraph}</p>
       <Divider {...args} />
       <p>{paragraph}</p>
-    </div>
-  ),
-  args: { ...defaultArgs },
-};
-
-export const Variants: StoryObj<DividerProps> = {
-  render: (args) => (
-    <div>
-      {VARIANTS.map((variant) => (
-        <div key={variant}>
-          <p>{variant}</p>
-          <Divider {...args} variant={variant as DividerProps["variant"]} />
-        </div>
-      ))}
-    </div>
-  ),
-  args: {
-    ...defaultArgs,
-    size: "sm",
-  },
-};
-
-export const Sizes: StoryObj<DividerProps> = {
-  render: (args) => (
-    <div>
-      <p>None (0)</p>
-      <Divider {...args} size="0" />
-      <p>Small</p>
-      <Divider {...args} size="sm" />
-      <p>Medium</p>
-      <Divider {...args} size="md" />
-      <p>Large</p>
-      <Divider {...args} size="lg" />
-      <p>End</p>
     </div>
   ),
   args: { ...defaultArgs },

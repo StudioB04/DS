@@ -217,7 +217,7 @@
     }
 
     &:hover::before {
-      background-color: var(--ds-bg-solid);
+      background-color: var(--ds-text-placeholder);
     }
 
     &[aria-selected="true"] {

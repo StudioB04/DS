@@ -44,7 +44,7 @@ function HTMLCustomPropDemo({ property, name }: Readonly<HTMLCustomPropArgs>) {
             blockSize: "20vh",
             display: "grid",
             placeItems: "center",
-            color: "var(--ds-text-white)",
+            color: "var(--ds-text-inverse-primary)",
             backgroundColor: "var(--ds-bg-brand-solid)",
             borderRadius: "var(--ds-radius-md)",
             fontFamily: "var(--ds-font-sans)",
