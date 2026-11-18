@@ -25,7 +25,7 @@ const preview: Preview = {
     layout: "centered",
     options: {
       storySort: {
-        order: ["Introduction", "Components"],
+        order: ["Introduction", "Components", "Utils"],
       },
     },
     controls: {

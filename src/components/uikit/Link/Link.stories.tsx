@@ -32,7 +32,7 @@ export default {
     },
     variant: {
       control: "select",
-      options: ["neutral", "brand", "alt", "green", "red", "orange", "blue", "purple", "yellow", "pink"],
+      options: ["neutral", "brand", "alt", "green", "red", "orange", "blue", "purple", "yellow", "pink", "inverse"],
       description: "The color variant of the Link.",
     },
     href: {

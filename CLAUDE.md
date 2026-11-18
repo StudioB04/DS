@@ -33,15 +33,16 @@ src/
     index.ts                   # "use client"; `export { default as X } from "./X/X"` (alphabetical)
     types.ts                   # "use client"; `export * from "./X/X.types"` (alphabetical)
     <Component>/               # one folder per component (see below)
-  utils/                       # pure helpers (string.ts: slugify, camelCase, …) + index.ts barrel
+  utils/                       # pure helpers, one folder each (string, number, array, debounce, throttle, htmlCustomProp) + index.ts barrel
+                               # each has <name>.test.ts and <name>.stories.tsx (title "Utils/<Name>", docs via autodocs, helpers in .storybook/UtilDemo.tsx)
   hooks/index.ts               # empty for now (built as entry, not in package exports)
   styles/
     variables/*.css            # primitive tokens on :root (colors, spacing, size, radius, typography, shadows, borders, transitions)
-    themes/light.css, dark.css # semantic tokens (--ds-text-*, --ds-bg-*, --ds-border-*, focus ring)
-    themes/tokens.css          # aggregates variables + light + dark  → export "./styles"
+    themes/theme.css           # semantic tokens (--ds-text-*, --ds-bg-*, --ds-border-*, focus ring), one `light-dark()` definition each
+    themes/tokens.css          # aggregates variables + theme  → export "./styles"
     reset.css                  # → export "./reset"
     base.css                   # body colors, focus-visible ring, print, [popover]
-    tailwind-theme.css         # Tailwind 4 @theme mapping → export "./tailwind-theme"
+    tailwind-theme.css         # Tailwind 4 @theme mapping (only var(--ds-*) references, no hard-coded values) → export "./tailwind-theme"
 .storybook/                    # Storybook 10; theme toolbar sets data-ds-theme on <html>; decorators wrap every story in StudioB04Provider
 .sandbox/                      # self-contained dev playground with its OWN package.json/node_modules, never shipped
                                # excluded from root ESLint + tsconfig.eslint.json; `npm run typecheck` inside it
@@ -89,7 +90,7 @@ Stories: declare `const defaultArgs: <Name>Props = { … }` with the component's
 - Root `.ds-<name>`, elements `.ds-<name>__<el>`, modifiers `.ds-<name>--<prop>-<value>`. Never style bare HTML selectors.
 - Native CSS nesting (`&`). Section comments `/* ##### SIZE ##### */`, `SHAPE`, `TYPE`, `VARIANTS`.
 - Pattern: modifiers only set component-local custom props (`--ds-<name>-color`, `--ds-<name>-background-color`, `…_hover`, `--ds-<name>-font-size`, `--ds-<name>-padding-inline`); the root rule consumes them.
-- Use semantic tokens only (`--ds-text-*`, `--ds-bg-*`, `--ds-border-*`) + scale tokens (`--ds-spacing-*`, `--ds-size-Npx`, `--ds-radius-*`, `--ds-font-size-text-*`, `--ds-font-weight-*`, `--ds-transition-*`). Never `--color-*` in components.
+- Use semantic tokens only (`--ds-text-*`, `--ds-bg-*`, `--ds-border-*`) + scale tokens (`--ds-spacing-*`, `--ds-size-Npx`, `--ds-radius-*`, `--ds-font-size-text-*`, `--ds-font-weight-*`, `--ds-transition-*`). Never the primitive `--ds-color-*` in components.
 - Logical properties (`inline-size`, `block-size`, `padding-inline`, `margin-inline-start`).
 - Every `Variant` needs a rule: neutral, brand, alt, green, red, orange, blue, purple, yellow, pink. Solid fills use `--ds-bg-<v>-solid` (+ `_hover`) with `--ds-text-white` (yellow → dark text); tinted fills use `--ds-bg-<v>-primary` + `--ds-text-<v>` + `--ds-border-<v>-solid`.
 
@@ -98,7 +99,7 @@ Stories: declare `const defaultArgs: <Name>Props = { … }` with the component's
 - Then default classes, each modifier (`it.each` over variants), conditional elements (`.ds-x__icon--start`), a11y attributes.
 
 ## Theming
-Light by default (and via `prefers-color-scheme`), dark via `prefers-color-scheme: dark` unless `data-ds-theme="light"`; explicit `data-ds-theme="light|dark"` on `<html>` always wins.
+Semantic tokens live in `src/styles/themes/theme.css` as `light-dark(<light>, <dark>)` on `:root` with `color-scheme: light dark` (follows the OS). `:root[data-ds-theme="light|dark"]` only forces `color-scheme`, so an explicit attribute on `<html>` always wins. Tokens identical in both themes are plain `var()` references. Never duplicate a token in a second file.
 
 ## Known inconsistencies (to be aware of)
 - `.github/copilot-instructions.md` is partly outdated (mentions `components.js`, `src/components/index.ts`, `styles.css`, `@` alias). This file reflects the actual code.

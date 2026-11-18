@@ -127,6 +127,12 @@
     --ds-badge-border-color: var(--ds-border-pink-solid);
     --ds-badge-background-color: var(--ds-bg-pink-primary);
   }
+
+  &.ds-badge--variant-inverse {
+    --ds-badge-color: var(--ds-text-inverse-primary);
+    --ds-badge-border-color: var(--ds-border-inverse-solid);
+    --ds-badge-background-color: var(--ds-bg-inverse-primary);
+  }
 }
 
 .ds-badge--type-plain {
@@ -135,7 +141,7 @@
 
   /* ##### VARIANTS ###################### */
   &.ds-badge--variant-neutral {
-    --ds-badge-color: var(--ds-text-inverse);
+    --ds-badge-color: var(--ds-text-inverse-primary);
     --ds-badge-background-color: var(--ds-bg-solid);
   }
 
@@ -183,9 +189,12 @@
     --ds-badge-color: var(--ds-text-white);
     --ds-badge-background-color: var(--ds-bg-pink-solid);
   }
+
+  &.ds-badge--variant-inverse {
+    --ds-badge-color: var(--ds-text-primary);
+    --ds-badge-background-color: var(--ds-bg-inverse-solid);
+  }
 }
-
-
 
 .ds-badge--type-clear {
   color: var(--ds-badge-color);
@@ -230,5 +239,9 @@
 
   &.ds-badge--variant-pink {
     --ds-badge-color: var(--ds-text-pink);
+  }
+
+  &.ds-badge--variant-inverse {
+    --ds-badge-color: var(--ds-text-inverse-primary);
   }
 }

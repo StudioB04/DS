@@ -20,6 +20,7 @@
   - [Tailwind 4 theme](#tailwind-4-theme)
 - [Components](#components)
 - [Provider](#provider)
+- [Utils](#utils)
 - [Development](#development)
 - [Release](#release)
 
@@ -44,12 +45,13 @@ npm install @studio_b04/ds
 
 ## What's included
 
-| Export     | Path in package         | Description                        |
-| ---------- | ----------------------- | ---------------------------------- |
-| Components | `@studio_b04/ds/uikit`  | React UI components                |
-| Provider   | `@studio_b04/ds`        | `StudioB04Provider` and its hooks  |
-| CSS tokens | `@studio_b04/ds/styles` | Design tokens (variables + themes) |
-| CSS reset  | `@studio_b04/ds/reset`  | Opinionated browser reset          |
+| Export     | Path in package         | Description                                      |
+| ---------- | ----------------------- | ------------------------------------------------ |
+| Components | `@studio_b04/ds/uikit`  | React UI components                              |
+| Provider   | `@studio_b04/ds`        | `StudioB04Provider` and its hooks                |
+| Utils      | `@studio_b04/ds/utils`  | Helpers for strings, numbers, arrays and the DOM |
+| CSS tokens | `@studio_b04/ds/styles` | Design tokens (variables + themes)               |
+| CSS reset  | `@studio_b04/ds/reset`  | Opinionated browser reset                        |
 
 ---
 
@@ -66,22 +68,22 @@ Import the full token sheet to get all CSS custom properties on `:root`:
 
 This single import includes all token categories:
 
-| Category      | Custom property prefix | Example                                |
-| ------------- | ---------------------- | -------------------------------------- |
-| Colors        | `--color-*`            | `--color-gray-500`, `--color-teal-400` |
-| Spacing       | `--ds-spacing-*`       | `--ds-spacing-4`                       |
-| Sizing        | `--ds-size-*`          | `--ds-size-icon-md`                    |
-| Border radius | `--ds-radius-*`        | `--ds-radius-md`                       |
-| Borders       | `--ds-border-*`        | `--ds-border-primary-default`          |
-| Shadows       | `--ds-shadow-*`        | `--ds-shadow-md`                       |
-| Typography    | `--ds-font-*`          | `--ds-font-sans`, `--ds-font-lg`       |
-| Transitions   | `--ds-transition-*`    | `--ds-transition-regular`              |
+| Category      | Custom property prefix | Example                                      |
+| ------------- | ---------------------- | -------------------------------------------- |
+| Colors        | `--ds-color-*`         | `--ds-color-gray-500`, `--ds-color-teal-400` |
+| Spacing       | `--ds-spacing-*`       | `--ds-spacing-4`                             |
+| Sizing        | `--ds-size-*`          | `--ds-size-icon-md`                          |
+| Border radius | `--ds-radius-*`        | `--ds-radius-md`                             |
+| Borders       | `--ds-border-*`        | `--ds-border-primary-default`                |
+| Shadows       | `--ds-shadow-*`        | `--ds-shadow-md`                             |
+| Typography    | `--ds-font-*`          | `--ds-font-sans`, `--ds-font-lg`             |
+| Transitions   | `--ds-transition-*`    | `--ds-transition-regular`                    |
 
-**Color palettes available:** Gray · Teal · Fuschia · Green · Yellow · Blue · Red
+**Color palettes available:** Gray · Teal · Fuschia · Green · Orange · Blue · Red · Purple · Yellow · Pink
 
 ### Theming
 
-The design system ships with a **light** (default) and **dark** theme using semantic tokens.
+The design system ships with a **light** and **dark** theme using semantic tokens. Each token is defined once with `light-dark()`, in `src/styles/themes/theme.css`. By default the theme follows the operating system (`prefers-color-scheme`).
 
 **Semantic token categories:**
 
@@ -91,17 +93,18 @@ The design system ships with a **light** (default) and **dark** theme using sema
 | Background | `--ds-bg-*`     | `--ds-bg-secondary`       |
 | Border     | `--ds-border-*` | `--ds-border-primary-1px` |
 
-**Theme switching** is handled via a `data-ds-theme` attribute on a parent element (typically `<html>`):
+**Forcing a theme** is handled via a `data-ds-theme` attribute on a parent element (typically `<html>`), which sets `color-scheme` and always wins over the operating system:
 
 ```html
-<!-- Light (default — also applied when no attribute is set, SSR-safe) -->
+<!-- Follows the operating system (no attribute, SSR-safe) -->
+<html></html>
+
+<!-- Light -->
 <html data-ds-theme="light"></html>
 
 <!-- Dark -->
 <html data-ds-theme="dark"></html>
 ```
-
-Dark mode is applied only when `data-ds-theme="dark"` is set.
 
 ```tsx
 document.documentElement.dataset.dsTheme = "dark";
@@ -129,7 +132,7 @@ The package ships a `tailwind-theme.css` inside `dist/` that maps all design tok
 This gives you access to all token values as Tailwind utilities:
 
 ```html
-<p class="text-gray-500 bg-surface rounded-md shadow-sm transition-base">…</p>
+<p class="text-gray-500 bg-brand-primary rounded-md shadow-sm duration-fast">…</p>
 ```
 
 ---
@@ -223,6 +226,27 @@ import { Button, Dialog } from "@studio_b04/ds/uikit";
 ```
 
 You can also open it from code with a `ref` (`ref.current?.open()` and `ref.current?.close()`). `Escape` and a click outside close it, unless it is `persistent`.
+
+---
+
+## Utils
+
+Small framework-agnostic helpers, exported from `@studio_b04/ds/utils`. Each one is documented, with an interactive demo, under **Utils** in [Storybook](https://studiob04.github.io/DS).
+
+| Module | Functions                                                                                 |
+| ------ | ----------------------------------------------------------------------------------------- |
+| String | `slugify`, `camelCase`, `pascalCase`, `snakeCase`, `kebabCase`, `humanize`, `getInitials` |
+| Number | `shorten`, `shortenFileSize`                                                              |
+| Array  | `sortBy`                                                                                  |
+| Timing | `debounce`, `throttle`                                                                    |
+| DOM    | `setHTMLCustomProp`                                                                       |
+
+```ts
+import { slugify, shorten, debounce } from "@studio_b04/ds/utils";
+
+slugify("Crème Brûlée"); // "creme-brulee"
+shorten(1550000); // "1.55M"
+```
 
 ---
 

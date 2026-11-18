@@ -11,10 +11,14 @@
     position: absolute;
     inset: 0;
     content: "";
-    background-image: linear-gradient(90deg, transparent, color-mix(in srgb, var(--ds-text-white) 45%, transparent), transparent);
+    background-image: linear-gradient(
+      90deg,
+      transparent,
+      color-mix(in srgb, var(--ds-text-inverse-primary) 45%, transparent),
+      transparent
+    );
     translate: -100% 0;
-    rotate: 1deg;
-    animation: ds-skeleton-shine 2s ease-in-out infinite;
+    animation: ds-skeleton-shine 3s ease-in-out infinite;
   }
 }
 
@@ -35,10 +39,11 @@
   --ds-skeleton-last-line-width: 60%;
 
   inline-size: 100%;
-  block-size: max(var(--ds-skeleton-line-size),
-      round(down,
-        var(--ds-skeleton-height) + var(--ds-skeleton-line-gap),
-        var(--ds-skeleton-line-pitch)) - var(--ds-skeleton-line-gap));
+  block-size: max(
+    var(--ds-skeleton-line-size),
+    round(down, var(--ds-skeleton-height) + var(--ds-skeleton-line-gap), var(--ds-skeleton-line-pitch)) -
+      var(--ds-skeleton-line-gap)
+  );
   mask-image:
     linear-gradient(#000 0 0),
     linear-gradient(to bottom, transparent var(--ds-skeleton-line-gap), #000 var(--ds-skeleton-line-gap)),

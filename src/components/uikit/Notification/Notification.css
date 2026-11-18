@@ -33,7 +33,7 @@
 
 /* ##### VARIANTS ###################### */
 .ds-notification--variant-neutral {
-  --ds-notification-color: var(--ds-text-inverse);
+  --ds-notification-color: var(--ds-text-inverse-primary);
   --ds-notification-background-color: var(--ds-bg-solid);
 }
 
@@ -80,4 +80,9 @@
 .ds-notification--variant-pink {
   --ds-notification-color: var(--ds-text-white);
   --ds-notification-background-color: var(--ds-bg-pink-solid);
+}
+
+.ds-notification--variant-inverse {
+  --ds-notification-color: var(--ds-text-primary);
+  --ds-notification-background-color: var(--ds-bg-inverse-solid);
 }

@@ -29,14 +29,14 @@
   --spacing-9xl: var(--ds-spacing-9xl);
   --spacing-10xl: var(--ds-spacing-10xl);
   --spacing-1px: var(--ds-size-1px);
-  --spacing--2px: var(--ds-size-2px);
-  --spacing--3px: var(--ds-size-3px);
-  --spacing--4px: var(--ds-size-4px);
-  --spacing--5px: var(--ds-size-5px);
-  --spacing--6px: var(--ds-size-6px);
-  --spacing--7px: var(--ds-size-7px);
-  --spacing--8px: var(--ds-size-8px);
-  --spacing--9px: var(--ds-size-9px);
+  --spacing-2px: var(--ds-size-2px);
+  --spacing-3px: var(--ds-size-3px);
+  --spacing-4px: var(--ds-size-4px);
+  --spacing-5px: var(--ds-size-5px);
+  --spacing-6px: var(--ds-size-6px);
+  --spacing-7px: var(--ds-size-7px);
+  --spacing-8px: var(--ds-size-8px);
+  --spacing-9px: var(--ds-size-9px);
   --spacing-10px: var(--ds-size-10px);
   --spacing-11px: var(--ds-size-11px);
   --spacing-12px: var(--ds-size-12px);
@@ -133,85 +133,133 @@
      PRIMITIVE COLORS — from variables/colors.css
      ============================================================ */
   --color-*: initial;
-  --color-white: #fefefe;
-  --color-black: #090909;
+  --color-white: var(--ds-color-white);
+  --color-black: var(--ds-color-black);
 
-  --color-gray-050: var(--color-gray-50);
-  --color-gray-100: #f2f3f5;
-  --color-gray-200: #e6e7ea;
-  --color-gray-300: #d1d3d9;
-  --color-gray-400: #9fa3af;
-  --color-gray-500: #6d7283;
-  --color-gray-600: #555965;
-  --color-gray-700: #42454f;
-  --color-gray-800: #292a31;
-  --color-gray-900: #18191d;
+  --color-gray-050: var(--ds-color-gray-50);
+  --color-gray-50: var(--ds-color-gray-50);
+  --color-gray-100: var(--ds-color-gray-100);
+  --color-gray-200: var(--ds-color-gray-200);
+  --color-gray-300: var(--ds-color-gray-300);
+  --color-gray-400: var(--ds-color-gray-400);
+  --color-gray-500: var(--ds-color-gray-500);
+  --color-gray-600: var(--ds-color-gray-600);
+  --color-gray-700: var(--ds-color-gray-700);
+  --color-gray-800: var(--ds-color-gray-800);
+  --color-gray-900: var(--ds-color-gray-900);
+  --color-gray-950: var(--ds-color-gray-950);
 
-  --color-teal-050: var(--color-teal-50);
-  --color-teal-100: #e8f2f1;
-  --color-teal-200: #d1e8e6;
-  --color-teal-300: #afdcd7;
-  --color-teal-400: #85cfc6;
-  --color-teal-500: #308077;
-  --color-teal-600: #317f76;
-  --color-teal-700: #37837a;
-  --color-teal-800: #2d5f59;
-  --color-teal-900: #23413d;
+  --color-teal-050: var(--ds-color-teal-50);
+  --color-teal-50: var(--ds-color-teal-50);
+  --color-teal-100: var(--ds-color-teal-100);
+  --color-teal-200: var(--ds-color-teal-200);
+  --color-teal-300: var(--ds-color-teal-300);
+  --color-teal-400: var(--ds-color-teal-400);
+  --color-teal-500: var(--ds-color-teal-500);
+  --color-teal-600: var(--ds-color-teal-600);
+  --color-teal-700: var(--ds-color-teal-700);
+  --color-teal-800: var(--ds-color-teal-800);
+  --color-teal-900: var(--ds-color-teal-900);
 
-  --color-fuschia-050: var(--color-fuschia-50);
-  --color-fuschia-100: #ffe4e6;
-  --color-fuschia-200: #fecdd3;
-  --color-fuschia-300: #fda4af;
-  --color-fuschia-400: #fb7185;
-  --color-fuschia-500: #f43f5e;
-  --color-fuschia-600: #e11d48;
-  --color-fuschia-700: #be123c;
-  --color-fuschia-800: #9f1239;
-  --color-fuschia-900: #881337;
+  --color-fuschia-050: var(--ds-color-fuschia-50);
+  --color-fuschia-50: var(--ds-color-fuschia-50);
+  --color-fuschia-100: var(--ds-color-fuschia-100);
+  --color-fuschia-200: var(--ds-color-fuschia-200);
+  --color-fuschia-300: var(--ds-color-fuschia-300);
+  --color-fuschia-400: var(--ds-color-fuschia-400);
+  --color-fuschia-500: var(--ds-color-fuschia-500);
+  --color-fuschia-600: var(--ds-color-fuschia-600);
+  --color-fuschia-700: var(--ds-color-fuschia-700);
+  --color-fuschia-800: var(--ds-color-fuschia-800);
+  --color-fuschia-900: var(--ds-color-fuschia-900);
 
-  --color-green-050: var(--color-green-50);
-  --color-green-100: #e8f2ee;
-  --color-green-200: #d1e8de;
-  --color-green-300: #afdcc9;
-  --color-green-400: #85cfaf;
-  --color-green-500: #30825f;
-  --color-green-600: #32815f;
-  --color-green-700: #378362;
-  --color-green-800: #2d5f49;
-  --color-green-900: #234134;
+  --color-green-050: var(--ds-color-green-50);
+  --color-green-50: var(--ds-color-green-50);
+  --color-green-100: var(--ds-color-green-100);
+  --color-green-200: var(--ds-color-green-200);
+  --color-green-300: var(--ds-color-green-300);
+  --color-green-400: var(--ds-color-green-400);
+  --color-green-500: var(--ds-color-green-500);
+  --color-green-600: var(--ds-color-green-600);
+  --color-green-700: var(--ds-color-green-700);
+  --color-green-800: var(--ds-color-green-800);
+  --color-green-900: var(--ds-color-green-900);
+  --color-green-950: var(--ds-color-green-950);
 
-  --color-orange-050: var(--color-orange-50);
-  --color-orange-100: #f3ede7;
-  --color-orange-200: #ebdccf;
-  --color-orange-300: #e0c4ab;
-  --color-orange-400: #d6a77d;
-  --color-orange-500: #a46630;
-  --color-orange-600: #a26632;
-  --color-orange-700: #8a5a30;
-  --color-orange-800: #644428;
-  --color-orange-900: #443120;
+  --color-orange-050: var(--ds-color-orange-50);
+  --color-orange-50: var(--ds-color-orange-50);
+  --color-orange-100: var(--ds-color-orange-100);
+  --color-orange-200: var(--ds-color-orange-200);
+  --color-orange-300: var(--ds-color-orange-300);
+  --color-orange-400: var(--ds-color-orange-400);
+  --color-orange-500: var(--ds-color-orange-500);
+  --color-orange-600: var(--ds-color-orange-600);
+  --color-orange-700: var(--ds-color-orange-700);
+  --color-orange-800: var(--ds-color-orange-800);
+  --color-orange-900: var(--ds-color-orange-900);
+  --color-orange-950: var(--ds-color-orange-950);
 
-  --color-blue-050: var(--color-blue-50);
-  --color-blue-100: #e9f0f2;
-  --color-blue-200: #d2e3e7;
-  --color-blue-300: #b1d3da;
-  --color-blue-400: #88bfcb;
-  --color-blue-500: #397c8b;
-  --color-blue-600: #3b7d8c;
-  --color-blue-700: #3b737f;
-  --color-blue-800: #2f555d;
-  --color-blue-900: #243a40;
+  --color-blue-050: var(--ds-color-blue-50);
+  --color-blue-50: var(--ds-color-blue-50);
+  --color-blue-100: var(--ds-color-blue-100);
+  --color-blue-200: var(--ds-color-blue-200);
+  --color-blue-300: var(--ds-color-blue-300);
+  --color-blue-400: var(--ds-color-blue-400);
+  --color-blue-500: var(--ds-color-blue-500);
+  --color-blue-600: var(--ds-color-blue-600);
+  --color-blue-700: var(--ds-color-blue-700);
+  --color-blue-800: var(--ds-color-blue-800);
+  --color-blue-900: var(--ds-color-blue-900);
+  --color-blue-950: var(--ds-color-blue-950);
 
-  --color-red-050: var(--color-red-50);
-  --color-red-100: #f3e8e7;
-  --color-red-200: #ead2cf;
-  --color-red-300: #dfb0ac;
-  --color-red-400: #d38780;
-  --color-red-500: #c44e43;
-  --color-red-600: #ae443a;
-  --color-red-700: #883a32;
-  --color-red-800: #632e2a;
-  --color-red-900: #432421;
+  --color-red-050: var(--ds-color-red-50);
+  --color-red-50: var(--ds-color-red-50);
+  --color-red-100: var(--ds-color-red-100);
+  --color-red-200: var(--ds-color-red-200);
+  --color-red-300: var(--ds-color-red-300);
+  --color-red-400: var(--ds-color-red-400);
+  --color-red-500: var(--ds-color-red-500);
+  --color-red-600: var(--ds-color-red-600);
+  --color-red-700: var(--ds-color-red-700);
+  --color-red-800: var(--ds-color-red-800);
+  --color-red-900: var(--ds-color-red-900);
+  --color-red-950: var(--ds-color-red-950);
+
+  --color-purple-50: var(--ds-color-purple-50);
+  --color-purple-100: var(--ds-color-purple-100);
+  --color-purple-200: var(--ds-color-purple-200);
+  --color-purple-300: var(--ds-color-purple-300);
+  --color-purple-400: var(--ds-color-purple-400);
+  --color-purple-500: var(--ds-color-purple-500);
+  --color-purple-600: var(--ds-color-purple-600);
+  --color-purple-700: var(--ds-color-purple-700);
+  --color-purple-800: var(--ds-color-purple-800);
+  --color-purple-900: var(--ds-color-purple-900);
+  --color-purple-950: var(--ds-color-purple-950);
+
+  --color-yellow-50: var(--ds-color-yellow-50);
+  --color-yellow-100: var(--ds-color-yellow-100);
+  --color-yellow-200: var(--ds-color-yellow-200);
+  --color-yellow-300: var(--ds-color-yellow-300);
+  --color-yellow-400: var(--ds-color-yellow-400);
+  --color-yellow-500: var(--ds-color-yellow-500);
+  --color-yellow-600: var(--ds-color-yellow-600);
+  --color-yellow-700: var(--ds-color-yellow-700);
+  --color-yellow-800: var(--ds-color-yellow-800);
+  --color-yellow-900: var(--ds-color-yellow-900);
+  --color-yellow-950: var(--ds-color-yellow-950);
+
+  --color-pink-50: var(--ds-color-pink-50);
+  --color-pink-100: var(--ds-color-pink-100);
+  --color-pink-200: var(--ds-color-pink-200);
+  --color-pink-300: var(--ds-color-pink-300);
+  --color-pink-400: var(--ds-color-pink-400);
+  --color-pink-500: var(--ds-color-pink-500);
+  --color-pink-600: var(--ds-color-pink-600);
+  --color-pink-700: var(--ds-color-pink-700);
+  --color-pink-800: var(--ds-color-pink-800);
+  --color-pink-900: var(--ds-color-pink-900);
+  --color-pink-950: var(--ds-color-pink-950);
 
   /* ============================================================
      SEMANTIC TEXT COLORS — specific namespace so classes read
@@ -223,12 +271,20 @@
   --text-color-placeholder: var(--ds-text-placeholder);
   --text-color-white: var(--ds-text-white);
   --text-color-black: var(--ds-text-black);
+  --text-color-inverse: var(--ds-text-inverse-primary);
   --text-color-brand: var(--ds-text-brand);
   --text-color-alt: var(--ds-text-alt);
   --text-color-info: var(--ds-text-info);
   --text-color-error: var(--ds-text-error);
   --text-color-warning: var(--ds-text-warning);
   --text-color-success: var(--ds-text-success);
+  --text-color-blue: var(--ds-text-blue);
+  --text-color-green: var(--ds-text-green);
+  --text-color-orange: var(--ds-text-orange);
+  --text-color-pink: var(--ds-text-pink);
+  --text-color-purple: var(--ds-text-purple);
+  --text-color-red: var(--ds-text-red);
+  --text-color-yellow: var(--ds-text-yellow);
 
   /* ============================================================
      SEMANTIC BORDER COLORS — specific namespace so classes read
@@ -270,6 +326,46 @@
   --border-color-success-tertiary: var(--ds-border-success-tertiary);
   --border-color-success-solid: var(--ds-border-success-solid);
 
+  --border-color-blue-primary: var(--ds-border-blue-primary);
+  --border-color-blue-secondary: var(--ds-border-blue-secondary);
+  --border-color-blue-tertiary: var(--ds-border-blue-tertiary);
+  --border-color-blue-solid: var(--ds-border-blue-solid);
+
+  --border-color-green-primary: var(--ds-border-green-primary);
+  --border-color-green-secondary: var(--ds-border-green-secondary);
+  --border-color-green-tertiary: var(--ds-border-green-tertiary);
+  --border-color-green-solid: var(--ds-border-green-solid);
+
+  --border-color-orange-primary: var(--ds-border-orange-primary);
+  --border-color-orange-secondary: var(--ds-border-orange-secondary);
+  --border-color-orange-tertiary: var(--ds-border-orange-tertiary);
+  --border-color-orange-solid: var(--ds-border-orange-solid);
+
+  --border-color-pink-primary: var(--ds-border-pink-primary);
+  --border-color-pink-secondary: var(--ds-border-pink-secondary);
+  --border-color-pink-tertiary: var(--ds-border-pink-tertiary);
+  --border-color-pink-solid: var(--ds-border-pink-solid);
+
+  --border-color-purple-primary: var(--ds-border-purple-primary);
+  --border-color-purple-secondary: var(--ds-border-purple-secondary);
+  --border-color-purple-tertiary: var(--ds-border-purple-tertiary);
+  --border-color-purple-solid: var(--ds-border-purple-solid);
+
+  --border-color-red-primary: var(--ds-border-red-primary);
+  --border-color-red-secondary: var(--ds-border-red-secondary);
+  --border-color-red-tertiary: var(--ds-border-red-tertiary);
+  --border-color-red-solid: var(--ds-border-red-solid);
+
+  --border-color-yellow-primary: var(--ds-border-yellow-primary);
+  --border-color-yellow-secondary: var(--ds-border-yellow-secondary);
+  --border-color-yellow-tertiary: var(--ds-border-yellow-tertiary);
+  --border-color-yellow-solid: var(--ds-border-yellow-solid);
+
+  --border-color-inverse-primary: var(--ds-border-inverse-primary);
+  --border-color-inverse-secondary: var(--ds-border-inverse-secondary);
+  --border-color-inverse-tertiary: var(--ds-border-inverse-tertiary);
+  --border-color-inverse-solid: var(--ds-border-inverse-solid);
+
   /* ============================================================
      SEMANTIC BACKGROUND COLORS — specific namespace so classes
      read bg-primary, bg-brand-solid, etc. instead of bg-bg-primary
@@ -277,6 +373,7 @@
   --background-color-primary: var(--ds-bg-primary);
   --background-color-secondary: var(--ds-bg-secondary);
   --background-color-tertiary: var(--ds-bg-tertiary);
+  --background-color-solid: var(--ds-bg-solid);
 
   --background-color-brand-primary: var(--ds-bg-brand-primary);
   --background-color-brand-secondary: var(--ds-bg-brand-secondary);
@@ -313,6 +410,60 @@
   --background-color-success-tertiary: var(--ds-bg-success-tertiary);
   --background-color-success-solid: var(--ds-bg-success-solid);
   --background-color-success-solid_hover: var(--ds-bg-success-solid_hover);
+
+  --background-color-neutral-primary: var(--ds-bg-neutral-primary);
+  --background-color-neutral-secondary: var(--ds-bg-neutral-secondary);
+  --background-color-neutral-tertiary: var(--ds-bg-neutral-tertiary);
+  --background-color-neutral-solid: var(--ds-bg-neutral-solid);
+  --background-color-neutral-solid_hover: var(--ds-bg-neutral-solid_hover);
+
+  --background-color-blue-primary: var(--ds-bg-blue-primary);
+  --background-color-blue-secondary: var(--ds-bg-blue-secondary);
+  --background-color-blue-tertiary: var(--ds-bg-blue-tertiary);
+  --background-color-blue-solid: var(--ds-bg-blue-solid);
+  --background-color-blue-solid_hover: var(--ds-bg-blue-solid_hover);
+
+  --background-color-green-primary: var(--ds-bg-green-primary);
+  --background-color-green-secondary: var(--ds-bg-green-secondary);
+  --background-color-green-tertiary: var(--ds-bg-green-tertiary);
+  --background-color-green-solid: var(--ds-bg-green-solid);
+  --background-color-green-solid_hover: var(--ds-bg-green-solid_hover);
+
+  --background-color-orange-primary: var(--ds-bg-orange-primary);
+  --background-color-orange-secondary: var(--ds-bg-orange-secondary);
+  --background-color-orange-tertiary: var(--ds-bg-orange-tertiary);
+  --background-color-orange-solid: var(--ds-bg-orange-solid);
+  --background-color-orange-solid_hover: var(--ds-bg-orange-solid_hover);
+
+  --background-color-pink-primary: var(--ds-bg-pink-primary);
+  --background-color-pink-secondary: var(--ds-bg-pink-secondary);
+  --background-color-pink-tertiary: var(--ds-bg-pink-tertiary);
+  --background-color-pink-solid: var(--ds-bg-pink-solid);
+  --background-color-pink-solid_hover: var(--ds-bg-pink-solid_hover);
+
+  --background-color-purple-primary: var(--ds-bg-purple-primary);
+  --background-color-purple-secondary: var(--ds-bg-purple-secondary);
+  --background-color-purple-tertiary: var(--ds-bg-purple-tertiary);
+  --background-color-purple-solid: var(--ds-bg-purple-solid);
+  --background-color-purple-solid_hover: var(--ds-bg-purple-solid_hover);
+
+  --background-color-red-primary: var(--ds-bg-red-primary);
+  --background-color-red-secondary: var(--ds-bg-red-secondary);
+  --background-color-red-tertiary: var(--ds-bg-red-tertiary);
+  --background-color-red-solid: var(--ds-bg-red-solid);
+  --background-color-red-solid_hover: var(--ds-bg-red-solid_hover);
+
+  --background-color-yellow-primary: var(--ds-bg-yellow-primary);
+  --background-color-yellow-secondary: var(--ds-bg-yellow-secondary);
+  --background-color-yellow-tertiary: var(--ds-bg-yellow-tertiary);
+  --background-color-yellow-solid: var(--ds-bg-yellow-solid);
+  --background-color-yellow-solid_hover: var(--ds-bg-yellow-solid_hover);
+
+  --background-color-inverse-primary: var(--ds-bg-inverse-primary);
+  --background-color-inverse-secondary: var(--ds-bg-inverse-secondary);
+  --background-color-inverse-tertiary: var(--ds-bg-inverse-tertiary);
+  --background-color-inverse-solid: var(--ds-bg-inverse-solid);
+  --background-color-inverse-solid_hover: var(--ds-bg-inverse-solid_hover);
 
   /* ============================================================
      FOCUS
@@ -407,10 +558,11 @@
 
   /* ============================================================
      TRANSITION DURATIONS — from variables/transitions.css
+     (namespace read by duration-* utilities)
      ============================================================ */
-  --duration-faster: var(--ds-transition-delay-faster);
-  --duration-fast: var(--ds-transition-delay-fast);
-  --duration-regular: var(--ds-transition-delay-regular);
-  --duration-slow: var(--ds-transition-delay-slow);
-  --duration-slower: var(--ds-transition-delay-slower);
+  --transition-duration-faster: var(--ds-transition-delay-faster);
+  --transition-duration-fast: var(--ds-transition-delay-fast);
+  --transition-duration-regular: var(--ds-transition-delay-regular);
+  --transition-duration-slow: var(--ds-transition-delay-slow);
+  --transition-duration-slower: var(--ds-transition-delay-slower);
 }

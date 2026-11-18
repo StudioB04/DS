@@ -4,8 +4,6 @@ import Alert from "./Alert";
 import Badge from "$uikit/Badge/Badge";
 import Icon from "$uikit/Icon/Icon";
 
-const VARIANTS = ["neutral", "brand", "alt", "green", "red", "orange", "blue", "purple", "yellow", "pink"];
-
 const content =
   "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus.";
 
@@ -36,7 +34,7 @@ export default {
     },
     variant: {
       control: "select",
-      options: VARIANTS,
+      options: ["neutral", "brand", "alt", "green", "red", "orange", "blue", "purple", "yellow", "pink", "inverse"],
       description: "The color variant of the Alert.",
     },
     persistant: {
@@ -98,17 +96,4 @@ export const TitleOnly: StoryObj<AlertProps> = {
     variant: "blue",
     children: undefined,
   },
-};
-
-export const Variants: StoryObj<AlertProps> = {
-  render: (args) => (
-    <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
-      {VARIANTS.map((variant) => (
-        <Alert key={variant} {...args} variant={variant as AlertProps["variant"]} title={variant}>
-          {content}
-        </Alert>
-      ))}
-    </div>
-  ),
-  args: { ...defaultArgs },
 };

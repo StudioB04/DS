@@ -161,6 +161,11 @@
     --ds-button-color: var(--ds-bg-pink-solid);
     --ds-button-background-color_hover: var(--ds-bg-pink-primary);
   }
+
+  &.ds-button--variant-inverse {
+    --ds-button-color: var(--ds-text-inverse-secondary);
+    --ds-button-background-color_hover: var(--ds-bg-inverse-primary);
+  }
 }
 
 :is(.ds-button--shape-square, .ds-button--shape-pill) {
@@ -224,5 +229,11 @@
     --ds-button-color: var(--ds-text-white);
     --ds-button-background-color: var(--ds-bg-purple-solid);
     --ds-button-background-color_hover: var(--ds-bg-purple-solid_hover);
+  }
+
+  &.ds-button--variant-inverse {
+    --ds-button-color: var(--ds-text-primary);
+    --ds-button-background-color: var(--ds-bg-inverse-solid);
+    --ds-button-background-color_hover: var(--ds-bg-inverse-solid_hover);
   }
 }

@@ -47,7 +47,7 @@ const textExclusion = [
   "**/node_modules/**",
   "src/setup-tests.ts",
   "src/components/**/*.{css,scss,less}",
-  "src/components/**/*.stories.{ts,tsx}",
+  "src/**/*.stories.{ts,tsx}",
   "src/components/**/*.types.{ts,tsx}",
   "src/components/uikit/Loader/loaders/**",
   "**/index.{ts,tsx}",

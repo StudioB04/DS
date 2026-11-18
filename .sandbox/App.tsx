@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import { Accordion, Alert, Badge, Button, Divider, Icon, Skeleton, SkipLink, Slider } from "$uikit";
 
 const VARIANTS = ["neutral", "brand", "alt", "green", "red", "orange", "blue", "purple", "yellow", "pink"] as const;
@@ -30,17 +30,32 @@ export default function App() {
       </header>
 
       <section id="colors" className="flex flex-col gap-xl">
-        <h2 className="text-title-sm font-semibold">Couleurs sémantiques</h2>
-        <div className="flex flex-wrap gap-xl">
-          <div className="bg-primary border border-primary rounded-md p-xl inline-40 text-sm">bg-primary</div>
-          <div className="bg-secondary border border-primary rounded-md p-xl inline-40 text-sm">bg-secondary</div>
-          <div className="bg-tertiary border border-primary rounded-md p-xl inline-40 text-sm">bg-tertiary</div>
-          <div className="bg-primary border border-primary rounded-md p-xl inline-40">
-            <p className="text-primary text-sm">text-primary</p>
-            <p className="text-secondary text-sm">text-secondary</p>
-            <p className="text-tertiary text-sm">text-tertiary</p>
-          </div>
-        </div>
+        <h2 className="text-title-sm font-semibold">Couleurs</h2>
+
+        {["gray", "fuschia", "teal", "green", "red", "orange", "blue", "purple", "yellow", "pink", "inverse"].map(
+          (color) => (
+            <Fragment key={color}>
+              <h3 className="font-semibold">{color}</h3>
+              <div className="flex gap-sm">
+                <div
+                  className="rounded-xs inline-[6rem] block-[4rem]"
+                  style={{ backgroundColor: `var(--ds-color-${color}-50)` }}
+                />
+                {new Array(8).fill(null).map((_, index) => (
+                  <div
+                    key={index}
+                    className="rounded-xs inline-[6rem] block-[4rem]"
+                    style={{ backgroundColor: `var(--ds-color-${color}-${(index + 1) * 100})` }}
+                  />
+                ))}
+                <div
+                  className="rounded-xs inline-[6rem] block-[4rem]"
+                  style={{ backgroundColor: `var(--ds-color-${color}-950)` }}
+                />
+              </div>
+            </Fragment>
+          ),
+        )}
       </section>
 
       <section id="buttons" className="flex flex-col gap-xl">

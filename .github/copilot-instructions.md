@@ -63,10 +63,10 @@ All three index files start with `"use client";` for Next.js / RSC compatibility
 1. **Primitive tokens** (`src/styles/variables/`) — raw values on `:root`
    - `--color-gray-500`, `--ds-spacing-4`, `--ds-radius-md`, etc.
 
-2. **Semantic tokens** (`src/styles/themes/light.css` + `dark.css`) — purpose-based aliases referencing primitives
+2. **Semantic tokens** (`src/styles/themes/theme.css`, `light-dark()`) — purpose-based aliases referencing primitives
    - `--ds-text-primary`, `--ds-bg-secondary`, `--ds-border-brand-solid`, etc.
 
-Theme switching uses `data-ds-theme="light|dark"` on `<html>`. The light theme also applies when no attribute is set (SSR-safe). Dark mode is applied only when `data-ds-theme="dark"` is set.
+Theme switching uses `data-ds-theme="light|dark"` on `<html>`. Without attribute the theme follows `prefers-color-scheme`; the attribute forces it via `color-scheme` (SSR-safe).
 
 ---
 

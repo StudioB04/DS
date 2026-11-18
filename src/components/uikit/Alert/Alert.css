@@ -129,3 +129,14 @@
   --ds-alert-background-color: var(--ds-bg-pink-primary);
   --ds-alert-close-background-color_hover: var(--ds-bg-pink-secondary);
 }
+
+.ds-alert--variant-inverse {
+  --ds-alert-color: var(--ds-text-inverse-primary);
+  --ds-alert-border-color: var(--ds-border-inverse-solid);
+  --ds-alert-background-color: var(--ds-bg-inverse-primary);
+  --ds-alert-close-background-color_hover: var(--ds-bg-inverse-secondary);
+
+  .ds-alert__content {
+    color: var(--ds-text-inverse-secondary);
+  }
+}
