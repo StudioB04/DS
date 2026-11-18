@@ -5,6 +5,8 @@
 @import url("./../variables/colors.css");
 
 :root {
+  color-scheme: light dark;
+
   &[data-ds-theme="light"] {
     color-scheme: light;
   }
