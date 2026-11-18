@@ -30,9 +30,9 @@
       "import": "./dist/hooks.js",
       "types": "./dist/hooks/index.d.ts"
     },
-    "./tokens": "./dist/tokens.css",
-    "./reset": "./dist/reset.css",
-    "./tailwind-theme": "./dist/tailwind-theme.css"
+    "./style/tokens": "./dist/style/tokens.css",
+    "./style/reset": "./dist/style/reset.css",
+    "./style/tailwind-theme": "./dist/style/tailwind-theme.css"
   },
   "publishConfig": {
     "access": "public"

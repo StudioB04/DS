@@ -39,17 +39,17 @@ Everything above is made of real components from the library: use the **Theme** 
     </tr>
     <tr>
       <td>Tokens</td>
-      <td><code>@studio_b04/ds/styles</code></td>
+      <td><code>@studio_b04/ds/style/tokens</code></td>
       <td>CSS custom properties: colours, spacing, sizes, radius, typography, shadows, transitions, plus the light and dark themes</td>
     </tr>
     <tr>
       <td>Reset</td>
-      <td><code>@studio_b04/ds/reset</code></td>
+      <td><code>@studio_b04/ds/style/reset</code></td>
       <td>An opinionated CSS reset based on the tokens</td>
     </tr>
     <tr>
       <td>Tailwind theme</td>
-      <td><code>@studio_b04/ds/tailwind-theme</code></td>
+      <td><code>@studio_b04/ds/style/tailwind-theme</code></td>
       <td>A Tailwind 4 <code>@theme</code> that maps the tokens to utilities</td>
     </tr>
   </tbody>
@@ -77,16 +77,16 @@ npm install @studio_b04/ds
 Import the tokens once, in your global CSS. The reset is optional but recommended.
 
 ```css
-@import "@studio_b04/ds/reset";
-@import "@studio_b04/ds/styles";
+@import "@studio_b04/ds/style/reset";
+@import "@studio_b04/ds/style/tokens";
 ```
 
 With Tailwind 4, add the theme after Tailwind to get the tokens as utilities:
 
 ```css
 @import "tailwindcss";
-@import "@studio_b04/ds/styles";
-@import "@studio_b04/ds/tailwind-theme";
+@import "@studio_b04/ds/style/tokens";
+@import "@studio_b04/ds/style/tailwind-theme";
 ```
 
 ### 3. Use the components

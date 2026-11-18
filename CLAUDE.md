@@ -39,11 +39,11 @@ src/
   styles/
     variables/*.css            # primitive tokens on :root (colors, spacing, size, radius, typography, shadows, borders, transitions)
     themes/theme.css           # semantic tokens (--ds-text-*, --ds-bg-*, --ds-border-*, focus ring), one `light-dark()` definition each
-    themes/tokens.css          # aggregates variables + theme  → export "./styles"
-    reset.css                  # → export "./reset"
+    themes/tokens.css          # aggregates variables + theme  → export "./style/tokens"
+    reset.css                  # → export "./style/reset"
     base.css                   # body colors, focus-visible ring, print, [popover]
     styles.stories.tsx         # Storybook "Foundations/Colors" page (palette + semantic tokens, swatches read from the live CSS)
-    tailwind-theme.css         # Tailwind 4 @theme mapping (only var(--ds-*) references, no hard-coded values) → export "./tailwind-theme"
+    tailwind-theme.css         # Tailwind 4 @theme mapping (only var(--ds-*) references, no hard-coded values) → export "./style/tailwind-theme"
 .storybook/                    # Storybook 10; theme toolbar sets data-ds-theme on <html>; decorators wrap every story in StudioB04Provider
 .sandbox/                      # self-contained dev playground with its OWN package.json/node_modules, never shipped
                                # excluded from root ESLint + tsconfig.eslint.json; `npm run typecheck` inside it
@@ -53,7 +53,7 @@ src/
 ```
 
 Path aliases (tsconfig + vite): `$/*` → `src/*`, `$uikit` → `src/components/uikit`, `$utils` → `src/utils`.
-Package exports: `.`, `./uikit`, `./utils`, `./styles`, `./reset`, `./tailwind-theme`.
+Package exports: `.`, `./uikit`, `./utils`, `./hooks`, `./style/tokens`, `./style/reset`, `./style/tailwind-theme` (built to `dist/style/*.css`; the sandbox resolves them to `src/styles` through aliases in `.sandbox/vite.config.ts`).
 Build: Vite lib mode, ES only, `preserveModules`, `vite-plugin-lib-inject-css` (each component's CSS is imported by its JS), `vite-plugin-dts`. Externals: react, react-dom, react/jsx-runtime, clsx.
 
 ## Component anatomy
