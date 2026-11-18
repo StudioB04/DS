@@ -45,14 +45,14 @@ npm install @studio_b04/ds
 
 ## What's included
 
-| Export     | Path in package                       | Description                                      |
-| ---------- | ------------------------------------- | ------------------------------------------------ |
-| Components | `@studio_b04/ds/uikit`                | React UI components                              |
-| Provider   | `@studio_b04/ds`                      | `StudioB04Provider` and its hooks                |
-| Utils      | `@studio_b04/ds/utils`                | Helpers for strings, numbers, arrays and the DOM |
-| CSS tokens | `@studio_b04/ds/style/tokens`         | Design tokens (variables + themes)               |
-| CSS reset  | `@studio_b04/ds/style/reset`          | Opinionated browser reset                        |
-| Tailwind   | `@studio_b04/ds/style/tailwind-theme` | Tailwind 4 `@theme` mapping of the tokens        |
+| Export     | Path in package                        | Description                                      |
+| ---------- | -------------------------------------- | ------------------------------------------------ |
+| Components | `@studio_b04/ds/uikit`                 | React UI components                              |
+| Provider   | `@studio_b04/ds`                       | `StudioB04Provider` and its hooks                |
+| Utils      | `@studio_b04/ds/utils`                 | Helpers for strings, numbers, arrays and the DOM |
+| CSS tokens | `@studio_b04/ds/styles/tokens`         | Design tokens (variables + themes)               |
+| CSS reset  | `@studio_b04/ds/styles/reset`          | Opinionated browser reset                        |
+| Tailwind   | `@studio_b04/ds/styles/tailwind-theme` | Tailwind 4 `@theme` mapping of the tokens        |
 
 ---
 
@@ -64,7 +64,7 @@ Import the full token sheet to get all CSS custom properties on `:root`:
 
 ```css
 /* In your global CSS */
-@import "@studio_b04/ds/style/tokens";
+@import "@studio_b04/ds/styles/tokens";
 ```
 
 This single import includes all token categories:
@@ -116,7 +116,7 @@ document.documentElement.dataset.dsTheme = "dark";
 An opinionated CSS reset that normalises browser defaults and applies base typographic tokens:
 
 ```css
-@import "@studio_b04/ds/style/reset";
+@import "@studio_b04/ds/styles/reset";
 ```
 
 ### Tailwind 4 theme
@@ -126,8 +126,8 @@ The package ships a `tailwind-theme.css` inside `dist/` that maps all design tok
 ```css
 /* tailwind.css */
 @import "tailwindcss";
-@import "@studio_b04/ds/style/tokens"; /* tokens on :root */
-@import "@studio_b04/ds/style/tailwind-theme"; /* Tailwind overrides */
+@import "@studio_b04/ds/styles/tokens"; /* tokens on :root */
+@import "@studio_b04/ds/styles/tailwind-theme"; /* Tailwind overrides */
 ```
 
 This gives you access to all token values as Tailwind utilities:

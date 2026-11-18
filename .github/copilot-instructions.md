@@ -34,9 +34,9 @@ Vite builds multiple ES module entries defined in `vite.config.ts`:
 |-------|--------|-----------------|
 | `components.js` | `src/components/index.ts` | `@studio_b04/ds/components` |
 | `uikit.js` | `src/components/uikit/index.ts` | `@studio_b04/ds/uikit` |
-| `style/tokens.css` | `src/styles/themes/tokens.css` | `@studio_b04/ds/style/tokens` |
-| `style/reset.css` | `src/styles/reset.css` | `@studio_b04/ds/style/reset` |
-| `style/tailwind-theme.css` | `src/styles/tailwind-theme.css` | `@studio_b04/ds/style/tailwind-theme` |
+| `style/tokens.css` | `src/styles/themes/tokens.css` | `@studio_b04/ds/styles/tokens` |
+| `style/reset.css` | `src/styles/reset.css` | `@studio_b04/ds/styles/reset` |
+| `style/tailwind-theme.css` | `src/styles/tailwind-theme.css` | `@studio_b04/ds/styles/tailwind-theme` |
 
 `vite-plugin-lib-inject-css` bundles each component's CSS into its JS output. `vite-plugin-dts` generates `.d.ts` files. `react`, `react-dom`, `react/jsx-runtime`, and `clsx` are externalized.
 
