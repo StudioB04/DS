@@ -14,6 +14,7 @@ npm run prettier:fix    # Prettier auto-fix
 ```
 
 **Run a single test file:**
+
 ```bash
 npx vitest run src/components/uikit/ComponentName/ComponentName.test.tsx
 ```
@@ -30,13 +31,13 @@ This is a **React 19 component library** published as `@studio_b04/ds`. It ships
 
 Vite builds multiple ES module entries defined in `vite.config.ts`:
 
-| Entry | Source | Consumer import |
-|-------|--------|-----------------|
-| `components.js` | `src/components/index.ts` | `@studio_b04/ds/components` |
-| `uikit.js` | `src/components/uikit/index.ts` | `@studio_b04/ds/uikit` |
-| `style/tokens.css` | `src/styles/themes/tokens.css` | `@studio_b04/ds/styles/tokens` |
-| `style/reset.css` | `src/styles/reset.css` | `@studio_b04/ds/styles/reset` |
-| `style/tailwind-theme.css` | `src/styles/tailwind-theme.css` | `@studio_b04/ds/styles/tailwind-theme` |
+| Entry                       | Source                          | Consumer import                        |
+| --------------------------- | ------------------------------- | -------------------------------------- |
+| `components.js`             | `src/components/index.ts`       | `@studio_b04/ds/components`            |
+| `uikit.js`                  | `src/components/uikit/index.ts` | `@studio_b04/ds/uikit`                 |
+| `styles/tokens.css`         | `src/styles/themes/tokens.css`  | `@studio_b04/ds/styles/tokens`         |
+| `styles/reset.css`          | `src/styles/reset.css`          | `@studio_b04/ds/styles/reset`          |
+| `styles/tailwind-theme.css` | `src/styles/tailwind-theme.css` | `@studio_b04/ds/styles/tailwind-theme` |
 
 `vite-plugin-lib-inject-css` bundles each component's CSS into its JS output. `vite-plugin-dts` generates `.d.ts` files. `react`, `react-dom`, `react/jsx-runtime`, and `clsx` are externalized.
 
@@ -74,6 +75,7 @@ Theme switching uses `data-ds-theme="light|dark"` on `<html>`. Without attribute
 ## Key Conventions
 
 ### Component implementation
+
 - Props interface goes in `ComponentName.types.ts`, not in the `.tsx` file
 - Props always extend the matching HTML element's attributes: `HTMLAttributes<HTMLDivElement>`, `ButtonHTMLAttributes<HTMLButtonElement>`, etc.
 - Always spread `...restProps` onto the root element
@@ -81,15 +83,18 @@ Theme switching uses `data-ds-theme="light|dark"` on `<html>`. Without attribute
 - No default export from index files; named exports only
 
 ### CSS class naming
+
 - Root class: `ds-[component-name]` (e.g., `ds-fake-component`)
 - Modifier classes: `ds-[component-name]--[modifier]` (BEM-style)
 - Always use `ds-` prefix — never raw HTML element selectors in component CSS
 
 ### Styling
+
 - Component CSS references semantic tokens (`--ds-text-*`, `--ds-bg-*`, `--ds-border-*`, `--ds-spacing-*`, etc.) — not primitive color tokens
 - Primitive tokens (`--color-*`) are for the theme files only
 
 ### Testing
+
 - Every component test must include an axe accessibility check as the minimum baseline:
   ```tsx
   const { container } = render(<Component {...requiredProps} />);
@@ -99,14 +104,17 @@ Theme switching uses `data-ds-theme="light|dark"` on `<html>`. Without attribute
 - `vitest-axe` matchers are globally extended in `src/setup-tests.ts`
 
 ### TypeScript
+
 - Use `type` imports: `import type { Foo } from "./foo"` (enforced by ESLint)
 - No `any` allowed
 - Path alias `@` maps to `src/` (configured in both `vite.config.ts` and `tsconfig.json`)
 
 ### Stories
+
 - Story title format: `"Components/uikit/ComponentName"`
 - Export `default` as metadata object with `title` and `component`
 - Named exports are individual stories typed as `StoryObj<ComponentProps>`
 
 ### Release
+
 Releases are triggered manually via GitHub Actions (**Actions → Release → Run workflow**). The workflow runs lint → type-check → tests → build → `npm publish`. Use **Dry run** to test the pipeline without publishing.
