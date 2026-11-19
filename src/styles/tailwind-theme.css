@@ -3,10 +3,15 @@
      BREAKPOINTS
      ============================================================ */
   --breakpoint-*: initial;
+  --breakpoint-xs: 25rem;
   --breakpoint-sm: 37.5rem;
+  --breakpoint-tablet: 37.5rem;
   --breakpoint-md: 61.25rem;
+  --breakpoint-tablet-landscape: 61.25rem;
   --breakpoint-lg: 75rem;
   --breakpoint-xl: 112.5rem;
+  --breakpoint-desktop: 75rem;
+  --breakpoint-desktop-large: 112.5rem;
 
   /* ============================================================
      SPACING — from variables/spacing.css
