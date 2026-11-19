@@ -31,6 +31,25 @@ export default function App() {
 
       <div className="container mx-auto min-bs-dvh px-xl flex flex-col gap-6xl pbs-6xl pbe-3xl">
         <section id="colors" className="flex flex-col gap-xl">
+          <h2 className="text-title-sm font-semibold">Shadows</h2>
+
+          <div className="flex gap-sm">
+            {["xs", "sm", "md", "lg", "xl", "2xl"].map((size) => (
+              <Fragment key={size}>
+                <div className="flex gap-sm">
+                  <div
+                    className="rounded-xs inline-[12rem] block-[6rem] flex items-center justify-center bg-secondary"
+                    style={{ boxShadow: `var(--ds-box-shadow-${size})` }}
+                  >
+                    <h3 className="font-semibold">{size}</h3>
+                  </div>
+                </div>
+              </Fragment>
+            ))}
+          </div>
+        </section>
+
+        <section id="colors" className="flex flex-col gap-xl">
           <h2 className="text-title-sm font-semibold">Couleurs</h2>
 
           {["gray", "fuschia", "teal", "green", "red", "orange", "blue", "purple", "yellow", "pink"].map((color) => (

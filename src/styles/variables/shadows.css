@@ -1,11 +1,11 @@
 /* stylelint-disable custom-property-empty-line-before */
 :root {
-  --ds-shadow-color-xs: rgba(17, 24, 39, 0.05);
-  --ds-shadow-color-sm: rgba(17, 24, 39, 0.1);
-  --ds-shadow-color-md: rgba(17, 24, 39, 0.15);
-  --ds-shadow-color-lg: rgba(17, 24, 39, 0.2);
-  --ds-shadow-color-xl: rgba(17, 24, 39, 0.25);
-  --ds-shadow-color-2xl: rgba(17, 24, 39, 0.3);
+  --ds-shadow-color-xs: rgba(17 24 39 / 05%);
+  --ds-shadow-color-sm: rgba(17 24 39 / 10%);
+  --ds-shadow-color-md: rgba(17 24 39 / 15%);
+  --ds-shadow-color-lg: rgba(17 24 39 / 20%);
+  --ds-shadow-color-xl: rgba(17 24 39 / 25%);
+  --ds-shadow-color-2xl: rgba(17 24 39 / 30%);
 
   /* prettier-ignore */
   --ds-box-shadow-xs: 

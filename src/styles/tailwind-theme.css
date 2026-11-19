@@ -564,6 +564,7 @@
   /* ============================================================
      SHADOWS — from variables/shadows.css
      ============================================================ */
+  --shadow-*: initial;
   --shadow-xs: var(--ds-box-shadow-xs);
   --shadow-sm: var(--ds-box-shadow-sm);
   --shadow-md: var(--ds-box-shadow-md);
