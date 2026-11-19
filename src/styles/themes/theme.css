@@ -75,8 +75,8 @@
 /* --- BACKGROUND COLORS --- */
 :root {
   --ds-bg-primary: light-dark(var(--ds-color-gray-50), var(--ds-color-gray-950));
-  --ds-bg-secondary: light-dark(var(--ds-color-gray-100), var(--ds-color-gray-800));
-  --ds-bg-tertiary: light-dark(var(--ds-color-gray-200), var(--ds-color-gray-700));
+  --ds-bg-secondary: light-dark(var(--ds-color-gray-100), var(--ds-color-gray-900));
+  --ds-bg-tertiary: light-dark(var(--ds-color-gray-200), var(--ds-color-gray-800));
 
   --ds-bg-inverse-primary: light-dark(var(--ds-color-gray-950), var(--ds-color-gray-50));
   --ds-bg-inverse-secondary: light-dark(var(--ds-color-gray-800), var(--ds-color-gray-100));

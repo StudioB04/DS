@@ -27,6 +27,7 @@ html {
 
 body {
   font-size: var(--ds-font-size-text-md, 1rem);
+  line-height: 1.35rem;
   line-height: inherit;
   font-family: var(--ds-font-family-sans, system-ui, sans-serif);
   color: var(--ds-text-primary, #111827);

@@ -122,23 +122,6 @@
   --text-title-2xl: var(--ds-font-size-title-2xl);
 
   /* ============================================================
-     LINE HEIGHT — from variables/typography.css
-     ============================================================ */
-  --leading-xs: var(--ds-line-height-text-xs);
-  --leading-sm: var(--ds-line-height-text-sm);
-  --leading-md: var(--ds-line-height-text-md);
-  --leading-lg: var(--ds-line-height-text-lg);
-  --leading-xl: var(--ds-line-height-text-xl);
-  --leading-2xl: var(--ds-line-height-text-2xl);
-  --leading-title-2xs: var(--ds-line-height-title-2xs);
-  --leading-title-xs: var(--ds-line-height-title-xs);
-  --leading-title-sm: var(--ds-line-height-title-sm);
-  --leading-title-md: var(--ds-line-height-title-md);
-  --leading-title-lg: var(--ds-line-height-title-lg);
-  --leading-title-xl: var(--ds-line-height-title-xl);
-  --leading-title-2xl: var(--ds-line-height-title-2xl);
-
-  /* ============================================================
      PRIMITIVE COLORS — from variables/colors.css
      ============================================================ */
   --color-*: initial;
@@ -264,65 +247,65 @@
   --color-pink-950: var(--ds-color-pink-950);
 
   /* ============================================================
-     SEMANTIC TEXT COLORS
+     SEMANTIC COLORS
      ============================================================ */
-  --text-color-primary: var(--ds-text-primary);
-  --text-color-secondary: var(--ds-text-secondary);
-  --text-color-tertiary: var(--ds-text-tertiary);
+  --color-primary: var(--ds-text-primary);
+  --color-secondary: var(--ds-text-secondary);
+  --color-tertiary: var(--ds-text-tertiary);
 
-  --text-color-placeholder: var(--ds-text-placeholder);
+  --color-placeholder: var(--ds-text-placeholder);
 
-  --text-color-inverse-primary: var(--ds-text-inverse-primary);
-  --text-color-inverse-secondary: var(--ds-text-inverse-secondary);
-  --text-color-inverse-tertiary: var(--ds-text-inverse-tertiary);
+  --color-inverse-primary: var(--ds-text-inverse-primary);
+  --color-inverse-secondary: var(--ds-text-inverse-secondary);
+  --color-inverse-tertiary: var(--ds-text-inverse-tertiary);
 
-  --text-color-brand-primary: var(--ds-text-brand-primary);
-  --text-color-brand-secondary: var(--ds-text-brand-secondary);
-  --text-color-brand-tertiary: var(--ds-text-brand-tertiary);
+  --color-brand-primary: var(--ds-text-brand-primary);
+  --color-brand-secondary: var(--ds-text-brand-secondary);
+  --color-brand-tertiary: var(--ds-text-brand-tertiary);
 
-  --text-color-alt-primary: var(--ds-text-alt-primary);
-  --text-color-alt-secondary: var(--ds-text-alt-secondary);
-  --text-color-alt-tertiary: var(--ds-text-alt-tertiary);
+  --color-alt-primary: var(--ds-text-alt-primary);
+  --color-alt-secondary: var(--ds-text-alt-secondary);
+  --color-alt-tertiary: var(--ds-text-alt-tertiary);
 
-  --text-color-info-primary: var(--ds-text-blue-primary);
-  --text-color-info-secondary: var(--ds-text-blue-secondary);
-  --text-color-info-tertiary: var(--ds-text-blue-tertiary);
-  --text-color-blue-primary: var(--ds-text-blue-primary);
-  --text-color-blue-secondary: var(--ds-text-blue-secondary);
-  --text-color-blue-tertiary: var(--ds-text-blue-tertiary);
+  --color-info-primary: var(--ds-text-blue-primary);
+  --color-info-secondary: var(--ds-text-blue-secondary);
+  --color-info-tertiary: var(--ds-text-blue-tertiary);
+  --color-blue-primary: var(--ds-text-blue-primary);
+  --color-blue-secondary: var(--ds-text-blue-secondary);
+  --color-blue-tertiary: var(--ds-text-blue-tertiary);
 
-  --text-color-error-primary: var(--ds-text-red-primary);
-  --text-color-error-secondary: var(--ds-text-red-secondary);
-  --text-color-error-tertiary: var(--ds-text-red-tertiary);
-  --text-color-red-primary: var(--ds-text-red-primary);
-  --text-color-red-secondary: var(--ds-text-red-secondary);
-  --text-color-red-tertiary: var(--ds-text-red-tertiary);
+  --color-error-primary: var(--ds-text-red-primary);
+  --color-error-secondary: var(--ds-text-red-secondary);
+  --color-error-tertiary: var(--ds-text-red-tertiary);
+  --color-red-primary: var(--ds-text-red-primary);
+  --color-red-secondary: var(--ds-text-red-secondary);
+  --color-red-tertiary: var(--ds-text-red-tertiary);
 
-  --text-color-warning-primary: var(--ds-text-orange-primary);
-  --text-color-warning-secondary: var(--ds-text-orange-secondary);
-  --text-color-warning-tertiary: var(--ds-text-orange-tertiary);
-  --text-color-orange-primary: var(--ds-text-orange-primary);
-  --text-color-orange-secondary: var(--ds-text-orange-secondary);
-  --text-color-orange-tertiary: var(--ds-text-orange-tertiary);
+  --color-warning-primary: var(--ds-text-orange-primary);
+  --color-warning-secondary: var(--ds-text-orange-secondary);
+  --color-warning-tertiary: var(--ds-text-orange-tertiary);
+  --color-orange-primary: var(--ds-text-orange-primary);
+  --color-orange-secondary: var(--ds-text-orange-secondary);
+  --color-orange-tertiary: var(--ds-text-orange-tertiary);
 
-  --text-color-success-primary: var(--ds-text-green-primary);
-  --text-color-success-secondary: var(--ds-text-green-secondary);
-  --text-color-success-tertiary: var(--ds-text-green-tertiary);
-  --text-color-green-primary: var(--ds-text-green-primary);
-  --text-color-green-secondary: var(--ds-text-green-secondary);
-  --text-color-green-tertiary: var(--ds-text-green-tertiary);
+  --color-success-primary: var(--ds-text-green-primary);
+  --color-success-secondary: var(--ds-text-green-secondary);
+  --color-success-tertiary: var(--ds-text-green-tertiary);
+  --color-green-primary: var(--ds-text-green-primary);
+  --color-green-secondary: var(--ds-text-green-secondary);
+  --color-green-tertiary: var(--ds-text-green-tertiary);
 
-  --text-color-purple-primary: var(--ds-text-purple-primary);
-  --text-color-purple-secondary: var(--ds-text-purple-secondary);
-  --text-color-purple-tertiary: var(--ds-text-purple-tertiary);
+  --color-purple-primary: var(--ds-text-purple-primary);
+  --color-purple-secondary: var(--ds-text-purple-secondary);
+  --color-purple-tertiary: var(--ds-text-purple-tertiary);
 
-  --text-color-pink-primary: var(--ds-text-pink-primary);
-  --text-color-pink-secondary: var(--ds-text-pink-secondary);
-  --text-color-pink-tertiary: var(--ds-text-pink-tertiary);
+  --color-pink-primary: var(--ds-text-pink-primary);
+  --color-pink-secondary: var(--ds-text-pink-secondary);
+  --color-pink-tertiary: var(--ds-text-pink-tertiary);
 
-  --text-color-yellow-primary: var(--ds-text-yellow-primary);
-  --text-color-yellow-secondary: var(--ds-text-yellow-secondary);
-  --text-color-yellow-tertiary: var(--ds-text-yellow-tertiary);
+  --color-yellow-primary: var(--ds-text-yellow-primary);
+  --color-yellow-secondary: var(--ds-text-yellow-secondary);
+  --color-yellow-tertiary: var(--ds-text-yellow-tertiary);
 
   /* ============================================================
      SEMANTIC BACKGROUND COLORS — specific namespace so classes

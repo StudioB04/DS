@@ -14,21 +14,14 @@
   --ds-font-weight-medium: 500;
   --ds-font-weight-semibold: 600;
   --ds-font-weight-bold: 700;
-  --ds-font-weight-extrabold: 800;
+  --ds-font-weight-extrabold: 900;
 
   --ds-font-size-text-xs: 0.75rem;
   --ds-font-size-text-sm: 0.875rem;
   --ds-font-size-text-md: 1rem;
-  --ds-font-size-text-lg: 1.125rem;
-  --ds-font-size-text-xl: 1.25rem;
-  --ds-font-size-text-2xl: 1.5rem;
-
-  --ds-line-height-text-xs: 1.125rem;
-  --ds-line-height-text-sm: 1.3125rem;
-  --ds-line-height-text-md: 1.5rem;
-  --ds-line-height-text-lg: 1.6875rem;
-  --ds-line-height-text-xl: 1.875rem;
-  --ds-line-height-text-2xl: 2.25rem;
+  --ds-font-size-text-lg: 1.25rem;
+  --ds-font-size-text-xl: 1.5rem;
+  --ds-font-size-text-2xl: 1.75rem;
 
   --ds-font-size-title-xs: 1.25rem;
   --ds-font-size-title-sm: 1.5rem;
@@ -36,11 +29,4 @@
   --ds-font-size-title-lg: 2.5rem;
   --ds-font-size-title-xl: 3.25rem;
   --ds-font-size-title-2xl: 4rem;
-
-  --ds-line-height-title-xs: 1.8125rem;
-  --ds-line-height-title-sm: 2.25rem;
-  --ds-line-height-title-md: 2.6875rem;
-  --ds-line-height-title-lg: 3.125rem;
-  --ds-line-height-title-xl: 3.875rem;
-  --ds-line-height-title-2xl: 4.25rem;
 }
