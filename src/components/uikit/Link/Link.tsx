@@ -35,7 +35,9 @@ export default function Link({
       <>
         {iconStart && <Icon className="ds-link__icon ds-link__icon--start" src={iconStart} />}
 
-        <Markdown allowTags={["strong", "em", "br"]}>{label}</Markdown>
+        <Markdown allowTags={["strong", "em", "br"]} inline>
+          {label}
+        </Markdown>
 
         {href && external && !iconEnd && <Icon className="ds-link__icon ds-link__icon--external" src="external-link" />}
 

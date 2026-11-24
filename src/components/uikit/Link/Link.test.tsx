@@ -53,4 +53,12 @@ describe("Link component", () => {
     render(<Link label="Click **me**" />);
     expect(screen.getByText("me")).toHaveClass("ds-markdown__strong");
   });
+
+  it("renders the label in an inline wrapper without any div", () => {
+    render(<Link label="Read docs" href="/docs" />);
+
+    const link = screen.getByRole("link", { name: "Read docs" });
+    expect(link.querySelector(".ds-markdown")?.tagName).toBe("SPAN");
+    expect(link.querySelector("div")).toBeNull();
+  });
 });

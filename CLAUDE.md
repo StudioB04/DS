@@ -84,7 +84,7 @@ Stories: declare `const defaultArgs: <Name>Props = { … }` with the component's
 
 - Destructure props with defaults in the signature (`size = "md"`, `variant = "brand"` / `"neutral"`), pull out `className`, spread `...restProps` last on the root.
 - Classes via `clsx`: `"ds-x"`, `` `ds-x--size-${size}` ``, `` `ds-x--variant-${variant}` ``, boolean modifiers `flag && "ds-x--flag"`, then `className`.
-- Text labels go through `<Markdown allowTags={["strong","em","br"]}>` (label is a required `string`).
+- Text labels go through `<Markdown allowTags={["strong","em","br"]} inline>` (label is a required `string`); `inline` renders a `<span>` wrapper instead of a `<div>`, which is required whenever the text sits inside a paragraph, a link or a button.
 - Icons: `<Icon src="lucide-name" />` (lucide-static sprite; also accepts a sprite URL or inline `<svg>` string). Icon props are `iconStart` / `iconEnd` / `iconOnly`.
 - Button/Link polymorphism: `const C = (href ? "a" : "button") as ElementType`; `external` → `target="_blank"` + `rel="noopener noreferrer"` + external-link icon.
 - Internal imports use aliases: `import Icon from "$uikit/Icon/Icon"`, `import type { Variant, Size } from "$/types"`.

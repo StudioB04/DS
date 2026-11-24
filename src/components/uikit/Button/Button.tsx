@@ -62,7 +62,9 @@ export default function Button({
         <>
           {iconStart && <Icon className="ds-button__icon ds-button__icon--start" src={iconStart} />}
 
-          <Markdown allowTags={["strong", "em", "br"]}>{label}</Markdown>
+          <Markdown allowTags={["strong", "em", "br"]} inline>
+            {label}
+          </Markdown>
 
           {href && external && !iconEnd && (
             <Icon className="ds-button__icon ds-button__icon--external" src="external-link" />

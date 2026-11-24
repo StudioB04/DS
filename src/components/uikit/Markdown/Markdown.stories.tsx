@@ -7,8 +7,10 @@ const defaultArgs: MarkdownProps = {
   allowTags: ["p", "a", "strong", "em", "h1", "h2", "h3", "h4", "ul", "ol", "li", "hr", "br", "code", "img"],
 };
 
-const renderMarkdownStory = ({ children, allowHtml }: MarkdownProps) => (
-  <Markdown allowHtml={allowHtml}>{children}</Markdown>
+const renderMarkdownStory = ({ children, allowHtml, inline }: MarkdownProps) => (
+  <Markdown allowHtml={allowHtml} inline={inline}>
+    {children}
+  </Markdown>
 );
 
 export default {
@@ -23,6 +25,11 @@ export default {
     },
   },
   argTypes: {
+    inline: {
+      control: "boolean",
+      description:
+        "Renders a `<span>` wrapper instead of a `<div>`, so the text can be placed inside a paragraph, a link or a button without producing invalid HTML.",
+    },
     children: {
       control: "text",
       description:
@@ -83,5 +90,15 @@ export const WithHTMLTags = {
     children: "<strong>lorem</strong> ispum",
     allowTags: ["a", "strong", "em"],
     allowHtml: true,
+  },
+};
+
+export const Inline = {
+  render: renderMarkdownStory,
+  args: {
+    ...defaultArgs,
+    children: "I am a **markdown** _syntax_ rendered in a `<span>`",
+    allowTags: ["strong", "em"],
+    inline: true,
   },
 };

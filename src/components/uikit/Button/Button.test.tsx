@@ -104,4 +104,12 @@ describe("Button component", () => {
 
     expect(screen.getByText("me")).toHaveClass("ds-markdown__strong");
   });
+
+  it("renders the label in an inline wrapper without any div", () => {
+    render(<Button label="Click me" size="md" />);
+
+    const button = screen.getByRole("button", { name: "Click me" });
+    expect(button.querySelector(".ds-markdown")?.tagName).toBe("SPAN");
+    expect(button.querySelector("div")).toBeNull();
+  });
 });

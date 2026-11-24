@@ -62,6 +62,25 @@ Paragraph with *emphasis* and **strong text** plus \`code\`.
     expect(screen.queryByRole("heading")).not.toBeInTheDocument();
   });
 
+  it("renders a span wrapper when inline and a div wrapper otherwise", () => {
+    const { container, rerender } = render(<Markdown>Some text</Markdown>);
+
+    expect(container.firstElementChild?.tagName).toBe("DIV");
+    expect(container.firstElementChild).toHaveClass("ds-markdown");
+
+    rerender(<Markdown inline>Some text</Markdown>);
+
+    expect(container.firstElementChild?.tagName).toBe("SPAN");
+    expect(container.firstElementChild).toHaveClass("ds-markdown");
+  });
+
+  it("does not nest a div inside a paragraph when the text contains a link", () => {
+    const { container } = render(<Markdown>{"First paragraph.\n\nSee the [docs](/docs) for details."}</Markdown>);
+
+    expect(container.querySelector("p a")).toBeInTheDocument();
+    expect(container.querySelector("p div")).toBeNull();
+  });
+
   it("renders custom html when allowHtml is enabled", () => {
     render(<Markdown allowHtml>{"<strong>custom html</strong>"}</Markdown>);
 

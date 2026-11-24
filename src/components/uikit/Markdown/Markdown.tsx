@@ -12,6 +12,7 @@ export default function Markdown({
   children,
   allowHtml = false,
   allowTags = ["p", "a", "strong", "em", "h1", "h2", "h3", "h4", "ul", "ol", "li", "hr", "br", "code", "img"],
+  inline = false,
   className,
   ...restProps
 }: MarkdownProps) {
@@ -54,7 +55,7 @@ export default function Markdown({
     <MarkdownComponent
       className={clsx("ds-markdown", className)}
       options={{
-        wrapper: "div",
+        wrapper: inline ? "span" : "div",
         forceWrapper: true,
         slugify: (str) => `anchor-${str}`,
         disableAutoLink: true,
