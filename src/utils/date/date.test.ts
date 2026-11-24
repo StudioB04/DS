@@ -23,6 +23,11 @@ describe("date util", () => {
       expect(formatDate("fr-FR")).toBe("Mardi 24 Novembre 2026");
     });
 
+    it("should default to English when no locale is given", () => {
+      vi.stubGlobal("Temporal", undefined);
+      expect(formatDate(undefined, "2026-11-24")).toBe("Tuesday, November 24, 2026");
+    });
+
     it("should throw on an invalid date", () => {
       vi.stubGlobal("Temporal", undefined);
       expect(() => formatDate("fr-FR", "nope")).toThrow(RangeError);

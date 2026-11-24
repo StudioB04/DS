@@ -61,5 +61,5 @@ function formatWithDate(locale: string, isoDate?: string): string {
 export function formatDate(locale: string = "en", isoDate?: string): string {
   const temporal = (globalThis as { Temporal?: TemporalApi }).Temporal;
   const text = temporal ? formatWithTemporal(temporal, locale, isoDate) : formatWithDate(locale, isoDate);
-  return capitalize?.(text, locale) ?? text;
+  return capitalize(text, locale);
 }
