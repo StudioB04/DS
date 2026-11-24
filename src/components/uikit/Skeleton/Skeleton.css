@@ -1,4 +1,4 @@
-@layer components {
+@layer theme {
   .ds-skeleton {
     position: relative;
     display: block;

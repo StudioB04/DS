@@ -23,21 +23,25 @@ interface UtilResultProps {
 
 export function UtilResult({ call, result, children }: Readonly<UtilResultProps>) {
   return (
-    <div
-      style={{
-        display: "grid",
-        gap: "var(--ds-spacing-md)",
-        inlineSize: "min(100%, 40rem)",
-        padding: "var(--ds-spacing-xl)",
-        color: "var(--ds-text-primary)",
-        backgroundColor: "var(--ds-bg-secondary)",
-        borderRadius: "var(--ds-radius-lg)",
-        fontFamily: "var(--ds-font-mono)",
-        overflowWrap: "anywhere",
-      }}
-    >
-      <code style={{ color: "var(--ds-text-secondary)" }}>{call}</code>
-      {children ?? <strong>{JSON.stringify(result)}</strong>}
+    <div style={{ display: "flex", blockSize: "calc(100vh - 2rem)" }}>
+      <div
+        style={{
+          display: "grid",
+          margin: "auto",
+          gap: "var(--ds-spacing-md)",
+          inlineSize: "min(100%, 40rem)",
+          padding: "var(--ds-spacing-xl)",
+          color: "var(--ds-text-primary)",
+          backgroundColor: "var(--ds-bg-secondary)",
+          boxShadow: "var(--ds-box-shadow-md)",
+          borderRadius: "var(--ds-radius-lg)",
+          fontFamily: "var(--ds-font-mono)",
+          overflowWrap: "anywhere",
+        }}
+      >
+        <code style={{ color: "var(--ds-text-secondary)" }}>{call}</code>
+        {children ?? <strong>{JSON.stringify(result)}</strong>}
+      </div>
     </div>
   );
 }

@@ -1,4 +1,4 @@
-@layer components {
+@layer theme {
   :root:has(.ds-dialog:popover-open) {
     overflow: hidden;
     pointer-events: none;

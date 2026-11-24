@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { slugify, camelCase, snakeCase, kebabCase, pascalCase, getInitials, humanize } from "./string";
+import { slugify, camelCase, snakeCase, kebabCase, pascalCase, getInitials, humanize, capitalize } from "./string";
 
 describe("string util", () => {
   it("should return white for dark colors", () => {});
@@ -54,5 +54,13 @@ describe("string util", () => {
     expect(humanize("Another_Test")).toBe("another test");
     expect(humanize("OneMoreTest")).toBe("one more test");
     expect(humanize("")).toBe("");
+  });
+
+  it("should capitalize", () => {
+    expect(capitalize("lorem ipsum dolor")).toBe("Lorem Ipsum Dolor");
+    expect(capitalize("loremIpsum DOLOR")).toBe("LoremIpsum DOLOR");
+    expect(capitalize("éclair au chocolat")).toBe("Éclair Au Chocolat");
+    expect(capitalize("istanbul", "tr")).toBe("İstanbul");
+    expect(capitalize("")).toBe("");
   });
 });

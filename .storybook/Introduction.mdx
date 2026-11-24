@@ -74,19 +74,27 @@ npm install @studio_b04/ds
 
 ### 2. Load the styles
 
-Import the tokens once, in your global CSS. The reset is optional but recommended.
+Declare the cascade layers once, at the top of your global CSS, then import the tokens. The reset is optional but recommended. The design system uses three layers, in this order: `tailwind` (Tailwind and its theme, when used), `theme` (reset, tokens, fonts and the components) and `project` (your own styles). Load this stylesheet before any component.
 
 ```css
-@import "@studio_b04/ds/styles/reset";
-@import "@studio_b04/ds/styles/tokens";
+@layer tailwind, theme, project;
+
+@import "@studio_b04/ds/styles/reset" layer(theme);
+@import "@studio_b04/ds/styles/tokens" layer(theme);
 ```
 
-With Tailwind 4, add the theme after Tailwind to get the tokens as utilities:
+With Tailwind 4, add its theme and the DS theme in the `tailwind` layer, and its utilities in `project`, so a utility overrides a component:
 
 ```css
-@import "tailwindcss";
-@import "@studio_b04/ds/styles/tokens";
-@import "@studio_b04/ds/styles/tailwind-theme";
+@layer tailwind, theme, project;
+
+@import "tailwindcss/theme.css" layer(tailwind);
+@import "tailwindcss/preflight.css" layer(tailwind);
+@import "@studio_b04/ds/styles/tailwind-theme" layer(tailwind);
+@import "tailwindcss/utilities.css" layer(project);
+
+@import "@studio_b04/ds/styles/reset" layer(theme);
+@import "@studio_b04/ds/styles/tokens" layer(theme);
 ```
 
 ### 3. Use the components

@@ -1,32 +1,41 @@
-@layer reset, fonts, tokens, components;
+@layer tailwind, theme, project;
 
-@import url("$/styles/reset") layer(reset);
-@import url("$/styles/themes/tokens") layer(tokens);
+@import "$/styles/reset" layer(theme);
+@import url("$/styles/themes/tokens") layer(theme);
 
-@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@300..900&display=swap") layer(fonts);
-@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Mono:wght@400..600&display=swap") layer(fonts);
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@300..900&display=swap") layer(theme);
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Mono:wght@400..600&display=swap") layer(theme);
 @import url("https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap")
-layer(fonts);
+layer(theme);
 
-@layer fonts {
+@layer theme {
   :root {
-    --ds-font-family-sans: "Red Hat Display";
-    --ds-font-family-mono: "Red Hat Mono";
-    --ds-font-family-serif: "Noto Serif";
+    --ds-font-family-sans: "Red Hat Display", sans-serif;
+    --ds-font-family-mono: "Red Hat Mono", monospace;
+    --ds-font-family-serif: "Noto Serif", serif;
   }
 }
 
-.sbdocs-preview.sbdocs-preview {
-  color: var(--ds-text-primary);
-  background-color: var(--ds-bg-primary);
-}
+@layer project {
+  body {
+    font-family: var(--ds-font-family-sans);
+    background-color: var(--ds-bg-primary);
+    color: var(--ds-text-primary);
+    min-height: 100dvh;
+  }
 
-#storybook-root:not([hidden="true"]) {
-  inline-size: auto;
-  block-size: auto;
-  max-inline-size: 100%;
-  max-block-size: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  .sbdocs-preview.sbdocs-preview {
+    color: var(--ds-text-primary);
+    background-color: var(--ds-bg-primary);
+  }
+
+  #storybook-root:not([hidden="true"]) {
+    inline-size: auto;
+    block-size: auto;
+    max-inline-size: 100%;
+    max-block-size: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }

@@ -1,4 +1,4 @@
-@layer components {
+@layer theme {
   .ds-breadcrumb {
     inline-size: 100%;
     font-size: var(--ds-font-size-text-sm);

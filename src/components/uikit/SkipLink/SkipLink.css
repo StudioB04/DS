@@ -1,4 +1,4 @@
-@layer components {
+@layer theme {
   .ds-skip-link {
     position: fixed;
     inset-block-start: var(--ds-spacing-3xl);

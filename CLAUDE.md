@@ -78,6 +78,7 @@ Stories: declare `const defaultArgs: <Name>Props = { … }` with the component's
 ### Comments
 
 - Don't add comments (JSDoc, CSS or inline) unless the user asks. Keep the existing ones as they are.
+- Comments are always written in English.
 
 ### TSX conventions
 
@@ -95,7 +96,7 @@ Stories: declare `const defaultArgs: <Name>Props = { … }` with the component's
 - Native CSS nesting (`&`). Section comments `/* ##### SIZE ##### */`, `SHAPE`, `TYPE`, `VARIANTS`.
 - Pattern: modifiers only set component-local custom props (`--ds-<name>-color`, `--ds-<name>-background-color`, `…_hover`, `--ds-<name>-font-size`, `--ds-<name>-padding-inline`); the root rule consumes them.
 - Use semantic tokens only (`--ds-text-*`, `--ds-bg-*`, `--ds-border-*`) + scale tokens (`--ds-spacing-*`, `--ds-size-Npx`, `--ds-radius-*`, `--ds-font-size-text-*`, `--ds-font-weight-*`, `--ds-transition-*`). Never the primitive `--ds-color-*` in components.
-- Wrap a component's CSS in `@layer components { … }` so Tailwind utilities (layer `utilities`) and the app's own CSS override it; `@property` and `@keyframes` stay outside the layer.
+- Wrap a component's CSS in `@layer theme { … }`; `@property` and `@keyframes` stay outside the layer. The layers are `tailwind, theme, project` everywhere: `tailwind` holds Tailwind and `tailwind-theme` (sandbox only), `theme` holds the reset, tokens, fonts and components, `project` holds the app's own styles and Tailwind's utilities (`tailwindcss/utilities.css`). The order is declared once in the global styles (`.storybook/storybook.css`, `.sandbox/sandbox.css`), which must load before any component: Storybook loads it first through `previewAnnotations` in `.storybook/main.ts` (`.storybook/global.ts`), the sandbox through a `<link>` in `.sandbox/index.html` (the generated `public/theme.css` repeats the statement from `sandbox.css`). Never import these files after a component.
 - Logical properties (`inline-size`, `block-size`, `padding-inline`, `margin-inline-start`).
 - Every `Variant` needs a rule: neutral, brand, alt, green, red, orange, blue, purple, yellow, pink. Solid fills use `--ds-bg-<v>-solid` (+ `_hover`) with `--ds-text-white` (yellow → dark text); tinted fills use `--ds-bg-<v>-primary` + `--ds-text-<v>` + `--ds-border-<v>-solid`.
 

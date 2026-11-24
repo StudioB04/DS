@@ -1,4 +1,4 @@
-@layer components {
+@layer theme {
   .ds-button {
     position: relative;
     display: inline-flex;
@@ -28,14 +28,6 @@
 
     &:is(:hover, :focus-visible):not(:active) {
       background-color: var(--ds-button-background-color_hover);
-    }
-
-    &:not(:has(.ds-button__icon--start)) {
-      padding-inline-start: calc(2 * var(--ds-button-padding-inline));
-    }
-
-    &:not(:has(.ds-button__icon--end)) {
-      padding-inline-end: calc(2 * var(--ds-button-padding-inline));
     }
 
     &[disabled] {
@@ -72,21 +64,21 @@
   .ds-button--size-sm {
     --ds-button-size: var(--ds-size-40px);
     --ds-button-font-size: var(--ds-font-size-text-md);
-    --ds-button-padding-inline: var(--ds-spacing-lg);
+    --ds-button-padding-inline: var(--ds-spacing-xl);
     --ds-button-radius: var(--ds-radius-md);
   }
 
   .ds-button--size-md {
     --ds-button-size: var(--ds-size-48px);
     --ds-button-font-size: var(--ds-font-size-text-lg);
-    --ds-button-padding-inline: var(--ds-spacing-xl);
+    --ds-button-padding-inline: var(--ds-spacing-2xl);
     --ds-button-radius: var(--ds-radius-lg);
   }
 
   .ds-button--size-lg {
     --ds-button-size: var(--ds-size-56px);
     --ds-button-font-size: var(--ds-font-size-text-xl);
-    --ds-button-padding-inline: var(--ds-spacing-2xl);
+    --ds-button-padding-inline: var(--ds-spacing-3xl);
     --ds-button-radius: var(--ds-radius-xl);
   }
 

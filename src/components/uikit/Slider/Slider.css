@@ -1,4 +1,4 @@
-@layer components {
+@layer theme {
   .ds-slider {
     --ds-slider-gap: var(--ds-spacing-xl);
     --ds-slider-fade-size: 1.6rem;

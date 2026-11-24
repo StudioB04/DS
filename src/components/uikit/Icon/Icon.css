@@ -1,4 +1,4 @@
-@layer components {
+@layer theme {
   .ds-icon {
     fill: none;
     stroke: currentColor;

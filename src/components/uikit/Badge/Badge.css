@@ -1,4 +1,4 @@
-@layer components {
+@layer theme {
   .ds-badge {
     display: inline-flex;
     min-inline-size: max-content;
@@ -11,21 +11,9 @@
     padding-inline: var(--ds-badge-padding-inline);
     padding-block: var(--ds-badge-padding-block);
 
-    &:has(.ds-badge__icon--start) {
-      padding-inline-start: calc(0.5 * var(--ds-badge-padding-inline));
-    }
-
-    &:has(.ds-badge__icon--end) {
-      padding-inline-end: calc(0.5 * var(--ds-badge-padding-inline));
-    }
-
     &:has(.ds-badge__icon--only) {
       aspect-ratio: 1;
       padding-inline: calc(0.5 * var(--ds-badge-padding-inline));
-    }
-
-    &:has(.ds-badge__icon--end) {
-      padding-inline-end: calc(0.5 * var(--ds-badge-padding-inline));
     }
 
     .ds-badge__icon {

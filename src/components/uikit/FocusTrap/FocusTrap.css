@@ -1,4 +1,4 @@
-@layer components {
+@layer theme {
   .ds-focus-trap,
   .ds-focus-trap__content {
     display: contents;

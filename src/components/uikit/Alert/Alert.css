@@ -1,4 +1,4 @@
-@layer components {
+@layer theme {
   .ds-alert {
     interpolate-size: allow-keywords;
     display: flex;
@@ -70,14 +70,14 @@
 
   .ds-alert--variant-brand {
     --ds-alert-color: var(--ds-text-brand-primary);
-    --ds-alert-border-color: var(--ds-border-brand-primary);
+    --ds-alert-border-color: var(--ds-border-brand-solid);
     --ds-alert-background-color: var(--ds-bg-brand-primary);
     --ds-alert-close-background-color_hover: var(--ds-bg-brand-secondary);
   }
 
   .ds-alert--variant-alt {
     --ds-alert-color: var(--ds-text-alt-primary);
-    --ds-alert-border-color: var(--ds-border-alt-primary);
+    --ds-alert-border-color: var(--ds-border-alt-solid);
     --ds-alert-background-color: var(--ds-bg-alt-primary);
     --ds-alert-close-background-color_hover: var(--ds-bg-alt-secondary);
   }
@@ -85,7 +85,7 @@
   .ds-alert--variant-green,
   .ds-alert--variant-success {
     --ds-alert-color: var(--ds-text-green-primary);
-    --ds-alert-border-color: var(--ds-border-green-primary);
+    --ds-alert-border-color: var(--ds-border-green-solid);
     --ds-alert-background-color: var(--ds-bg-green-primary);
     --ds-alert-close-background-color_hover: var(--ds-bg-green-secondary);
   }
@@ -93,7 +93,7 @@
   .ds-alert--variant-red,
   .ds-alert--variant-error {
     --ds-alert-color: var(--ds-text-red-primary);
-    --ds-alert-border-color: var(--ds-border-red-primary);
+    --ds-alert-border-color: var(--ds-border-red-solid);
     --ds-alert-background-color: var(--ds-bg-red-primary);
     --ds-alert-close-background-color_hover: var(--ds-bg-red-secondary);
   }
@@ -101,7 +101,7 @@
   .ds-alert--variant-orange,
   .ds-alert--variant-warning {
     --ds-alert-color: var(--ds-text-orange-primary);
-    --ds-alert-border-color: var(--ds-border-orange-primary);
+    --ds-alert-border-color: var(--ds-border-orange-solid);
     --ds-alert-background-color: var(--ds-bg-orange-primary);
     --ds-alert-close-background-color_hover: var(--ds-bg-orange-secondary);
   }
@@ -109,35 +109,35 @@
   .ds-alert--variant-blue,
   .ds-alert--variant-info {
     --ds-alert-color: var(--ds-text-blue-primary);
-    --ds-alert-border-color: var(--ds-border-blue-primary);
+    --ds-alert-border-color: var(--ds-border-blue-solid);
     --ds-alert-background-color: var(--ds-bg-blue-primary);
     --ds-alert-close-background-color_hover: var(--ds-bg-blue-secondary);
   }
 
   .ds-alert--variant-purple {
     --ds-alert-color: var(--ds-text-purple-primary);
-    --ds-alert-border-color: var(--ds-border-purple-primary);
+    --ds-alert-border-color: var(--ds-border-purple-solid);
     --ds-alert-background-color: var(--ds-bg-purple-primary);
     --ds-alert-close-background-color_hover: var(--ds-bg-purple-secondary);
   }
 
   .ds-alert--variant-yellow {
     --ds-alert-color: var(--ds-text-yellow-primary);
-    --ds-alert-border-color: var(--ds-border-yellow-primary);
+    --ds-alert-border-color: var(--ds-border-yellow-solid);
     --ds-alert-background-color: var(--ds-bg-yellow-primary);
     --ds-alert-close-background-color_hover: var(--ds-bg-yellow-secondary);
   }
 
   .ds-alert--variant-pink {
     --ds-alert-color: var(--ds-text-pink-primary);
-    --ds-alert-border-color: var(--ds-border-pink-primary);
+    --ds-alert-border-color: var(--ds-border-pink-solid);
     --ds-alert-background-color: var(--ds-bg-pink-primary);
     --ds-alert-close-background-color_hover: var(--ds-bg-pink-secondary);
   }
 
   .ds-alert--variant-inverse {
     --ds-alert-color: var(--ds-text-inverse-primary);
-    --ds-alert-border-color: var(--ds-border-inverse-primary);
+    --ds-alert-border-color: var(--ds-border-inverse-solid);
     --ds-alert-background-color: var(--ds-bg-inverse-secondary);
     --ds-alert-close-background-color_hover: var(--ds-bg-inverse-tertiary);
 

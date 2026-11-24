@@ -70,6 +70,7 @@
   min-inline-size: 10rem;
   block-size: 7rem;
   background-color: var(--sb-intro-tile-color);
+  border: var(--ds-border-primary-1px) solid var(--sb-intro-tile-color);
   border-radius: var(--ds-radius-lg);
 }
 

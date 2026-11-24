@@ -1,4 +1,4 @@
-@layer components {
+@layer theme {
   .ds-logo {
     block-size: 1em;
     inline-size: auto;

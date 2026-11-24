@@ -1,6 +1,6 @@
 import type { StoryObj } from "@storybook/react-vite";
 import { UtilResult, formatCall, usage } from "../../../.storybook/UtilDemo";
-import { camelCase, getInitials, humanize, kebabCase, pascalCase, slugify, snakeCase } from "./string";
+import { camelCase, capitalize, getInitials, humanize, kebabCase, pascalCase, slugify, snakeCase } from "./string";
 
 interface StringArgs {
   value: string;
@@ -18,7 +18,7 @@ export default {
     docs: {
       description: {
         component:
-          'Helpers to convert and format strings. They are exported from `@studio_b04/ds/utils`:\n\n```ts\nimport { slugify, camelCase, snakeCase, kebabCase, pascalCase, getInitials, humanize } from "@studio_b04/ds/utils";\n```\n\nEvery function returns an empty string when no string is given. Change the `value` control of a story to try your own text.',
+          'Helpers to convert and format strings. They are exported from `@studio_b04/ds/utils`:\n\n```ts\nimport { slugify, camelCase, snakeCase, kebabCase, pascalCase, getInitials, humanize, capitalize } from "@studio_b04/ds/utils";\n```\n\nEvery function returns an empty string when no string is given. Change the `value` control of a story to try your own text.',
       },
     },
   },
@@ -116,6 +116,20 @@ export const Humanize: StoryObj<StringArgs> = {
     },
   },
   render: ({ value }) => <UtilResult call={formatCall("humanize", [value])} result={humanize(value)} />,
+};
+
+export const Capitalize: StoryObj<StringArgs> = {
+  args: { ...defaultArgs, value: "lorem ipsum dolor sit" },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "`capitalize(string, locale?)` puts a capital letter on every space-separated word and leaves the rest of each word as it is (`Lorem Ipsum Dolor Sit`). The optional `locale` drives the case conversion.",
+      },
+      source: usage<StringArgs>("capitalize", ({ value }) => [value]),
+    },
+  },
+  render: ({ value }) => <UtilResult call={formatCall("capitalize", [value])} result={capitalize(value)} />,
 };
 
 export const GetInitials: StoryObj<StringArgs> = {

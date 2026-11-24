@@ -1,4 +1,4 @@
-@layer components {
+@layer theme {
   .ds-notification {
     display: inline-flex;
     flex-shrink: 0;

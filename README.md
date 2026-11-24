@@ -116,7 +116,7 @@ document.documentElement.dataset.dsTheme = "dark";
 An opinionated CSS reset that normalises browser defaults and applies base typographic tokens:
 
 ```css
-@import "@studio_b04/ds/styles/reset";
+@import "@studio_b04/ds/styles/reset" layer(theme);
 ```
 
 ### Tailwind 4 theme
@@ -125,9 +125,15 @@ The package ships a `tailwind-theme.css` inside `dist/` that maps all design tok
 
 ```css
 /* tailwind.css */
-@import "tailwindcss";
-@import "@studio_b04/ds/styles/tokens"; /* tokens on :root */
-@import "@studio_b04/ds/styles/tailwind-theme"; /* Tailwind overrides */
+@layer tailwind, theme, project;
+
+@import "tailwindcss/theme.css" layer(tailwind);
+@import "tailwindcss/preflight.css" layer(tailwind);
+@import "@studio_b04/ds/styles/tailwind-theme" layer(tailwind); /* Tailwind overrides */
+@import "tailwindcss/utilities.css" layer(project);
+
+@import "@studio_b04/ds/styles/reset" layer(theme);
+@import "@studio_b04/ds/styles/tokens" layer(theme); /* tokens on :root */
 ```
 
 This gives you access to all token values as Tailwind utilities:
@@ -136,7 +142,23 @@ This gives you access to all token values as Tailwind utilities:
 <p class="text-gray-500 bg-brand-primary rounded-md shadow-sm duration-fast">…</p>
 ```
 
-Component styles live in the `components` cascade layer, which sits before Tailwind's `utilities` layer: a utility such as `p-8` overrides the matching component rule.
+### Cascade layers
+
+The design system uses three cascade layers, always in this order (later layers win):
+
+| Layer      | Content                                                                                           |
+| ---------- | ------------------------------------------------------------------------------------------------- |
+| `tailwind` | Tailwind's theme and preflight, and the DS `tailwind-theme` (only when the project uses Tailwind) |
+| `theme`    | The design system: reset, tokens, fonts and the component styles                                  |
+| `project`  | The styles of the project that uses the design system, and Tailwind's utilities                   |
+
+Declare the order once, at the top of your global stylesheet, and load that stylesheet before any DS component (otherwise a component can end up before `tailwind`):
+
+```css
+@layer tailwind, theme, project;
+```
+
+With this order, a utility such as `p-8` or a rule of your own overrides the matching component rule. Without Tailwind, keep the same statement and put your styles in `project`.
 
 Sizing: `w-*`, `min-w-*`, `max-w-*` and `@container` queries share one scale (`2xs` … `5xl`), and `inline-*` / `max-inline-*` accept `page`, `prose` and `wide`.
 
@@ -238,13 +260,14 @@ You can also open it from code with a `ref` (`ref.current?.open()` and `ref.curr
 
 Small framework-agnostic helpers, exported from `@studio_b04/ds/utils`. Each one is documented, with an interactive demo, under **Utils** in [Storybook](https://studiob04.github.io/DS).
 
-| Module | Functions                                                                                 |
-| ------ | ----------------------------------------------------------------------------------------- |
-| String | `slugify`, `camelCase`, `pascalCase`, `snakeCase`, `kebabCase`, `humanize`, `getInitials` |
-| Number | `shorten`, `shortenFileSize`                                                              |
-| Array  | `sortBy`                                                                                  |
-| Timing | `debounce`, `throttle`                                                                    |
-| DOM    | `setHTMLCustomProp`                                                                       |
+| Module | Functions                                                                                               |
+| ------ | ------------------------------------------------------------------------------------------------------- |
+| String | `slugify`, `camelCase`, `pascalCase`, `snakeCase`, `kebabCase`, `humanize`, `capitalize`, `getInitials` |
+| Number | `shorten`, `shortenFileSize`                                                                            |
+| Date   | `formatDate`                                                                                            |
+| Array  | `sortBy`                                                                                                |
+| Timing | `debounce`, `throttle`                                                                                  |
+| DOM    | `setHTMLCustomProp`                                                                                     |
 
 ```ts
 import { slugify, shorten, debounce } from "@studio_b04/ds/utils";

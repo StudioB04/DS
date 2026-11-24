@@ -106,3 +106,16 @@ export function humanize(string: string = ""): string {
     .toLowerCase() // 4. Convert to lowercase and trim spaces
     .trim();
 }
+
+/**
+ * Capitalizes the first letter of every space-separated word, leaving the rest of each word untouched.
+ * @param {string} string The input string (e.g., "lorem ipsum").
+ * @param {string} [locale] Optional locale used for the case conversion (e.g., "tr" turns "i" into "İ").
+ * @returns {string} The capitalized string (e.g., "Lorem Ipsum").
+ */
+export function capitalize(string: string = "", locale?: string): string {
+  return string
+    .split(" ")
+    .map((word) => word.charAt(0).toLocaleUpperCase(locale) + word.slice(1))
+    .join(" ");
+}
