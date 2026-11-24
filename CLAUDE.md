@@ -43,7 +43,7 @@ src/
     reset.css                  # → export "./styles/reset"
     base.css                   # body colors, focus-visible ring, print, [popover]
     styles.stories.tsx         # Storybook "Foundations/Colors" page (palette + semantic tokens, swatches read from the live CSS)
-    tailwind-theme.css         # Tailwind 4 @theme mapping (only var(--ds-*) references, no hard-coded values) → export "./styles/tailwind-theme"
+    tailwind-theme.css         # Tailwind 4 @theme mapping (var(--ds-*) references; only the container widths are literal rem values) → export "./styles/tailwind-theme"
 .storybook/                    # Storybook 10; theme toolbar sets data-ds-theme on <html>; decorators wrap every story in StudioB04Provider
 .sandbox/                      # self-contained dev playground with its OWN package.json/node_modules, never shipped
                                # excluded from root ESLint + tsconfig.eslint.json; `npm run typecheck` inside it
@@ -95,6 +95,7 @@ Stories: declare `const defaultArgs: <Name>Props = { … }` with the component's
 - Native CSS nesting (`&`). Section comments `/* ##### SIZE ##### */`, `SHAPE`, `TYPE`, `VARIANTS`.
 - Pattern: modifiers only set component-local custom props (`--ds-<name>-color`, `--ds-<name>-background-color`, `…_hover`, `--ds-<name>-font-size`, `--ds-<name>-padding-inline`); the root rule consumes them.
 - Use semantic tokens only (`--ds-text-*`, `--ds-bg-*`, `--ds-border-*`) + scale tokens (`--ds-spacing-*`, `--ds-size-Npx`, `--ds-radius-*`, `--ds-font-size-text-*`, `--ds-font-weight-*`, `--ds-transition-*`). Never the primitive `--ds-color-*` in components.
+- Wrap a component's CSS in `@layer components { … }` so Tailwind utilities (layer `utilities`) and the app's own CSS override it; `@property` and `@keyframes` stay outside the layer.
 - Logical properties (`inline-size`, `block-size`, `padding-inline`, `margin-inline-start`).
 - Every `Variant` needs a rule: neutral, brand, alt, green, red, orange, blue, purple, yellow, pink. Solid fills use `--ds-bg-<v>-solid` (+ `_hover`) with `--ds-text-white` (yellow → dark text); tinted fills use `--ds-bg-<v>-primary` + `--ds-text-<v>` + `--ds-border-<v>-solid`.
 

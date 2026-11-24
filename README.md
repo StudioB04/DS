@@ -136,6 +136,10 @@ This gives you access to all token values as Tailwind utilities:
 <p class="text-gray-500 bg-brand-primary rounded-md shadow-sm duration-fast">…</p>
 ```
 
+Component styles live in the `components` cascade layer, which sits before Tailwind's `utilities` layer: a utility such as `p-8` overrides the matching component rule.
+
+Sizing: `w-*`, `min-w-*`, `max-w-*` and `@container` queries share one scale (`2xs` … `5xl`), and `inline-*` / `max-inline-*` accept `page`, `prose` and `wide`.
+
 ---
 
 ## Fonts

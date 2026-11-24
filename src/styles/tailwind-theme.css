@@ -101,6 +101,7 @@
   /* ============================================================
      FONT WEIGHT — from variables/typography.css
      ============================================================ */
+  --font-weight-*: initial;
   --font-weight-thin: var(--ds-font-weight-thin);
   --font-weight-light: var(--ds-font-weight-light);
   --font-weight-regular: var(--ds-font-weight-regular);
@@ -108,18 +109,17 @@
   --font-weight-semibold: var(--ds-font-weight-semibold);
   --font-weight-bold: var(--ds-font-weight-bold);
   --font-weight-extrabold: var(--ds-font-weight-extrabold);
-  --font-weight-extrabold: var(--ds-font-weight-extrabold);
 
   /* ============================================================
      FONT SIZE — from variables/typography.css
      ============================================================ */
+  --text-*: initial;
   --text-xs: var(--ds-font-size-text-xs);
   --text-sm: var(--ds-font-size-text-sm);
   --text-md: var(--ds-font-size-text-md);
   --text-lg: var(--ds-font-size-text-lg);
   --text-xl: var(--ds-font-size-text-xl);
   --text-2xl: var(--ds-font-size-text-2xl);
-  --text-title-2xs: var(--ds-font-size-title-2xs);
   --text-title-xs: var(--ds-font-size-title-xs);
   --text-title-sm: var(--ds-font-size-title-sm);
   --text-title-md: var(--ds-font-size-title-md);
@@ -131,6 +131,9 @@
      PRIMITIVE COLORS — from variables/colors.css
      ============================================================ */
   --color-*: initial;
+
+  --color-white: var(--ds-color-white);
+  --color-black: var(--ds-color-black);
 
   --color-gray-50: var(--ds-color-gray-50);
   --color-gray-100: var(--ds-color-gray-100);
@@ -561,47 +564,60 @@
   --size-96px: var(--ds-size-96px);
 
   /* ============================================================
-     CONTAINER WIDTH — 
+     CONTAINER WIDTH — w-*, min-w-*, max-w-* and @container share one scale;
+     page, prose and wide are collision-free names for inline-*
      ============================================================ */
-  --width-2xs: 12rem;
-  --min-width-2xs: 12rem;
-  --max-width-2xs: 12rem;
+  --container-*: initial;
+  --container-2xs: 12rem;
+  --container-xs: 16rem;
+  --container-sm: 20rem;
+  --container-md: 24rem;
+  --container-lg: 32rem;
+  --container-xl: 48rem;
+  --container-2xl: 64rem;
+  --container-3xl: 80rem;
+  --container-4xl: 96rem;
+  --container-5xl: 112rem;
 
-  --width-xs: 16rem;
-  --min-width-xs: 16rem;
-  --max-width-xs: 16rem;
+  --width-2xs: var(--container-2xs);
+  --min-width-2xs: var(--container-2xs);
+  --max-width-2xs: var(--container-2xs);
 
-  --width-sm: 20rem;
-  --min-width-sm: 20rem;
-  --max-width-sm: 20rem;
+  --width-xs: var(--container-xs);
+  --min-width-xs: var(--container-xs);
+  --max-width-xs: var(--container-xs);
 
-  --width-md: 24rem;
-  --min-width-md: 24rem;
-  --max-width-md: 24rem;
+  --width-sm: var(--container-sm);
+  --min-width-sm: var(--container-sm);
+  --max-width-sm: var(--container-sm);
 
-  --width-lg: 32rem;
-  --min-width-lg: 32rem;
-  --max-width-lg: 32rem;
+  --width-md: var(--container-md);
+  --min-width-md: var(--container-md);
+  --max-width-md: var(--container-md);
 
-  --width-xl: 48rem;
-  --min-width-xl: 48rem;
-  --max-width-xl: 48rem;
+  --width-lg: var(--container-lg);
+  --min-width-lg: var(--container-lg);
+  --max-width-lg: var(--container-lg);
 
-  --width-2xl: 64rem;
-  --min-width-2xl: 64rem;
-  --max-width-2xl: 64rem;
+  --width-xl: var(--container-xl);
+  --min-width-xl: var(--container-xl);
+  --max-width-xl: var(--container-xl);
 
-  --width-3xl: 80rem;
-  --min-width-3xl: 80rem;
-  --max-width-3xl: 80rem;
+  --width-2xl: var(--container-2xl);
+  --min-width-2xl: var(--container-2xl);
+  --max-width-2xl: var(--container-2xl);
 
-  --width-4xl: 96rem;
-  --min-width-4xl: 96rem;
-  --max-width-4xl: 96rem;
+  --width-3xl: var(--container-3xl);
+  --min-width-3xl: var(--container-3xl);
+  --max-width-3xl: var(--container-3xl);
 
-  --width-5xl: 112rem;
-  --min-width-5xl: 112rem;
-  --max-width-5xl: 112rem;
+  --width-4xl: var(--container-4xl);
+  --min-width-4xl: var(--container-4xl);
+  --max-width-4xl: var(--container-4xl);
+
+  --width-5xl: var(--container-5xl);
+  --min-width-5xl: var(--container-5xl);
+  --max-width-5xl: var(--container-5xl);
 
   /* ============================================================
      SHADOWS — from variables/shadows.css
@@ -615,8 +631,11 @@
   --shadow-2xl: var(--ds-box-shadow-2xl);
 
   /* ============================================================
-     TRANSITION 
+     TRANSITION
      ============================================================ */
+  --default-transition-duration: var(--ds-transition-delay-regular);
+  --default-transition-timing-function: ease;
+
   --transition-duration-faster: var(--ds-transition-delay-faster);
   --transition-duration-fast: var(--ds-transition-delay-fast);
   --transition-duration-regular: var(--ds-transition-delay-regular);
