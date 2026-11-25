@@ -14,7 +14,7 @@
   --breakpoint-desktop-large: 112.5rem;
 
   /* ============================================================
-     SPACING — from variables/spacing.css
+     SPACING — from themes/variables/spacing.css
      ============================================================ */
   --spacing-*: initial;
   --spacing-0: var(--ds-spacing-none);
@@ -91,7 +91,7 @@
   --spacing-96px: var(--ds-size-96px);
 
   /* ============================================================
-     FONT FAMILY — from variables/typography.css
+     FONT FAMILY — from themes/variables/typography.css
      ============================================================ */
   --font-*: initial;
   --font-sans: var(--ds-font-sans);
@@ -99,7 +99,7 @@
   --font-mono: var(--ds-font-mono);
 
   /* ============================================================
-     FONT WEIGHT — from variables/typography.css
+     FONT WEIGHT — from themes/variables/typography.css
      ============================================================ */
   --font-weight-*: initial;
   --font-weight-thin: var(--ds-font-weight-thin);
@@ -111,7 +111,7 @@
   --font-weight-extrabold: var(--ds-font-weight-extrabold);
 
   /* ============================================================
-     FONT SIZE — from variables/typography.css
+     FONT SIZE — from themes/variables/typography.css
      ============================================================ */
   --text-*: initial;
   --text-xs: var(--ds-font-size-text-xs);
@@ -128,7 +128,7 @@
   --text-title-2xl: var(--ds-font-size-title-2xl);
 
   /* ============================================================
-     PRIMITIVE COLORS — from variables/colors.css
+     PRIMITIVE COLORS — from themes/variables/colors.css
      ============================================================ */
   --color-*: initial;
 
@@ -435,14 +435,8 @@
   --border-color-purple-solid: var(--ds-border-purple-solid);
   --border-color-purple-solid_hover: var(--ds-border-purple-solid_hover);
 
-  --border-color-yellow-primary: var(--ds-border-yellow-primary);
-  --border-color-yellow-secondary: var(--ds-border-yellow-secondary);
-  --border-color-yellow-tertiary: var(--ds-border-yellow-tertiary);
-  --border-color-yellow-solid: var(--ds-border-yellow-solid);
-  --border-color-yellow-solid_hover: var(--ds-border-yellow-solid_hover);
-
   /* ============================================================
-     BORDER RADIUS — from variables/radius.css
+     BORDER RADIUS — from themes/variables/radius.css
      ============================================================ */
   --radius-2xs: var(--ds-radius-2xs);
   --radius-xs: var(--ds-radius-xs);
@@ -456,7 +450,7 @@
   --radius-full: var(--ds-radius-full);
 
   /* ============================================================
-     SIZE — from variables/size.css
+     SIZE — from themes/variables/size.css
      ============================================================ */
   --size-*: initial;
   --size-1px: var(--ds-size-1px);
@@ -572,7 +566,7 @@
   --max-width-5xl: var(--container-5xl);
 
   /* ============================================================
-     SHADOWS — from variables/shadows.css
+     SHADOWS — from themes/variables/shadows.css
      ============================================================ */
   --shadow-*: initial;
   --shadow-xs: var(--ds-box-shadow-xs);
