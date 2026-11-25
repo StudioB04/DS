@@ -3,7 +3,7 @@ import type { Variant } from "$/types";
 
 import "./introduction.css";
 
-const palette: Variant[] = ["brand", "alt", "green", "blue", "purple", "orange", "pink", "yellow"];
+const palette: Variant[] = ["brand", "alt", "green", "blue", "purple", "orange"];
 
 const tiles = palette.map((variant) => (
   <div key={variant} className={`sb-intro-tile sb-intro-tile--${variant}`}>
@@ -25,12 +25,7 @@ export default function IntroductionShowcase() {
         <p className="sb-intro-text">Components, design tokens and themes shared by every StudioB04 website.</p>
         <div className="sb-intro-row">
           <Button label="Get started" variant="brand" shape="pill" iconEnd="arrow-right" />
-          <Button
-            label="Inbox"
-            variant="neutral"
-            shape="outline"
-            slotEnd={<Notification value={3} variant="red" />}
-          />
+          <Button label="Inbox" variant="neutral" shape="outline" slotEnd={<Notification value={3} variant="red" />} />
         </div>
       </div>
 

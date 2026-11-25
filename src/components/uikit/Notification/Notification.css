@@ -82,14 +82,4 @@
     --ds-notification-color: var(--ds-text-inverse-primary);
     --ds-notification-background-color: var(--ds-bg-purple-solid);
   }
-
-  .ds-notification--variant-yellow {
-    --ds-notification-color: var(--ds-text-primary);
-    --ds-notification-background-color: var(--ds-bg-yellow-solid);
-  }
-
-  .ds-notification--variant-pink {
-    --ds-notification-color: var(--ds-text-inverse-primary);
-    --ds-notification-background-color: var(--ds-bg-pink-solid);
-  }
 }

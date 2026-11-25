@@ -34,7 +34,7 @@ export default {
     },
     variant: {
       control: "select",
-      options: ["neutral", "brand", "alt", "green", "red", "orange", "blue", "purple", "yellow", "pink", "inverse"],
+      options: ["neutral", "brand", "alt", "green", "red", "orange", "blue", "purple", "inverse"],
       description: "The color variant of the Alert.",
     },
     persistant: {

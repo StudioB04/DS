@@ -120,16 +120,4 @@
     --ds-link-color_hover: var(--ds-bg-purple-solid);
     --ds-link-bg_hover: var(--ds-bg-purple-primary);
   }
-
-  .ds-link--variant-yellow {
-    --ds-link-color: var(--ds-text-yellow-primary);
-    --ds-link-color_hover: var(--ds-bg-yellow-solid);
-    --ds-link-bg_hover: var(--ds-bg-yellow-primary);
-  }
-
-  .ds-link--variant-pink {
-    --ds-link-color: var(--ds-text-pink-primary);
-    --ds-link-color_hover: var(--ds-bg-pink-solid);
-    --ds-link-bg_hover: var(--ds-bg-pink-primary);
-  }
 }

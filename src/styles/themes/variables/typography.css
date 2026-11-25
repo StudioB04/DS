@@ -29,4 +29,18 @@
   --ds-font-size-title-lg: 2.5rem;
   --ds-font-size-title-xl: 3.25rem;
   --ds-font-size-title-2xl: 4rem;
+
+  --ds-line-height-text-xs: 1.125rem;
+  --ds-line-height-text-sm: 1.25rem;
+  --ds-line-height-text-md: 1.5rem;
+  --ds-line-height-text-lg: 1.75rem;
+  --ds-line-height-text-xl: 2rem;
+  --ds-line-height-text-2xl: 2.25rem;
+
+  --ds-line-height-title-xs: 1.75rem;
+  --ds-line-height-title-sm: 2rem;
+  --ds-line-height-title-md: 2.5rem;
+  --ds-line-height-title-lg: 3rem;
+  --ds-line-height-title-xl: 3.75rem;
+  --ds-line-height-title-2xl: 4.5rem;
 }

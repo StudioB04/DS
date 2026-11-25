@@ -37,7 +37,7 @@ src/
                                # each has <name>.test.ts and <name>.stories.tsx (title "Utils/<Name>", docs via autodocs, helpers in .storybook/UtilDemo.tsx)
   hooks/index.ts               # empty for now (built as entry, not in package exports)
   styles/
-    variables/*.css            # primitive tokens on :root (colors, spacing, size, radius, typography, shadows, borders, transitions)
+    themes/variables/*.css     # primitive tokens on :root (colors, spacing, size, radius, typography, shadows, borders, transitions)
     themes/theme.css           # semantic tokens (--ds-text-*, --ds-bg-*, --ds-border-*, focus ring), one `light-dark()` definition each
     themes/tokens.css          # aggregates variables + theme  → export "./styles/tokens"
     reset.css                  # → export "./styles/reset"
@@ -95,10 +95,10 @@ Stories: declare `const defaultArgs: <Name>Props = { … }` with the component's
 - Root `.ds-<name>`, elements `.ds-<name>__<el>`, modifiers `.ds-<name>--<prop>-<value>`. Never style bare HTML selectors.
 - Native CSS nesting (`&`). Section comments `/* ##### SIZE ##### */`, `SHAPE`, `TYPE`, `VARIANTS`.
 - Pattern: modifiers only set component-local custom props (`--ds-<name>-color`, `--ds-<name>-background-color`, `…_hover`, `--ds-<name>-font-size`, `--ds-<name>-padding-inline`); the root rule consumes them.
-- Use semantic tokens only (`--ds-text-*`, `--ds-bg-*`, `--ds-border-*`) + scale tokens (`--ds-spacing-*`, `--ds-size-Npx`, `--ds-radius-*`, `--ds-font-size-text-*`, `--ds-font-weight-*`, `--ds-transition-*`). Never the primitive `--ds-color-*` in components.
+- Use semantic tokens only (`--ds-text-*`, `--ds-bg-*`, `--ds-border-*`) + scale tokens (`--ds-spacing-*`, `--ds-size-Npx`, `--ds-radius-*`, `--ds-font-size-text-*`, `--ds-line-height-*`, `--ds-font-weight-*`, `--ds-transition-*`). Never the primitive `--ds-color-*` in components.
 - Wrap a component's CSS in `@layer theme { … }`; `@property` and `@keyframes` stay outside the layer. The layers are `tailwind, theme, project` everywhere: `tailwind` holds Tailwind and `tailwind-theme` (sandbox only), `theme` holds the reset, tokens, fonts and components, `project` holds the app's own styles and Tailwind's utilities (`tailwindcss/utilities.css`). The order is declared once in the global styles (`.storybook/storybook.css`, `.sandbox/sandbox.css`), which must load before any component: Storybook loads it first through `previewAnnotations` in `.storybook/main.ts` (`.storybook/global.ts`), the sandbox through a `<link>` in `.sandbox/index.html` (the generated `public/theme.css` repeats the statement from `sandbox.css`). Never import these files after a component.
 - Logical properties (`inline-size`, `block-size`, `padding-inline`, `margin-inline-start`).
-- Every `Variant` needs a rule: neutral, brand, alt, green, red, orange, blue, purple, yellow, pink. Solid fills use `--ds-bg-<v>-solid` (+ `_hover`) with `--ds-text-white` (yellow → dark text); tinted fills use `--ds-bg-<v>-primary` + `--ds-text-<v>` + `--ds-border-<v>-solid`.
+- Every `Variant` needs a rule: neutral, inverse, brand, alt, green (alias success), red (alias error), orange (alias warning), blue (alias info), purple. Solid fills use `--ds-bg-<v>-solid` (+ `_hover`) with `--ds-text-inverse-primary`; tinted fills use `--ds-bg-<v>-primary` + `--ds-text-<v>-primary` + `--ds-border-<v>-primary` (or `-solid`).
 
 ### Tests
 

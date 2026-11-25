@@ -62,7 +62,7 @@ All three index files start with `"use client";` for Next.js / RSC compatibility
 
 **Two-layer token architecture:**
 
-1. **Primitive tokens** (`src/styles/variables/`) — raw values on `:root`
+1. **Primitive tokens** (`src/styles/themes/variables/`) — raw values on `:root`
    - `--color-gray-500`, `--ds-spacing-4`, `--ds-radius-md`, etc.
 
 2. **Semantic tokens** (`src/styles/themes/theme.css`, `light-dark()`) — purpose-based aliases referencing primitives

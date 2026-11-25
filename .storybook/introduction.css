@@ -92,9 +92,3 @@
 .sb-intro-tile--orange {
   --sb-intro-tile-color: var(--ds-bg-orange-primary);
 }
-.sb-intro-tile--pink {
-  --sb-intro-tile-color: var(--ds-bg-pink-primary);
-}
-.sb-intro-tile--yellow {
-  --sb-intro-tile-color: var(--ds-bg-yellow-primary);
-}

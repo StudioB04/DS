@@ -14,7 +14,7 @@
   --breakpoint-desktop-large: 112.5rem;
 
   /* ============================================================
-     SPACING — from variables/spacing.css
+     SPACING — from themes/variables/spacing.css
      ============================================================ */
   --spacing-*: initial;
   --spacing-0: var(--ds-spacing-none);
@@ -91,7 +91,7 @@
   --spacing-96px: var(--ds-size-96px);
 
   /* ============================================================
-     FONT FAMILY — from variables/typography.css
+     FONT FAMILY — from themes/variables/typography.css
      ============================================================ */
   --font-*: initial;
   --font-sans: var(--ds-font-sans);
@@ -99,7 +99,7 @@
   --font-mono: var(--ds-font-mono);
 
   /* ============================================================
-     FONT WEIGHT — from variables/typography.css
+     FONT WEIGHT — from themes/variables/typography.css
      ============================================================ */
   --font-weight-*: initial;
   --font-weight-thin: var(--ds-font-weight-thin);
@@ -111,7 +111,7 @@
   --font-weight-extrabold: var(--ds-font-weight-extrabold);
 
   /* ============================================================
-     FONT SIZE — from variables/typography.css
+     FONT SIZE — from themes/variables/typography.css
      ============================================================ */
   --text-*: initial;
   --text-xs: var(--ds-font-size-text-xs);
@@ -128,7 +128,7 @@
   --text-title-2xl: var(--ds-font-size-title-2xl);
 
   /* ============================================================
-     PRIMITIVE COLORS — from variables/colors.css
+     PRIMITIVE COLORS — from themes/variables/colors.css
      ============================================================ */
   --color-*: initial;
 
@@ -231,30 +231,6 @@
   --color-purple-900: var(--ds-color-purple-900);
   --color-purple-950: var(--ds-color-purple-950);
 
-  --color-yellow-50: var(--ds-color-yellow-50);
-  --color-yellow-100: var(--ds-color-yellow-100);
-  --color-yellow-200: var(--ds-color-yellow-200);
-  --color-yellow-300: var(--ds-color-yellow-300);
-  --color-yellow-400: var(--ds-color-yellow-400);
-  --color-yellow-500: var(--ds-color-yellow-500);
-  --color-yellow-600: var(--ds-color-yellow-600);
-  --color-yellow-700: var(--ds-color-yellow-700);
-  --color-yellow-800: var(--ds-color-yellow-800);
-  --color-yellow-900: var(--ds-color-yellow-900);
-  --color-yellow-950: var(--ds-color-yellow-950);
-
-  --color-pink-50: var(--ds-color-pink-50);
-  --color-pink-100: var(--ds-color-pink-100);
-  --color-pink-200: var(--ds-color-pink-200);
-  --color-pink-300: var(--ds-color-pink-300);
-  --color-pink-400: var(--ds-color-pink-400);
-  --color-pink-500: var(--ds-color-pink-500);
-  --color-pink-600: var(--ds-color-pink-600);
-  --color-pink-700: var(--ds-color-pink-700);
-  --color-pink-800: var(--ds-color-pink-800);
-  --color-pink-900: var(--ds-color-pink-900);
-  --color-pink-950: var(--ds-color-pink-950);
-
   /* ============================================================
      SEMANTIC COLORS
      ============================================================ */
@@ -307,14 +283,6 @@
   --color-purple-primary: var(--ds-text-purple-primary);
   --color-purple-secondary: var(--ds-text-purple-secondary);
   --color-purple-tertiary: var(--ds-text-purple-tertiary);
-
-  --color-pink-primary: var(--ds-text-pink-primary);
-  --color-pink-secondary: var(--ds-text-pink-secondary);
-  --color-pink-tertiary: var(--ds-text-pink-tertiary);
-
-  --color-yellow-primary: var(--ds-text-yellow-primary);
-  --color-yellow-secondary: var(--ds-text-yellow-secondary);
-  --color-yellow-tertiary: var(--ds-text-yellow-tertiary);
 
   /* ============================================================
      SEMANTIC BACKGROUND COLORS — specific namespace so classes
@@ -390,18 +358,6 @@
   --background-color-purple-solid: var(--ds-bg-purple-solid);
   --background-color-purple-solid_hover: var(--ds-bg-purple-solid_hover);
 
-  --background-color-yellow-primary: var(--ds-bg-yellow-primary);
-  --background-color-yellow-secondary: var(--ds-bg-yellow-secondary);
-  --background-color-yellow-tertiary: var(--ds-bg-yellow-tertiary);
-  --background-color-yellow-solid: var(--ds-bg-yellow-solid);
-  --background-color-yellow-solid_hover: var(--ds-bg-yellow-solid_hover);
-
-  --background-color-pink-primary: var(--ds-bg-pink-primary);
-  --background-color-pink-secondary: var(--ds-bg-pink-secondary);
-  --background-color-pink-tertiary: var(--ds-bg-pink-tertiary);
-  --background-color-pink-solid: var(--ds-bg-pink-solid);
-  --background-color-pink-solid_hover: var(--ds-bg-pink-solid_hover);
-
   /* ============================================================
      SEMANTIC BORDER COLORS
      ============================================================ */
@@ -409,11 +365,13 @@
   --border-color-secondary: var(--ds-border-secondary);
   --border-color-tertiary: var(--ds-border-tertiary);
   --border-color-solid: var(--ds-border-solid);
+  --border-color-solid_hover: var(--ds-border-solid_hover);
 
   --border-color-inverse-primary: var(--ds-border-inverse-primary);
   --border-color-inverse-secondary: var(--ds-border-inverse-secondary);
   --border-color-inverse-tertiary: var(--ds-border-inverse-tertiary);
   --border-color-inverse-solid: var(--ds-border-inverse-solid);
+  --border-color-inverse-solid_hover: var(--ds-border-inverse-solid_hover);
 
   --border-color-brand-primary: var(--ds-border-brand-primary);
   --border-color-brand-secondary: var(--ds-border-brand-secondary);
@@ -477,20 +435,8 @@
   --border-color-purple-solid: var(--ds-border-purple-solid);
   --border-color-purple-solid_hover: var(--ds-border-purple-solid_hover);
 
-  --border-color-yellow-primary: var(--ds-border-yellow-primary);
-  --border-color-yellow-secondary: var(--ds-border-yellow-secondary);
-  --border-color-yellow-tertiary: var(--ds-border-yellow-tertiary);
-  --border-color-yellow-solid: var(--ds-border-yellow-solid);
-  --border-color-yellow-solid_hover: var(--ds-border-yellow-solid_hover);
-
-  --border-color-pink-primary: var(--ds-border-pink-primary);
-  --border-color-pink-secondary: var(--ds-border-pink-secondary);
-  --border-color-pink-tertiary: var(--ds-border-pink-tertiary);
-  --border-color-pink-solid: var(--ds-border-pink-solid);
-  --border-color-pink-solid_hover: var(--ds-border-pink-solid_hover);
-
   /* ============================================================
-     BORDER RADIUS — from variables/radius.css
+     BORDER RADIUS — from themes/variables/radius.css
      ============================================================ */
   --radius-2xs: var(--ds-radius-2xs);
   --radius-xs: var(--ds-radius-xs);
@@ -504,7 +450,7 @@
   --radius-full: var(--ds-radius-full);
 
   /* ============================================================
-     SIZE — from variables/size.css
+     SIZE — from themes/variables/size.css
      ============================================================ */
   --size-*: initial;
   --size-1px: var(--ds-size-1px);
@@ -620,7 +566,7 @@
   --max-width-5xl: var(--container-5xl);
 
   /* ============================================================
-     SHADOWS — from variables/shadows.css
+     SHADOWS — from themes/variables/shadows.css
      ============================================================ */
   --shadow-*: initial;
   --shadow-xs: var(--ds-box-shadow-xs);

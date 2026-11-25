@@ -121,20 +121,6 @@
     --ds-alert-close-background-color_hover: var(--ds-bg-purple-secondary);
   }
 
-  .ds-alert--variant-yellow {
-    --ds-alert-color: var(--ds-text-yellow-primary);
-    --ds-alert-border-color: var(--ds-border-yellow-solid);
-    --ds-alert-background-color: var(--ds-bg-yellow-primary);
-    --ds-alert-close-background-color_hover: var(--ds-bg-yellow-secondary);
-  }
-
-  .ds-alert--variant-pink {
-    --ds-alert-color: var(--ds-text-pink-primary);
-    --ds-alert-border-color: var(--ds-border-pink-solid);
-    --ds-alert-background-color: var(--ds-bg-pink-primary);
-    --ds-alert-close-background-color_hover: var(--ds-bg-pink-secondary);
-  }
-
   .ds-alert--variant-inverse {
     --ds-alert-color: var(--ds-text-inverse-primary);
     --ds-alert-border-color: var(--ds-border-inverse-solid);
