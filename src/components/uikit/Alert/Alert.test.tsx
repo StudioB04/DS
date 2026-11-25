@@ -28,7 +28,7 @@ describe("Alert component", () => {
     expect(alert).not.toHaveClass("ds-alert--persistant");
   });
 
-  it.each(["neutral", "brand", "alt", "green", "red", "orange", "blue", "purple", "yellow", "pink"] as const)(
+  it.each(["neutral", "brand", "alt", "green", "red", "orange", "blue", "purple"] as const)(
     "applies %s variant class",
     (variant) => {
       render(<Alert title="Saved" variant={variant} />);

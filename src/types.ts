@@ -17,6 +17,4 @@ export type Variant =
   | "blue"
   | "info"
   | "purple"
-  | "yellow"
-  | "pink"
   | "inverse";

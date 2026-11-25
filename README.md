@@ -80,7 +80,7 @@ This single import includes all token categories:
 | Typography    | `--ds-font-*`          | `--ds-font-sans`, `--ds-font-lg`             |
 | Transitions   | `--ds-transition-*`    | `--ds-transition-regular`                    |
 
-**Color palettes available:** Gray · Teal · Fuschia · Green · Orange · Blue · Red · Purple · Yellow · Pink
+**Color palettes available:** Gray · Teal · Fuschia · Green · Orange · Blue · Red · Purple
 
 ### Theming
 

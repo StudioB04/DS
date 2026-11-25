@@ -42,17 +42,17 @@
   --ds-color-fuschia-950: #4c0519;
 
   /* --- Green --- */
-  --ds-color-green-50: #edfff5;
-  --ds-color-green-100: #d5ffe8;
-  --ds-color-green-200: #aeffd4;
-  --ds-color-green-300: #6fffb4;
-  --ds-color-green-400: #38fe97;
-  --ds-color-green-500: #00e870;
-  --ds-color-green-600: #00c15d;
-  --ds-color-green-700: #00974a;
-  --ds-color-green-800: #05763d;
-  --ds-color-green-900: #066135;
-  --ds-color-green-950: #00371d;
+  --ds-color-green-50: #effaf3;
+  --ds-color-green-100: #d9f2e1;
+  --ds-color-green-200: #bce6cb;
+  --ds-color-green-300: #86cfa5;
+  --ds-color-green-400: #54b37f;
+  --ds-color-green-500: #329763;
+  --ds-color-green-600: #22794e;
+  --ds-color-green-700: #1b6140;
+  --ds-color-green-800: #184d34;
+  --ds-color-green-900: #14402c;
+  --ds-color-green-950: #0a2419;
 
   /* --- Orange --- */
   --ds-color-orange-50: #fdf9ef;
@@ -105,30 +105,4 @@
   --ds-color-purple-800: #673573;
   --ds-color-purple-900: #57305f;
   --ds-color-purple-950: #35163c;
-
-  /* --- Yellow --- */
-  --ds-color-yellow-50: #fffde5;
-  --ds-color-yellow-100: #fff9bc;
-  --ds-color-yellow-200: #ffef7c;
-  --ds-color-yellow-300: #ffde32;
-  --ds-color-yellow-400: #ffcc00;
-  --ds-color-yellow-500: #ffc100;
-  --ds-color-yellow-600: #e19800;
-  --ds-color-yellow-700: #b36a00;
-  --ds-color-yellow-800: #9d5300;
-  --ds-color-yellow-900: #7c3e07;
-  --ds-color-yellow-950: #492000;
-
-  /* --- Pink --- */
-  --ds-color-pink-50: #fdf2f6;
-  --ds-color-pink-100: #fde6f0;
-  --ds-color-pink-200: #fdcde1;
-  --ds-color-pink-300: #fca5c8;
-  --ds-color-pink-400: #f96da2;
-  --ds-color-pink-500: #f4528b;
-  --ds-color-pink-600: #e31f5a;
-  --ds-color-pink-700: #c51142;
-  --ds-color-pink-800: #a31137;
-  --ds-color-pink-900: #881331;
-  --ds-color-pink-950: #530418;
 }

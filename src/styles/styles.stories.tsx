@@ -10,7 +10,7 @@ interface TokenGroup {
   tokens: string[];
 }
 
-const FAMILIES = ["gray", "fuschia", "teal", "green", "orange", "blue", "red", "purple", "yellow", "pink"];
+const FAMILIES = ["gray", "fuschia", "teal", "green", "orange", "blue", "red", "purple"];
 const STEPS = ["50", "100", "200", "300", "400", "500", "600", "700", "800", "900", "950"];
 const PROPERTY: Record<Kind, "backgroundColor" | "color" | "borderTopColor"> = {
   fill: "backgroundColor",

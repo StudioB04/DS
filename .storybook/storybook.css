@@ -1,18 +1,13 @@
 @layer tailwind, theme, project;
 
-@import "$/styles/reset" layer(theme);
+@import url("$/styles/reset") layer(theme);
 @import url("$/styles/themes/tokens") layer(theme);
 
 @import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@300..900&display=swap") layer(theme);
-@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Mono:wght@400..600&display=swap") layer(theme);
-@import url("https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap")
-layer(theme);
 
 @layer theme {
   :root {
     --ds-font-family-sans: "Red Hat Display", sans-serif;
-    --ds-font-family-mono: "Red Hat Mono", monospace;
-    --ds-font-family-serif: "Noto Serif", serif;
   }
 }
 

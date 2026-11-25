@@ -53,7 +53,7 @@ describe("Notification component", () => {
       expect(container.querySelector(".ds-notification")).toHaveClass("ds-notification--variant-red");
     });
 
-    it.each(["neutral", "brand", "alt", "green", "red", "orange", "blue", "purple", "yellow", "pink"] as const)(
+    it.each(["neutral", "brand", "alt", "green", "red", "orange", "blue", "purple"] as const)(
       "applies %s variant class",
       (variant) => {
         const { container } = render(<Notification value={3} variant={variant} />);
