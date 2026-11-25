@@ -13,33 +13,33 @@
 
     &.ds-logo--type-small {
       &.ds-logo--variant-brand {
-        --ds-logo-background-color: var(--ds-bg-brand-solid);
+        --ds-logo-background-color: var(--ds-color-fuschia-500);
         --ds-logo-inner-color: #ffffff;
       }
 
       &.ds-logo--variant-alt {
-        --ds-logo-background-color: var(--ds-bg-alt-solid);
+        --ds-logo-background-color: var(--ds-color-teal-500);
         --ds-logo-inner-color: #ffffff;
       }
 
       &.ds-logo--variant-inverse {
-        --ds-logo-background-color: var(--ds-text-inverse-primary);
-        --ds-logo-inner-color: var(--ds-text-primary);
+        --ds-logo-background-color: var(--ds-text-inverse-secondary);
+        --ds-logo-inner-color: var(--ds-text-secondary);
       }
 
       &.ds-logo--variant-default {
-        --ds-logo-background-color: var(--ds-text-primary);
-        --ds-logo-inner-color: var(--ds-text-inverse-primary);
+        --ds-logo-background-color: var(--ds-text-secondary);
+        --ds-logo-inner-color: #ffffff;
       }
     }
 
     &.ds-logo--type-full {
       &.ds-logo--variant-brand {
-        --ds-logo-inner-color: var(--ds-bg-brand-solid);
+        --ds-logo-inner-color: var(--ds-color-fuschia-500);
       }
 
       &.ds-logo--variant-alt {
-        --ds-logo-inner-color: var(--ds-bg-alt-solid);
+        --ds-logo-inner-color: var(--ds-color-teal-500);
       }
 
       &.ds-logo--variant-inverse {
@@ -47,7 +47,7 @@
       }
 
       &.ds-logo--variant-default {
-        --ds-logo-inner-color: var(--ds-text-primary);
+        --ds-logo-inner-color: var(--ds-text-secondary);
       }
     }
   }
